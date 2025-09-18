@@ -16,6 +16,9 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private VodDomainConfig() {
+    cache_ = java.util.Collections.emptyList();
+    cacheKey_ = java.util.Collections.emptyList();
+    requestHeader_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -38,6 +41,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -74,6 +78,147 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 26: {
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              cache_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.CacheControlRule>();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            cache_.add(
+                input.readMessage(com.volcengine.service.vod.model.business.CacheControlRule.parser(), extensionRegistry));
+            break;
+          }
+          case 34: {
+            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+              cacheKey_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.CacheKeyRule>();
+              mutable_bitField0_ |= 0x00000002;
+            }
+            cacheKey_.add(
+                input.readMessage(com.volcengine.service.vod.model.business.CacheKeyRule.parser(), extensionRegistry));
+            break;
+          }
+          case 42: {
+            com.volcengine.service.vod.model.business.Compression.Builder subBuilder = null;
+            if (((bitField0_ & 0x00000001) != 0)) {
+              subBuilder = compression_.toBuilder();
+            }
+            compression_ = input.readMessage(com.volcengine.service.vod.model.business.Compression.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(compression_);
+              compression_ = subBuilder.buildPartial();
+            }
+            bitField0_ |= 0x00000001;
+            break;
+          }
+          case 50: {
+            com.volcengine.service.vod.model.business.DownloadSpeedLimit.Builder subBuilder = null;
+            if (((bitField0_ & 0x00000002) != 0)) {
+              subBuilder = downloadSpeedLimit_.toBuilder();
+            }
+            downloadSpeedLimit_ = input.readMessage(com.volcengine.service.vod.model.business.DownloadSpeedLimit.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(downloadSpeedLimit_);
+              downloadSpeedLimit_ = subBuilder.buildPartial();
+            }
+            bitField0_ |= 0x00000002;
+            break;
+          }
+          case 58: {
+            com.volcengine.service.vod.model.business.HTTPS.Builder subBuilder = null;
+            if (((bitField0_ & 0x00000004) != 0)) {
+              subBuilder = hTTPS_.toBuilder();
+            }
+            hTTPS_ = input.readMessage(com.volcengine.service.vod.model.business.HTTPS.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(hTTPS_);
+              hTTPS_ = subBuilder.buildPartial();
+            }
+            bitField0_ |= 0x00000004;
+            break;
+          }
+          case 66: {
+            com.volcengine.service.vod.model.business.HttpForcedRedirect.Builder subBuilder = null;
+            if (((bitField0_ & 0x00000008) != 0)) {
+              subBuilder = httpForcedRedirect_.toBuilder();
+            }
+            httpForcedRedirect_ = input.readMessage(com.volcengine.service.vod.model.business.HttpForcedRedirect.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(httpForcedRedirect_);
+              httpForcedRedirect_ = subBuilder.buildPartial();
+            }
+            bitField0_ |= 0x00000008;
+            break;
+          }
+          case 74: {
+            com.volcengine.service.vod.model.business.CdnIPv6.Builder subBuilder = null;
+            if (((bitField0_ & 0x00000010) != 0)) {
+              subBuilder = iPv6_.toBuilder();
+            }
+            iPv6_ = input.readMessage(com.volcengine.service.vod.model.business.CdnIPv6.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(iPv6_);
+              iPv6_ = subBuilder.buildPartial();
+            }
+            bitField0_ |= 0x00000010;
+            break;
+          }
+          case 80: {
+            bitField0_ |= 0x00000020;
+            followRedirect_ = input.readBool();
+            break;
+          }
+          case 88: {
+            bitField0_ |= 0x00000040;
+            originRange_ = input.readBool();
+            break;
+          }
+          case 98: {
+            com.volcengine.service.vod.model.business.IpAccessRule.Builder subBuilder = null;
+            if (((bitField0_ & 0x00000080) != 0)) {
+              subBuilder = ipAccessRule_.toBuilder();
+            }
+            ipAccessRule_ = input.readMessage(com.volcengine.service.vod.model.business.IpAccessRule.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(ipAccessRule_);
+              ipAccessRule_ = subBuilder.buildPartial();
+            }
+            bitField0_ |= 0x00000080;
+            break;
+          }
+          case 106: {
+            com.volcengine.service.vod.model.business.RefererAccessRule.Builder subBuilder = null;
+            if (((bitField0_ & 0x00000100) != 0)) {
+              subBuilder = refererAccessRule_.toBuilder();
+            }
+            refererAccessRule_ = input.readMessage(com.volcengine.service.vod.model.business.RefererAccessRule.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(refererAccessRule_);
+              refererAccessRule_ = subBuilder.buildPartial();
+            }
+            bitField0_ |= 0x00000100;
+            break;
+          }
+          case 114: {
+            if (!((mutable_bitField0_ & 0x00000800) != 0)) {
+              requestHeader_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.RequestHeaderRule>();
+              mutable_bitField0_ |= 0x00000800;
+            }
+            requestHeader_.add(
+                input.readMessage(com.volcengine.service.vod.model.business.RequestHeaderRule.parser(), extensionRegistry));
+            break;
+          }
+          case 122: {
+            com.volcengine.service.vod.model.business.UserAgentAccessRule.Builder subBuilder = null;
+            if (((bitField0_ & 0x00000200) != 0)) {
+              subBuilder = uaAccessRule_.toBuilder();
+            }
+            uaAccessRule_ = input.readMessage(com.volcengine.service.vod.model.business.UserAgentAccessRule.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(uaAccessRule_);
+              uaAccessRule_ = subBuilder.buildPartial();
+            }
+            bitField0_ |= 0x00000200;
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -89,6 +234,15 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        cache_ = java.util.Collections.unmodifiableList(cache_);
+      }
+      if (((mutable_bitField0_ & 0x00000002) != 0)) {
+        cacheKey_ = java.util.Collections.unmodifiableList(cacheKey_);
+      }
+      if (((mutable_bitField0_ & 0x00000800) != 0)) {
+        requestHeader_ = java.util.Collections.unmodifiableList(requestHeader_);
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -106,6 +260,7 @@ private static final long serialVersionUID = 0L;
             com.volcengine.service.vod.model.business.VodDomainConfig.class, com.volcengine.service.vod.model.business.VodDomainConfig.Builder.class);
   }
 
+  private int bitField0_;
   public static final int RESPONSEHEADERCONTROL_FIELD_NUMBER = 1;
   private com.volcengine.service.vod.model.business.VodResponseHeaderControl responseHeaderControl_;
   /**
@@ -182,6 +337,372 @@ private static final long serialVersionUID = 0L;
     return getOriginalControl();
   }
 
+  public static final int CACHE_FIELD_NUMBER = 3;
+  private java.util.List<com.volcengine.service.vod.model.business.CacheControlRule> cache_;
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.volcengine.service.vod.model.business.CacheControlRule> getCacheList() {
+    return cache_;
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.volcengine.service.vod.model.business.CacheControlRuleOrBuilder> 
+      getCacheOrBuilderList() {
+    return cache_;
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+   */
+  @java.lang.Override
+  public int getCacheCount() {
+    return cache_.size();
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.CacheControlRule getCache(int index) {
+    return cache_.get(index);
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.CacheControlRuleOrBuilder getCacheOrBuilder(
+      int index) {
+    return cache_.get(index);
+  }
+
+  public static final int CACHEKEY_FIELD_NUMBER = 4;
+  private java.util.List<com.volcengine.service.vod.model.business.CacheKeyRule> cacheKey_;
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.volcengine.service.vod.model.business.CacheKeyRule> getCacheKeyList() {
+    return cacheKey_;
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.volcengine.service.vod.model.business.CacheKeyRuleOrBuilder> 
+      getCacheKeyOrBuilderList() {
+    return cacheKey_;
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+   */
+  @java.lang.Override
+  public int getCacheKeyCount() {
+    return cacheKey_.size();
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.CacheKeyRule getCacheKey(int index) {
+    return cacheKey_.get(index);
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.CacheKeyRuleOrBuilder getCacheKeyOrBuilder(
+      int index) {
+    return cacheKey_.get(index);
+  }
+
+  public static final int COMPRESSION_FIELD_NUMBER = 5;
+  private com.volcengine.service.vod.model.business.Compression compression_;
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.Compression Compression = 5;</code>
+   * @return Whether the compression field is set.
+   */
+  @java.lang.Override
+  public boolean hasCompression() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.Compression Compression = 5;</code>
+   * @return The compression.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.Compression getCompression() {
+    return compression_ == null ? com.volcengine.service.vod.model.business.Compression.getDefaultInstance() : compression_;
+  }
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.Compression Compression = 5;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.CompressionOrBuilder getCompressionOrBuilder() {
+    return compression_ == null ? com.volcengine.service.vod.model.business.Compression.getDefaultInstance() : compression_;
+  }
+
+  public static final int DOWNLOADSPEEDLIMIT_FIELD_NUMBER = 6;
+  private com.volcengine.service.vod.model.business.DownloadSpeedLimit downloadSpeedLimit_;
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.DownloadSpeedLimit DownloadSpeedLimit = 6;</code>
+   * @return Whether the downloadSpeedLimit field is set.
+   */
+  @java.lang.Override
+  public boolean hasDownloadSpeedLimit() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.DownloadSpeedLimit DownloadSpeedLimit = 6;</code>
+   * @return The downloadSpeedLimit.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.DownloadSpeedLimit getDownloadSpeedLimit() {
+    return downloadSpeedLimit_ == null ? com.volcengine.service.vod.model.business.DownloadSpeedLimit.getDefaultInstance() : downloadSpeedLimit_;
+  }
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.DownloadSpeedLimit DownloadSpeedLimit = 6;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.DownloadSpeedLimitOrBuilder getDownloadSpeedLimitOrBuilder() {
+    return downloadSpeedLimit_ == null ? com.volcengine.service.vod.model.business.DownloadSpeedLimit.getDefaultInstance() : downloadSpeedLimit_;
+  }
+
+  public static final int HTTPS_FIELD_NUMBER = 7;
+  private com.volcengine.service.vod.model.business.HTTPS hTTPS_;
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.HTTPS HTTPS = 7;</code>
+   * @return Whether the hTTPS field is set.
+   */
+  @java.lang.Override
+  public boolean hasHTTPS() {
+    return ((bitField0_ & 0x00000004) != 0);
+  }
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.HTTPS HTTPS = 7;</code>
+   * @return The hTTPS.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.HTTPS getHTTPS() {
+    return hTTPS_ == null ? com.volcengine.service.vod.model.business.HTTPS.getDefaultInstance() : hTTPS_;
+  }
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.HTTPS HTTPS = 7;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.HTTPSOrBuilder getHTTPSOrBuilder() {
+    return hTTPS_ == null ? com.volcengine.service.vod.model.business.HTTPS.getDefaultInstance() : hTTPS_;
+  }
+
+  public static final int HTTPFORCEDREDIRECT_FIELD_NUMBER = 8;
+  private com.volcengine.service.vod.model.business.HttpForcedRedirect httpForcedRedirect_;
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.HttpForcedRedirect HttpForcedRedirect = 8;</code>
+   * @return Whether the httpForcedRedirect field is set.
+   */
+  @java.lang.Override
+  public boolean hasHttpForcedRedirect() {
+    return ((bitField0_ & 0x00000008) != 0);
+  }
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.HttpForcedRedirect HttpForcedRedirect = 8;</code>
+   * @return The httpForcedRedirect.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.HttpForcedRedirect getHttpForcedRedirect() {
+    return httpForcedRedirect_ == null ? com.volcengine.service.vod.model.business.HttpForcedRedirect.getDefaultInstance() : httpForcedRedirect_;
+  }
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.HttpForcedRedirect HttpForcedRedirect = 8;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.HttpForcedRedirectOrBuilder getHttpForcedRedirectOrBuilder() {
+    return httpForcedRedirect_ == null ? com.volcengine.service.vod.model.business.HttpForcedRedirect.getDefaultInstance() : httpForcedRedirect_;
+  }
+
+  public static final int IPV6_FIELD_NUMBER = 9;
+  private com.volcengine.service.vod.model.business.CdnIPv6 iPv6_;
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.CdnIPv6 IPv6 = 9;</code>
+   * @return Whether the iPv6 field is set.
+   */
+  @java.lang.Override
+  public boolean hasIPv6() {
+    return ((bitField0_ & 0x00000010) != 0);
+  }
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.CdnIPv6 IPv6 = 9;</code>
+   * @return The iPv6.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.CdnIPv6 getIPv6() {
+    return iPv6_ == null ? com.volcengine.service.vod.model.business.CdnIPv6.getDefaultInstance() : iPv6_;
+  }
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.CdnIPv6 IPv6 = 9;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.CdnIPv6OrBuilder getIPv6OrBuilder() {
+    return iPv6_ == null ? com.volcengine.service.vod.model.business.CdnIPv6.getDefaultInstance() : iPv6_;
+  }
+
+  public static final int FOLLOWREDIRECT_FIELD_NUMBER = 10;
+  private boolean followRedirect_;
+  /**
+   * <code>optional bool FollowRedirect = 10;</code>
+   * @return Whether the followRedirect field is set.
+   */
+  @java.lang.Override
+  public boolean hasFollowRedirect() {
+    return ((bitField0_ & 0x00000020) != 0);
+  }
+  /**
+   * <code>optional bool FollowRedirect = 10;</code>
+   * @return The followRedirect.
+   */
+  @java.lang.Override
+  public boolean getFollowRedirect() {
+    return followRedirect_;
+  }
+
+  public static final int ORIGINRANGE_FIELD_NUMBER = 11;
+  private boolean originRange_;
+  /**
+   * <code>optional bool OriginRange = 11;</code>
+   * @return Whether the originRange field is set.
+   */
+  @java.lang.Override
+  public boolean hasOriginRange() {
+    return ((bitField0_ & 0x00000040) != 0);
+  }
+  /**
+   * <code>optional bool OriginRange = 11;</code>
+   * @return The originRange.
+   */
+  @java.lang.Override
+  public boolean getOriginRange() {
+    return originRange_;
+  }
+
+  public static final int IPACCESSRULE_FIELD_NUMBER = 12;
+  private com.volcengine.service.vod.model.business.IpAccessRule ipAccessRule_;
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.IpAccessRule IpAccessRule = 12;</code>
+   * @return Whether the ipAccessRule field is set.
+   */
+  @java.lang.Override
+  public boolean hasIpAccessRule() {
+    return ((bitField0_ & 0x00000080) != 0);
+  }
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.IpAccessRule IpAccessRule = 12;</code>
+   * @return The ipAccessRule.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.IpAccessRule getIpAccessRule() {
+    return ipAccessRule_ == null ? com.volcengine.service.vod.model.business.IpAccessRule.getDefaultInstance() : ipAccessRule_;
+  }
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.IpAccessRule IpAccessRule = 12;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.IpAccessRuleOrBuilder getIpAccessRuleOrBuilder() {
+    return ipAccessRule_ == null ? com.volcengine.service.vod.model.business.IpAccessRule.getDefaultInstance() : ipAccessRule_;
+  }
+
+  public static final int REFERERACCESSRULE_FIELD_NUMBER = 13;
+  private com.volcengine.service.vod.model.business.RefererAccessRule refererAccessRule_;
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.RefererAccessRule RefererAccessRule = 13;</code>
+   * @return Whether the refererAccessRule field is set.
+   */
+  @java.lang.Override
+  public boolean hasRefererAccessRule() {
+    return ((bitField0_ & 0x00000100) != 0);
+  }
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.RefererAccessRule RefererAccessRule = 13;</code>
+   * @return The refererAccessRule.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.RefererAccessRule getRefererAccessRule() {
+    return refererAccessRule_ == null ? com.volcengine.service.vod.model.business.RefererAccessRule.getDefaultInstance() : refererAccessRule_;
+  }
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.RefererAccessRule RefererAccessRule = 13;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.RefererAccessRuleOrBuilder getRefererAccessRuleOrBuilder() {
+    return refererAccessRule_ == null ? com.volcengine.service.vod.model.business.RefererAccessRule.getDefaultInstance() : refererAccessRule_;
+  }
+
+  public static final int REQUESTHEADER_FIELD_NUMBER = 14;
+  private java.util.List<com.volcengine.service.vod.model.business.RequestHeaderRule> requestHeader_;
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.volcengine.service.vod.model.business.RequestHeaderRule> getRequestHeaderList() {
+    return requestHeader_;
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.volcengine.service.vod.model.business.RequestHeaderRuleOrBuilder> 
+      getRequestHeaderOrBuilderList() {
+    return requestHeader_;
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+   */
+  @java.lang.Override
+  public int getRequestHeaderCount() {
+    return requestHeader_.size();
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.RequestHeaderRule getRequestHeader(int index) {
+    return requestHeader_.get(index);
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.RequestHeaderRuleOrBuilder getRequestHeaderOrBuilder(
+      int index) {
+    return requestHeader_.get(index);
+  }
+
+  public static final int UAACCESSRULE_FIELD_NUMBER = 15;
+  private com.volcengine.service.vod.model.business.UserAgentAccessRule uaAccessRule_;
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.UserAgentAccessRule UaAccessRule = 15;</code>
+   * @return Whether the uaAccessRule field is set.
+   */
+  @java.lang.Override
+  public boolean hasUaAccessRule() {
+    return ((bitField0_ & 0x00000200) != 0);
+  }
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.UserAgentAccessRule UaAccessRule = 15;</code>
+   * @return The uaAccessRule.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.UserAgentAccessRule getUaAccessRule() {
+    return uaAccessRule_ == null ? com.volcengine.service.vod.model.business.UserAgentAccessRule.getDefaultInstance() : uaAccessRule_;
+  }
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.UserAgentAccessRule UaAccessRule = 15;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.UserAgentAccessRuleOrBuilder getUaAccessRuleOrBuilder() {
+    return uaAccessRule_ == null ? com.volcengine.service.vod.model.business.UserAgentAccessRule.getDefaultInstance() : uaAccessRule_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -202,6 +723,45 @@ private static final long serialVersionUID = 0L;
     if (originalControl_ != null) {
       output.writeMessage(2, getOriginalControl());
     }
+    for (int i = 0; i < cache_.size(); i++) {
+      output.writeMessage(3, cache_.get(i));
+    }
+    for (int i = 0; i < cacheKey_.size(); i++) {
+      output.writeMessage(4, cacheKey_.get(i));
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeMessage(5, getCompression());
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      output.writeMessage(6, getDownloadSpeedLimit());
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
+      output.writeMessage(7, getHTTPS());
+    }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      output.writeMessage(8, getHttpForcedRedirect());
+    }
+    if (((bitField0_ & 0x00000010) != 0)) {
+      output.writeMessage(9, getIPv6());
+    }
+    if (((bitField0_ & 0x00000020) != 0)) {
+      output.writeBool(10, followRedirect_);
+    }
+    if (((bitField0_ & 0x00000040) != 0)) {
+      output.writeBool(11, originRange_);
+    }
+    if (((bitField0_ & 0x00000080) != 0)) {
+      output.writeMessage(12, getIpAccessRule());
+    }
+    if (((bitField0_ & 0x00000100) != 0)) {
+      output.writeMessage(13, getRefererAccessRule());
+    }
+    for (int i = 0; i < requestHeader_.size(); i++) {
+      output.writeMessage(14, requestHeader_.get(i));
+    }
+    if (((bitField0_ & 0x00000200) != 0)) {
+      output.writeMessage(15, getUaAccessRule());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -218,6 +778,58 @@ private static final long serialVersionUID = 0L;
     if (originalControl_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getOriginalControl());
+    }
+    for (int i = 0; i < cache_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, cache_.get(i));
+    }
+    for (int i = 0; i < cacheKey_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, cacheKey_.get(i));
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getCompression());
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, getDownloadSpeedLimit());
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, getHTTPS());
+    }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, getHttpForcedRedirect());
+    }
+    if (((bitField0_ & 0x00000010) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, getIPv6());
+    }
+    if (((bitField0_ & 0x00000020) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(10, followRedirect_);
+    }
+    if (((bitField0_ & 0x00000040) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(11, originRange_);
+    }
+    if (((bitField0_ & 0x00000080) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(12, getIpAccessRule());
+    }
+    if (((bitField0_ & 0x00000100) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(13, getRefererAccessRule());
+    }
+    for (int i = 0; i < requestHeader_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(14, requestHeader_.get(i));
+    }
+    if (((bitField0_ & 0x00000200) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(15, getUaAccessRule());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -244,6 +856,62 @@ private static final long serialVersionUID = 0L;
       if (!getOriginalControl()
           .equals(other.getOriginalControl())) return false;
     }
+    if (!getCacheList()
+        .equals(other.getCacheList())) return false;
+    if (!getCacheKeyList()
+        .equals(other.getCacheKeyList())) return false;
+    if (hasCompression() != other.hasCompression()) return false;
+    if (hasCompression()) {
+      if (!getCompression()
+          .equals(other.getCompression())) return false;
+    }
+    if (hasDownloadSpeedLimit() != other.hasDownloadSpeedLimit()) return false;
+    if (hasDownloadSpeedLimit()) {
+      if (!getDownloadSpeedLimit()
+          .equals(other.getDownloadSpeedLimit())) return false;
+    }
+    if (hasHTTPS() != other.hasHTTPS()) return false;
+    if (hasHTTPS()) {
+      if (!getHTTPS()
+          .equals(other.getHTTPS())) return false;
+    }
+    if (hasHttpForcedRedirect() != other.hasHttpForcedRedirect()) return false;
+    if (hasHttpForcedRedirect()) {
+      if (!getHttpForcedRedirect()
+          .equals(other.getHttpForcedRedirect())) return false;
+    }
+    if (hasIPv6() != other.hasIPv6()) return false;
+    if (hasIPv6()) {
+      if (!getIPv6()
+          .equals(other.getIPv6())) return false;
+    }
+    if (hasFollowRedirect() != other.hasFollowRedirect()) return false;
+    if (hasFollowRedirect()) {
+      if (getFollowRedirect()
+          != other.getFollowRedirect()) return false;
+    }
+    if (hasOriginRange() != other.hasOriginRange()) return false;
+    if (hasOriginRange()) {
+      if (getOriginRange()
+          != other.getOriginRange()) return false;
+    }
+    if (hasIpAccessRule() != other.hasIpAccessRule()) return false;
+    if (hasIpAccessRule()) {
+      if (!getIpAccessRule()
+          .equals(other.getIpAccessRule())) return false;
+    }
+    if (hasRefererAccessRule() != other.hasRefererAccessRule()) return false;
+    if (hasRefererAccessRule()) {
+      if (!getRefererAccessRule()
+          .equals(other.getRefererAccessRule())) return false;
+    }
+    if (!getRequestHeaderList()
+        .equals(other.getRequestHeaderList())) return false;
+    if (hasUaAccessRule() != other.hasUaAccessRule()) return false;
+    if (hasUaAccessRule()) {
+      if (!getUaAccessRule()
+          .equals(other.getUaAccessRule())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -262,6 +930,60 @@ private static final long serialVersionUID = 0L;
     if (hasOriginalControl()) {
       hash = (37 * hash) + ORIGINALCONTROL_FIELD_NUMBER;
       hash = (53 * hash) + getOriginalControl().hashCode();
+    }
+    if (getCacheCount() > 0) {
+      hash = (37 * hash) + CACHE_FIELD_NUMBER;
+      hash = (53 * hash) + getCacheList().hashCode();
+    }
+    if (getCacheKeyCount() > 0) {
+      hash = (37 * hash) + CACHEKEY_FIELD_NUMBER;
+      hash = (53 * hash) + getCacheKeyList().hashCode();
+    }
+    if (hasCompression()) {
+      hash = (37 * hash) + COMPRESSION_FIELD_NUMBER;
+      hash = (53 * hash) + getCompression().hashCode();
+    }
+    if (hasDownloadSpeedLimit()) {
+      hash = (37 * hash) + DOWNLOADSPEEDLIMIT_FIELD_NUMBER;
+      hash = (53 * hash) + getDownloadSpeedLimit().hashCode();
+    }
+    if (hasHTTPS()) {
+      hash = (37 * hash) + HTTPS_FIELD_NUMBER;
+      hash = (53 * hash) + getHTTPS().hashCode();
+    }
+    if (hasHttpForcedRedirect()) {
+      hash = (37 * hash) + HTTPFORCEDREDIRECT_FIELD_NUMBER;
+      hash = (53 * hash) + getHttpForcedRedirect().hashCode();
+    }
+    if (hasIPv6()) {
+      hash = (37 * hash) + IPV6_FIELD_NUMBER;
+      hash = (53 * hash) + getIPv6().hashCode();
+    }
+    if (hasFollowRedirect()) {
+      hash = (37 * hash) + FOLLOWREDIRECT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getFollowRedirect());
+    }
+    if (hasOriginRange()) {
+      hash = (37 * hash) + ORIGINRANGE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getOriginRange());
+    }
+    if (hasIpAccessRule()) {
+      hash = (37 * hash) + IPACCESSRULE_FIELD_NUMBER;
+      hash = (53 * hash) + getIpAccessRule().hashCode();
+    }
+    if (hasRefererAccessRule()) {
+      hash = (37 * hash) + REFERERACCESSRULE_FIELD_NUMBER;
+      hash = (53 * hash) + getRefererAccessRule().hashCode();
+    }
+    if (getRequestHeaderCount() > 0) {
+      hash = (37 * hash) + REQUESTHEADER_FIELD_NUMBER;
+      hash = (53 * hash) + getRequestHeaderList().hashCode();
+    }
+    if (hasUaAccessRule()) {
+      hash = (37 * hash) + UAACCESSRULE_FIELD_NUMBER;
+      hash = (53 * hash) + getUaAccessRule().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -391,6 +1113,17 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getCacheFieldBuilder();
+        getCacheKeyFieldBuilder();
+        getCompressionFieldBuilder();
+        getDownloadSpeedLimitFieldBuilder();
+        getHTTPSFieldBuilder();
+        getHttpForcedRedirectFieldBuilder();
+        getIPv6FieldBuilder();
+        getIpAccessRuleFieldBuilder();
+        getRefererAccessRuleFieldBuilder();
+        getRequestHeaderFieldBuilder();
+        getUaAccessRuleFieldBuilder();
       }
     }
     @java.lang.Override
@@ -408,6 +1141,76 @@ private static final long serialVersionUID = 0L;
         originalControl_ = null;
         originalControlBuilder_ = null;
       }
+      if (cacheBuilder_ == null) {
+        cache_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      } else {
+        cacheBuilder_.clear();
+      }
+      if (cacheKeyBuilder_ == null) {
+        cacheKey_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      } else {
+        cacheKeyBuilder_.clear();
+      }
+      if (compressionBuilder_ == null) {
+        compression_ = null;
+      } else {
+        compressionBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000004);
+      if (downloadSpeedLimitBuilder_ == null) {
+        downloadSpeedLimit_ = null;
+      } else {
+        downloadSpeedLimitBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000008);
+      if (hTTPSBuilder_ == null) {
+        hTTPS_ = null;
+      } else {
+        hTTPSBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000010);
+      if (httpForcedRedirectBuilder_ == null) {
+        httpForcedRedirect_ = null;
+      } else {
+        httpForcedRedirectBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000020);
+      if (iPv6Builder_ == null) {
+        iPv6_ = null;
+      } else {
+        iPv6Builder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000040);
+      followRedirect_ = false;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      originRange_ = false;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      if (ipAccessRuleBuilder_ == null) {
+        ipAccessRule_ = null;
+      } else {
+        ipAccessRuleBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000200);
+      if (refererAccessRuleBuilder_ == null) {
+        refererAccessRule_ = null;
+      } else {
+        refererAccessRuleBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000400);
+      if (requestHeaderBuilder_ == null) {
+        requestHeader_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000800);
+      } else {
+        requestHeaderBuilder_.clear();
+      }
+      if (uaAccessRuleBuilder_ == null) {
+        uaAccessRule_ = null;
+      } else {
+        uaAccessRuleBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00001000);
       return this;
     }
 
@@ -434,6 +1237,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.volcengine.service.vod.model.business.VodDomainConfig buildPartial() {
       com.volcengine.service.vod.model.business.VodDomainConfig result = new com.volcengine.service.vod.model.business.VodDomainConfig(this);
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       if (responseHeaderControlBuilder_ == null) {
         result.responseHeaderControl_ = responseHeaderControl_;
       } else {
@@ -444,6 +1249,106 @@ private static final long serialVersionUID = 0L;
       } else {
         result.originalControl_ = originalControlBuilder_.build();
       }
+      if (cacheBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          cache_ = java.util.Collections.unmodifiableList(cache_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.cache_ = cache_;
+      } else {
+        result.cache_ = cacheBuilder_.build();
+      }
+      if (cacheKeyBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          cacheKey_ = java.util.Collections.unmodifiableList(cacheKey_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.cacheKey_ = cacheKey_;
+      } else {
+        result.cacheKey_ = cacheKeyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        if (compressionBuilder_ == null) {
+          result.compression_ = compression_;
+        } else {
+          result.compression_ = compressionBuilder_.build();
+        }
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        if (downloadSpeedLimitBuilder_ == null) {
+          result.downloadSpeedLimit_ = downloadSpeedLimit_;
+        } else {
+          result.downloadSpeedLimit_ = downloadSpeedLimitBuilder_.build();
+        }
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        if (hTTPSBuilder_ == null) {
+          result.hTTPS_ = hTTPS_;
+        } else {
+          result.hTTPS_ = hTTPSBuilder_.build();
+        }
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        if (httpForcedRedirectBuilder_ == null) {
+          result.httpForcedRedirect_ = httpForcedRedirect_;
+        } else {
+          result.httpForcedRedirect_ = httpForcedRedirectBuilder_.build();
+        }
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        if (iPv6Builder_ == null) {
+          result.iPv6_ = iPv6_;
+        } else {
+          result.iPv6_ = iPv6Builder_.build();
+        }
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.followRedirect_ = followRedirect_;
+        to_bitField0_ |= 0x00000020;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.originRange_ = originRange_;
+        to_bitField0_ |= 0x00000040;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        if (ipAccessRuleBuilder_ == null) {
+          result.ipAccessRule_ = ipAccessRule_;
+        } else {
+          result.ipAccessRule_ = ipAccessRuleBuilder_.build();
+        }
+        to_bitField0_ |= 0x00000080;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        if (refererAccessRuleBuilder_ == null) {
+          result.refererAccessRule_ = refererAccessRule_;
+        } else {
+          result.refererAccessRule_ = refererAccessRuleBuilder_.build();
+        }
+        to_bitField0_ |= 0x00000100;
+      }
+      if (requestHeaderBuilder_ == null) {
+        if (((bitField0_ & 0x00000800) != 0)) {
+          requestHeader_ = java.util.Collections.unmodifiableList(requestHeader_);
+          bitField0_ = (bitField0_ & ~0x00000800);
+        }
+        result.requestHeader_ = requestHeader_;
+      } else {
+        result.requestHeader_ = requestHeaderBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        if (uaAccessRuleBuilder_ == null) {
+          result.uaAccessRule_ = uaAccessRule_;
+        } else {
+          result.uaAccessRule_ = uaAccessRuleBuilder_.build();
+        }
+        to_bitField0_ |= 0x00000200;
+      }
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -498,6 +1403,114 @@ private static final long serialVersionUID = 0L;
       if (other.hasOriginalControl()) {
         mergeOriginalControl(other.getOriginalControl());
       }
+      if (cacheBuilder_ == null) {
+        if (!other.cache_.isEmpty()) {
+          if (cache_.isEmpty()) {
+            cache_ = other.cache_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureCacheIsMutable();
+            cache_.addAll(other.cache_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.cache_.isEmpty()) {
+          if (cacheBuilder_.isEmpty()) {
+            cacheBuilder_.dispose();
+            cacheBuilder_ = null;
+            cache_ = other.cache_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            cacheBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getCacheFieldBuilder() : null;
+          } else {
+            cacheBuilder_.addAllMessages(other.cache_);
+          }
+        }
+      }
+      if (cacheKeyBuilder_ == null) {
+        if (!other.cacheKey_.isEmpty()) {
+          if (cacheKey_.isEmpty()) {
+            cacheKey_ = other.cacheKey_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureCacheKeyIsMutable();
+            cacheKey_.addAll(other.cacheKey_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.cacheKey_.isEmpty()) {
+          if (cacheKeyBuilder_.isEmpty()) {
+            cacheKeyBuilder_.dispose();
+            cacheKeyBuilder_ = null;
+            cacheKey_ = other.cacheKey_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+            cacheKeyBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getCacheKeyFieldBuilder() : null;
+          } else {
+            cacheKeyBuilder_.addAllMessages(other.cacheKey_);
+          }
+        }
+      }
+      if (other.hasCompression()) {
+        mergeCompression(other.getCompression());
+      }
+      if (other.hasDownloadSpeedLimit()) {
+        mergeDownloadSpeedLimit(other.getDownloadSpeedLimit());
+      }
+      if (other.hasHTTPS()) {
+        mergeHTTPS(other.getHTTPS());
+      }
+      if (other.hasHttpForcedRedirect()) {
+        mergeHttpForcedRedirect(other.getHttpForcedRedirect());
+      }
+      if (other.hasIPv6()) {
+        mergeIPv6(other.getIPv6());
+      }
+      if (other.hasFollowRedirect()) {
+        setFollowRedirect(other.getFollowRedirect());
+      }
+      if (other.hasOriginRange()) {
+        setOriginRange(other.getOriginRange());
+      }
+      if (other.hasIpAccessRule()) {
+        mergeIpAccessRule(other.getIpAccessRule());
+      }
+      if (other.hasRefererAccessRule()) {
+        mergeRefererAccessRule(other.getRefererAccessRule());
+      }
+      if (requestHeaderBuilder_ == null) {
+        if (!other.requestHeader_.isEmpty()) {
+          if (requestHeader_.isEmpty()) {
+            requestHeader_ = other.requestHeader_;
+            bitField0_ = (bitField0_ & ~0x00000800);
+          } else {
+            ensureRequestHeaderIsMutable();
+            requestHeader_.addAll(other.requestHeader_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.requestHeader_.isEmpty()) {
+          if (requestHeaderBuilder_.isEmpty()) {
+            requestHeaderBuilder_.dispose();
+            requestHeaderBuilder_ = null;
+            requestHeader_ = other.requestHeader_;
+            bitField0_ = (bitField0_ & ~0x00000800);
+            requestHeaderBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getRequestHeaderFieldBuilder() : null;
+          } else {
+            requestHeaderBuilder_.addAllMessages(other.requestHeader_);
+          }
+        }
+      }
+      if (other.hasUaAccessRule()) {
+        mergeUaAccessRule(other.getUaAccessRule());
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -526,6 +1539,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private com.volcengine.service.vod.model.business.VodResponseHeaderControl responseHeaderControl_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -835,6 +1849,1764 @@ private static final long serialVersionUID = 0L;
         originalControl_ = null;
       }
       return originalControlBuilder_;
+    }
+
+    private java.util.List<com.volcengine.service.vod.model.business.CacheControlRule> cache_ =
+      java.util.Collections.emptyList();
+    private void ensureCacheIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        cache_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.CacheControlRule>(cache_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.CacheControlRule, com.volcengine.service.vod.model.business.CacheControlRule.Builder, com.volcengine.service.vod.model.business.CacheControlRuleOrBuilder> cacheBuilder_;
+
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.CacheControlRule> getCacheList() {
+      if (cacheBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(cache_);
+      } else {
+        return cacheBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+     */
+    public int getCacheCount() {
+      if (cacheBuilder_ == null) {
+        return cache_.size();
+      } else {
+        return cacheBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+     */
+    public com.volcengine.service.vod.model.business.CacheControlRule getCache(int index) {
+      if (cacheBuilder_ == null) {
+        return cache_.get(index);
+      } else {
+        return cacheBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+     */
+    public Builder setCache(
+        int index, com.volcengine.service.vod.model.business.CacheControlRule value) {
+      if (cacheBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureCacheIsMutable();
+        cache_.set(index, value);
+        onChanged();
+      } else {
+        cacheBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+     */
+    public Builder setCache(
+        int index, com.volcengine.service.vod.model.business.CacheControlRule.Builder builderForValue) {
+      if (cacheBuilder_ == null) {
+        ensureCacheIsMutable();
+        cache_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        cacheBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+     */
+    public Builder addCache(com.volcengine.service.vod.model.business.CacheControlRule value) {
+      if (cacheBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureCacheIsMutable();
+        cache_.add(value);
+        onChanged();
+      } else {
+        cacheBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+     */
+    public Builder addCache(
+        int index, com.volcengine.service.vod.model.business.CacheControlRule value) {
+      if (cacheBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureCacheIsMutable();
+        cache_.add(index, value);
+        onChanged();
+      } else {
+        cacheBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+     */
+    public Builder addCache(
+        com.volcengine.service.vod.model.business.CacheControlRule.Builder builderForValue) {
+      if (cacheBuilder_ == null) {
+        ensureCacheIsMutable();
+        cache_.add(builderForValue.build());
+        onChanged();
+      } else {
+        cacheBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+     */
+    public Builder addCache(
+        int index, com.volcengine.service.vod.model.business.CacheControlRule.Builder builderForValue) {
+      if (cacheBuilder_ == null) {
+        ensureCacheIsMutable();
+        cache_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        cacheBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+     */
+    public Builder addAllCache(
+        java.lang.Iterable<? extends com.volcengine.service.vod.model.business.CacheControlRule> values) {
+      if (cacheBuilder_ == null) {
+        ensureCacheIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, cache_);
+        onChanged();
+      } else {
+        cacheBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+     */
+    public Builder clearCache() {
+      if (cacheBuilder_ == null) {
+        cache_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+      } else {
+        cacheBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+     */
+    public Builder removeCache(int index) {
+      if (cacheBuilder_ == null) {
+        ensureCacheIsMutable();
+        cache_.remove(index);
+        onChanged();
+      } else {
+        cacheBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+     */
+    public com.volcengine.service.vod.model.business.CacheControlRule.Builder getCacheBuilder(
+        int index) {
+      return getCacheFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+     */
+    public com.volcengine.service.vod.model.business.CacheControlRuleOrBuilder getCacheOrBuilder(
+        int index) {
+      if (cacheBuilder_ == null) {
+        return cache_.get(index);  } else {
+        return cacheBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+     */
+    public java.util.List<? extends com.volcengine.service.vod.model.business.CacheControlRuleOrBuilder> 
+         getCacheOrBuilderList() {
+      if (cacheBuilder_ != null) {
+        return cacheBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(cache_);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+     */
+    public com.volcengine.service.vod.model.business.CacheControlRule.Builder addCacheBuilder() {
+      return getCacheFieldBuilder().addBuilder(
+          com.volcengine.service.vod.model.business.CacheControlRule.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+     */
+    public com.volcengine.service.vod.model.business.CacheControlRule.Builder addCacheBuilder(
+        int index) {
+      return getCacheFieldBuilder().addBuilder(
+          index, com.volcengine.service.vod.model.business.CacheControlRule.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.CacheControlRule.Builder> 
+         getCacheBuilderList() {
+      return getCacheFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.CacheControlRule, com.volcengine.service.vod.model.business.CacheControlRule.Builder, com.volcengine.service.vod.model.business.CacheControlRuleOrBuilder> 
+        getCacheFieldBuilder() {
+      if (cacheBuilder_ == null) {
+        cacheBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.service.vod.model.business.CacheControlRule, com.volcengine.service.vod.model.business.CacheControlRule.Builder, com.volcengine.service.vod.model.business.CacheControlRuleOrBuilder>(
+                cache_,
+                ((bitField0_ & 0x00000001) != 0),
+                getParentForChildren(),
+                isClean());
+        cache_ = null;
+      }
+      return cacheBuilder_;
+    }
+
+    private java.util.List<com.volcengine.service.vod.model.business.CacheKeyRule> cacheKey_ =
+      java.util.Collections.emptyList();
+    private void ensureCacheKeyIsMutable() {
+      if (!((bitField0_ & 0x00000002) != 0)) {
+        cacheKey_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.CacheKeyRule>(cacheKey_);
+        bitField0_ |= 0x00000002;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.CacheKeyRule, com.volcengine.service.vod.model.business.CacheKeyRule.Builder, com.volcengine.service.vod.model.business.CacheKeyRuleOrBuilder> cacheKeyBuilder_;
+
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.CacheKeyRule> getCacheKeyList() {
+      if (cacheKeyBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(cacheKey_);
+      } else {
+        return cacheKeyBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+     */
+    public int getCacheKeyCount() {
+      if (cacheKeyBuilder_ == null) {
+        return cacheKey_.size();
+      } else {
+        return cacheKeyBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+     */
+    public com.volcengine.service.vod.model.business.CacheKeyRule getCacheKey(int index) {
+      if (cacheKeyBuilder_ == null) {
+        return cacheKey_.get(index);
+      } else {
+        return cacheKeyBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+     */
+    public Builder setCacheKey(
+        int index, com.volcengine.service.vod.model.business.CacheKeyRule value) {
+      if (cacheKeyBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureCacheKeyIsMutable();
+        cacheKey_.set(index, value);
+        onChanged();
+      } else {
+        cacheKeyBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+     */
+    public Builder setCacheKey(
+        int index, com.volcengine.service.vod.model.business.CacheKeyRule.Builder builderForValue) {
+      if (cacheKeyBuilder_ == null) {
+        ensureCacheKeyIsMutable();
+        cacheKey_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        cacheKeyBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+     */
+    public Builder addCacheKey(com.volcengine.service.vod.model.business.CacheKeyRule value) {
+      if (cacheKeyBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureCacheKeyIsMutable();
+        cacheKey_.add(value);
+        onChanged();
+      } else {
+        cacheKeyBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+     */
+    public Builder addCacheKey(
+        int index, com.volcengine.service.vod.model.business.CacheKeyRule value) {
+      if (cacheKeyBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureCacheKeyIsMutable();
+        cacheKey_.add(index, value);
+        onChanged();
+      } else {
+        cacheKeyBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+     */
+    public Builder addCacheKey(
+        com.volcengine.service.vod.model.business.CacheKeyRule.Builder builderForValue) {
+      if (cacheKeyBuilder_ == null) {
+        ensureCacheKeyIsMutable();
+        cacheKey_.add(builderForValue.build());
+        onChanged();
+      } else {
+        cacheKeyBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+     */
+    public Builder addCacheKey(
+        int index, com.volcengine.service.vod.model.business.CacheKeyRule.Builder builderForValue) {
+      if (cacheKeyBuilder_ == null) {
+        ensureCacheKeyIsMutable();
+        cacheKey_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        cacheKeyBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+     */
+    public Builder addAllCacheKey(
+        java.lang.Iterable<? extends com.volcengine.service.vod.model.business.CacheKeyRule> values) {
+      if (cacheKeyBuilder_ == null) {
+        ensureCacheKeyIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, cacheKey_);
+        onChanged();
+      } else {
+        cacheKeyBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+     */
+    public Builder clearCacheKey() {
+      if (cacheKeyBuilder_ == null) {
+        cacheKey_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+      } else {
+        cacheKeyBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+     */
+    public Builder removeCacheKey(int index) {
+      if (cacheKeyBuilder_ == null) {
+        ensureCacheKeyIsMutable();
+        cacheKey_.remove(index);
+        onChanged();
+      } else {
+        cacheKeyBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+     */
+    public com.volcengine.service.vod.model.business.CacheKeyRule.Builder getCacheKeyBuilder(
+        int index) {
+      return getCacheKeyFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+     */
+    public com.volcengine.service.vod.model.business.CacheKeyRuleOrBuilder getCacheKeyOrBuilder(
+        int index) {
+      if (cacheKeyBuilder_ == null) {
+        return cacheKey_.get(index);  } else {
+        return cacheKeyBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+     */
+    public java.util.List<? extends com.volcengine.service.vod.model.business.CacheKeyRuleOrBuilder> 
+         getCacheKeyOrBuilderList() {
+      if (cacheKeyBuilder_ != null) {
+        return cacheKeyBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(cacheKey_);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+     */
+    public com.volcengine.service.vod.model.business.CacheKeyRule.Builder addCacheKeyBuilder() {
+      return getCacheKeyFieldBuilder().addBuilder(
+          com.volcengine.service.vod.model.business.CacheKeyRule.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+     */
+    public com.volcengine.service.vod.model.business.CacheKeyRule.Builder addCacheKeyBuilder(
+        int index) {
+      return getCacheKeyFieldBuilder().addBuilder(
+          index, com.volcengine.service.vod.model.business.CacheKeyRule.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.CacheKeyRule.Builder> 
+         getCacheKeyBuilderList() {
+      return getCacheKeyFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.CacheKeyRule, com.volcengine.service.vod.model.business.CacheKeyRule.Builder, com.volcengine.service.vod.model.business.CacheKeyRuleOrBuilder> 
+        getCacheKeyFieldBuilder() {
+      if (cacheKeyBuilder_ == null) {
+        cacheKeyBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.service.vod.model.business.CacheKeyRule, com.volcengine.service.vod.model.business.CacheKeyRule.Builder, com.volcengine.service.vod.model.business.CacheKeyRuleOrBuilder>(
+                cacheKey_,
+                ((bitField0_ & 0x00000002) != 0),
+                getParentForChildren(),
+                isClean());
+        cacheKey_ = null;
+      }
+      return cacheKeyBuilder_;
+    }
+
+    private com.volcengine.service.vod.model.business.Compression compression_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.Compression, com.volcengine.service.vod.model.business.Compression.Builder, com.volcengine.service.vod.model.business.CompressionOrBuilder> compressionBuilder_;
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.Compression Compression = 5;</code>
+     * @return Whether the compression field is set.
+     */
+    public boolean hasCompression() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.Compression Compression = 5;</code>
+     * @return The compression.
+     */
+    public com.volcengine.service.vod.model.business.Compression getCompression() {
+      if (compressionBuilder_ == null) {
+        return compression_ == null ? com.volcengine.service.vod.model.business.Compression.getDefaultInstance() : compression_;
+      } else {
+        return compressionBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.Compression Compression = 5;</code>
+     */
+    public Builder setCompression(com.volcengine.service.vod.model.business.Compression value) {
+      if (compressionBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        compression_ = value;
+        onChanged();
+      } else {
+        compressionBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000004;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.Compression Compression = 5;</code>
+     */
+    public Builder setCompression(
+        com.volcengine.service.vod.model.business.Compression.Builder builderForValue) {
+      if (compressionBuilder_ == null) {
+        compression_ = builderForValue.build();
+        onChanged();
+      } else {
+        compressionBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000004;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.Compression Compression = 5;</code>
+     */
+    public Builder mergeCompression(com.volcengine.service.vod.model.business.Compression value) {
+      if (compressionBuilder_ == null) {
+        if (((bitField0_ & 0x00000004) != 0) &&
+            compression_ != null &&
+            compression_ != com.volcengine.service.vod.model.business.Compression.getDefaultInstance()) {
+          compression_ =
+            com.volcengine.service.vod.model.business.Compression.newBuilder(compression_).mergeFrom(value).buildPartial();
+        } else {
+          compression_ = value;
+        }
+        onChanged();
+      } else {
+        compressionBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000004;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.Compression Compression = 5;</code>
+     */
+    public Builder clearCompression() {
+      if (compressionBuilder_ == null) {
+        compression_ = null;
+        onChanged();
+      } else {
+        compressionBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000004);
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.Compression Compression = 5;</code>
+     */
+    public com.volcengine.service.vod.model.business.Compression.Builder getCompressionBuilder() {
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return getCompressionFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.Compression Compression = 5;</code>
+     */
+    public com.volcengine.service.vod.model.business.CompressionOrBuilder getCompressionOrBuilder() {
+      if (compressionBuilder_ != null) {
+        return compressionBuilder_.getMessageOrBuilder();
+      } else {
+        return compression_ == null ?
+            com.volcengine.service.vod.model.business.Compression.getDefaultInstance() : compression_;
+      }
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.Compression Compression = 5;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.Compression, com.volcengine.service.vod.model.business.Compression.Builder, com.volcengine.service.vod.model.business.CompressionOrBuilder> 
+        getCompressionFieldBuilder() {
+      if (compressionBuilder_ == null) {
+        compressionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.Compression, com.volcengine.service.vod.model.business.Compression.Builder, com.volcengine.service.vod.model.business.CompressionOrBuilder>(
+                getCompression(),
+                getParentForChildren(),
+                isClean());
+        compression_ = null;
+      }
+      return compressionBuilder_;
+    }
+
+    private com.volcengine.service.vod.model.business.DownloadSpeedLimit downloadSpeedLimit_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.DownloadSpeedLimit, com.volcengine.service.vod.model.business.DownloadSpeedLimit.Builder, com.volcengine.service.vod.model.business.DownloadSpeedLimitOrBuilder> downloadSpeedLimitBuilder_;
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.DownloadSpeedLimit DownloadSpeedLimit = 6;</code>
+     * @return Whether the downloadSpeedLimit field is set.
+     */
+    public boolean hasDownloadSpeedLimit() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.DownloadSpeedLimit DownloadSpeedLimit = 6;</code>
+     * @return The downloadSpeedLimit.
+     */
+    public com.volcengine.service.vod.model.business.DownloadSpeedLimit getDownloadSpeedLimit() {
+      if (downloadSpeedLimitBuilder_ == null) {
+        return downloadSpeedLimit_ == null ? com.volcengine.service.vod.model.business.DownloadSpeedLimit.getDefaultInstance() : downloadSpeedLimit_;
+      } else {
+        return downloadSpeedLimitBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.DownloadSpeedLimit DownloadSpeedLimit = 6;</code>
+     */
+    public Builder setDownloadSpeedLimit(com.volcengine.service.vod.model.business.DownloadSpeedLimit value) {
+      if (downloadSpeedLimitBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        downloadSpeedLimit_ = value;
+        onChanged();
+      } else {
+        downloadSpeedLimitBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000008;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.DownloadSpeedLimit DownloadSpeedLimit = 6;</code>
+     */
+    public Builder setDownloadSpeedLimit(
+        com.volcengine.service.vod.model.business.DownloadSpeedLimit.Builder builderForValue) {
+      if (downloadSpeedLimitBuilder_ == null) {
+        downloadSpeedLimit_ = builderForValue.build();
+        onChanged();
+      } else {
+        downloadSpeedLimitBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000008;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.DownloadSpeedLimit DownloadSpeedLimit = 6;</code>
+     */
+    public Builder mergeDownloadSpeedLimit(com.volcengine.service.vod.model.business.DownloadSpeedLimit value) {
+      if (downloadSpeedLimitBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0) &&
+            downloadSpeedLimit_ != null &&
+            downloadSpeedLimit_ != com.volcengine.service.vod.model.business.DownloadSpeedLimit.getDefaultInstance()) {
+          downloadSpeedLimit_ =
+            com.volcengine.service.vod.model.business.DownloadSpeedLimit.newBuilder(downloadSpeedLimit_).mergeFrom(value).buildPartial();
+        } else {
+          downloadSpeedLimit_ = value;
+        }
+        onChanged();
+      } else {
+        downloadSpeedLimitBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000008;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.DownloadSpeedLimit DownloadSpeedLimit = 6;</code>
+     */
+    public Builder clearDownloadSpeedLimit() {
+      if (downloadSpeedLimitBuilder_ == null) {
+        downloadSpeedLimit_ = null;
+        onChanged();
+      } else {
+        downloadSpeedLimitBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000008);
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.DownloadSpeedLimit DownloadSpeedLimit = 6;</code>
+     */
+    public com.volcengine.service.vod.model.business.DownloadSpeedLimit.Builder getDownloadSpeedLimitBuilder() {
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return getDownloadSpeedLimitFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.DownloadSpeedLimit DownloadSpeedLimit = 6;</code>
+     */
+    public com.volcengine.service.vod.model.business.DownloadSpeedLimitOrBuilder getDownloadSpeedLimitOrBuilder() {
+      if (downloadSpeedLimitBuilder_ != null) {
+        return downloadSpeedLimitBuilder_.getMessageOrBuilder();
+      } else {
+        return downloadSpeedLimit_ == null ?
+            com.volcengine.service.vod.model.business.DownloadSpeedLimit.getDefaultInstance() : downloadSpeedLimit_;
+      }
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.DownloadSpeedLimit DownloadSpeedLimit = 6;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.DownloadSpeedLimit, com.volcengine.service.vod.model.business.DownloadSpeedLimit.Builder, com.volcengine.service.vod.model.business.DownloadSpeedLimitOrBuilder> 
+        getDownloadSpeedLimitFieldBuilder() {
+      if (downloadSpeedLimitBuilder_ == null) {
+        downloadSpeedLimitBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.DownloadSpeedLimit, com.volcengine.service.vod.model.business.DownloadSpeedLimit.Builder, com.volcengine.service.vod.model.business.DownloadSpeedLimitOrBuilder>(
+                getDownloadSpeedLimit(),
+                getParentForChildren(),
+                isClean());
+        downloadSpeedLimit_ = null;
+      }
+      return downloadSpeedLimitBuilder_;
+    }
+
+    private com.volcengine.service.vod.model.business.HTTPS hTTPS_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.HTTPS, com.volcengine.service.vod.model.business.HTTPS.Builder, com.volcengine.service.vod.model.business.HTTPSOrBuilder> hTTPSBuilder_;
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.HTTPS HTTPS = 7;</code>
+     * @return Whether the hTTPS field is set.
+     */
+    public boolean hasHTTPS() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.HTTPS HTTPS = 7;</code>
+     * @return The hTTPS.
+     */
+    public com.volcengine.service.vod.model.business.HTTPS getHTTPS() {
+      if (hTTPSBuilder_ == null) {
+        return hTTPS_ == null ? com.volcengine.service.vod.model.business.HTTPS.getDefaultInstance() : hTTPS_;
+      } else {
+        return hTTPSBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.HTTPS HTTPS = 7;</code>
+     */
+    public Builder setHTTPS(com.volcengine.service.vod.model.business.HTTPS value) {
+      if (hTTPSBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        hTTPS_ = value;
+        onChanged();
+      } else {
+        hTTPSBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000010;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.HTTPS HTTPS = 7;</code>
+     */
+    public Builder setHTTPS(
+        com.volcengine.service.vod.model.business.HTTPS.Builder builderForValue) {
+      if (hTTPSBuilder_ == null) {
+        hTTPS_ = builderForValue.build();
+        onChanged();
+      } else {
+        hTTPSBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000010;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.HTTPS HTTPS = 7;</code>
+     */
+    public Builder mergeHTTPS(com.volcengine.service.vod.model.business.HTTPS value) {
+      if (hTTPSBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) != 0) &&
+            hTTPS_ != null &&
+            hTTPS_ != com.volcengine.service.vod.model.business.HTTPS.getDefaultInstance()) {
+          hTTPS_ =
+            com.volcengine.service.vod.model.business.HTTPS.newBuilder(hTTPS_).mergeFrom(value).buildPartial();
+        } else {
+          hTTPS_ = value;
+        }
+        onChanged();
+      } else {
+        hTTPSBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000010;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.HTTPS HTTPS = 7;</code>
+     */
+    public Builder clearHTTPS() {
+      if (hTTPSBuilder_ == null) {
+        hTTPS_ = null;
+        onChanged();
+      } else {
+        hTTPSBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000010);
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.HTTPS HTTPS = 7;</code>
+     */
+    public com.volcengine.service.vod.model.business.HTTPS.Builder getHTTPSBuilder() {
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return getHTTPSFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.HTTPS HTTPS = 7;</code>
+     */
+    public com.volcengine.service.vod.model.business.HTTPSOrBuilder getHTTPSOrBuilder() {
+      if (hTTPSBuilder_ != null) {
+        return hTTPSBuilder_.getMessageOrBuilder();
+      } else {
+        return hTTPS_ == null ?
+            com.volcengine.service.vod.model.business.HTTPS.getDefaultInstance() : hTTPS_;
+      }
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.HTTPS HTTPS = 7;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.HTTPS, com.volcengine.service.vod.model.business.HTTPS.Builder, com.volcengine.service.vod.model.business.HTTPSOrBuilder> 
+        getHTTPSFieldBuilder() {
+      if (hTTPSBuilder_ == null) {
+        hTTPSBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.HTTPS, com.volcengine.service.vod.model.business.HTTPS.Builder, com.volcengine.service.vod.model.business.HTTPSOrBuilder>(
+                getHTTPS(),
+                getParentForChildren(),
+                isClean());
+        hTTPS_ = null;
+      }
+      return hTTPSBuilder_;
+    }
+
+    private com.volcengine.service.vod.model.business.HttpForcedRedirect httpForcedRedirect_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.HttpForcedRedirect, com.volcengine.service.vod.model.business.HttpForcedRedirect.Builder, com.volcengine.service.vod.model.business.HttpForcedRedirectOrBuilder> httpForcedRedirectBuilder_;
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.HttpForcedRedirect HttpForcedRedirect = 8;</code>
+     * @return Whether the httpForcedRedirect field is set.
+     */
+    public boolean hasHttpForcedRedirect() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.HttpForcedRedirect HttpForcedRedirect = 8;</code>
+     * @return The httpForcedRedirect.
+     */
+    public com.volcengine.service.vod.model.business.HttpForcedRedirect getHttpForcedRedirect() {
+      if (httpForcedRedirectBuilder_ == null) {
+        return httpForcedRedirect_ == null ? com.volcengine.service.vod.model.business.HttpForcedRedirect.getDefaultInstance() : httpForcedRedirect_;
+      } else {
+        return httpForcedRedirectBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.HttpForcedRedirect HttpForcedRedirect = 8;</code>
+     */
+    public Builder setHttpForcedRedirect(com.volcengine.service.vod.model.business.HttpForcedRedirect value) {
+      if (httpForcedRedirectBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        httpForcedRedirect_ = value;
+        onChanged();
+      } else {
+        httpForcedRedirectBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000020;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.HttpForcedRedirect HttpForcedRedirect = 8;</code>
+     */
+    public Builder setHttpForcedRedirect(
+        com.volcengine.service.vod.model.business.HttpForcedRedirect.Builder builderForValue) {
+      if (httpForcedRedirectBuilder_ == null) {
+        httpForcedRedirect_ = builderForValue.build();
+        onChanged();
+      } else {
+        httpForcedRedirectBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000020;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.HttpForcedRedirect HttpForcedRedirect = 8;</code>
+     */
+    public Builder mergeHttpForcedRedirect(com.volcengine.service.vod.model.business.HttpForcedRedirect value) {
+      if (httpForcedRedirectBuilder_ == null) {
+        if (((bitField0_ & 0x00000020) != 0) &&
+            httpForcedRedirect_ != null &&
+            httpForcedRedirect_ != com.volcengine.service.vod.model.business.HttpForcedRedirect.getDefaultInstance()) {
+          httpForcedRedirect_ =
+            com.volcengine.service.vod.model.business.HttpForcedRedirect.newBuilder(httpForcedRedirect_).mergeFrom(value).buildPartial();
+        } else {
+          httpForcedRedirect_ = value;
+        }
+        onChanged();
+      } else {
+        httpForcedRedirectBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000020;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.HttpForcedRedirect HttpForcedRedirect = 8;</code>
+     */
+    public Builder clearHttpForcedRedirect() {
+      if (httpForcedRedirectBuilder_ == null) {
+        httpForcedRedirect_ = null;
+        onChanged();
+      } else {
+        httpForcedRedirectBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000020);
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.HttpForcedRedirect HttpForcedRedirect = 8;</code>
+     */
+    public com.volcengine.service.vod.model.business.HttpForcedRedirect.Builder getHttpForcedRedirectBuilder() {
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return getHttpForcedRedirectFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.HttpForcedRedirect HttpForcedRedirect = 8;</code>
+     */
+    public com.volcengine.service.vod.model.business.HttpForcedRedirectOrBuilder getHttpForcedRedirectOrBuilder() {
+      if (httpForcedRedirectBuilder_ != null) {
+        return httpForcedRedirectBuilder_.getMessageOrBuilder();
+      } else {
+        return httpForcedRedirect_ == null ?
+            com.volcengine.service.vod.model.business.HttpForcedRedirect.getDefaultInstance() : httpForcedRedirect_;
+      }
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.HttpForcedRedirect HttpForcedRedirect = 8;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.HttpForcedRedirect, com.volcengine.service.vod.model.business.HttpForcedRedirect.Builder, com.volcengine.service.vod.model.business.HttpForcedRedirectOrBuilder> 
+        getHttpForcedRedirectFieldBuilder() {
+      if (httpForcedRedirectBuilder_ == null) {
+        httpForcedRedirectBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.HttpForcedRedirect, com.volcengine.service.vod.model.business.HttpForcedRedirect.Builder, com.volcengine.service.vod.model.business.HttpForcedRedirectOrBuilder>(
+                getHttpForcedRedirect(),
+                getParentForChildren(),
+                isClean());
+        httpForcedRedirect_ = null;
+      }
+      return httpForcedRedirectBuilder_;
+    }
+
+    private com.volcengine.service.vod.model.business.CdnIPv6 iPv6_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.CdnIPv6, com.volcengine.service.vod.model.business.CdnIPv6.Builder, com.volcengine.service.vod.model.business.CdnIPv6OrBuilder> iPv6Builder_;
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.CdnIPv6 IPv6 = 9;</code>
+     * @return Whether the iPv6 field is set.
+     */
+    public boolean hasIPv6() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.CdnIPv6 IPv6 = 9;</code>
+     * @return The iPv6.
+     */
+    public com.volcengine.service.vod.model.business.CdnIPv6 getIPv6() {
+      if (iPv6Builder_ == null) {
+        return iPv6_ == null ? com.volcengine.service.vod.model.business.CdnIPv6.getDefaultInstance() : iPv6_;
+      } else {
+        return iPv6Builder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.CdnIPv6 IPv6 = 9;</code>
+     */
+    public Builder setIPv6(com.volcengine.service.vod.model.business.CdnIPv6 value) {
+      if (iPv6Builder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        iPv6_ = value;
+        onChanged();
+      } else {
+        iPv6Builder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000040;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.CdnIPv6 IPv6 = 9;</code>
+     */
+    public Builder setIPv6(
+        com.volcengine.service.vod.model.business.CdnIPv6.Builder builderForValue) {
+      if (iPv6Builder_ == null) {
+        iPv6_ = builderForValue.build();
+        onChanged();
+      } else {
+        iPv6Builder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000040;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.CdnIPv6 IPv6 = 9;</code>
+     */
+    public Builder mergeIPv6(com.volcengine.service.vod.model.business.CdnIPv6 value) {
+      if (iPv6Builder_ == null) {
+        if (((bitField0_ & 0x00000040) != 0) &&
+            iPv6_ != null &&
+            iPv6_ != com.volcengine.service.vod.model.business.CdnIPv6.getDefaultInstance()) {
+          iPv6_ =
+            com.volcengine.service.vod.model.business.CdnIPv6.newBuilder(iPv6_).mergeFrom(value).buildPartial();
+        } else {
+          iPv6_ = value;
+        }
+        onChanged();
+      } else {
+        iPv6Builder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000040;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.CdnIPv6 IPv6 = 9;</code>
+     */
+    public Builder clearIPv6() {
+      if (iPv6Builder_ == null) {
+        iPv6_ = null;
+        onChanged();
+      } else {
+        iPv6Builder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000040);
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.CdnIPv6 IPv6 = 9;</code>
+     */
+    public com.volcengine.service.vod.model.business.CdnIPv6.Builder getIPv6Builder() {
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return getIPv6FieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.CdnIPv6 IPv6 = 9;</code>
+     */
+    public com.volcengine.service.vod.model.business.CdnIPv6OrBuilder getIPv6OrBuilder() {
+      if (iPv6Builder_ != null) {
+        return iPv6Builder_.getMessageOrBuilder();
+      } else {
+        return iPv6_ == null ?
+            com.volcengine.service.vod.model.business.CdnIPv6.getDefaultInstance() : iPv6_;
+      }
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.CdnIPv6 IPv6 = 9;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.CdnIPv6, com.volcengine.service.vod.model.business.CdnIPv6.Builder, com.volcengine.service.vod.model.business.CdnIPv6OrBuilder> 
+        getIPv6FieldBuilder() {
+      if (iPv6Builder_ == null) {
+        iPv6Builder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.CdnIPv6, com.volcengine.service.vod.model.business.CdnIPv6.Builder, com.volcengine.service.vod.model.business.CdnIPv6OrBuilder>(
+                getIPv6(),
+                getParentForChildren(),
+                isClean());
+        iPv6_ = null;
+      }
+      return iPv6Builder_;
+    }
+
+    private boolean followRedirect_ ;
+    /**
+     * <code>optional bool FollowRedirect = 10;</code>
+     * @return Whether the followRedirect field is set.
+     */
+    @java.lang.Override
+    public boolean hasFollowRedirect() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <code>optional bool FollowRedirect = 10;</code>
+     * @return The followRedirect.
+     */
+    @java.lang.Override
+    public boolean getFollowRedirect() {
+      return followRedirect_;
+    }
+    /**
+     * <code>optional bool FollowRedirect = 10;</code>
+     * @param value The followRedirect to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFollowRedirect(boolean value) {
+      bitField0_ |= 0x00000080;
+      followRedirect_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional bool FollowRedirect = 10;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFollowRedirect() {
+      bitField0_ = (bitField0_ & ~0x00000080);
+      followRedirect_ = false;
+      onChanged();
+      return this;
+    }
+
+    private boolean originRange_ ;
+    /**
+     * <code>optional bool OriginRange = 11;</code>
+     * @return Whether the originRange field is set.
+     */
+    @java.lang.Override
+    public boolean hasOriginRange() {
+      return ((bitField0_ & 0x00000100) != 0);
+    }
+    /**
+     * <code>optional bool OriginRange = 11;</code>
+     * @return The originRange.
+     */
+    @java.lang.Override
+    public boolean getOriginRange() {
+      return originRange_;
+    }
+    /**
+     * <code>optional bool OriginRange = 11;</code>
+     * @param value The originRange to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOriginRange(boolean value) {
+      bitField0_ |= 0x00000100;
+      originRange_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional bool OriginRange = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOriginRange() {
+      bitField0_ = (bitField0_ & ~0x00000100);
+      originRange_ = false;
+      onChanged();
+      return this;
+    }
+
+    private com.volcengine.service.vod.model.business.IpAccessRule ipAccessRule_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.IpAccessRule, com.volcengine.service.vod.model.business.IpAccessRule.Builder, com.volcengine.service.vod.model.business.IpAccessRuleOrBuilder> ipAccessRuleBuilder_;
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.IpAccessRule IpAccessRule = 12;</code>
+     * @return Whether the ipAccessRule field is set.
+     */
+    public boolean hasIpAccessRule() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.IpAccessRule IpAccessRule = 12;</code>
+     * @return The ipAccessRule.
+     */
+    public com.volcengine.service.vod.model.business.IpAccessRule getIpAccessRule() {
+      if (ipAccessRuleBuilder_ == null) {
+        return ipAccessRule_ == null ? com.volcengine.service.vod.model.business.IpAccessRule.getDefaultInstance() : ipAccessRule_;
+      } else {
+        return ipAccessRuleBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.IpAccessRule IpAccessRule = 12;</code>
+     */
+    public Builder setIpAccessRule(com.volcengine.service.vod.model.business.IpAccessRule value) {
+      if (ipAccessRuleBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ipAccessRule_ = value;
+        onChanged();
+      } else {
+        ipAccessRuleBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000200;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.IpAccessRule IpAccessRule = 12;</code>
+     */
+    public Builder setIpAccessRule(
+        com.volcengine.service.vod.model.business.IpAccessRule.Builder builderForValue) {
+      if (ipAccessRuleBuilder_ == null) {
+        ipAccessRule_ = builderForValue.build();
+        onChanged();
+      } else {
+        ipAccessRuleBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000200;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.IpAccessRule IpAccessRule = 12;</code>
+     */
+    public Builder mergeIpAccessRule(com.volcengine.service.vod.model.business.IpAccessRule value) {
+      if (ipAccessRuleBuilder_ == null) {
+        if (((bitField0_ & 0x00000200) != 0) &&
+            ipAccessRule_ != null &&
+            ipAccessRule_ != com.volcengine.service.vod.model.business.IpAccessRule.getDefaultInstance()) {
+          ipAccessRule_ =
+            com.volcengine.service.vod.model.business.IpAccessRule.newBuilder(ipAccessRule_).mergeFrom(value).buildPartial();
+        } else {
+          ipAccessRule_ = value;
+        }
+        onChanged();
+      } else {
+        ipAccessRuleBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000200;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.IpAccessRule IpAccessRule = 12;</code>
+     */
+    public Builder clearIpAccessRule() {
+      if (ipAccessRuleBuilder_ == null) {
+        ipAccessRule_ = null;
+        onChanged();
+      } else {
+        ipAccessRuleBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000200);
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.IpAccessRule IpAccessRule = 12;</code>
+     */
+    public com.volcengine.service.vod.model.business.IpAccessRule.Builder getIpAccessRuleBuilder() {
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return getIpAccessRuleFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.IpAccessRule IpAccessRule = 12;</code>
+     */
+    public com.volcengine.service.vod.model.business.IpAccessRuleOrBuilder getIpAccessRuleOrBuilder() {
+      if (ipAccessRuleBuilder_ != null) {
+        return ipAccessRuleBuilder_.getMessageOrBuilder();
+      } else {
+        return ipAccessRule_ == null ?
+            com.volcengine.service.vod.model.business.IpAccessRule.getDefaultInstance() : ipAccessRule_;
+      }
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.IpAccessRule IpAccessRule = 12;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.IpAccessRule, com.volcengine.service.vod.model.business.IpAccessRule.Builder, com.volcengine.service.vod.model.business.IpAccessRuleOrBuilder> 
+        getIpAccessRuleFieldBuilder() {
+      if (ipAccessRuleBuilder_ == null) {
+        ipAccessRuleBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.IpAccessRule, com.volcengine.service.vod.model.business.IpAccessRule.Builder, com.volcengine.service.vod.model.business.IpAccessRuleOrBuilder>(
+                getIpAccessRule(),
+                getParentForChildren(),
+                isClean());
+        ipAccessRule_ = null;
+      }
+      return ipAccessRuleBuilder_;
+    }
+
+    private com.volcengine.service.vod.model.business.RefererAccessRule refererAccessRule_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.RefererAccessRule, com.volcengine.service.vod.model.business.RefererAccessRule.Builder, com.volcengine.service.vod.model.business.RefererAccessRuleOrBuilder> refererAccessRuleBuilder_;
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.RefererAccessRule RefererAccessRule = 13;</code>
+     * @return Whether the refererAccessRule field is set.
+     */
+    public boolean hasRefererAccessRule() {
+      return ((bitField0_ & 0x00000400) != 0);
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.RefererAccessRule RefererAccessRule = 13;</code>
+     * @return The refererAccessRule.
+     */
+    public com.volcengine.service.vod.model.business.RefererAccessRule getRefererAccessRule() {
+      if (refererAccessRuleBuilder_ == null) {
+        return refererAccessRule_ == null ? com.volcengine.service.vod.model.business.RefererAccessRule.getDefaultInstance() : refererAccessRule_;
+      } else {
+        return refererAccessRuleBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.RefererAccessRule RefererAccessRule = 13;</code>
+     */
+    public Builder setRefererAccessRule(com.volcengine.service.vod.model.business.RefererAccessRule value) {
+      if (refererAccessRuleBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        refererAccessRule_ = value;
+        onChanged();
+      } else {
+        refererAccessRuleBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000400;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.RefererAccessRule RefererAccessRule = 13;</code>
+     */
+    public Builder setRefererAccessRule(
+        com.volcengine.service.vod.model.business.RefererAccessRule.Builder builderForValue) {
+      if (refererAccessRuleBuilder_ == null) {
+        refererAccessRule_ = builderForValue.build();
+        onChanged();
+      } else {
+        refererAccessRuleBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000400;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.RefererAccessRule RefererAccessRule = 13;</code>
+     */
+    public Builder mergeRefererAccessRule(com.volcengine.service.vod.model.business.RefererAccessRule value) {
+      if (refererAccessRuleBuilder_ == null) {
+        if (((bitField0_ & 0x00000400) != 0) &&
+            refererAccessRule_ != null &&
+            refererAccessRule_ != com.volcengine.service.vod.model.business.RefererAccessRule.getDefaultInstance()) {
+          refererAccessRule_ =
+            com.volcengine.service.vod.model.business.RefererAccessRule.newBuilder(refererAccessRule_).mergeFrom(value).buildPartial();
+        } else {
+          refererAccessRule_ = value;
+        }
+        onChanged();
+      } else {
+        refererAccessRuleBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000400;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.RefererAccessRule RefererAccessRule = 13;</code>
+     */
+    public Builder clearRefererAccessRule() {
+      if (refererAccessRuleBuilder_ == null) {
+        refererAccessRule_ = null;
+        onChanged();
+      } else {
+        refererAccessRuleBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000400);
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.RefererAccessRule RefererAccessRule = 13;</code>
+     */
+    public com.volcengine.service.vod.model.business.RefererAccessRule.Builder getRefererAccessRuleBuilder() {
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return getRefererAccessRuleFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.RefererAccessRule RefererAccessRule = 13;</code>
+     */
+    public com.volcengine.service.vod.model.business.RefererAccessRuleOrBuilder getRefererAccessRuleOrBuilder() {
+      if (refererAccessRuleBuilder_ != null) {
+        return refererAccessRuleBuilder_.getMessageOrBuilder();
+      } else {
+        return refererAccessRule_ == null ?
+            com.volcengine.service.vod.model.business.RefererAccessRule.getDefaultInstance() : refererAccessRule_;
+      }
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.RefererAccessRule RefererAccessRule = 13;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.RefererAccessRule, com.volcengine.service.vod.model.business.RefererAccessRule.Builder, com.volcengine.service.vod.model.business.RefererAccessRuleOrBuilder> 
+        getRefererAccessRuleFieldBuilder() {
+      if (refererAccessRuleBuilder_ == null) {
+        refererAccessRuleBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.RefererAccessRule, com.volcengine.service.vod.model.business.RefererAccessRule.Builder, com.volcengine.service.vod.model.business.RefererAccessRuleOrBuilder>(
+                getRefererAccessRule(),
+                getParentForChildren(),
+                isClean());
+        refererAccessRule_ = null;
+      }
+      return refererAccessRuleBuilder_;
+    }
+
+    private java.util.List<com.volcengine.service.vod.model.business.RequestHeaderRule> requestHeader_ =
+      java.util.Collections.emptyList();
+    private void ensureRequestHeaderIsMutable() {
+      if (!((bitField0_ & 0x00000800) != 0)) {
+        requestHeader_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.RequestHeaderRule>(requestHeader_);
+        bitField0_ |= 0x00000800;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.RequestHeaderRule, com.volcengine.service.vod.model.business.RequestHeaderRule.Builder, com.volcengine.service.vod.model.business.RequestHeaderRuleOrBuilder> requestHeaderBuilder_;
+
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.RequestHeaderRule> getRequestHeaderList() {
+      if (requestHeaderBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(requestHeader_);
+      } else {
+        return requestHeaderBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+     */
+    public int getRequestHeaderCount() {
+      if (requestHeaderBuilder_ == null) {
+        return requestHeader_.size();
+      } else {
+        return requestHeaderBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+     */
+    public com.volcengine.service.vod.model.business.RequestHeaderRule getRequestHeader(int index) {
+      if (requestHeaderBuilder_ == null) {
+        return requestHeader_.get(index);
+      } else {
+        return requestHeaderBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+     */
+    public Builder setRequestHeader(
+        int index, com.volcengine.service.vod.model.business.RequestHeaderRule value) {
+      if (requestHeaderBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureRequestHeaderIsMutable();
+        requestHeader_.set(index, value);
+        onChanged();
+      } else {
+        requestHeaderBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+     */
+    public Builder setRequestHeader(
+        int index, com.volcengine.service.vod.model.business.RequestHeaderRule.Builder builderForValue) {
+      if (requestHeaderBuilder_ == null) {
+        ensureRequestHeaderIsMutable();
+        requestHeader_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        requestHeaderBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+     */
+    public Builder addRequestHeader(com.volcengine.service.vod.model.business.RequestHeaderRule value) {
+      if (requestHeaderBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureRequestHeaderIsMutable();
+        requestHeader_.add(value);
+        onChanged();
+      } else {
+        requestHeaderBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+     */
+    public Builder addRequestHeader(
+        int index, com.volcengine.service.vod.model.business.RequestHeaderRule value) {
+      if (requestHeaderBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureRequestHeaderIsMutable();
+        requestHeader_.add(index, value);
+        onChanged();
+      } else {
+        requestHeaderBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+     */
+    public Builder addRequestHeader(
+        com.volcengine.service.vod.model.business.RequestHeaderRule.Builder builderForValue) {
+      if (requestHeaderBuilder_ == null) {
+        ensureRequestHeaderIsMutable();
+        requestHeader_.add(builderForValue.build());
+        onChanged();
+      } else {
+        requestHeaderBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+     */
+    public Builder addRequestHeader(
+        int index, com.volcengine.service.vod.model.business.RequestHeaderRule.Builder builderForValue) {
+      if (requestHeaderBuilder_ == null) {
+        ensureRequestHeaderIsMutable();
+        requestHeader_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        requestHeaderBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+     */
+    public Builder addAllRequestHeader(
+        java.lang.Iterable<? extends com.volcengine.service.vod.model.business.RequestHeaderRule> values) {
+      if (requestHeaderBuilder_ == null) {
+        ensureRequestHeaderIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, requestHeader_);
+        onChanged();
+      } else {
+        requestHeaderBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+     */
+    public Builder clearRequestHeader() {
+      if (requestHeaderBuilder_ == null) {
+        requestHeader_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000800);
+        onChanged();
+      } else {
+        requestHeaderBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+     */
+    public Builder removeRequestHeader(int index) {
+      if (requestHeaderBuilder_ == null) {
+        ensureRequestHeaderIsMutable();
+        requestHeader_.remove(index);
+        onChanged();
+      } else {
+        requestHeaderBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+     */
+    public com.volcengine.service.vod.model.business.RequestHeaderRule.Builder getRequestHeaderBuilder(
+        int index) {
+      return getRequestHeaderFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+     */
+    public com.volcengine.service.vod.model.business.RequestHeaderRuleOrBuilder getRequestHeaderOrBuilder(
+        int index) {
+      if (requestHeaderBuilder_ == null) {
+        return requestHeader_.get(index);  } else {
+        return requestHeaderBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+     */
+    public java.util.List<? extends com.volcengine.service.vod.model.business.RequestHeaderRuleOrBuilder> 
+         getRequestHeaderOrBuilderList() {
+      if (requestHeaderBuilder_ != null) {
+        return requestHeaderBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(requestHeader_);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+     */
+    public com.volcengine.service.vod.model.business.RequestHeaderRule.Builder addRequestHeaderBuilder() {
+      return getRequestHeaderFieldBuilder().addBuilder(
+          com.volcengine.service.vod.model.business.RequestHeaderRule.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+     */
+    public com.volcengine.service.vod.model.business.RequestHeaderRule.Builder addRequestHeaderBuilder(
+        int index) {
+      return getRequestHeaderFieldBuilder().addBuilder(
+          index, com.volcengine.service.vod.model.business.RequestHeaderRule.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.RequestHeaderRule.Builder> 
+         getRequestHeaderBuilderList() {
+      return getRequestHeaderFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.RequestHeaderRule, com.volcengine.service.vod.model.business.RequestHeaderRule.Builder, com.volcengine.service.vod.model.business.RequestHeaderRuleOrBuilder> 
+        getRequestHeaderFieldBuilder() {
+      if (requestHeaderBuilder_ == null) {
+        requestHeaderBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.service.vod.model.business.RequestHeaderRule, com.volcengine.service.vod.model.business.RequestHeaderRule.Builder, com.volcengine.service.vod.model.business.RequestHeaderRuleOrBuilder>(
+                requestHeader_,
+                ((bitField0_ & 0x00000800) != 0),
+                getParentForChildren(),
+                isClean());
+        requestHeader_ = null;
+      }
+      return requestHeaderBuilder_;
+    }
+
+    private com.volcengine.service.vod.model.business.UserAgentAccessRule uaAccessRule_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.UserAgentAccessRule, com.volcengine.service.vod.model.business.UserAgentAccessRule.Builder, com.volcengine.service.vod.model.business.UserAgentAccessRuleOrBuilder> uaAccessRuleBuilder_;
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.UserAgentAccessRule UaAccessRule = 15;</code>
+     * @return Whether the uaAccessRule field is set.
+     */
+    public boolean hasUaAccessRule() {
+      return ((bitField0_ & 0x00001000) != 0);
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.UserAgentAccessRule UaAccessRule = 15;</code>
+     * @return The uaAccessRule.
+     */
+    public com.volcengine.service.vod.model.business.UserAgentAccessRule getUaAccessRule() {
+      if (uaAccessRuleBuilder_ == null) {
+        return uaAccessRule_ == null ? com.volcengine.service.vod.model.business.UserAgentAccessRule.getDefaultInstance() : uaAccessRule_;
+      } else {
+        return uaAccessRuleBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.UserAgentAccessRule UaAccessRule = 15;</code>
+     */
+    public Builder setUaAccessRule(com.volcengine.service.vod.model.business.UserAgentAccessRule value) {
+      if (uaAccessRuleBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        uaAccessRule_ = value;
+        onChanged();
+      } else {
+        uaAccessRuleBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00001000;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.UserAgentAccessRule UaAccessRule = 15;</code>
+     */
+    public Builder setUaAccessRule(
+        com.volcengine.service.vod.model.business.UserAgentAccessRule.Builder builderForValue) {
+      if (uaAccessRuleBuilder_ == null) {
+        uaAccessRule_ = builderForValue.build();
+        onChanged();
+      } else {
+        uaAccessRuleBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00001000;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.UserAgentAccessRule UaAccessRule = 15;</code>
+     */
+    public Builder mergeUaAccessRule(com.volcengine.service.vod.model.business.UserAgentAccessRule value) {
+      if (uaAccessRuleBuilder_ == null) {
+        if (((bitField0_ & 0x00001000) != 0) &&
+            uaAccessRule_ != null &&
+            uaAccessRule_ != com.volcengine.service.vod.model.business.UserAgentAccessRule.getDefaultInstance()) {
+          uaAccessRule_ =
+            com.volcengine.service.vod.model.business.UserAgentAccessRule.newBuilder(uaAccessRule_).mergeFrom(value).buildPartial();
+        } else {
+          uaAccessRule_ = value;
+        }
+        onChanged();
+      } else {
+        uaAccessRuleBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00001000;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.UserAgentAccessRule UaAccessRule = 15;</code>
+     */
+    public Builder clearUaAccessRule() {
+      if (uaAccessRuleBuilder_ == null) {
+        uaAccessRule_ = null;
+        onChanged();
+      } else {
+        uaAccessRuleBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00001000);
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.UserAgentAccessRule UaAccessRule = 15;</code>
+     */
+    public com.volcengine.service.vod.model.business.UserAgentAccessRule.Builder getUaAccessRuleBuilder() {
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return getUaAccessRuleFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.UserAgentAccessRule UaAccessRule = 15;</code>
+     */
+    public com.volcengine.service.vod.model.business.UserAgentAccessRuleOrBuilder getUaAccessRuleOrBuilder() {
+      if (uaAccessRuleBuilder_ != null) {
+        return uaAccessRuleBuilder_.getMessageOrBuilder();
+      } else {
+        return uaAccessRule_ == null ?
+            com.volcengine.service.vod.model.business.UserAgentAccessRule.getDefaultInstance() : uaAccessRule_;
+      }
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.UserAgentAccessRule UaAccessRule = 15;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.UserAgentAccessRule, com.volcengine.service.vod.model.business.UserAgentAccessRule.Builder, com.volcengine.service.vod.model.business.UserAgentAccessRuleOrBuilder> 
+        getUaAccessRuleFieldBuilder() {
+      if (uaAccessRuleBuilder_ == null) {
+        uaAccessRuleBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.UserAgentAccessRule, com.volcengine.service.vod.model.business.UserAgentAccessRule.Builder, com.volcengine.service.vod.model.business.UserAgentAccessRuleOrBuilder>(
+                getUaAccessRule(),
+                getParentForChildren(),
+                isClean());
+        uaAccessRule_ = null;
+      }
+      return uaAccessRuleBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

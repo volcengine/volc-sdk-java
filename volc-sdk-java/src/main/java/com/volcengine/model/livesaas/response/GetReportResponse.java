@@ -110,12 +110,6 @@ public class GetReportResponse {
         List<CustomSensitiveResult> CustomSensitiveResults;
         @JSONField(name = "SystemSensitiveResults")
         List<SystemSensitiveResult> SystemSensitiveResults;
-//        @JSONField(name = "OCRTextRecognitionResults")
-//        List<OCRTextRecognitionResult> OCRTextRecognitionResults;
-//        @JSONField(name = "OCRBottomSubtitleResults")
-//        List<SystemSensitiveResult> OCRBottomSubtitleResults;
-//        @JSONField(name = "PresetScriptResult")
-//        PresetScriptResult PresetScriptResult;
     }
 
     @Data
@@ -248,5 +242,7 @@ public class GetReportResponse {
         Long ActivityId;
         @JSONField(name = "Tags")
         List<Tag> Tags;
+        @JSONField(name = "ActivityName")
+        String ActivityName;
     }
 }

@@ -4805,4 +4805,19 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public GetBMReportResponse getBMReport(GetBMReportRequest getBMReportRequest) throws Exception {
+        RawResponse response = query(Const.GetBMReport, Utils.paramsToPair(getBMReportRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetBMReportResponse res = JSON.parseObject(response.getData(), GetBMReportResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

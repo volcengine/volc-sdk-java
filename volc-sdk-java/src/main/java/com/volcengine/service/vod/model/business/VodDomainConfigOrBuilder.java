@@ -60,4 +60,218 @@ public interface VodDomainConfigOrBuilder extends
    * <code>.Volcengine.Vod.Models.Business.VodOriginalControl OriginalControl = 2;</code>
    */
   com.volcengine.service.vod.model.business.VodOriginalControlOrBuilder getOriginalControlOrBuilder();
+
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+   */
+  java.util.List<com.volcengine.service.vod.model.business.CacheControlRule> 
+      getCacheList();
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+   */
+  com.volcengine.service.vod.model.business.CacheControlRule getCache(int index);
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+   */
+  int getCacheCount();
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+   */
+  java.util.List<? extends com.volcengine.service.vod.model.business.CacheControlRuleOrBuilder> 
+      getCacheOrBuilderList();
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheControlRule Cache = 3;</code>
+   */
+  com.volcengine.service.vod.model.business.CacheControlRuleOrBuilder getCacheOrBuilder(
+      int index);
+
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+   */
+  java.util.List<com.volcengine.service.vod.model.business.CacheKeyRule> 
+      getCacheKeyList();
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+   */
+  com.volcengine.service.vod.model.business.CacheKeyRule getCacheKey(int index);
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+   */
+  int getCacheKeyCount();
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+   */
+  java.util.List<? extends com.volcengine.service.vod.model.business.CacheKeyRuleOrBuilder> 
+      getCacheKeyOrBuilderList();
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.CacheKeyRule CacheKey = 4;</code>
+   */
+  com.volcengine.service.vod.model.business.CacheKeyRuleOrBuilder getCacheKeyOrBuilder(
+      int index);
+
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.Compression Compression = 5;</code>
+   * @return Whether the compression field is set.
+   */
+  boolean hasCompression();
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.Compression Compression = 5;</code>
+   * @return The compression.
+   */
+  com.volcengine.service.vod.model.business.Compression getCompression();
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.Compression Compression = 5;</code>
+   */
+  com.volcengine.service.vod.model.business.CompressionOrBuilder getCompressionOrBuilder();
+
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.DownloadSpeedLimit DownloadSpeedLimit = 6;</code>
+   * @return Whether the downloadSpeedLimit field is set.
+   */
+  boolean hasDownloadSpeedLimit();
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.DownloadSpeedLimit DownloadSpeedLimit = 6;</code>
+   * @return The downloadSpeedLimit.
+   */
+  com.volcengine.service.vod.model.business.DownloadSpeedLimit getDownloadSpeedLimit();
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.DownloadSpeedLimit DownloadSpeedLimit = 6;</code>
+   */
+  com.volcengine.service.vod.model.business.DownloadSpeedLimitOrBuilder getDownloadSpeedLimitOrBuilder();
+
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.HTTPS HTTPS = 7;</code>
+   * @return Whether the hTTPS field is set.
+   */
+  boolean hasHTTPS();
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.HTTPS HTTPS = 7;</code>
+   * @return The hTTPS.
+   */
+  com.volcengine.service.vod.model.business.HTTPS getHTTPS();
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.HTTPS HTTPS = 7;</code>
+   */
+  com.volcengine.service.vod.model.business.HTTPSOrBuilder getHTTPSOrBuilder();
+
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.HttpForcedRedirect HttpForcedRedirect = 8;</code>
+   * @return Whether the httpForcedRedirect field is set.
+   */
+  boolean hasHttpForcedRedirect();
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.HttpForcedRedirect HttpForcedRedirect = 8;</code>
+   * @return The httpForcedRedirect.
+   */
+  com.volcengine.service.vod.model.business.HttpForcedRedirect getHttpForcedRedirect();
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.HttpForcedRedirect HttpForcedRedirect = 8;</code>
+   */
+  com.volcengine.service.vod.model.business.HttpForcedRedirectOrBuilder getHttpForcedRedirectOrBuilder();
+
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.CdnIPv6 IPv6 = 9;</code>
+   * @return Whether the iPv6 field is set.
+   */
+  boolean hasIPv6();
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.CdnIPv6 IPv6 = 9;</code>
+   * @return The iPv6.
+   */
+  com.volcengine.service.vod.model.business.CdnIPv6 getIPv6();
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.CdnIPv6 IPv6 = 9;</code>
+   */
+  com.volcengine.service.vod.model.business.CdnIPv6OrBuilder getIPv6OrBuilder();
+
+  /**
+   * <code>optional bool FollowRedirect = 10;</code>
+   * @return Whether the followRedirect field is set.
+   */
+  boolean hasFollowRedirect();
+  /**
+   * <code>optional bool FollowRedirect = 10;</code>
+   * @return The followRedirect.
+   */
+  boolean getFollowRedirect();
+
+  /**
+   * <code>optional bool OriginRange = 11;</code>
+   * @return Whether the originRange field is set.
+   */
+  boolean hasOriginRange();
+  /**
+   * <code>optional bool OriginRange = 11;</code>
+   * @return The originRange.
+   */
+  boolean getOriginRange();
+
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.IpAccessRule IpAccessRule = 12;</code>
+   * @return Whether the ipAccessRule field is set.
+   */
+  boolean hasIpAccessRule();
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.IpAccessRule IpAccessRule = 12;</code>
+   * @return The ipAccessRule.
+   */
+  com.volcengine.service.vod.model.business.IpAccessRule getIpAccessRule();
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.IpAccessRule IpAccessRule = 12;</code>
+   */
+  com.volcengine.service.vod.model.business.IpAccessRuleOrBuilder getIpAccessRuleOrBuilder();
+
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.RefererAccessRule RefererAccessRule = 13;</code>
+   * @return Whether the refererAccessRule field is set.
+   */
+  boolean hasRefererAccessRule();
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.RefererAccessRule RefererAccessRule = 13;</code>
+   * @return The refererAccessRule.
+   */
+  com.volcengine.service.vod.model.business.RefererAccessRule getRefererAccessRule();
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.RefererAccessRule RefererAccessRule = 13;</code>
+   */
+  com.volcengine.service.vod.model.business.RefererAccessRuleOrBuilder getRefererAccessRuleOrBuilder();
+
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+   */
+  java.util.List<com.volcengine.service.vod.model.business.RequestHeaderRule> 
+      getRequestHeaderList();
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+   */
+  com.volcengine.service.vod.model.business.RequestHeaderRule getRequestHeader(int index);
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+   */
+  int getRequestHeaderCount();
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+   */
+  java.util.List<? extends com.volcengine.service.vod.model.business.RequestHeaderRuleOrBuilder> 
+      getRequestHeaderOrBuilderList();
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.RequestHeaderRule RequestHeader = 14;</code>
+   */
+  com.volcengine.service.vod.model.business.RequestHeaderRuleOrBuilder getRequestHeaderOrBuilder(
+      int index);
+
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.UserAgentAccessRule UaAccessRule = 15;</code>
+   * @return Whether the uaAccessRule field is set.
+   */
+  boolean hasUaAccessRule();
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.UserAgentAccessRule UaAccessRule = 15;</code>
+   * @return The uaAccessRule.
+   */
+  com.volcengine.service.vod.model.business.UserAgentAccessRule getUaAccessRule();
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.UserAgentAccessRule UaAccessRule = 15;</code>
+   */
+  com.volcengine.service.vod.model.business.UserAgentAccessRuleOrBuilder getUaAccessRuleOrBuilder();
 }

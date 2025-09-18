@@ -2306,7 +2306,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>updateIPAccessRule</p>
      * <p>更新ip访问限制</p>
      *
-     * <p>调用 `UpdateIPAccessRule` 接口，创建或更新域名的 IP 访问限制。</p>
+     * <p>调用 `UpdateIPAccessRule` 接口，创建或更新推流或拉流域名的 IP 访问限制，从而有效管理客户端访问，防止未授权请求，提高直播安全性。</p>
      *
      * @param body body payload
      * @return response data
@@ -2321,7 +2321,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeIPAccessRule</p>
      * <p>查询ip访问限制</p>
      *
-     * <p>调用 `DescribeIPAccessRule` 接口，查询域名的 IP 访问限制配置。</p>
+     * <p>调用 `DescribeIPAccessRule` 接口，查询推流或拉流域名的 IP 访问限制配置。</p>
      *
      * @param body body payload
      * @return response data

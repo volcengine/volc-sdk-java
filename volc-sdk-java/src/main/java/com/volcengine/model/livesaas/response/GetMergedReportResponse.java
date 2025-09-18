@@ -208,5 +208,7 @@ public class GetMergedReportResponse {
         List<Tag> Tags;
         @JSONField(name = "ActivityId")
         Long ActivityId;
+        @JSONField(name = "ActivityName")
+        String ActivityName;
     }
 }

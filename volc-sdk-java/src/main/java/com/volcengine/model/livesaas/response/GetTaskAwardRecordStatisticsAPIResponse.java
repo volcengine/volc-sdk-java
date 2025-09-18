@@ -55,5 +55,7 @@ public class GetTaskAwardRecordStatisticsAPIResponse {
         String Phone;
         @JSONField(name = "Status")
         Integer Status;
+        @JSONField(name = "AwardEmail")
+        String AwardEmail;
     }
 }

@@ -56,5 +56,7 @@ public class ListTasksResponse {
         Long ActivityId;
         @JSONField(name = "Tags")
         List<Tag> Tags;
+        @JSONField(name = "ActivityName")
+        String ActivityName;
     }
 }

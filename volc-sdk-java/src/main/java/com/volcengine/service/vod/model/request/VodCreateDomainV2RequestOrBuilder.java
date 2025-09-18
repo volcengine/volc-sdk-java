@@ -4,8 +4,8 @@
 package com.volcengine.service.vod.model.request;
 
 public interface VodCreateDomainV2RequestOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:Volcengine.Vod.Models.Request.VodCreateDomainV2Request)
-        com.google.protobuf.MessageOrBuilder {
+    // @@protoc_insertion_point(interface_extends:Volcengine.Vod.Models.Request.VodCreateDomainV2Request)
+    com.google.protobuf.MessageOrBuilder {
 
   /**
    * <code>string SpaceName = 1;</code>
@@ -17,7 +17,7 @@ public interface VodCreateDomainV2RequestOrBuilder extends
    * @return The bytes for spaceName.
    */
   com.google.protobuf.ByteString
-  getSpaceNameBytes();
+      getSpaceNameBytes();
 
   /**
    * <code>string DomainType = 2;</code>
@@ -29,7 +29,7 @@ public interface VodCreateDomainV2RequestOrBuilder extends
    * @return The bytes for domainType.
    */
   com.google.protobuf.ByteString
-  getDomainTypeBytes();
+      getDomainTypeBytes();
 
   /**
    * <pre>
@@ -49,7 +49,7 @@ public interface VodCreateDomainV2RequestOrBuilder extends
    * @return The bytes for domain.
    */
   com.google.protobuf.ByteString
-  getDomainBytes();
+      getDomainBytes();
 
   /**
    * <code>int32 SourceStationType = 5;</code>
@@ -85,7 +85,7 @@ public interface VodCreateDomainV2RequestOrBuilder extends
    * @return The bytes for origins.
    */
   com.google.protobuf.ByteString
-  getOriginsBytes();
+      getOriginsBytes();
 
   /**
    * <pre>
@@ -105,7 +105,7 @@ public interface VodCreateDomainV2RequestOrBuilder extends
    * @return The bytes for area.
    */
   com.google.protobuf.ByteString
-  getAreaBytes();
+      getAreaBytes();
 
   /**
    * <pre>
@@ -125,7 +125,7 @@ public interface VodCreateDomainV2RequestOrBuilder extends
    * @return The bytes for bucketName.
    */
   com.google.protobuf.ByteString
-  getBucketNameBytes();
+      getBucketNameBytes();
 
   /**
    * <pre>
@@ -145,7 +145,7 @@ public interface VodCreateDomainV2RequestOrBuilder extends
    * @return The bytes for host.
    */
   com.google.protobuf.ByteString
-  getHostBytes();
+      getHostBytes();
 
   /**
    * <pre>
@@ -202,7 +202,7 @@ public interface VodCreateDomainV2RequestOrBuilder extends
    * @return The bytes for region.
    */
   com.google.protobuf.ByteString
-  getRegionBytes();
+      getRegionBytes();
 
   /**
    * <pre>
@@ -222,7 +222,7 @@ public interface VodCreateDomainV2RequestOrBuilder extends
    * @return The bytes for originProtocol.
    */
   com.google.protobuf.ByteString
-  getOriginProtocolBytes();
+      getOriginProtocolBytes();
 
   /**
    * <code>string HttpPort = 15;</code>
@@ -234,7 +234,7 @@ public interface VodCreateDomainV2RequestOrBuilder extends
    * @return The bytes for httpPort.
    */
   com.google.protobuf.ByteString
-  getHttpPortBytes();
+      getHttpPortBytes();
 
   /**
    * <code>string HttpsPort = 16;</code>
@@ -246,7 +246,7 @@ public interface VodCreateDomainV2RequestOrBuilder extends
    * @return The bytes for httpsPort.
    */
   com.google.protobuf.ByteString
-  getHttpsPortBytes();
+      getHttpsPortBytes();
 
   /**
    * <code>string Weight = 17;</code>
@@ -258,7 +258,7 @@ public interface VodCreateDomainV2RequestOrBuilder extends
    * @return The bytes for weight.
    */
   com.google.protobuf.ByteString
-  getWeightBytes();
+      getWeightBytes();
 
   /**
    * <pre>
@@ -267,8 +267,8 @@ public interface VodCreateDomainV2RequestOrBuilder extends
    *
    * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
    */
-  java.util.List<com.volcengine.service.vod.model.business.CdnOriginRule>
-  getOriginList();
+  java.util.List<com.volcengine.service.vod.model.business.CdnOriginRule> 
+      getOriginList();
   /**
    * <pre>
    * 源站列表。
@@ -292,8 +292,8 @@ public interface VodCreateDomainV2RequestOrBuilder extends
    *
    * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
    */
-  java.util.List<? extends com.volcengine.service.vod.model.business.CdnOriginRuleOrBuilder>
-  getOriginOrBuilderList();
+  java.util.List<? extends com.volcengine.service.vod.model.business.CdnOriginRuleOrBuilder> 
+      getOriginOrBuilderList();
   /**
    * <pre>
    * 源站列表。
@@ -302,5 +302,25 @@ public interface VodCreateDomainV2RequestOrBuilder extends
    * <code>repeated .Volcengine.Vod.Models.Business.CdnOriginRule Origin = 18;</code>
    */
   com.volcengine.service.vod.model.business.CdnOriginRuleOrBuilder getOriginOrBuilder(
-          int index);
+      int index);
+
+  /**
+   * <pre>
+   * 业务类型，vod、web、download、live_video，不填写默认 vod
+   * </pre>
+   *
+   * <code>string BusinessType = 19;</code>
+   * @return The businessType.
+   */
+  java.lang.String getBusinessType();
+  /**
+   * <pre>
+   * 业务类型，vod、web、download、live_video，不填写默认 vod
+   * </pre>
+   *
+   * <code>string BusinessType = 19;</code>
+   * @return The bytes for businessType.
+   */
+  com.google.protobuf.ByteString
+      getBusinessTypeBytes();
 }

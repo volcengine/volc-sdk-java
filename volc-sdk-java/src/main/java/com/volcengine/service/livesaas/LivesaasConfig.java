@@ -4420,6 +4420,20 @@ public class LivesaasConfig {
                         }
                     }
             ));
+            put(Const.GetBMReport, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetBMReport));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

@@ -43,4 +43,6 @@ public class AwardRecordStatistic {
     Integer IsPriorityUser;
     @JSONField(name = "AwardItemName")
     String AwardItemName;
+    @JSONField(name = "AwardEmail")
+    String AwardEmail;
 }

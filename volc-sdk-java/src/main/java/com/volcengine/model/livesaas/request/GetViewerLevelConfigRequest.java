@@ -7,5 +7,6 @@ import java.util.List;
 
 @Data
 public class GetViewerLevelConfigRequest {
-
+    @JSONField(name = "ViewerLevelGroupId")
+    Long ViewerLevelGroupId;
 }

@@ -10,6 +10,8 @@ public class CreateViewerLevelConfigRequest {
     // 添加直播间敏感词内容
     @JSONField(name = "ViewerLevelConfigs")
     List<ViewerLevelConfigs> ViewerLevelConfigs;
+    @JSONField(name = "ViewerLevelGroupId")
+    Long ViewerLevelGroupId;
     @Data
     public static class ViewerLevelConfigs {
         @JSONField(name = "LevelName")

@@ -263,7 +263,7 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetRealTimeOnlineNumberAPIResponse getRealTimeOnlineNumberAPI(CommonRequest commonRequest) throws Exception;
-
+    
     /**
      * GetAccountRealTimeOnlineNumber
      *
@@ -272,7 +272,6 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetAccountRealTimeOnlineNumberResponse getAccountRealTimeOnlineNumber(GetAccountRealTimeOnlineNumberRequest getAccountRealTimeOnlineNumberRequest) throws Exception;
-
     /**
      * ListAnActivityStartAndEndTimeAPI
      *
@@ -2683,6 +2682,7 @@ public interface LivesaasService extends IBaseService {
      */
     GetMergedReportResponse getMergedReport(GetMergedReportRequest getMergedReportRequest) throws Exception;
 
+
     /**
      * updateViewerLevelConfig
      * @param updateViewerLevelConfigRequest UpdateViewerLevelConfigRequest
@@ -2731,6 +2731,33 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     ResendActivityCouponResponse resendActivityCoupon(ResendActivityCouponRequest resendActivityCouponRequest) throws Exception;
+
+    /**
+     * deleteViewerLevelGroup
+     *
+     * @param deleteViewerLevelGroupRequest DeleteViewerLevelGroupRequest
+     * @return DeleteViewerLevelGroupResponse
+     * @throws Exception the exception
+     */
+    DeleteViewerLevelGroupResponse deleteViewerLevelGroup(DeleteViewerLevelGroupRequest deleteViewerLevelGroupRequest) throws Exception;
+    
+    /**
+     * listAccountViewerLevelGroup
+     *
+     * @param listAccountViewerLevelGroupRequest ListAccountViewerLevelGroupRequest
+     * @return ListAccountViewerLevelGroupResponse
+     * @throws Exception the exception
+     */
+    ListAccountViewerLevelGroupResponse listAccountViewerLevelGroup(ListAccountViewerLevelGroupRequest listAccountViewerLevelGroupRequest) throws Exception;
+    
+    /**
+     * updateViewerLevelGroupConfig
+     *
+     * @param updateViewerLevelGroupConfigRequest UpdateViewerLevelGroupConfigRequest
+     * @return UpdateViewerLevelGroupConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateViewerLevelGroupConfigResponse updateViewerLevelGroupConfig(UpdateViewerLevelGroupConfigRequest updateViewerLevelGroupConfigRequest) throws Exception;
     /**
      * getBMReport
      * @param getBMReportRequest GetBMReportRequest

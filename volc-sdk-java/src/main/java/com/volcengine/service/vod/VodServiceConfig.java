@@ -1591,6 +1591,36 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.DescribeCdnEdgeIp, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "POST");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeCdnEdgeIp));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DescribeCdnRegionAndIsp, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "POST");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeCdnRegionAndIsp));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+
+                                }
+                            });
+                        }
+                    }
+            ));
             // **********************************************************************
             // 回调管理
             // **********************************************************************

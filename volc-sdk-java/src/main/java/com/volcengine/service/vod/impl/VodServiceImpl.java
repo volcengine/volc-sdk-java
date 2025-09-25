@@ -2930,7 +2930,43 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}
-	
+
+	/**
+     * describeCdnEdgeIp.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDescribeCdnEdgeIpRequest
+     * @return com.volcengine.service.vod.model.response.VodDescribeCdnEdgeIpResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodDescribeCdnEdgeIpResponse describeCdnEdgeIp(com.volcengine.service.vod.model.request.VodDescribeCdnEdgeIpRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.DescribeCdnEdgeIp, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodDescribeCdnEdgeIpResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodDescribeCdnEdgeIpResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+
+
+	/**
+     * describeCdnRegionAndIsp.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDescribeCdnRegionAndIspRequest
+     * @return com.volcengine.service.vod.model.response.VodDescribeCdnRegionAndIspResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodDescribeCdnRegionAndIspResponse describeCdnRegionAndIsp(com.volcengine.service.vod.model.request.VodDescribeCdnRegionAndIspRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.DescribeCdnRegionAndIsp, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodDescribeCdnRegionAndIspResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodDescribeCdnRegionAndIspResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
 	
 	/**
      * addCallbackSubscription.

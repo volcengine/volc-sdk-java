@@ -55,4 +55,6 @@ public class UpdateActivityRedPacketRequest {
     Integer TotalAmount;
     @JSONField(name = "VipUserInfoId")
     Long VipUserInfoId;
+    @JSONField(name = "Name")
+    String Name;
 }

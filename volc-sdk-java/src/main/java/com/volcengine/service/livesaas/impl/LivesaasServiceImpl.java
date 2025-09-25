@@ -4778,7 +4778,7 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
     @Override
     public GetViewerLevelConfigResponse getViewerLevelConfig(GetViewerLevelConfigRequest getViewerLevelConfigRequest) throws Exception {
-        RawResponse response = json(Const.GetViewerLevelConfig, new ArrayList<>(), JSON.toJSONString(getViewerLevelConfigRequest));
+        RawResponse response = query(Const.GetViewerLevelConfig, Utils.paramsToPair(getViewerLevelConfigRequest));
         if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -4798,6 +4798,51 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
             throw response.getException();
         }
         ResendActivityCouponResponse res = JSON.parseObject(response.getData(), ResendActivityCouponResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteViewerLevelGroupResponse deleteViewerLevelGroup(DeleteViewerLevelGroupRequest deleteViewerLevelGroupRequest) throws Exception {
+        RawResponse response = json(Const.DeleteViewerLevelGroup, new ArrayList<>(), JSON.toJSONString(deleteViewerLevelGroupRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteViewerLevelGroupResponse res = JSON.parseObject(response.getData(), DeleteViewerLevelGroupResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateViewerLevelGroupConfigResponse updateViewerLevelGroupConfig(UpdateViewerLevelGroupConfigRequest updateViewerLevelGroupConfigRequest) throws Exception {
+        RawResponse response = json(Const.UpdateViewerLevelGroupConfig, new ArrayList<>(), JSON.toJSONString(updateViewerLevelGroupConfigRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateViewerLevelGroupConfigResponse res = JSON.parseObject(response.getData(), UpdateViewerLevelGroupConfigResponse.class);
+        if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListAccountViewerLevelGroupResponse listAccountViewerLevelGroup(ListAccountViewerLevelGroupRequest listAccountViewerLevelGroupRequest) throws Exception {
+        RawResponse response = query(Const.ListAccountViewerLevelGroup, Utils.paramsToPair(listAccountViewerLevelGroupRequest));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListAccountViewerLevelGroupResponse res = JSON.parseObject(response.getData(), ListAccountViewerLevelGroupResponse.class);
         if (res.getResponseMetadata().getError()!= null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());

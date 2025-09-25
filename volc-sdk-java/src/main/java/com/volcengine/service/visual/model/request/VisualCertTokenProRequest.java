@@ -28,6 +28,8 @@ public class VisualCertTokenProRequest {
     Integer maxLivenessTrial = 10;
     @JSONField(name = "liveness_timeout")
     Integer livenessTimeout = 10;
+    @JSONField(name = "reflection_mode")
+    Integer reflectionMode = 0;
 
     @JSONField(name = "risk_liveness_type")
     RiskLivenessType riskLivenessType = new RiskLivenessType();

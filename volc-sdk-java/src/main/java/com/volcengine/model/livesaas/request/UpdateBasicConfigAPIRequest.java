@@ -158,6 +158,8 @@ public class UpdateBasicConfigAPIRequest {
     Integer IsAvatarShowEnable;
     @JSONField(name = "IsViewerLevelShowEnable")
     Integer IsViewerLevelShowEnable;
+    @JSONField(name = "BindAccountLevelGroupId")
+    Long BindAccountLevelGroupId;
     @Data
     public static class RiskWarningSetting {
         @JSONField(name = "IsRiskWarningEnable")

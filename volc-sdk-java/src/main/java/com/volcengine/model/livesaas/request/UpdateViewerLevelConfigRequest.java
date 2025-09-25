@@ -10,6 +10,8 @@ public class UpdateViewerLevelConfigRequest {
     // 添加直播间敏感词内容
     @JSONField(name = "UpdateLevelUnits")
     List<UpdateViewerLevelConfigRequest.UpdateLevelUnits> UpdateLevelUnits;
+    @JSONField(name = "ViewerLevelGroupId")
+    Long ViewerLevelGroupId;
 
     @Data
     public static class UpdateLevelUnits {

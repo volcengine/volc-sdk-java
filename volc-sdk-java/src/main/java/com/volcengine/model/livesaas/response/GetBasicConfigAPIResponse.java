@@ -170,6 +170,10 @@ public class GetBasicConfigAPIResponse {
         Integer IsAvatarShowEnable;
         @JSONField(name = "IsViewerLevelShowEnable")
         Integer IsViewerLevelShowEnable;
+        @JSONField(name = "BindAccountLevelGroupId")
+        Long BindAccountLevelGroupId;
+        @JSONField(name = "BindAccountLevelGroupName")
+        String BindAccountLevelGroupName;
     }
 
     @Data

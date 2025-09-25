@@ -796,6 +796,7 @@ public class Const {
     public static final String SdkMonitor = "SdkMonitor";
     public static final String ContentSearch = "Search";
     public static final String ContentSearchV2 = "SearchV2";
+    public static final String ContentAISearchV1 = "AISearchV1";
     //new
     public static final String FollowAction = "FollowAction";
     public static final String UnfollowAction = "UnfollowAction";
@@ -1182,4 +1183,7 @@ public class Const {
 
     public static final String UpdateAccountCustomLinkConfig = "UpdateAccountCustomLinkConfig";
     public static final String GetAccountCustomLinkConfig = "GetAccountCustomLinkConfig";
+    public static final String DeleteViewerLevelGroup = "DeleteViewerLevelGroup";
+    public static final String ListAccountViewerLevelGroup = "ListAccountViewerLevelGroup";
+    public static final String UpdateViewerLevelGroupConfig = "UpdateViewerLevelGroupConfig";
 }

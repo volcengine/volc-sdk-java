@@ -34,6 +34,8 @@ public class VisualCertConfigInitRequest {
         Integer motionCount = 10;
         @JSONField(name = "max_liveness_trial")
         Integer maxLivenessTrial = 10;
+        @JSONField(name = "reflection_mode")
+        Integer reflectionMode = 0;
         @JSONField(name = "tos_info")
         TosInfo tosInfo;
         @Data

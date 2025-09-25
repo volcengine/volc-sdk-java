@@ -1060,6 +1060,24 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodDescribeDomainConfigResponse describeDomainConfig(com.volcengine.service.vod.model.request.VodDescribeDomainConfigRequest input) throws Exception;
 	
 	/**
+     * describeCdnEdgeIp.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDescribeCdnEdgeIpRequest
+     * @return com.volcengine.service.vod.model.response.VodDescribeCdnEdgeIpResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodDescribeCdnEdgeIpResponse describeCdnEdgeIp(com.volcengine.service.vod.model.request.VodDescribeCdnEdgeIpRequest input) throws Exception;
+
+	/**
+     * describeCdnRegionAndIsp.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDescribeCdnRegionAndIspRequest
+     * @return com.volcengine.service.vod.model.response.VodDescribeCdnRegionAndIspResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodDescribeCdnRegionAndIspResponse describeCdnRegionAndIsp(com.volcengine.service.vod.model.request.VodDescribeCdnRegionAndIspRequest input) throws Exception;
+
+	/**
      * addCallbackSubscription.
      *
      * @param input com.volcengine.service.vod.model.request.VodAddCallbackSubscriptionRequest

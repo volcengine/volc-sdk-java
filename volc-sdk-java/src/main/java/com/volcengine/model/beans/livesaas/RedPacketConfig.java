@@ -76,4 +76,7 @@ public class RedPacketConfig {
 
     @JSONField(name = "VipUserInfoId")
     Long VipUserInfoId;
+
+    @JSONField(name = "Name")
+    String Name;
 }

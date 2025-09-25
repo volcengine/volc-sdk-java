@@ -9,4 +9,6 @@ import java.util.List;
 public class DeleteViewerLevelConfigRequest {
     @JSONField(name = "LevelIds")
     List<Long> LevelIds;
+    @JSONField(name = "ViewerLevelGroupId")
+    Long ViewerLevelGroupId;
 }

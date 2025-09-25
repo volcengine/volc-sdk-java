@@ -44,5 +44,7 @@ public class ListRedPacketDataAPIResponse {
         Long WithdrawalAmount;
         @JSONField(name = "RedPacketNumber")
         Long RedPacketNumber;
+        @JSONField(name = "Name")
+        String Name;
     }
 }

@@ -1,9 +1,12 @@
 package com.volcengine.service.vms.request;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Map;
 
 @Data
 @Builder
@@ -46,4 +49,8 @@ public class Click2CallRequest {
     private String lastVoiceTo;
 
     private String userData;
+
+    private Long ivrId;
+
+    private String ttsContentMap;
 }

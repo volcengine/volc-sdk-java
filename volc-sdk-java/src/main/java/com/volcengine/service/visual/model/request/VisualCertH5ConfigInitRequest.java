@@ -65,6 +65,8 @@ public class VisualCertH5ConfigInitRequest {
         int motionCount=2;
         @JSONField(name = "max_liveness_trial")
         int maxLivenessTrial=10;
+        @JSONField(name = "reflection_mode")
+        int reflectionMode=0;
 
     }
     @Data

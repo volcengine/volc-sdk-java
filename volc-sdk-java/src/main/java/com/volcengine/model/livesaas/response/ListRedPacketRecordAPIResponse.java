@@ -55,5 +55,7 @@ public class ListRedPacketRecordAPIResponse {
         String Email;
         @JSONField(name = "UserTel")
         String UserTel;
+        @JSONField(name = "IsPriorityUser")
+        Integer IsPriorityUser;
     }
 }

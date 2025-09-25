@@ -3,6 +3,8 @@ package com.volcengine.service.stream;
 import com.volcengine.model.stream.SearchGroupResponse;
 import com.volcengine.model.stream.SearchGroupResponseV2;
 import com.volcengine.model.stream.SearchRequest;
+import com.volcengine.model.stream.AISearchRequest;
+import com.volcengine.model.stream.AISearchResponse;
 import com.volcengine.service.IBaseService;
 
 public interface SearchService extends IBaseService {
@@ -25,4 +27,13 @@ public interface SearchService extends IBaseService {
      * @author lumeng.lim
      */
     SearchGroupResponseV2 searchGroupV2(SearchRequest request) throws Exception;
+
+    /**
+     * AI综合搜索
+     *
+     * @param request
+     * @return com.volcengine.model.stream.AISearchGroupResponse
+     * @author dingjunjun
+     */
+    AISearchResponse aiSearchV1(AISearchRequest request) throws Exception;
 }

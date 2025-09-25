@@ -155,6 +155,9 @@ public class Const {
     public static final String VerifyDomainOwner = "VerifyDomainOwner";
     public static final String DescribeDomainVerifyContent = "DescribeDomainVerifyContent";
 
+    public static final String DescribeCdnEdgeIp = "DescribeCdnEdgeIp";
+    public static final String DescribeCdnRegionAndIsp = "DescribeCdnRegionAndIsp";
+
     //vod-callback
     public static final String AddCallbackSubscription = "AddCallbackSubscription";
     public static final String SetCallbackEvent = "SetCallbackEvent";

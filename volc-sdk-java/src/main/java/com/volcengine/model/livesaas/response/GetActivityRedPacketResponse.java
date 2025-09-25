@@ -86,5 +86,8 @@ public class GetActivityRedPacketResponse {
 
         @JSONField(name = "VipUserInfoId")
         Long VipUserInfoId;
+
+        @JSONField(name = "Name")
+        String Name;
     }
 }

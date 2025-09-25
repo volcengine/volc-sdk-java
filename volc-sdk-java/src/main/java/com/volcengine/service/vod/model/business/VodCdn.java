@@ -409,6 +409,21 @@ public final class VodCdn {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainVerifyContentResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodDescribeCdnEdgeIpResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodDescribeCdnEdgeIpResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodDescribeCdnRegionAndIspResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodDescribeCdnRegionAndIspResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_NamePair_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_NamePair_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -724,22 +739,28 @@ public final class VodCdn {
       "rifyInfo\030\002 \001(\01326.Volcengine.Vod.Models.B" +
       "usiness.VodDomainDNSVerifyInfo\022O\n\016FileVe" +
       "rifyInfo\030\003 \001(\01327.Volcengine.Vod.Models.B" +
-      "usiness.VodDomainFileVerifyInfo*\222\001\n\032VodD" +
-      "omainSourceStationType\022\'\n#UndefinedVodDo" +
-      "mainSourceStationType\020\000\022!\n\035VodVodDomainS" +
-      "ourceStationType\020\001\022(\n$ThirdPartyVodDomai" +
-      "nSourceStationType\020\002*\323\001\n!VodDomainSource" +
-      "StationAddressType\022.\n*UndefinedVodDomain" +
-      "SourceStationAddressType\020\000\022+\n\'DomainVodD" +
-      "omainSourceStationAddressType\020\001\022\'\n#IPVod" +
-      "DomainSourceStationAddressType\020\002\022(\n$TOSV" +
-      "odDomainSourceStationAddressType\020\003B\312\001\n)c" +
-      "om.volcengine.service.vod.model.business" +
-      "B\006VodCdnP\001ZAgithub.com/volcengine/volc-s" +
-      "dk-golang/service/vod/models/business\240\001\001" +
-      "\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Models\\Busines" +
-      "s\342\002#Volc\\Service\\Vod\\Models\\GPBMetadatab" +
-      "\006proto3"
+      "usiness.VodDomainFileVerifyInfo\">\n\032VodDe" +
+      "scribeCdnEdgeIpResult\022\017\n\007CdnIpv4\030\001 \003(\t\022\017" +
+      "\n\007CdnIpv6\030\002 \003(\t\"\225\001\n VodDescribeCdnRegion" +
+      "AndIspResult\0226\n\004Isps\030\001 \003(\0132(.Volcengine." +
+      "Vod.Models.Business.NamePair\0229\n\007Regions\030" +
+      "\002 \003(\0132(.Volcengine.Vod.Models.Business.N" +
+      "amePair\"&\n\010NamePair\022\014\n\004Code\030\001 \001(\t\022\014\n\004Nam" +
+      "e\030\002 \001(\t*\222\001\n\032VodDomainSourceStationType\022\'" +
+      "\n#UndefinedVodDomainSourceStationType\020\000\022" +
+      "!\n\035VodVodDomainSourceStationType\020\001\022(\n$Th" +
+      "irdPartyVodDomainSourceStationType\020\002*\323\001\n" +
+      "!VodDomainSourceStationAddressType\022.\n*Un" +
+      "definedVodDomainSourceStationAddressType" +
+      "\020\000\022+\n\'DomainVodDomainSourceStationAddres" +
+      "sType\020\001\022\'\n#IPVodDomainSourceStationAddre" +
+      "ssType\020\002\022(\n$TOSVodDomainSourceStationAdd" +
+      "ressType\020\003B\312\001\n)com.volcengine.service.vo" +
+      "d.model.businessB\006VodCdnP\001ZAgithub.com/v" +
+      "olcengine/volc-sdk-golang/service/vod/mo" +
+      "dels/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vo" +
+      "d\\Models\\Business\342\002#Volc\\Service\\Vod\\Mod" +
+      "els\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1220,6 +1241,24 @@ public final class VodCdn {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDescribeDomainVerifyContentResult_descriptor,
         new java.lang.String[] { "NeedVerify", "DNSVerifyInfo", "FileVerifyInfo", });
+    internal_static_Volcengine_Vod_Models_Business_VodDescribeCdnEdgeIpResult_descriptor =
+      getDescriptor().getMessageTypes().get(79);
+    internal_static_Volcengine_Vod_Models_Business_VodDescribeCdnEdgeIpResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodDescribeCdnEdgeIpResult_descriptor,
+        new java.lang.String[] { "CdnIpv4", "CdnIpv6", });
+    internal_static_Volcengine_Vod_Models_Business_VodDescribeCdnRegionAndIspResult_descriptor =
+      getDescriptor().getMessageTypes().get(80);
+    internal_static_Volcengine_Vod_Models_Business_VodDescribeCdnRegionAndIspResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodDescribeCdnRegionAndIspResult_descriptor,
+        new java.lang.String[] { "Isps", "Regions", });
+    internal_static_Volcengine_Vod_Models_Business_NamePair_descriptor =
+      getDescriptor().getMessageTypes().get(81);
+    internal_static_Volcengine_Vod_Models_Business_NamePair_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_NamePair_descriptor,
+        new java.lang.String[] { "Code", "Name", });
     com.volcengine.service.vod.model.business.VodCommon.getDescriptor();
   }
 

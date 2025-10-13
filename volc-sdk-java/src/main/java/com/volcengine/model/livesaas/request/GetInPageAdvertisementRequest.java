@@ -1,0 +1,10 @@
+package com.volcengine.model.livesaas.request;
+
+import com.alibaba.fastjson.annotation.JSONField;
+import lombok.Data;
+
+@Data
+public class GetInPageAdvertisementRequest {
+    @JSONField(name = "ActivityId")
+    private Long ActivityId;
+}

@@ -18,9 +18,9 @@ public class DeleteSmsTemplateDemo {
         smsService.setSecretKey("sk");
 
         DeleteSmsTemplateRequest req = new DeleteSmsTemplateRequest();
-        req.setSubAccount("subAccount");
+        req.setSubAccount("SubAccount");
         req.setOrder(true);
-        req.setId("id");
+        req.setId(1L);
         try {
             DeleteSmsTemplateResponse response = smsService.deleteSmsTemplate(req);
             System.out.println(JSON.toJSONString(response));

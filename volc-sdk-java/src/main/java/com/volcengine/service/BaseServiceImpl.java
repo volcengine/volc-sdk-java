@@ -93,7 +93,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         }
         try {
             monitorThread.shutdown();
-        }catch (Error e) {
+        } catch (Error e) {
             LOG.error("Try to destroy monitor thread failed", e);
         } finally {
             monitorThread = null;
@@ -220,7 +220,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         return doPut(url, httpEntity, headers);
     }
 
-    public HttpResponse postDataWithResponse(String url,byte[] data, Map<String, String> headers) {
+    public HttpResponse postDataWithResponse(String url, byte[] data, Map<String, String> headers) {
         HttpPost httpPost = new HttpPost(url);
         HttpEntity httpEntity = new ByteArrayEntity(data);
         if (headers != null && headers.size() > 0) {
@@ -340,16 +340,16 @@ public abstract class BaseServiceImpl implements IBaseService {
         return makeRequest(api, request);
     }
 
-    public RawResponse postFileMultiPart(String api,List<NameValuePair> fromData,String dataName,String fileName,byte[] data){
+    public RawResponse postFileMultiPart(String api, List<NameValuePair> fromData, String dataName, String fileName, byte[] data) {
         ApiInfo apiInfo = apiInfoList.get(api);
         if (apiInfo == null) {
             return new RawResponse(null, SdkError.ENOAPI.getNumber(), new Exception(SdkError.getErrorDesc(SdkError.ENOAPI)));
         }
 
         MultipartEntityBuilder multipartEntityBuilder = MultipartEntityBuilder.create();
-        multipartEntityBuilder.addBinaryBody(dataName, data,ContentType.APPLICATION_OCTET_STREAM,fileName);
-        for(NameValuePair nameValuePair: fromData) {
-            multipartEntityBuilder.addTextBody(nameValuePair.getName(),nameValuePair.getValue());
+        multipartEntityBuilder.addBinaryBody(dataName, data, ContentType.APPLICATION_OCTET_STREAM, fileName);
+        for (NameValuePair nameValuePair : fromData) {
+            multipartEntityBuilder.addTextBody(nameValuePair.getName(), nameValuePair.getValue());
         }
 
         HttpEntity reqEntity = multipartEntityBuilder.build();

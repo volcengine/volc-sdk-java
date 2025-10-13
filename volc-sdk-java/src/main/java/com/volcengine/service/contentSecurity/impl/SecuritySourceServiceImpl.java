@@ -3,9 +3,10 @@ package com.volcengine.service.contentSecurity.impl;
 import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
+import com.volcengine.model.request.RcLlmRequest;
+import com.volcengine.model.request.RcLlmResultRequest;
 import com.volcengine.model.request.SecuritySourceRequest;
-import com.volcengine.model.response.RawResponse;
-import com.volcengine.model.response.SecuritySourceResponse;
+import com.volcengine.model.response.*;
 import com.volcengine.service.SignableRequest;
 import com.volcengine.service.contentSecurity.SecuritySourceConfig;
 import com.volcengine.service.contentSecurity.SecuritySourceException;
@@ -99,4 +100,86 @@ public class SecuritySourceServiceImpl extends BaseServiceImpl implements Securi
             }
         }
     }
+
+    @Override
+    public RcTextModerationResponse textModeration(RcLlmRequest rcLlmRequest) throws Exception {
+        RawResponse response = json(Const.TextModeration, new ArrayList<>(), JSON.toJSONString(rcLlmRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), RcTextModerationResponse.class);
+    }
+
+    @Override
+    public AsyncRiskDetectionResponse asyncTextModeration(RcLlmRequest rcLlmRequest) throws Exception {
+        RawResponse response = json(Const.AsyncTextModeration, new ArrayList<>(), JSON.toJSONString(rcLlmRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
+    }
+
+    @Override
+    public RcTextModerationResponse textModerationResult(RcLlmResultRequest rcLlmResultRequest) throws Exception{
+        RawResponse response = json(Const.TextModerationResult, new ArrayList<>(), JSON.toJSONString(rcLlmResultRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), RcTextModerationResponse.class);
+    }
+
+    @Override
+    public RcMultiModerationResponse multiModeration(RcLlmRequest rcLlmRequest) throws Exception {
+        RawResponse response = json(Const.MultiModeration, new ArrayList<>(), JSON.toJSONString(rcLlmRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), RcMultiModerationResponse.class);
+    }
+
+    @Override
+    public AsyncRiskDetectionResponse asyncMultiModeration(RcLlmRequest rcLlmRequest) throws Exception {
+        RawResponse response = json(Const.AsyncMultiModeration, new ArrayList<>(), JSON.toJSONString(rcLlmRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
+    }
+
+    @Override
+    public RcMultiModerationResponse multiModerationResult(RcLlmResultRequest rcLlmResultRequest) throws Exception{
+        RawResponse response = json(Const.MultiModerationResult, new ArrayList<>(), JSON.toJSONString(rcLlmResultRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), RcMultiModerationResponse.class);
+    }
+
+    @Override
+    public RcCustomRiskResponse customRisk(RcLlmRequest rcLlmRequest) throws Exception {
+        RawResponse response = json(Const.CustomRisk, new ArrayList<>(), JSON.toJSONString(rcLlmRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), RcCustomRiskResponse.class);
+    }
+
+    @Override
+    public AsyncRiskDetectionResponse asyncCustomRisk(RcLlmRequest rcLlmRequest) throws Exception {
+        RawResponse response = json(Const.AsyncCustomRisk, new ArrayList<>(), JSON.toJSONString(rcLlmRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
+    }
+
+    @Override
+    public RcCustomRiskResponse customRiskResult(RcLlmResultRequest rcLlmResultRequest) throws Exception{
+        RawResponse response = json(Const.CustomRiskResult, new ArrayList<>(), JSON.toJSONString(rcLlmResultRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), RcCustomRiskResponse.class);
+    }
+
 }

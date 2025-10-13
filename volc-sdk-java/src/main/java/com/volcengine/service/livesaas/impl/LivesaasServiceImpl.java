@@ -70,6 +70,96 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public GetLiveLinkDurationDataResponse getLiveLinkDurationData(GetLiveLinkDurationDataRequest getLiveLinkDurationDataRequest) throws Exception {
+        RawResponse response = json(Const.GetLiveLinkDurationData, new ArrayList<>(), JSON.toJSONString(getLiveLinkDurationDataRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetLiveLinkDurationDataResponse res = JSON.parseObject(response.getData(), GetLiveLinkDurationDataResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateInPageAdvertisementResponse updateInPageAdvertisement(UpdateInPageAdvertisementRequest updateInPageAdvertisementRequest) throws Exception {
+        RawResponse response = json(Const.UpdateInPageAdvertisement, new ArrayList<>(), JSON.toJSONString(updateInPageAdvertisementRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateInPageAdvertisementResponse res = JSON.parseObject(response.getData(), UpdateInPageAdvertisementResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetInPageAdvertisementResponse getInPageAdvertisement(GetInPageAdvertisementRequest getInPageAdvertisementRequest) throws Exception {
+        RawResponse response = query(Const.GetInPageAdvertisement, Utils.paramsToPair(getInPageAdvertisementRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetInPageAdvertisementResponse res = JSON.parseObject(response.getData(), GetInPageAdvertisementResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateSingleActivityProductResponse updateSingleActivityProduct(UpdateSingleActivityProductRequest updateSingleActivityProductRequest) throws Exception {
+        RawResponse response = json(Const.UpdateSingleActivityProduct, new ArrayList<>(), JSON.toJSONString(updateSingleActivityProductRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateSingleActivityProductResponse res = JSON.parseObject(response.getData(), UpdateSingleActivityProductResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateProductOutOfStockResponse updateProductOutOfStock(UpdateProductOutOfStockRequest updateProductOutOfStockRequest) throws Exception {
+        RawResponse response = json(Const.UpdateProductOutOfStock, new ArrayList<>(), JSON.toJSONString(updateProductOutOfStockRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateProductOutOfStockResponse res = JSON.parseObject(response.getData(), UpdateProductOutOfStockResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public HideProductPriceResponse hideProductPrice(HideProductPriceRequest hideProductPriceRequest) throws Exception {
+        RawResponse response = json(Const.HideProductPrice, new ArrayList<>(), JSON.toJSONString(hideProductPriceRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        HideProductPriceResponse res = JSON.parseObject(response.getData(), HideProductPriceResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public GetAccountCustomLinkConfigResponse getAccountCustomLinkConfig(GetAccountCustomLinkConfigRequest getAccountCustomLinkConfigRequest) throws Exception {
         RawResponse response = query(Const.GetAccountCustomLinkConfig, Utils.paramsToPair(getAccountCustomLinkConfigRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

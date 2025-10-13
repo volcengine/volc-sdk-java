@@ -3,7 +3,6 @@ package com.volcengine.example.sms;
 import com.alibaba.fastjson.JSON;
 import com.volcengine.model.request.ApplySignatureIdentRequest;
 import com.volcengine.model.response.ApplySignatureIdentResponse;
-import com.volcengine.model.response.ApplySmsSignatureResponse;
 import com.volcengine.model.sms.DocType;
 import com.volcengine.model.sms.ImageType;
 import com.volcengine.model.sms.SignAuthFile;
@@ -11,8 +10,6 @@ import com.volcengine.service.sms.SmsService;
 import com.volcengine.service.sms.impl.SmsServiceImpl;
 
 import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -26,22 +23,23 @@ public class ApplySignatureIdentDemo {
         SmsService smsService = SmsServiceImpl.getInstance();
 
         // call below method if you dont set ak and sk in ～/.vcloud/config
-        smsService.setAccessKey("ak");
-        smsService.setSecretKey("sk");
+        smsService.setAccessKey("");
+        smsService.setSecretKey("");
 
         ApplySignatureIdentRequest request = new ApplySignatureIdentRequest();
         request.setFrom("");
-        request.setPurpose(1); // 资质用途； 1.自用，2.他用
+        request.setPurpose(1); // 资质用途；1.自用，2.他用
         request.setMaterialName(""); // 资质名称
         request.setBusinessInfo(getBusinessInfo()); // 企业信息
-        request.setOperatorPersonInfo(getPersonInfo());// 经办人信息
-        request.setResponsiblePersonInfo(getPersonInfo());// 责任人信息
-        request.setPowerOfAttorney(getSignAuthFile());// 授权书
+        request.setOperatorPersonInfo(getPersonInfo()); // 经办人信息
+        request.setResponsiblePersonInfo(getPersonInfo()); // 责任人信息
+        request.setLegalPersonInfo(getPersonInfo()); // 法人信息
+        request.setPowerOfAttorney(getSignAuthFile()); // 授权书
         request.setOtherMaterials(getSignAuthFile()); // 其他材料
-        request.setEffectSignatures(getEffectSignatures());// 生效签名范围
-        request.setBusinessCheckTicket("");// 企业验证票据
+        request.setEffectSignatures(getEffectSignatures()); // 生效签名范围
+        request.setBusinessCheckTicket(""); // 企业验证票据
         request.setOperatorCheckTicket(""); // 经办人验证票据
-        request.setResponsibleCheckTicket("");// 责任人验证票据
+        request.setResponsibleCheckTicket(""); // 责任人验证票据
 
         try {
             ApplySignatureIdentResponse response = smsService.applySignatureIdent(request);

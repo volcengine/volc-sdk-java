@@ -6,6 +6,9 @@ import com.volcengine.model.response.DeleteSignatureResponse;
 import com.volcengine.service.sms.SmsService;
 import com.volcengine.service.sms.impl.SmsServiceImpl;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class DeleteSignatureDemo {
     public static void main(String[] args) throws Exception {
         // Make sure only get instance once throughout the entire running program.
@@ -18,9 +21,8 @@ public class DeleteSignatureDemo {
         smsService.setSecretKey("sk");
 
         DeleteSignatureRequest req = new DeleteSignatureRequest();
-        req.setSubAccount("subAccount");
-        req.setOrder(true);
-        req.setId("id");
+        req.setSubAccounts(new ArrayList<>(Arrays.asList("subAccount1", "subAccount2")));
+        req.setId(2306L);
         try {
             DeleteSignatureResponse response = smsService.deleteSmsSignature(req);
             System.out.println(JSON.toJSONString(response));

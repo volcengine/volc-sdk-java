@@ -508,6 +508,24 @@ public interface LivesaasService extends IBaseService {
     CommonStatusResponse enableProductAPI(EnableProductRequest enableProductRequest) throws Exception;
 
     /**
+     * GetInPageAdvertisement
+     *
+     * @param getInPageAdvertisementRequest GetInPageAdvertisementRequest
+     * @return GetInPageAdvertisementResponse
+     * @throws Exception the exception
+     */
+    GetInPageAdvertisementResponse getInPageAdvertisement(GetInPageAdvertisementRequest getInPageAdvertisementRequest) throws Exception;
+
+    /**
+     * UpdateInPageAdvertisement
+     *
+     * @param updateInPageAdvertisementRequest UpdateInPageAdvertisementRequest
+     * @return UpdateInPageAdvertisementResponse
+     * @throws Exception the exception
+     */
+    UpdateInPageAdvertisementResponse updateInPageAdvertisement(UpdateInPageAdvertisementRequest updateInPageAdvertisementRequest) throws Exception;
+
+    /**
      * ListCallbackEvents
      *
      * @param listCallbackEventsRequest ListCallbackEventsRequest
@@ -670,6 +688,15 @@ public interface LivesaasService extends IBaseService {
     ListHostAccountAPIResponse listHostAccountAPI(ListHostAccountAPIRequest listHostAccountAPIRequest) throws Exception;
 
     /**
+     * GetLiveLinkDurationData
+     *
+     * @param getLiveLinkDurationDataRequest GetLiveLinkDurationDataRequest
+     * @return GetLiveLinkDurationDataResponse
+     * @throws Exception the exception
+     */
+    GetLiveLinkDurationDataResponse getLiveLinkDurationData(GetLiveLinkDurationDataRequest getLiveLinkDurationDataRequest) throws Exception;
+
+    /**
      * GetBusinessAccountInfoAPI
      *
      * @param commonRequest CommonRequest
@@ -677,6 +704,33 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetBusinessAccountInfoAPIResponse getBusinessAccountInfoAPI(CommonRequest commonRequest) throws Exception;
+
+    /**
+     * UpdateSingleActivityProduct
+     *
+     * @param updateSingleActivityProductRequest UpdateSingleActivityProductRequest
+     * @return UpdateSingleActivityProductResponse
+     * @throws Exception the exception
+     */
+    UpdateSingleActivityProductResponse updateSingleActivityProduct(UpdateSingleActivityProductRequest updateSingleActivityProductRequest) throws Exception;
+
+    /**
+     * UpdateProductOutOfStock
+     *
+     * @param updateProductOutOfStockRequest UpdateProductOutOfStockRequest
+     * @return UpdateProductOutOfStockResponse
+     * @throws Exception the exception
+     */
+    UpdateProductOutOfStockResponse updateProductOutOfStock(UpdateProductOutOfStockRequest updateProductOutOfStockRequest) throws Exception;
+
+    /**
+     * HideProductPrice
+     *
+     * @param hideProductPriceRequest HideProductPriceRequest
+     * @return HideProductPriceResponse
+     * @throws Exception the exception
+     */
+    HideProductPriceResponse hideProductPrice(HideProductPriceRequest hideProductPriceRequest) throws Exception;
 
     /**
      * UploadMediaByURL

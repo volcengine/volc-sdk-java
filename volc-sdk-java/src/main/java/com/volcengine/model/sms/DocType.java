@@ -21,7 +21,10 @@ public enum DocType {
     HMTResidenceCard(15, "港澳台居民居住证照片"),
 
     AppIcpCertificate(16, "AppIcp信息"),
-    TrademarkCertificate(17, "商标信息");
+    TrademarkCertificate(17, "商标信息"),
+    LegalPersonIDCardFront(18, "法人身份证人像面"),
+    LegalPersonIDCardBack(18, "法人身份证国徽面");
+
 
     private int code;
 

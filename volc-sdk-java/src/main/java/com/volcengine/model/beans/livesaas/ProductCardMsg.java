@@ -45,4 +45,8 @@ public class ProductCardMsg {
     Integer PromotionTagType;
     @JSONField(name = "IsOrderMsgEnable")
     Integer IsOrderMsgEnable;
+    @JSONField(name = "OutOfStock")
+    Integer OutOfStock;
+    @JSONField(name = "PriceHidden")
+    Integer PriceHidden;
 }

@@ -46,7 +46,7 @@ public class SendSmsDemo {
         }
     }
 
-    private static void TestApplyTemplate(SmsService smsService) throws IOException {
+     static void TestApplyTemplate(SmsService smsService) throws IOException {
         ApplyVmsTemplateRequest req = new ApplyVmsTemplateRequest();
         req.setChannelType("CN_VMS");
         req.setSubAccount("subaccount");
@@ -75,7 +75,7 @@ public class SendSmsDemo {
         }
     }
 
-    private static void GetTemplateStatus(SmsService smsService) throws IOException {
+     static void GetTemplateStatus(SmsService smsService) throws IOException {
         GetVmsTemplateStatusRequest req = new GetVmsTemplateStatusRequest();
         req.setSubAccount("subaccount");
         req.setTemplateId("template");
@@ -87,7 +87,7 @@ public class SendSmsDemo {
         }
     }
 
-    private static void SendVms(SmsService smsService) throws IOException {
+     static void SendVms(SmsService smsService) throws IOException {
         SmsSendRequest req = new SmsSendRequest();
         req.setPhoneNumbers("188888888");
         req.setSmsAccount("subaccount");

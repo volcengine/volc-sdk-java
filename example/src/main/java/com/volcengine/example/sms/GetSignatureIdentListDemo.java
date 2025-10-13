@@ -27,7 +27,7 @@ public class GetSignatureIdentListDemo {
 
     private static GetSignatureIdentListRequest getGetSignatureIdentListRequest() {
         GetSignatureIdentListRequest request = new GetSignatureIdentListRequest();
-        request.setId(1);// 资质id
+        request.setId(9149);// 资质id
         request.setMaterialName("");// 资质名称
         request.setOperatorPersonName("");// 证件名
         request.setResponsiblePersonName("");// 证件名
@@ -41,7 +41,7 @@ public class GetSignatureIdentListDemo {
         request.setPageIndex(1);
         request.setPageSize(10);
         List<Long> ids = new ArrayList<>();
-        ids.add(1L);
+        ids.add(9149L);
         request.setIds(ids);// 资质id列表
         return request;
     }

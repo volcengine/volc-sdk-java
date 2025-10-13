@@ -39,6 +39,9 @@ public class GetSignatureIdentListResponse {
         @JSONField(name = "operatorPersonName")
         String operatorPersonName;
 
+        @JSONField(name = "legalPersonName")
+        String legalPersonName;
+
         @JSONField(name = "responsiblePersonName")
         String responsiblePersonName;
 

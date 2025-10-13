@@ -8,9 +8,6 @@ import java.util.List;
 
 @Data
 public class ApplySmsSignatureV2Request {
-    @JSONField(name = "subAccount")
-    String subAccount;
-
     @JSONField(name = "content")
     String content;
 
@@ -49,4 +46,10 @@ public class ApplySmsSignatureV2Request {
 
     @JSONField(name = "scene")
     String Scene;
+
+    @JSONField(name = "subAccounts")
+    List<String> subAccounts;
+
+    @JSONField(name = "channelTypes")
+    List<String> channelTypes;
 }

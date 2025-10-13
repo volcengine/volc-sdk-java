@@ -27,6 +27,9 @@ public class ApplySignatureIdentRequest {
     @JSONField(name = "responsiblePersonInfo")
     PersonInfo responsiblePersonInfo;
 
+    @JSONField(name = "legalPerson")
+    PersonInfo legalPersonInfo;
+
 
     @JSONField(name = "powerOfAttorney")
     List<SignAuthFile> powerOfAttorney;

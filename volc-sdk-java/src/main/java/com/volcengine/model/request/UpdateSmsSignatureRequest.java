@@ -44,6 +44,12 @@ public class UpdateSmsSignatureRequest {
     @JSONField(name = "scene")
     String scene;
 
-    @JSONField(name = "subAccount")
-    String subAccount;
+    @JSONField(name = "subAccounts")
+    List<String> subAccounts;
+
+    @JSONField(name = "channelTypes")
+    List<String> channelTypes;
+
+    @JSONField(name = "updateType")
+    int updateType;
 }

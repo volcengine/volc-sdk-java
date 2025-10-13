@@ -6,7 +6,9 @@ import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.request.*;
+import com.volcengine.model.request.sms.*;
 import com.volcengine.model.response.*;
+import com.volcengine.model.response.sms.*;
 import com.volcengine.model.tls.ClientBuilder;
 import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.sms.SmsConfig;
@@ -286,7 +288,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
     @Override
     public GetSignatureAndOrderListResponse getSmsSignatureAndOrderList(
             GetSignatureAndOrderListRequest getSignatureAndOrderListRequest) throws Exception {
-        List<NameValuePair> urlParams = ConvertUtils.convertToPair(getSignatureAndOrderListRequest);
+        List<NameValuePair> urlParams = ConvertUtils.convertToPairV2(getSignatureAndOrderListRequest);
         RawResponse response = json("GetSignatureAndOrderList", urlParams, "");
         return getSignatureAndOrderListResponse(response);
     }
@@ -316,6 +318,7 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
 
     @Override
     public DeleteSignatureResponse deleteSmsSignature(DeleteSignatureRequest deleteSignatureRequest) throws Exception {
+        deleteSignatureRequest.setOrder(true);
         RawResponse response = json("DeleteSignature", new ArrayList<>(), JSON.toJSONString(deleteSignatureRequest));
         return deleteSignatureResponse(response);
     }
@@ -636,6 +639,26 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
         return applySignatureIdentResponse(response);
     }
 
+    @Override
+    public UpdateSignatureIdentResponse updateSignatureIdent(UpdateSignatureIdentRequest updateSignatureIdentRequest) throws Exception {
+        RawResponse response =
+                json("UpdateSignatureIdent", new ArrayList<>(), JSON.toJSONString(updateSignatureIdentRequest));
+        return updateSignatureIdent(response);
+    }
+
+    public UpdateSignatureIdentResponse updateSignatureIdent(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateSignatureIdentResponse res = JSON.parseObject(response.getData(), UpdateSignatureIdentResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
     public ApplySignatureIdentResponse applySignatureIdentResponse(RawResponse response) throws Exception {
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
@@ -681,6 +704,278 @@ public class SmsServiceImpl extends BaseServiceImpl implements SmsService {
             throw response.getException();
         }
         BatchBindSignatureIdentResponse res = JSON.parseObject(response.getData(), BatchBindSignatureIdentResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    @Override
+    public BulkCreateTobTrafficDrivingLinkResponse bulkCreateTobTrafficDrivingLink(BulkCreateTobTrafficDrivingLinkRequest request) throws Exception {
+        RawResponse response = json("BulkCreateTobTrafficDrivingLink", new ArrayList<>(), JSON.toJSONString(request));
+        return bulkCreateTobTrafficDrivingLinkResponse(response);
+    }
+
+    public BulkCreateTobTrafficDrivingLinkResponse bulkCreateTobTrafficDrivingLinkResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        BulkCreateTobTrafficDrivingLinkResponse res = JSON.parseObject(response.getData(), BulkCreateTobTrafficDrivingLinkResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    @Override
+    public BulkCreateTobTrafficDrivingPhoneResponse bulkCreateTobTrafficDrivingPhone(BulkCreateTobTrafficDrivingPhoneRequest request) throws Exception {
+        RawResponse response = json("BulkCreateTobTrafficDrivingPhone", new ArrayList<>(), JSON.toJSONString(request));
+        return bulkCreateTobTrafficDrivingPhoneResponse(response);
+    }
+
+    public BulkCreateTobTrafficDrivingPhoneResponse bulkCreateTobTrafficDrivingPhoneResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        BulkCreateTobTrafficDrivingPhoneResponse res = JSON.parseObject(response.getData(), BulkCreateTobTrafficDrivingPhoneResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    @Override
+    public DeleteTobTrafficDrivingLinkResponse deleteTobTrafficDrivingLink(DeleteTobTrafficDrivingLinkRequest request) throws Exception {
+        RawResponse response = json("DeleteTobTrafficDrivingLink", new ArrayList<>(), JSON.toJSONString(request));
+        return deleteTobTrafficDrivingLinkResponse(response);
+    }
+
+    public DeleteTobTrafficDrivingLinkResponse deleteTobTrafficDrivingLinkResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteTobTrafficDrivingLinkResponse res = JSON.parseObject(response.getData(), DeleteTobTrafficDrivingLinkResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    @Override
+    public DeleteTobTrafficDrivingPhoneResponse deleteTobTrafficDrivingPhone(DeleteTobTrafficDrivingPhoneRequest request) throws Exception {
+        RawResponse response = json("DeleteTobTrafficDrivingPhone", new ArrayList<>(), JSON.toJSONString(request));
+        return deleteTobTrafficDrivingPhoneResponse(response);
+    }
+
+    public DeleteTobTrafficDrivingPhoneResponse deleteTobTrafficDrivingPhoneResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteTobTrafficDrivingPhoneResponse res = JSON.parseObject(response.getData(), DeleteTobTrafficDrivingPhoneResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    @Override
+    public GetRelationTemplateListResponse getRelationTemplateList(GetRelationTemplateListRequest request) throws Exception {
+        List<NameValuePair> urlParams = ConvertUtils.convertToPairV2(request);
+        RawResponse response = json("ListRelationTemplate", urlParams, "");
+        return getRelationTemplateListResponse(response);
+    }
+
+    public GetRelationTemplateListResponse getRelationTemplateListResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetRelationTemplateListResponse res = JSON.parseObject(response.getData(), GetRelationTemplateListResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    @Override
+    public GetTobTrafficDrivingLinkListResponse getTobTrafficDrivingLinkList(GetTobTrafficDrivingLinkListRequest request) throws Exception {
+        List<NameValuePair> urlParams = ConvertUtils.convertToPairV2(request);
+        RawResponse response = json("GetTobTrafficDrivingLinkList", urlParams, "");
+        return getTobTrafficDrivingLinkListResponse(response);
+    }
+
+    public GetTobTrafficDrivingLinkListResponse getTobTrafficDrivingLinkListResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetTobTrafficDrivingLinkListResponse res = JSON.parseObject(response.getData(), GetTobTrafficDrivingLinkListResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    @Override
+    public GetTobTrafficDrivingPhoneListResponse getTobTrafficDrivingPhoneList(GetTobTrafficDrivingPhoneListRequest request) throws Exception {
+        List<NameValuePair> urlParams = ConvertUtils.convertToPairV2(request);
+        RawResponse response = json("GetTobTrafficDrivingPhoneList", urlParams, "");
+        return getTobTrafficDrivingPhoneListResponse(response);
+    }
+
+    public GetTobTrafficDrivingPhoneListResponse getTobTrafficDrivingPhoneListResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetTobTrafficDrivingPhoneListResponse res = JSON.parseObject(response.getData(), GetTobTrafficDrivingPhoneListResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    @Override
+    public UpdateTobTrafficDrivingPhoneResponse updateTobTrafficDrivingPhone(UpdateTobTrafficDrivingPhoneRequest request) throws Exception {
+        RawResponse response = json("UpdateTobTrafficDrivingPhone", new ArrayList<>(), JSON.toJSONString(request));
+        return updateTobTrafficDrivingPhoneResponse(response);
+    }
+
+    public UpdateTobTrafficDrivingPhoneResponse updateTobTrafficDrivingPhoneResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateTobTrafficDrivingPhoneResponse res = JSON.parseObject(response.getData(), UpdateTobTrafficDrivingPhoneResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    @Override
+    public ApplySmsTemplateV2Response applySmsTemplateV2(ApplySmsTemplateV2Request request) throws Exception {
+        RawResponse response = json("ApplySmsTemplateV2SDK", new ArrayList<>(), JSON.toJSONString(request));
+        return applySmsTemplateV2Response(response);
+    }
+
+    public ApplySmsTemplateV2Response applySmsTemplateV2Response(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ApplySmsTemplateV2Response res = JSON.parseObject(response.getData(), ApplySmsTemplateV2Response.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    @Override
+    public ListSmsTemplateV2Response listSmsTemplateV2(ListSmsTemplateV2Request request) throws Exception {
+        List<NameValuePair> urlParams = ConvertUtils.convertToPairV2(request);
+        RawResponse response = json("ListSmsTemplateV2SDK", urlParams, "");
+        return listSmsTemplateV2Response(response);
+    }
+
+    public ListSmsTemplateV2Response listSmsTemplateV2Response(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListSmsTemplateV2Response res = JSON.parseObject(response.getData(), ListSmsTemplateV2Response.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    @Override
+    public BindTrafficDrivingParamsResponse bindTrafficDrivingParams(BindTrafficDrivingParamsRequest request) throws Exception {
+        RawResponse response = json("BindTrafficDrivingParamsSDK", new ArrayList<>(), JSON.toJSONString(request));
+        return bindTrafficDrivingParamsResponse(response);
+    }
+
+    public BindTrafficDrivingParamsResponse bindTrafficDrivingParamsResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        BindTrafficDrivingParamsResponse res = JSON.parseObject(response.getData(), BindTrafficDrivingParamsResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    @Override
+    public BindSignaturesResponse bindSignatures(BindSignaturesRequest request) throws Exception {
+        RawResponse response = json("BindSignatures", new ArrayList<>(), JSON.toJSONString(request));
+        return bindSignaturesResponse(response);
+    }
+
+    public BindSignaturesResponse bindSignaturesResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        BindSignaturesResponse res = JSON.parseObject(response.getData(), BindSignaturesResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    @Override
+    public ListSecondTemplateResponse listSecondTemplate(ListSecondTemplateRequest request) throws Exception {
+        List<NameValuePair> urlParams = ConvertUtils.convertToPairV2(request);
+        RawResponse response = json("ListSecondTemplate", urlParams, "");
+        return listSecondTemplateResponse(response);
+    }
+
+    public ListSecondTemplateResponse listSecondTemplateResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListSecondTemplateResponse res = JSON.parseObject(response.getData(), ListSecondTemplateResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("volcSMS");
+        return res;
+    }
+
+    @Override
+    public ListSubContentResponse listSubContent(ListSubContentRequest request) throws Exception {
+        List<NameValuePair> urlParams = ConvertUtils.convertToPairV2(request);
+        RawResponse response = json("ListSubContent", urlParams, "");
+        return listSubContentResponse(response);
+    }
+
+    public ListSubContentResponse listSubContentResponse(RawResponse response) throws Exception {
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListSubContentResponse res = JSON.parseObject(response.getData(), ListSubContentResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error:" + meta.getError().getMessage());

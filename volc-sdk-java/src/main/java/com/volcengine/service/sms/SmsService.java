@@ -1,7 +1,9 @@
 package com.volcengine.service.sms;
 
 import com.volcengine.model.request.*;
+import com.volcengine.model.request.sms.*;
 import com.volcengine.model.response.*;
+import com.volcengine.model.response.sms.*;
 import com.volcengine.service.IBaseService;
 
 public interface SmsService extends IBaseService {
@@ -177,7 +179,7 @@ public interface SmsService extends IBaseService {
     /**
      * getSendStat
      *
-     * @param getSendStat
+     * @param getSendStatRequest
      * @return
      * @throws Exception
      */
@@ -188,7 +190,37 @@ public interface SmsService extends IBaseService {
 
     ApplySignatureIdentResponse applySignatureIdent(ApplySignatureIdentRequest applySignatureIdentRequest) throws Exception;
 
+    UpdateSignatureIdentResponse updateSignatureIdent(UpdateSignatureIdentRequest updateSignatureIdentRequest) throws Exception;
+
     GetSignatureIdentListResponse getSignatureIdentList(GetSignatureIdentListRequest getSignatureIdentListRequest) throws Exception;
 
     BatchBindSignatureIdentResponse batchBindSignatureIdent(BatchBindSignatureIdentRequest batchBindSignatureIdentRequest) throws Exception;
+
+    BulkCreateTobTrafficDrivingLinkResponse bulkCreateTobTrafficDrivingLink(BulkCreateTobTrafficDrivingLinkRequest request) throws Exception;
+
+    BulkCreateTobTrafficDrivingPhoneResponse bulkCreateTobTrafficDrivingPhone(BulkCreateTobTrafficDrivingPhoneRequest request) throws Exception;
+
+    DeleteTobTrafficDrivingLinkResponse deleteTobTrafficDrivingLink(DeleteTobTrafficDrivingLinkRequest request) throws Exception;
+
+    DeleteTobTrafficDrivingPhoneResponse deleteTobTrafficDrivingPhone(DeleteTobTrafficDrivingPhoneRequest request) throws Exception;
+
+    GetRelationTemplateListResponse getRelationTemplateList(GetRelationTemplateListRequest request) throws Exception;
+
+    GetTobTrafficDrivingLinkListResponse getTobTrafficDrivingLinkList(GetTobTrafficDrivingLinkListRequest request) throws Exception;
+
+    GetTobTrafficDrivingPhoneListResponse getTobTrafficDrivingPhoneList(GetTobTrafficDrivingPhoneListRequest request) throws Exception;
+
+    UpdateTobTrafficDrivingPhoneResponse updateTobTrafficDrivingPhone(UpdateTobTrafficDrivingPhoneRequest request) throws Exception;
+
+    ApplySmsTemplateV2Response applySmsTemplateV2(ApplySmsTemplateV2Request request) throws Exception;
+
+    ListSmsTemplateV2Response listSmsTemplateV2(ListSmsTemplateV2Request request) throws Exception;
+
+    BindTrafficDrivingParamsResponse bindTrafficDrivingParams(BindTrafficDrivingParamsRequest request) throws Exception;
+
+    BindSignaturesResponse bindSignatures(BindSignaturesRequest request) throws Exception;
+
+    ListSecondTemplateResponse listSecondTemplate(ListSecondTemplateRequest request) throws Exception;
+
+    ListSubContentResponse listSubContent(ListSubContentRequest request) throws Exception;
 }

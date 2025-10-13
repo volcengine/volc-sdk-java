@@ -123,5 +123,9 @@ public class ListProductCardsResponse {
         Integer IsOrderMsgEnable;
         @JSONField(name = "FloatingTime")
         Long FloatingTime;
+        @JSONField(name = "OutOfStock")
+        Integer OutOfStock;
+        @JSONField(name = "PriceHidden")
+        Integer PriceHidden;
     }
 }

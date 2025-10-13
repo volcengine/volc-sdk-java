@@ -23,4 +23,8 @@ public class SmsSignatureInfo {
     int status;
     @JSONField(name = "Reason")
     String reason;
+    @JSONField(name = "OpenId")
+    String openId;
+    @JSONField(name = "UpdateStatus")
+    String updateStatus;
 }

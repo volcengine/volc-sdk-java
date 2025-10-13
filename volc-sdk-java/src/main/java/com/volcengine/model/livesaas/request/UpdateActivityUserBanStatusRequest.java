@@ -17,4 +17,6 @@ public class UpdateActivityUserBanStatusRequest {
     List<Long> UserIds;
     @JSONField(name = "Cookies")
     List<String> Cookies;
+    @JSONField(name = "ExternalUserIds")
+    List<String> ExternalUserIds;
 }

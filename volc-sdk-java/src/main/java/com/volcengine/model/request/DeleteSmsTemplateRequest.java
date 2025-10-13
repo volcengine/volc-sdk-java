@@ -9,7 +9,7 @@ public class DeleteSmsTemplateRequest {
     String subAccount;
 
     @JSONField(name = "id")
-    String id;
+    Long id;
 
     @JSONField(name = "isOrder")
     boolean isOrder;

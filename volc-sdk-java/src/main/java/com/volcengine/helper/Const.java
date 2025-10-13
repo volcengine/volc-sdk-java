@@ -325,8 +325,20 @@ public class Const {
     public static final String DeleteLivePromotionsAPI = "DeleteLivePromotionsAPI";
 
     public static final String ListHostAccountAPI = "ListHostAccountAPI";
-
+    
     public static final String GetBusinessAccountInfoAPI = "GetBusinessAccountInfoAPI";
+    
+    public static final String GetLiveLinkDurationData = "GetLiveLinkDurationData";
+
+    public static final String GetInPageAdvertisement = "GetInPageAdvertisement";
+    
+    public static final String UpdateInPageAdvertisement = "UpdateInPageAdvertisement";
+
+    public static final String UpdateSingleActivityProduct = "UpdateSingleActivityProduct";
+
+    public static final String UpdateProductOutOfStock = "UpdateProductOutOfStock";
+    
+    public static final String HideProductPrice = "HideProductPrice";
 
     public static final String UploadMediaByURL = "UploadMediaByURL";
 
@@ -1168,6 +1180,18 @@ public class Const {
     // securitySource
     public static final String SecuritySource = "SecuritySource";
     public static final String SecuritySourceStream = "SecuritySourceStream";
+
+    // rc agent
+    public static final String TextModeration = "TextModeration";
+    public static final String AsyncTextModeration = "AsyncTextModeration";
+    public static final String TextModerationResult = "TextModerationResult";
+    public static final String MultiModeration = "MultiModeration";
+    public static final String AsyncMultiModeration = "AsyncMultiModeration";
+    public static final String MultiModerationResult = "MultiModerationResult";
+    public static final String CustomRisk = "CustomRisk";
+    public static final String AsyncCustomRisk = "AsyncCustomRisk";
+    public static final String CustomRiskResult = "CustomRiskResult";
+
 
     // report
     public static final String ExportReports = "ExportReports";

@@ -1231,7 +1231,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
      */
 	@Override
 	public com.volcengine.service.vod.model.response.VodUrlUploadResponse uploadMediaByUrl(com.volcengine.service.vod.model.request.VodUrlUploadRequest input) throws Exception {
-		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.UploadMediaByUrl, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+		com.volcengine.model.response.RawResponse response = post(com.volcengine.service.vod.Const.UploadMediaByUrl, new ArrayList<>(), com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
         if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
@@ -2967,7 +2967,7 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}
-	
+
 	/**
      * addCallbackSubscription.
      *
@@ -3438,6 +3438,82 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodGetCloudMigrateJobResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetCloudMigrateJobResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * createDramaRecapTask.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodCreateDramaRecapTaskRequest
+     * @return com.volcengine.service.vod.model.response.VodCreateDramaRecapTaskResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodCreateDramaRecapTaskResponse createDramaRecapTask(com.volcengine.service.vod.model.request.VodCreateDramaRecapTaskRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = json(com.volcengine.service.vod.Const.CreateDramaRecapTask, new ArrayList<>(), JsonFormat.printer().print(input));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodCreateDramaRecapTaskResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodCreateDramaRecapTaskResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * queryDramaRecapTask.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodQueryDramaRecapTaskRequest
+     * @return com.volcengine.service.vod.model.response.VodQueryDramaRecapTaskResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodQueryDramaRecapTaskResponse queryDramaRecapTask(com.volcengine.service.vod.model.request.VodQueryDramaRecapTaskRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.QueryDramaRecapTask, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodQueryDramaRecapTaskResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodQueryDramaRecapTaskResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * createDramaScriptTask.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodCreateDramaScriptTaskRequest
+     * @return com.volcengine.service.vod.model.response.VodCreateDramaScriptTaskResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodCreateDramaScriptTaskResponse createDramaScriptTask(com.volcengine.service.vod.model.request.VodCreateDramaScriptTaskRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = json(com.volcengine.service.vod.Const.CreateDramaScriptTask, new ArrayList<>(), JsonFormat.printer().print(input));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodCreateDramaScriptTaskResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodCreateDramaScriptTaskResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * queryDramaScriptTask.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodQueryDramaScriptTaskRequest
+     * @return com.volcengine.service.vod.model.response.VodQueryDramaScriptTaskResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodQueryDramaScriptTaskResponse queryDramaScriptTask(com.volcengine.service.vod.model.request.VodQueryDramaScriptTaskRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.QueryDramaScriptTask, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodQueryDramaScriptTaskResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodQueryDramaScriptTaskResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
 	}

@@ -1302,4 +1302,40 @@ public interface IVodService extends com.volcengine.service.IBaseService {
      */
 	com.volcengine.service.vod.model.response.VodGetCloudMigrateJobResponse getCloudMigrateJob(com.volcengine.service.vod.model.request.VodGetCloudMigrateJobRequest input) throws Exception;
 	
+	/**
+     * createDramaRecapTask.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodCreateDramaRecapTaskRequest
+     * @return com.volcengine.service.vod.model.response.VodCreateDramaRecapTaskResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodCreateDramaRecapTaskResponse createDramaRecapTask(com.volcengine.service.vod.model.request.VodCreateDramaRecapTaskRequest input) throws Exception;
+
+	/**
+     * queryDramaRecapTask.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodQueryDramaRecapTaskRequest
+     * @return com.volcengine.service.vod.model.response.VodQueryDramaRecapTaskResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodQueryDramaRecapTaskResponse queryDramaRecapTask(com.volcengine.service.vod.model.request.VodQueryDramaRecapTaskRequest input) throws Exception;
+
+	/**
+     * createDramaScriptTask.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodCreateDramaScriptTaskRequest
+     * @return com.volcengine.service.vod.model.response.VodCreateDramaScriptTaskResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodCreateDramaScriptTaskResponse createDramaScriptTask(com.volcengine.service.vod.model.request.VodCreateDramaScriptTaskRequest input) throws Exception;
+
+	/**
+     * queryDramaScriptTask.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodQueryDramaScriptTaskRequest
+     * @return com.volcengine.service.vod.model.response.VodQueryDramaScriptTaskResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodQueryDramaScriptTaskResponse queryDramaScriptTask(com.volcengine.service.vod.model.request.VodQueryDramaScriptTaskRequest input) throws Exception;
+
 }  // end of service interface

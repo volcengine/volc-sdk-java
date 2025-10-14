@@ -204,4 +204,11 @@ public class Const {
     public static final String GetCloudMigrateJob = "GetCloudMigrateJob";
     public static final String SubmitCloudMigrateJob = "SubmitCloudMigrateJob";
 
+    // drama
+    public static final String CreateDramaRecapTask = "CreateDramaRecapTask";
+    public static final String QueryDramaRecapTask = "QueryDramaRecapTask";
+    public static final String CreateDramaScriptTask = "CreateDramaScriptTask";
+    public static final String QueryDramaScriptTask = "QueryDramaScriptTask";
+
+
 }

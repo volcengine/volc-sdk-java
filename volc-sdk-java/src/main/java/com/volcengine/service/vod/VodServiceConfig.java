@@ -161,7 +161,7 @@ public class VodServiceConfig {
             put(Const.UploadMediaByUrl, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
-                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Method, "POST");
                             put(com.volcengine.helper.Const.Path, "/");
                             put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
                                 {
@@ -1909,7 +1909,65 @@ public class VodServiceConfig {
                         }
                     }
             ));
-
+            // **********************************************************************
+            // drama
+            // **********************************************************************
+            put(Const.CreateDramaRecapTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "POST");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CreateDramaRecapTask));
+                                    add(new BasicNameValuePair("Version", "2025-03-03"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.CreateDramaScriptTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "POST");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CreateDramaScriptTask));
+                                    add(new BasicNameValuePair("Version", "2025-03-03"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.QueryDramaRecapTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.QueryDramaRecapTask));
+                                    add(new BasicNameValuePair("Version", "2025-03-03"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.QueryDramaScriptTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.QueryDramaScriptTask));
+                                    add(new BasicNameValuePair("Version", "2025-03-03"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

@@ -596,12 +596,12 @@ public final class VodResponse {
       internal_static_Volcengine_Vod_Models_Response_VodDescribeDomainConfigResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Vod_Models_Response_VodDescribeCdnEdgeIpResponse_descriptor;
-  static final 
+  static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Response_VodDescribeCdnEdgeIpResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Vod_Models_Response_VodDescribeCdnRegionAndIspResponse_descriptor;
-  static final 
+  static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Response_VodDescribeCdnRegionAndIspResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
@@ -759,6 +759,26 @@ public final class VodResponse {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Response_VodReportEventResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Response_VodCreateDramaRecapTaskResponse_descriptor;
+  static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Response_VodCreateDramaRecapTaskResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Response_VodCreateDramaScriptTaskResponse_descriptor;
+  static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Response_VodCreateDramaScriptTaskResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Response_VodQueryDramaRecapTaskResponse_descriptor;
+  static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Response_VodQueryDramaRecapTaskResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Response_VodQueryDramaScriptTaskResponse_descriptor;
+  static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Response_VodQueryDramaScriptTaskResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -788,630 +808,650 @@ public final class VodResponse {
       "ss/vod_object.proto\032)volcengine/vod/busi" +
       "ness/vod_migrate.proto\032*volcengine/vod/b" +
       "usiness/vod_callback.proto\032*volcengine/v" +
-      "od/business/vod_reporter.proto\"\252\001\n\031VodGe" +
-      "tAllPlayInfoResponse\022G\n\020ResponseMetadata" +
-      "\030\001 \001(\0132-.Volcengine.Base.Models.Base.Res" +
-      "ponseMetadata\022D\n\006Result\030\002 \001(\01324.Volcengi" +
-      "ne.Vod.Models.Business.VodAllPlayInfoRes" +
-      "ult\"\243\001\n\026VodGetPlayInfoResponse\022G\n\020Respon" +
-      "seMetadata\030\001 \001(\0132-.Volcengine.Base.Model" +
-      "s.Base.ResponseMetadata\022@\n\006Result\030\002 \001(\0132" +
-      "0.Volcengine.Vod.Models.Business.VodPlay" +
-      "InfoModel\"\267\001\n\036VodGetOriginalPlayInfoResp" +
-      "onse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volceng" +
-      "ine.Base.Models.Base.ResponseMetadata\022L\n" +
-      "\006Result\030\002 \001(\0132<.Volcengine.Vod.Models.Bu" +
-      "siness.VodGetOriginalPlayInfoResult\"\273\001\n " +
-      "VodGetPrivateDrmPlayAuthResponse\022G\n\020Resp" +
-      "onseMetadata\030\001 \001(\0132-.Volcengine.Base.Mod" +
-      "els.Base.ResponseMetadata\022N\n\006Result\030\002 \001(" +
-      "\0132>.Volcengine.Vod.Models.Business.VodGe" +
-      "tPrivateDrmPlayAuthResult\"\267\001\n\036VodGetHlsD" +
-      "ecryptionKeyResponse\022G\n\020ResponseMetadata" +
-      "\030\001 \001(\0132-.Volcengine.Base.Models.Base.Res" +
-      "ponseMetadata\022L\n\006Result\030\002 \001(\0132<.Volcengi" +
-      "ne.Vod.Models.Business.VodGetHlsDecrypti" +
-      "onKeyResult\"\275\001\n!VodCreateHlsDecryptionKe" +
-      "yResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Vo" +
-      "lcengine.Base.Models.Base.ResponseMetada" +
-      "ta\022O\n\006Result\030\002 \001(\0132?.Volcengine.Vod.Mode" +
-      "ls.Business.VodCreateHlsDecryptionKeyRes" +
-      "ult\"\323\001\n,VodGetPlayInfoWithLiveTimeShiftS" +
-      "ceneResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-" +
-      ".Volcengine.Base.Models.Base.ResponseMet" +
-      "adata\022Z\n\006Result\030\002 \001(\0132J.Volcengine.Vod.M" +
-      "odels.Business.VodGetPlayInfoWithLiveTim" +
-      "eShiftSceneResult\"\265\001\n\035VodDescribeDrmData" +
-      "KeyResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-." +
-      "Volcengine.Base.Models.Base.ResponseMeta" +
-      "data\022K\n\006Result\030\002 \001(\0132;.Volcengine.Vod.Mo" +
-      "dels.Business.VodDescribeDrmDataKeyResul" +
-      "t\"\273\001\n\037VodSubmitMoveObjectTaskResponse\022G\n" +
-      "\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Bas" +
-      "e.Models.Base.ResponseMetadata\022O\n\006Result" +
-      "\030\002 \001(\0132?.Volcengine.Vod.Models.Business." +
-      "VodSubmitMoveObjectTaskRespData\"\300\001\n\"VodQ" +
-      "ueryMoveObjectTaskInfoResponse\022G\n\020Respon" +
-      "seMetadata\030\001 \001(\0132-.Volcengine.Base.Model" +
-      "s.Base.ResponseMetadata\022Q\n\006Result\030\002 \001(\0132" +
-      "A.Volcengine.Vod.Models.Business.VodQuer" +
-      "yMoveObjectTaskInfoResData\"\275\001\n!VodSubmit" +
-      "BlockObjectTasksResponse\022G\n\020ResponseMeta" +
-      "data\030\001 \001(\0132-.Volcengine.Base.Models.Base" +
-      ".ResponseMetadata\022O\n\006Result\030\002 \001(\0132?.Volc" +
-      "engine.Vod.Models.Business.VodSubmitBloc" +
-      "kObjectTasksResult\"\271\001\n\037VodListBlockObjec" +
-      "tTasksResponse\022G\n\020ResponseMetadata\030\001 \001(\013" +
-      "2-.Volcengine.Base.Models.Base.ResponseM" +
-      "etadata\022M\n\006Result\030\002 \001(\0132=.Volcengine.Vod" +
-      ".Models.Business.VodListBlockObjectTasks" +
-      "Result\"\240\001\n\026VodUploadMediaResponse\022G\n\020Res" +
-      "ponseMetadata\030\001 \001(\0132-.Volcengine.Base.Mo" +
-      "dels.Base.ResponseMetadata\022=\n\006Result\030\002 \001" +
-      "(\0132-.Volcengine.Vod.Models.Business.VodC" +
-      "ommitData\"\247\001\n\036VodQueryUploadTaskInfoResp" +
-      "onse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volceng" +
-      "ine.Base.Models.Base.ResponseMetadata\022<\n" +
-      "\006Result\030\002 \001(\0132,.Volcengine.Vod.Models.Bu" +
-      "siness.VodQueryData\"\243\001\n\024VodUrlUploadResp" +
-      "onse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volceng" +
-      "ine.Base.Models.Base.ResponseMetadata\022B\n" +
-      "\006Result\030\002 \001(\01322.Volcengine.Vod.Models.Bu" +
-      "siness.VodUrlResponseData\"\257\001\n\032VodApplyUp" +
-      "loadInfoResponse\022G\n\020ResponseMetadata\030\001 \001" +
-      "(\0132-.Volcengine.Base.Models.Base.Respons" +
-      "eMetadata\022H\n\006Result\030\002 \001(\01328.Volcengine.V" +
-      "od.Models.Business.VodApplyUploadInfoRes" +
-      "ult\"\261\001\n\033VodCommitUploadInfoResponse\022G\n\020R" +
-      "esponseMetadata\030\001 \001(\0132-.Volcengine.Base." +
-      "Models.Base.ResponseMetadata\022I\n\006Result\030\002" +
-      " \001(\01329.Volcengine.Vod.Models.Business.Vo" +
-      "dCommitUploadInfoResult\"\311\001\n\'VodListFileM" +
-      "etaInfosByFileNamesResponse\022G\n\020ResponseM" +
-      "etadata\030\001 \001(\0132-.Volcengine.Base.Models.B" +
-      "ase.ResponseMetadata\022U\n\006Result\030\002 \001(\0132E.V" +
-      "olcengine.Vod.Models.Business.VodListFil" +
-      "eMetaInfosByFileNamesResult\"\251\001\n\030VodGetMe" +
-      "diaInfosResponse\022G\n\020ResponseMetadata\030\001 \001" +
-      "(\0132-.Volcengine.Base.Models.Base.Respons" +
-      "eMetadata\022D\n\006Result\030\002 \001(\01324.Volcengine.V" +
-      "od.Models.Business.VodGetMediaInfosData\"" +
-      "e\n\032VodUpdateMediaInfoResponse\022G\n\020Respons" +
-      "eMetadata\030\001 \001(\0132-.Volcengine.Base.Models" +
-      ".Base.ResponseMetadata\"\257\001\n\037VodGetRecomme" +
-      "ndedPosterResponse\022G\n\020ResponseMetadata\030\001" +
-      " \001(\0132-.Volcengine.Base.Models.Base.Respo" +
-      "nseMetadata\022C\n\006Result\030\002 \001(\01323.Volcengine" +
-      ".Vod.Models.Business.VodGetRecPosterData" +
-      "\"n\n#VodUpdateMediaPublishStatusResponse\022" +
-      "G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine.B" +
-      "ase.Models.Base.ResponseMetadata\"\275\001\n\"Vod" +
-      "UpdateMediaStorageClassResponse\022G\n\020Respo" +
+      "od/business/vod_reporter.proto\032\'volcengi" +
+      "ne/vod/business/vod_drama.proto\"\252\001\n\031VodG" +
+      "etAllPlayInfoResponse\022G\n\020ResponseMetadat" +
+      "a\030\001 \001(\0132-.Volcengine.Base.Models.Base.Re" +
+      "sponseMetadata\022D\n\006Result\030\002 \001(\01324.Volceng" +
+      "ine.Vod.Models.Business.VodAllPlayInfoRe" +
+      "sult\"\243\001\n\026VodGetPlayInfoResponse\022G\n\020Respo" +
       "nseMetadata\030\001 \001(\0132-.Volcengine.Base.Mode" +
-      "ls.Base.ResponseMetadata\022N\n\006Result\030\002 \001(\013" +
-      "2>.Volcengine.Vod.Models.Business.VodUpd" +
-      "ateMediaStorageClassData\"\245\001\n\026VodDeleteMe" +
-      "diaResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-." +
-      "Volcengine.Base.Models.Base.ResponseMeta" +
-      "data\022B\n\006Result\030\002 \001(\01322.Volcengine.Vod.Mo" +
-      "dels.Business.VodDeleteMediaData\"d\n\031VodD" +
-      "eleteMaterialResponse\022G\n\020ResponseMetadat" +
-      "a\030\001 \001(\0132-.Volcengine.Base.Models.Base.Re" +
-      "sponseMetadata\"\257\001\n\033VodDeleteTranscodesRe" +
-      "sponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volce" +
-      "ngine.Base.Models.Base.ResponseMetadata\022" +
-      "G\n\006Result\030\002 \001(\01327.Volcengine.Vod.Models." +
-      "Business.VodDeleteTranscodesData\"\263\001\n\035Vod" +
-      "DeleteMediaTosFileResponse\022G\n\020ResponseMe" +
-      "tadata\030\001 \001(\0132-.Volcengine.Base.Models.Ba" +
-      "se.ResponseMetadata\022I\n\006Result\030\002 \001(\01329.Vo" +
-      "lcengine.Vod.Models.Business.VodDeleteMe" +
-      "diaTosFileData\"\247\001\n\027VodGetMediaListRespon" +
-      "se\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengin" +
-      "e.Base.Models.Base.ResponseMetadata\022C\n\006R" +
-      "esult\030\002 \001(\01323.Volcengine.Vod.Models.Busi" +
-      "ness.VodGetMediaListData\"\265\001\n\036VodGetSubti" +
-      "tleInfoListResponse\022G\n\020ResponseMetadata\030" +
-      "\001 \001(\0132-.Volcengine.Base.Models.Base.Resp" +
-      "onseMetadata\022J\n\006Result\030\002 \001(\0132:.Volcengin" +
-      "e.Vod.Models.Business.VodGetSubtitleInfo" +
-      "ListData\"\267\001\n\037VodUpdateSubtitleStatusResp" +
-      "onse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volceng" +
-      "ine.Base.Models.Base.ResponseMetadata\022K\n" +
-      "\006Result\030\002 \001(\0132;.Volcengine.Vod.Models.Bu" +
-      "siness.VodUpdateSubtitleStatusData\"h\n\035Vo" +
-      "dUpdateSubtitleInfoResponse\022G\n\020ResponseM" +
-      "etadata\030\001 \001(\0132-.Volcengine.Base.Models.B" +
-      "ase.ResponseMetadata\"\270\001\n!VodGetAuditFram" +
-      "esForAuditResponse\022G\n\020ResponseMetadata\030\001" +
-      " \001(\0132-.Volcengine.Base.Models.Base.Respo" +
-      "nseMetadata\022J\n\006Result\030\002 \001(\0132:.Volcengine" +
-      ".Vod.Models.Business.VodGetFramesForAudi" +
-      "tResult\"\265\001\n\036VodGetMLFramesForAuditRespon" +
-      "se\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengin" +
-      "e.Base.Models.Base.ResponseMetadata\022J\n\006R" +
-      "esult\030\002 \001(\0132:.Volcengine.Vod.Models.Busi" +
-      "ness.VodGetFramesForAuditResult\"\277\001\n\"VodG" +
-      "etBetterFramesForAuditResponse\022G\n\020Respon" +
-      "seMetadata\030\001 \001(\0132-.Volcengine.Base.Model" +
-      "s.Base.ResponseMetadata\022P\n\006Result\030\002 \001(\0132" +
-      "@.Volcengine.Vod.Models.Business.VodGetB" +
-      "etterFramesForAuditResult\"\271\001\n\037VodGetAudi" +
-      "oInfoForAuditResponse\022G\n\020ResponseMetadat" +
-      "a\030\001 \001(\0132-.Volcengine.Base.Models.Base.Re" +
-      "sponseMetadata\022M\n\006Result\030\002 \001(\0132=.Volceng" +
-      "ine.Vod.Models.Business.VodGetAudioInfoF" +
-      "orAuditResult\"\333\001\n0VodGetAutomaticSpeechR" +
-      "ecognitionForAuditResponse\022G\n\020ResponseMe" +
-      "tadata\030\001 \001(\0132-.Volcengine.Base.Models.Ba" +
-      "se.ResponseMetadata\022^\n\006Result\030\002 \001(\0132N.Vo" +
-      "lcengine.Vod.Models.Business.VodGetAutom" +
-      "aticSpeechRecognitionForAuditResult\"\315\001\n)" +
-      "VodGetAudioEventDetectionForAuditRespons" +
-      "e\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine" +
-      ".Base.Models.Base.ResponseMetadata\022W\n\006Re" +
-      "sult\030\002 \001(\0132G.Volcengine.Vod.Models.Busin" +
-      "ess.VodGetAudioEventDetectionForAuditRes" +
-      "ult\"\301\001\n$VodCreateVideoClassificationResp" +
-      "onse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volceng" +
-      "ine.Base.Models.Base.ResponseMetadata\022P\n" +
-      "\006Result\030\002 \001(\0132@.Volcengine.Vod.Models.Bu" +
-      "siness.VodCreateVideoClassificationData\"" +
-      "o\n$VodUpdateVideoClassificationResponse\022" +
-      "G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine.B" +
-      "ase.Models.Base.ResponseMetadata\"o\n$VodD" +
-      "eleteVideoClassificationResponse\022G\n\020Resp" +
-      "onseMetadata\030\001 \001(\0132-.Volcengine.Base.Mod" +
-      "els.Base.ResponseMetadata\"\273\001\n#VodListVid" +
-      "eoClassificationsResponse\022G\n\020ResponseMet" +
-      "adata\030\001 \001(\0132-.Volcengine.Base.Models.Bas" +
-      "e.ResponseMetadata\022K\n\006Result\030\002 \001(\0132;.Vol" +
-      "cengine.Vod.Models.Business.VodVideoClas" +
-      "sificationsData\"\244\001\n\030VodListSnapshotsResp" +
-      "onse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volceng" +
-      "ine.Base.Models.Base.ResponseMetadata\022?\n" +
-      "\006Result\030\002 \001(\0132/.Volcengine.Vod.Models.Bu" +
-      "siness.VodSnapshotData\"\247\001\n\026VodGetFileLis" +
-      "tResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Vo" +
-      "lcengine.Base.Models.Base.ResponseMetada" +
-      "ta\022D\n\006Result\030\002 \001(\01324.Volcengine.Vod.Mode" +
-      "ls.Business.VodGetMediaInfosData\"\247\001\n\027Vod" +
-      "GetFileInfosResponse\022G\n\020ResponseMetadata" +
-      "\030\001 \001(\0132-.Volcengine.Base.Models.Base.Res" +
-      "ponseMetadata\022C\n\006Result\030\002 \001(\01323.Volcengi" +
-      "ne.Vod.Models.Business.VodGetFileInfosDa" +
-      "ta\"\273\001\n!VodUpdateFileStorageClassResponse" +
-      "\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine." +
-      "Base.Models.Base.ResponseMetadata\022M\n\006Res" +
-      "ult\030\002 \001(\0132=.Volcengine.Vod.Models.Busine" +
-      "ss.VodUpdateFileStorageClassData\"\261\001\n\034Vod" +
-      "GetInnerAuditURLsResponse\022G\n\020ResponseMet" +
-      "adata\030\001 \001(\0132-.Volcengine.Base.Models.Bas" +
-      "e.ResponseMetadata\022H\n\006Result\030\002 \001(\01328.Vol" +
-      "cengine.Vod.Models.Business.VodGetInnerA" +
-      "uditURLsData\"\271\001\n VodGetAdAuditResultByVi" +
-      "dResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Vo" +
-      "lcengine.Base.Models.Base.ResponseMetada" +
-      "ta\022L\n\006Result\030\002 \001(\0132<.Volcengine.Vod.Mode" +
-      "ls.Business.VodGetAdAuditResultByVidData" +
-      "\"j\n\037VodExtractMediaMetaTaskResponse\022G\n\020R" +
-      "esponseMetadata\030\001 \001(\0132-.Volcengine.Base." +
-      "Models.Base.ResponseMetadata\"\253\001\n\030VodStar" +
-      "tWorkflowResponse\022G\n\020ResponseMetadata\030\001 " +
-      "\001(\0132-.Volcengine.Base.Models.Base.Respon" +
-      "seMetadata\022F\n\006Result\030\002 \001(\01326.Volcengine." +
-      "Vod.Models.Business.VodStartWorkflowResu" +
-      "lt\"\256\001\n\"VodRetrieveTranscodeResultRespons" +
-      "e\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine" +
-      ".Base.Models.Base.ResponseMetadata\022?\n\006Re" +
-      "sult\030\002 \001(\0132/.Volcengine.Vod.Models.Busin" +
-      "ess.TranscodeResult\"\273\001\n VodListWorkflowE" +
-      "xecutionResponse\022G\n\020ResponseMetadata\030\001 \001" +
-      "(\0132-.Volcengine.Base.Models.Base.Respons" +
-      "eMetadata\022N\n\006Result\030\002 \001(\0132>.Volcengine.V" +
-      "od.Models.Business.VodListWorkflowExecut" +
-      "ionResult\"\305\001\n%VodGetWorkflowExecutionDet" +
-      "ailResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-." +
-      "Volcengine.Base.Models.Base.ResponseMeta" +
-      "data\022S\n\006Result\030\002 \001(\0132C.Volcengine.Vod.Mo" +
-      "dels.Business.VodGetWorkflowExecutionDet" +
-      "ailResult\"\263\001\n%VodGetWorkflowExecutionSta" +
-      "tusResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-." +
-      "Volcengine.Base.Models.Base.ResponseMeta" +
-      "data\022A\n\006Result\030\002 \001(\01321.Volcengine.Vod.Mo" +
-      "dels.Business.WorkflowExecution\"\252\001\n\034VodG" +
-      "etWorkflowResultResponse\022G\n\020ResponseMeta" +
-      "data\030\001 \001(\0132-.Volcengine.Base.Models.Base" +
-      ".ResponseMetadata\022A\n\006Result\030\002 \001(\01321.Volc" +
-      "engine.Vod.Models.Business.VodWorkflowRe" +
-      "sult\"\257\001\n\035VodCreateTaskTemplateResponse\022G" +
-      "\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Ba" +
-      "se.Models.Base.ResponseMetadata\022E\n\006Resul" +
-      "t\030\002 \001(\01325.Volcengine.Vod.Models.Business" +
-      ".VodTaskTemplateResult\"\257\001\n\035VodUpdateTask" +
-      "TemplateResponse\022G\n\020ResponseMetadata\030\001 \001" +
-      "(\0132-.Volcengine.Base.Models.Base.Respons" +
-      "eMetadata\022E\n\006Result\030\002 \001(\01325.Volcengine.V" +
-      "od.Models.Business.VodTaskTemplateResult" +
-      "\"\257\001\n\035VodDeleteTaskTemplateResponse\022G\n\020Re" +
-      "sponseMetadata\030\001 \001(\0132-.Volcengine.Base.M" +
-      "odels.Base.ResponseMetadata\022E\n\006Result\030\002 " +
-      "\001(\01325.Volcengine.Vod.Models.Business.Vod" +
-      "TaskTemplateResult\"\254\001\n\032VodGetTaskTemplat" +
-      "eResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Vo" +
-      "lcengine.Base.Models.Base.ResponseMetada" +
-      "ta\022E\n\006Result\030\002 \001(\01325.Volcengine.Vod.Mode" +
-      "ls.Business.VodTaskTemplateResult\"\261\001\n\033Vo" +
-      "dListTaskTemplateResponse\022G\n\020ResponseMet" +
-      "adata\030\001 \001(\0132-.Volcengine.Base.Models.Bas" +
-      "e.ResponseMetadata\022I\n\006Result\030\002 \001(\01329.Vol" +
-      "cengine.Vod.Models.Business.VodListTaskT" +
-      "emplateResult\"\267\001\n!VodCreateWorkflowTempl" +
-      "ateResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-." +
-      "Volcengine.Base.Models.Base.ResponseMeta" +
-      "data\022I\n\006Result\030\002 \001(\01329.Volcengine.Vod.Mo" +
-      "dels.Business.VodWorkflowTemplateResult\"" +
-      "l\n!VodUpdateWorkflowTemplateResponse\022G\n\020" +
-      "ResponseMetadata\030\001 \001(\0132-.Volcengine.Base" +
-      ".Models.Base.ResponseMetadata\"l\n!VodDele" +
-      "teWorkflowTemplateResponse\022G\n\020ResponseMe" +
-      "tadata\030\001 \001(\0132-.Volcengine.Base.Models.Ba" +
-      "se.ResponseMetadata\"\264\001\n\036VodGetWorkflowTe" +
-      "mplateResponse\022G\n\020ResponseMetadata\030\001 \001(\013" +
-      "2-.Volcengine.Base.Models.Base.ResponseM" +
-      "etadata\022I\n\006Result\030\002 \001(\01329.Volcengine.Vod" +
-      ".Models.Business.VodWorkflowTemplateResu" +
-      "lt\"\271\001\n\037VodListWorkflowTemplateResponse\022G" +
-      "\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Ba" +
-      "se.Models.Base.ResponseMetadata\022M\n\006Resul" +
-      "t\030\002 \001(\0132=.Volcengine.Vod.Models.Business" +
-      ".VodListWorkflowTemplateResult\"\243\001\n\032VodCr" +
-      "eateWatermarkResponse\022G\n\020ResponseMetadat" +
-      "a\030\001 \001(\0132-.Volcengine.Base.Models.Base.Re" +
-      "sponseMetadata\022<\n\006Result\030\002 \001(\0132,.Volceng" +
-      "ine.Vod.Models.Business.LogoTemplate\"e\n\032" +
-      "VodUpdateWatermarkResponse\022G\n\020ResponseMe" +
-      "tadata\030\001 \001(\0132-.Volcengine.Base.Models.Ba" +
-      "se.ResponseMetadata\"e\n\032VodDeleteWatermar" +
-      "kResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Vo" +
-      "lcengine.Base.Models.Base.ResponseMetada" +
-      "ta\"\240\001\n\027VodGetWatermarkResponse\022G\n\020Respon" +
-      "seMetadata\030\001 \001(\0132-.Volcengine.Base.Model" +
-      "s.Base.ResponseMetadata\022<\n\006Result\030\002 \001(\0132" +
-      ",.Volcengine.Vod.Models.Business.LogoTem" +
-      "plate\"\263\001\n\030VodListWatermarkResponse\022G\n\020Re" +
-      "sponseMetadata\030\001 \001(\0132-.Volcengine.Base.M" +
-      "odels.Base.ResponseMetadata\022N\n\006Result\030\002 " +
-      "\001(\0132>.Volcengine.Vod.Models.Business.Vod" +
-      "ListWatermarkResponseResult\"\300\001\n$VodSubmi" +
-      "tDirectEditTaskAsyncResponse\022G\n\020Response" +
-      "Metadata\030\001 \001(\0132-.Volcengine.Base.Models." +
-      "Base.ResponseMetadata\022O\n\006Result\030\002 \001(\0132?." +
-      "Volcengine.Vod.Models.Business.SubmitDir" +
-      "ectEditTaskAsyncResult\"\276\001\n#VodSubmitDire" +
-      "ctEditTaskSyncResponse\022G\n\020ResponseMetada" +
-      "ta\030\001 \001(\0132-.Volcengine.Base.Models.Base.R" +
-      "esponseMetadata\022N\n\006Result\030\002 \001(\0132>.Volcen" +
-      "gine.Vod.Models.Business.SubmitDirectEdi" +
-      "tTaskSyncResult\"\262\001\n VodGetDirectEditProg" +
-      "ressResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-" +
-      ".Volcengine.Base.Models.Base.ResponseMet" +
-      "adata\022E\n\006Result\030\002 \001(\01325.Volcengine.Vod.M" +
-      "odels.Business.GetDirectEditProgress\"\256\001\n" +
-      "\036VodGetDirectEditResultResponse\022G\n\020Respo" +
-      "nseMetadata\030\001 \001(\0132-.Volcengine.Base.Mode" +
-      "ls.Base.ResponseMetadata\022C\n\006Result\030\002 \003(\013" +
-      "23.Volcengine.Vod.Models.Business.GetDir" +
-      "ectEditResult\"\260\001\n\037VodCancelDirectEditTas" +
-      "kResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Vo" +
-      "lcengine.Base.Models.Base.ResponseMetada" +
-      "ta\022D\n\006Result\030\002 \001(\01324.Volcengine.Vod.Mode" +
-      "ls.Business.CancelDirectEditTask\"a\n\026VodC" +
-      "reateSpaceResponse\022G\n\020ResponseMetadata\030\001" +
-      " \001(\0132-.Volcengine.Base.Models.Base.Respo" +
-      "nseMetadata\"a\n\026VodDeleteSpaceResponse\022G\n" +
-      "\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Bas" +
-      "e.Models.Base.ResponseMetadata\"\235\001\n\024VodLi" +
-      "stSpaceResponse\022G\n\020ResponseMetadata\030\001 \001(" +
-      "\0132-.Volcengine.Base.Models.Base.Response" +
-      "Metadata\022<\n\006Result\030\002 \003(\0132,.Volcengine.Vo" +
-      "d.Models.Business.VodSpaceInfo\"\242\001\n\031VodGe" +
-      "tSpaceDetailResponse\022G\n\020ResponseMetadata" +
-      "\030\001 \001(\0132-.Volcengine.Base.Models.Base.Res" +
-      "ponseMetadata\022<\n\006Result\030\002 \001(\0132,.Volcengi" +
-      "ne.Vod.Models.Business.VodSpaceInfo\"a\n\026V" +
-      "odUpdateSpaceResponse\022G\n\020ResponseMetadat" +
-      "a\030\001 \001(\0132-.Volcengine.Base.Models.Base.Re" +
-      "sponseMetadata\"m\n\"VodUpdateSpaceUploadCo" +
-      "nfigResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-" +
-      ".Volcengine.Base.Models.Base.ResponseMet" +
-      "adata\"\265\001\n$VodDescribeUploadSpaceConfigRe" +
-      "sponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volce" +
-      "ngine.Base.Models.Base.ResponseMetadata\022" +
-      "D\n\006Result\030\002 \001(\01324.Volcengine.Vod.Models." +
-      "Business.VodUploadSpaceConfig\"m\n\"VodUpda" +
-      "teUploadSpaceConfigResponse\022G\n\020ResponseM" +
-      "etadata\030\001 \001(\0132-.Volcengine.Base.Models.B" +
-      "ase.ResponseMetadata\"\307\001\n&VodDescribeVodS" +
-      "paceStorageDataResponse\022G\n\020ResponseMetad" +
-      "ata\030\001 \001(\0132-.Volcengine.Base.Models.Base." +
-      "ResponseMetadata\022T\n\006Result\030\002 \001(\0132D.Volce" +
-      "ngine.Vod.Models.Business.VodDescribeVod" +
-      "SpaceStorageDataResult\"j\n\037VodUpdateDomai" +
-      "nPlayRuleResponse\022G\n\020ResponseMetadata\030\001 " +
-      "\001(\0132-.Volcengine.Base.Models.Base.Respon" +
-      "seMetadata\"j\n\037VodAddDomainToSchedulerRes" +
+      "ls.Base.ResponseMetadata\022@\n\006Result\030\002 \001(\013" +
+      "20.Volcengine.Vod.Models.Business.VodPla" +
+      "yInfoModel\"\267\001\n\036VodGetOriginalPlayInfoRes" +
       "ponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcen" +
-      "gine.Base.Models.Base.ResponseMetadata\"o" +
-      "\n$VodRemoveDomainFromSchedulerResponse\022G" +
-      "\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Ba" +
-      "se.Models.Base.ResponseMetadata\"b\n\027VodDe" +
-      "leteDomainResponse\022G\n\020ResponseMetadata\030\001" +
-      " \001(\0132-.Volcengine.Base.Models.Base.Respo" +
-      "nseMetadata\"a\n\026VodStartDomainResponse\022G\n" +
-      "\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Bas" +
-      "e.Models.Base.ResponseMetadata\"`\n\025VodSto" +
-      "pDomainResponse\022G\n\020ResponseMetadata\030\001 \001(" +
-      "\0132-.Volcengine.Base.Models.Base.Response" +
-      "Metadata\"\245\001\n\025VodListDomainResponse\022G\n\020Re" +
-      "sponseMetadata\030\001 \001(\0132-.Volcengine.Base.M" +
-      "odels.Base.ResponseMetadata\022C\n\006Result\030\002 " +
-      "\001(\01323.Volcengine.Vod.Models.Business.Vod" +
-      "DomainConfigInfo\"\262\001\n\037VodCreateCdnRefresh" +
-      "TaskResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-" +
-      ".Volcengine.Base.Models.Base.ResponseMet" +
-      "adata\022F\n\006Result\030\002 \001(\01326.Volcengine.Vod.M" +
-      "odels.Business.VodCreateCdnTaskResult\"\262\001" +
-      "\n\037VodCreateCdnPreloadTaskResponse\022G\n\020Res" +
+      "gine.Base.Models.Base.ResponseMetadata\022L" +
+      "\n\006Result\030\002 \001(\0132<.Volcengine.Vod.Models.B" +
+      "usiness.VodGetOriginalPlayInfoResult\"\273\001\n" +
+      " VodGetPrivateDrmPlayAuthResponse\022G\n\020Res" +
       "ponseMetadata\030\001 \001(\0132-.Volcengine.Base.Mo" +
-      "dels.Base.ResponseMetadata\022F\n\006Result\030\002 \001" +
-      "(\01326.Volcengine.Vod.Models.Business.VodC" +
-      "reateCdnTaskResult\"\244\001\n\027VodListCdnTasksRe" +
-      "sponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volce",
-      "ngine.Base.Models.Base.ResponseMetadata\022" +
-      "@\n\006Result\030\002 \001(\01320.Volcengine.Vod.Models." +
-      "Business.VodCdnTaskResult\"\261\001\n\033VodListCdn" +
-      "AccessLogResponse\022G\n\020ResponseMetadata\030\001 " +
-      "\001(\0132-.Volcengine.Base.Models.Base.Respon" +
-      "seMetadata\022I\n\006Result\030\002 \001(\01329.Volcengine." +
-      "Vod.Models.Business.VodListCdnAccessLogR" +
-      "esult\"\267\001\n\036VodListCdnTopAccessUrlResponse" +
-      "\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine." +
-      "Base.Models.Base.ResponseMetadata\022L\n\006Res" +
-      "ult\030\002 \001(\0132<.Volcengine.Vod.Models.Busine" +
-      "ss.VodListCdnTopAccessUrlResult\"\261\001\n\033VodL" +
-      "istCdnTopAccessResponse\022G\n\020ResponseMetad" +
-      "ata\030\001 \001(\0132-.Volcengine.Base.Models.Base." +
-      "ResponseMetadata\022I\n\006Result\030\002 \001(\01329.Volce" +
-      "ngine.Vod.Models.Business.VodListCdnTopA" +
-      "ccessResult\"\315\001\n)VodDescribeVodDomainBand" +
-      "widthDataResponse\022G\n\020ResponseMetadata\030\001 " +
-      "\001(\0132-.Volcengine.Base.Models.Base.Respon" +
-      "seMetadata\022W\n\006Result\030\002 \001(\0132G.Volcengine." +
-      "Vod.Models.Business.VodDescribeVodDomain" +
-      "BandwidthDataResult\"\267\001\n\036VodCdnStatistics" +
-      "CommonResponse\022G\n\020ResponseMetadata\030\001 \001(\013" +
-      "2-.Volcengine.Base.Models.Base.ResponseM" +
-      "etadata\022L\n\006Result\030\002 \001(\0132<.Volcengine.Vod" +
-      ".Models.Business.VodCdnStatisticsCommonR" +
-      "esult\"\242\001\n\031VodDescribeIPInfoResponse\022G\n\020R" +
-      "esponseMetadata\030\001 \001(\0132-.Volcengine.Base." +
-      "Models.Base.ResponseMetadata\022<\n\006Result\030\002" +
-      " \003(\0132,.Volcengine.Vod.Models.Business.Vo" +
-      "dCdnIpInfo\"\311\001\n\'VodDescribeVodDomainTraff" +
-      "icDataResponse\022G\n\020ResponseMetadata\030\001 \001(\013" +
-      "2-.Volcengine.Base.Models.Base.ResponseM" +
-      "etadata\022U\n\006Result\030\002 \001(\0132E.Volcengine.Vod" +
-      ".Models.Business.VodDescribeVodDomainTra" +
-      "fficDataResult\"\261\001\n\033VodSubmitBlockTasksRe" +
-      "sponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volce" +
-      "ngine.Base.Models.Base.ResponseMetadata\022" +
-      "I\n\006Result\030\002 \001(\01329.Volcengine.Vod.Models." +
-      "Business.VodSubmitBlockTasksResult\"\271\001\n\037V" +
-      "odGetContentBlockTasksResponse\022G\n\020Respon" +
-      "seMetadata\030\001 \001(\0132-.Volcengine.Base.Model" +
-      "s.Base.ResponseMetadata\022M\n\006Result\030\002 \001(\0132" +
-      "=.Volcengine.Vod.Models.Business.VodGetC" +
-      "ontentBlockTasksResult\"d\n\031VodCreateDomai" +
-      "nV2Response\022G\n\020ResponseMetadata\030\001 \001(\0132-." +
-      "Volcengine.Base.Models.Base.ResponseMeta" +
-      "data\"d\n\031VodCreateDomainV3Response\022G\n\020Res" +
-      "ponseMetadata\030\001 \001(\0132-.Volcengine.Base.Mo" +
-      "dels.Base.ResponseMetadata\"j\n\037VodUpdateD" +
-      "omainExpireV2Response\022G\n\020ResponseMetadat" +
+      "dels.Base.ResponseMetadata\022N\n\006Result\030\002 \001" +
+      "(\0132>.Volcengine.Vod.Models.Business.VodG" +
+      "etPrivateDrmPlayAuthResult\"\267\001\n\036VodGetHls" +
+      "DecryptionKeyResponse\022G\n\020ResponseMetadat" +
       "a\030\001 \001(\0132-.Volcengine.Base.Models.Base.Re" +
-      "sponseMetadata\"n\n#VodUpdateDomainAuthCon" +
-      "figV2Response\022G\n\020ResponseMetadata\030\001 \001(\0132" +
-      "-.Volcengine.Base.Models.Base.ResponseMe" +
-      "tadata\"q\n&VodUpdateDomainUrlAuthConfigV2" +
-      "Response\022G\n\020ResponseMetadata\030\001 \001(\0132-.Vol" +
-      "cengine.Base.Models.Base.ResponseMetadat" +
-      "a\"\263\001\n\034VodVerifyDomainOwnerResponse\022G\n\020Re" +
-      "sponseMetadata\030\001 \001(\0132-.Volcengine.Base.M" +
-      "odels.Base.ResponseMetadata\022J\n\006Result\030\002 " +
-      "\001(\0132:.Volcengine.Vod.Models.Business.Vod" +
-      "VerifyDomainOwnerResult\"\307\001\n&VodDescribeD" +
-      "omainVerifyContentResponse\022G\n\020ResponseMe" +
-      "tadata\030\001 \001(\0132-.Volcengine.Base.Models.Ba" +
-      "se.ResponseMetadata\022T\n\006Result\030\002 \001(\0132D.Vo" +
-      "lcengine.Vod.Models.Business.VodDescribe" +
-      "DomainVerifyContentResult\"\255\001\n\031VodListPCD" +
-      "NDomainResponse\022G\n\020ResponseMetadata\030\001 \001(" +
-      "\0132-.Volcengine.Base.Models.Base.Response" +
-      "Metadata\022G\n\006Result\030\002 \001(\01327.Volcengine.Vo" +
-      "d.Models.Business.VodPCDNDomainConfigInf" +
-      "o\"f\n\033VodCreatePCDNDomainResponse\022G\n\020Resp" +
-      "onseMetadata\030\001 \001(\0132-.Volcengine.Base.Mod" +
-      "els.Base.ResponseMetadata\"e\n\032VodStartPCD" +
-      "NDomainResponse\022G\n\020ResponseMetadata\030\001 \001(" +
-      "\0132-.Volcengine.Base.Models.Base.Response" +
-      "Metadata\"d\n\031VodStopPCDNDomainResponse\022G\n" +
-      "\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Bas" +
-      "e.Models.Base.ResponseMetadata\"f\n\033VodDel" +
-      "etePCDNDomainResponse\022G\n\020ResponseMetadat" +
-      "a\030\001 \001(\0132-.Volcengine.Base.Models.Base.Re" +
-      "sponseMetadata\"h\n\035VodUpdateDomainConfigR" +
-      "esponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volc" +
-      "engine.Base.Models.Base.ResponseMetadata" +
-      "\"\271\001\n\037VodDescribeDomainConfigResponse\022G\n\020" +
-      "ResponseMetadata\030\001 \001(\0132-.Volcengine.Base" +
-      ".Models.Base.ResponseMetadata\022M\n\006Result\030" +
-      "\002 \001(\0132=.Volcengine.Vod.Models.Business.V" +
-      "odDescribeDomainConfigResult\"\263\001\n\034VodDesc" +
-      "ribeCdnEdgeIpResponse\022G\n\020ResponseMetadat" +
-      "a\030\001 \001(\0132-.Volcengine.Base.Models.Base.Re" +
-      "sponseMetadata\022J\n\006Result\030\002 \001(\0132:.Volceng" +
-      "ine.Vod.Models.Business.VodDescribeCdnEd" +
-      "geIpResult\"\277\001\n\"VodDescribeCdnRegionAndIs" +
-      "pResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Vo" +
-      "lcengine.Base.Models.Base.ResponseMetada" +
-      "ta\022P\n\006Result\030\002 \001(\0132@.Volcengine.Vod.Mode" +
-      "ls.Business.VodDescribeCdnRegionAndIspRe" +
-      "sult\"k\n AddOrUpdateCertificateV2Response" +
-      "\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine." +
-      "Base.Models.Base.ResponseMetadata\"c\n\030Upd" +
-      "ateDomainAreaResponse\022G\n\020ResponseMetadat" +
-      "a\030\001 \001(\0132-.Volcengine.Base.Models.Base.Re" +
-      "sponseMetadata\"m\n\"VodAddCallbackSubscrip" +
-      "tionResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-" +
-      ".Volcengine.Base.Models.Base.ResponseMet" +
-      "adata\"f\n\033VodSetCallbackEventResponse\022G\n\020" +
-      "ResponseMetadata\030\001 \001(\0132-.Volcengine.Base" +
-      ".Models.Base.ResponseMetadata\"\245\001\n\031GetCal" +
-      "lbackRecordResponse\022G\n\020ResponseMetadata\030" +
-      "\001 \001(\0132-.Volcengine.Base.Models.Base.Resp" +
-      "onseMetadata\022?\n\006Result\030\002 \001(\0132/.Volcengin" +
-      "e.Vod.Models.Business.CallbackRecords\"\311\001" +
-      "\n\'VodGetSmartStrategyLitePlayInfoRespons" +
-      "e\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine" +
-      ".Base.Models.Base.ResponseMetadata\022U\n\006Re" +
-      "sult\030\002 \001(\0132E.Volcengine.Vod.Models.Busin" +
-      "ess.VodGetSmartStrategyLitePlayInfoResul" +
-      "t\"\245\001\n\025VodGetAppInfoResponse\022G\n\020ResponseM" +
-      "etadata\030\001 \001(\0132-.Volcengine.Base.Models.B" +
-      "ase.ResponseMetadata\022C\n\006Result\030\002 \001(\01323.V" +
-      "olcengine.Vod.Models.Business.VodGetAppI" +
-      "nfoResult\"\305\001\n%DescribeVodSpaceTranscodeD" +
-      "ataResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-." +
-      "Volcengine.Base.Models.Base.ResponseMeta" +
-      "data\022S\n\006Result\030\002 \001(\0132C.Volcengine.Vod.Mo" +
-      "dels.Business.DescribeVodSpaceTranscodeD" +
-      "ataResult\"\303\001\n$DescribeVodSpaceAIStatisDa" +
-      "taResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.V" +
+      "sponseMetadata\022L\n\006Result\030\002 \001(\0132<.Volceng" +
+      "ine.Vod.Models.Business.VodGetHlsDecrypt" +
+      "ionKeyResult\"\275\001\n!VodCreateHlsDecryptionK" +
+      "eyResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.V" +
       "olcengine.Base.Models.Base.ResponseMetad" +
-      "ata\022R\n\006Result\030\002 \001(\0132B.Volcengine.Vod.Mod" +
-      "els.Business.DescribeVodSpaceAIStatisDat" +
-      "aResult\"\317\001\n*DescribeVodSpaceSubtitleStat" +
-      "isDataResponse\022G\n\020ResponseMetadata\030\001 \001(\013" +
-      "2-.Volcengine.Base.Models.Base.ResponseM" +
-      "etadata\022X\n\006Result\030\002 \001(\0132H.Volcengine.Vod" +
-      ".Models.Business.DescribeVodSpaceSubtitl" +
-      "eStatisDataResult\"\313\001\n(DescribeVodSpaceDe" +
-      "tectStatisDataResponse\022G\n\020ResponseMetada" +
-      "ta\030\001 \001(\0132-.Volcengine.Base.Models.Base.R" +
-      "esponseMetadata\022V\n\006Result\030\002 \001(\0132F.Volcen" +
-      "gine.Vod.Models.Business.DescribeVodSpac" +
-      "eDetectStatisDataResult\"\271\001\n\037DescribeVodS" +
-      "napshotDataResponse\022G\n\020ResponseMetadata\030" +
-      "\001 \001(\0132-.Volcengine.Base.Models.Base.Resp" +
-      "onseMetadata\022M\n\006Result\030\002 \001(\0132=.Volcengin" +
-      "e.Vod.Models.Business.DescribeVodSnapsho" +
-      "tDataResult\"\317\001\n*DescribeVodSpaceWorkflow" +
-      "DetailDataResponse\022G\n\020ResponseMetadata\030\001" +
-      " \001(\0132-.Volcengine.Base.Models.Base.Respo" +
-      "nseMetadata\022X\n\006Result\030\002 \001(\0132H.Volcengine" +
-      ".Vod.Models.Business.DescribeVodSpaceWor" +
-      "kflowDetailDataResult\"\307\001\n&DescribeVodSpa" +
-      "ceEditDetailDataResponse\022G\n\020ResponseMeta" +
-      "data\030\001 \001(\0132-.Volcengine.Base.Models.Base" +
-      ".ResponseMetadata\022T\n\006Result\030\002 \001(\0132D.Volc" +
-      "engine.Vod.Models.Business.DescribeVodSp" +
-      "aceEditDetailDataResult\"\303\001\n$DescribeVodR" +
-      "ealtimeMediaDataResponse\022G\n\020ResponseMeta" +
-      "data\030\001 \001(\0132-.Volcengine.Base.Models.Base" +
-      ".ResponseMetadata\022R\n\006Result\030\002 \001(\0132B.Volc" +
-      "engine.Vod.Models.Business.DescribeVodRe" +
-      "altimeMediaDataResult\"\317\001\n*DescribeVodRea" +
-      "ltimeMediaDetailDataResponse\022G\n\020Response" +
-      "Metadata\030\001 \001(\0132-.Volcengine.Base.Models." +
-      "Base.ResponseMetadata\022X\n\006Result\030\002 \001(\0132H." +
-      "Volcengine.Vod.Models.Business.DescribeV" +
-      "odRealtimeMediaDetailDataResult\"\307\001\n&Desc" +
-      "ribeVodPlayFileLogByDomainResponse\022G\n\020Re" +
-      "sponseMetadata\030\001 \001(\0132-.Volcengine.Base.M" +
-      "odels.Base.ResponseMetadata\022T\n\006Result\030\002 " +
-      "\001(\0132D.Volcengine.Vod.Models.Business.Des" +
-      "cribeVodPlayFileLogByDomainResult\"\301\001\n#De" +
-      "scribeVodEnhanceImageDataResponse\022G\n\020Res" +
-      "ponseMetadata\030\001 \001(\0132-.Volcengine.Base.Mo" +
-      "dels.Base.ResponseMetadata\022Q\n\006Result\030\002 \001" +
-      "(\0132A.Volcengine.Vod.Models.Business.Desc" +
-      "ribeVodEnhanceImageDataResult\"\307\001\n&Descri" +
-      "beVodSpaceEditStatisDataResponse\022G\n\020Resp" +
-      "onseMetadata\030\001 \001(\0132-.Volcengine.Base.Mod" +
-      "els.Base.ResponseMetadata\022T\n\006Result\030\002 \001(" +
-      "\0132D.Volcengine.Vod.Models.Business.Descr" +
-      "ibeVodSpaceEditStatisDataResult\"\301\001\n#Desc" +
-      "ribeVodPlayedStatisDataResponse\022G\n\020Respo" +
+      "ata\022O\n\006Result\030\002 \001(\0132?.Volcengine.Vod.Mod" +
+      "els.Business.VodCreateHlsDecryptionKeyRe" +
+      "sult\"\323\001\n,VodGetPlayInfoWithLiveTimeShift" +
+      "SceneResponse\022G\n\020ResponseMetadata\030\001 \001(\0132" +
+      "-.Volcengine.Base.Models.Base.ResponseMe" +
+      "tadata\022Z\n\006Result\030\002 \001(\0132J.Volcengine.Vod." +
+      "Models.Business.VodGetPlayInfoWithLiveTi" +
+      "meShiftSceneResult\"\265\001\n\035VodDescribeDrmDat" +
+      "aKeyResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-" +
+      ".Volcengine.Base.Models.Base.ResponseMet" +
+      "adata\022K\n\006Result\030\002 \001(\0132;.Volcengine.Vod.M" +
+      "odels.Business.VodDescribeDrmDataKeyResu" +
+      "lt\"\273\001\n\037VodSubmitMoveObjectTaskResponse\022G" +
+      "\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Ba" +
+      "se.Models.Base.ResponseMetadata\022O\n\006Resul" +
+      "t\030\002 \001(\0132?.Volcengine.Vod.Models.Business" +
+      ".VodSubmitMoveObjectTaskRespData\"\300\001\n\"Vod" +
+      "QueryMoveObjectTaskInfoResponse\022G\n\020Respo" +
       "nseMetadata\030\001 \001(\0132-.Volcengine.Base.Mode" +
       "ls.Base.ResponseMetadata\022Q\n\006Result\030\002 \001(\013" +
-      "2A.Volcengine.Vod.Models.Business.Descri" +
-      "beVodPlayedStatisDataResult\"\311\001\n\'Describe" +
-      "VodMostPlayedStatisDataResponse\022G\n\020Respo" +
-      "nseMetadata\030\001 \001(\0132-.Volcengine.Base.Mode" +
-      "ls.Base.ResponseMetadata\022U\n\006Result\030\002 \001(\013" +
-      "2E.Volcengine.Vod.Models.Business.Descri" +
-      "beVodMostPlayedStatisDataResult\"\303\001\n$Desc" +
-      "ribeVodVidTrafficFileLogResponse\022G\n\020Resp" +
-      "onseMetadata\030\001 \001(\0132-.Volcengine.Base.Mod" +
-      "els.Base.ResponseMetadata\022R\n\006Result\030\002 \001(" +
-      "\0132B.Volcengine.Vod.Models.Business.Descr" +
-      "ibeVodVidTrafficFileLogResult\"\271\001\n\037VodSub" +
-      "mitBlockMediaTaskResponse\022G\n\020ResponseMet" +
+      "2A.Volcengine.Vod.Models.Business.VodQue" +
+      "ryMoveObjectTaskInfoResData\"\275\001\n!VodSubmi" +
+      "tBlockObjectTasksResponse\022G\n\020ResponseMet" +
       "adata\030\001 \001(\0132-.Volcengine.Base.Models.Bas" +
-      "e.ResponseMetadata\022M\n\006Result\030\002 \001(\0132=.Vol" +
+      "e.ResponseMetadata\022O\n\006Result\030\002 \001(\0132?.Vol" +
       "cengine.Vod.Models.Business.VodSubmitBlo" +
-      "ckMediaTaskResult\"\275\001\n!VodSubmitUnblockMe" +
-      "diaTaskResponse\022G\n\020ResponseMetadata\030\001 \001(" +
+      "ckObjectTasksResult\"\271\001\n\037VodListBlockObje" +
+      "ctTasksResponse\022G\n\020ResponseMetadata\030\001 \001(" +
       "\0132-.Volcengine.Base.Models.Base.Response" +
-      "Metadata\022O\n\006Result\030\002 \001(\0132?.Volcengine.Vo" +
-      "d.Models.Business.VodSubmitUnblockMediaT" +
-      "askResult\"\273\001\n VodQueryMediaBlockStatusRe" +
-      "sponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volce" +
-      "ngine.Base.Models.Base.ResponseMetadata\022" +
-      "N\n\006Result\030\002 \001(\0132>.Volcengine.Vod.Models." +
-      "Business.VodQueryMediaBlockStatusResult\"" +
-      "\251\001\n\027VodListProjectsResponse\022G\n\020ResponseM" +
+      "Metadata\022M\n\006Result\030\002 \001(\0132=.Volcengine.Vo" +
+      "d.Models.Business.VodListBlockObjectTask" +
+      "sResult\"\240\001\n\026VodUploadMediaResponse\022G\n\020Re" +
+      "sponseMetadata\030\001 \001(\0132-.Volcengine.Base.M" +
+      "odels.Base.ResponseMetadata\022=\n\006Result\030\002 " +
+      "\001(\0132-.Volcengine.Vod.Models.Business.Vod" +
+      "CommitData\"\247\001\n\036VodQueryUploadTaskInfoRes" +
+      "ponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcen" +
+      "gine.Base.Models.Base.ResponseMetadata\022<" +
+      "\n\006Result\030\002 \001(\0132,.Volcengine.Vod.Models.B" +
+      "usiness.VodQueryData\"\243\001\n\024VodUrlUploadRes" +
+      "ponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcen" +
+      "gine.Base.Models.Base.ResponseMetadata\022B" +
+      "\n\006Result\030\002 \001(\01322.Volcengine.Vod.Models.B" +
+      "usiness.VodUrlResponseData\"\257\001\n\032VodApplyU" +
+      "ploadInfoResponse\022G\n\020ResponseMetadata\030\001 " +
+      "\001(\0132-.Volcengine.Base.Models.Base.Respon" +
+      "seMetadata\022H\n\006Result\030\002 \001(\01328.Volcengine." +
+      "Vod.Models.Business.VodApplyUploadInfoRe" +
+      "sult\"\261\001\n\033VodCommitUploadInfoResponse\022G\n\020" +
+      "ResponseMetadata\030\001 \001(\0132-.Volcengine.Base" +
+      ".Models.Base.ResponseMetadata\022I\n\006Result\030" +
+      "\002 \001(\01329.Volcengine.Vod.Models.Business.V" +
+      "odCommitUploadInfoResult\"\311\001\n\'VodListFile" +
+      "MetaInfosByFileNamesResponse\022G\n\020Response" +
+      "Metadata\030\001 \001(\0132-.Volcengine.Base.Models." +
+      "Base.ResponseMetadata\022U\n\006Result\030\002 \001(\0132E." +
+      "Volcengine.Vod.Models.Business.VodListFi" +
+      "leMetaInfosByFileNamesResult\"\251\001\n\030VodGetM" +
+      "ediaInfosResponse\022G\n\020ResponseMetadata\030\001 " +
+      "\001(\0132-.Volcengine.Base.Models.Base.Respon" +
+      "seMetadata\022D\n\006Result\030\002 \001(\01324.Volcengine." +
+      "Vod.Models.Business.VodGetMediaInfosData" +
+      "\"e\n\032VodUpdateMediaInfoResponse\022G\n\020Respon" +
+      "seMetadata\030\001 \001(\0132-.Volcengine.Base.Model" +
+      "s.Base.ResponseMetadata\"\257\001\n\037VodGetRecomm" +
+      "endedPosterResponse\022G\n\020ResponseMetadata\030" +
+      "\001 \001(\0132-.Volcengine.Base.Models.Base.Resp" +
+      "onseMetadata\022C\n\006Result\030\002 \001(\01323.Volcengin" +
+      "e.Vod.Models.Business.VodGetRecPosterDat" +
+      "a\"n\n#VodUpdateMediaPublishStatusResponse" +
+      "\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine." +
+      "Base.Models.Base.ResponseMetadata\"\275\001\n\"Vo" +
+      "dUpdateMediaStorageClassResponse\022G\n\020Resp" +
+      "onseMetadata\030\001 \001(\0132-.Volcengine.Base.Mod" +
+      "els.Base.ResponseMetadata\022N\n\006Result\030\002 \001(" +
+      "\0132>.Volcengine.Vod.Models.Business.VodUp" +
+      "dateMediaStorageClassData\"\245\001\n\026VodDeleteM" +
+      "ediaResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-" +
+      ".Volcengine.Base.Models.Base.ResponseMet" +
+      "adata\022B\n\006Result\030\002 \001(\01322.Volcengine.Vod.M" +
+      "odels.Business.VodDeleteMediaData\"d\n\031Vod" +
+      "DeleteMaterialResponse\022G\n\020ResponseMetada" +
+      "ta\030\001 \001(\0132-.Volcengine.Base.Models.Base.R" +
+      "esponseMetadata\"\257\001\n\033VodDeleteTranscodesR" +
+      "esponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volc" +
+      "engine.Base.Models.Base.ResponseMetadata" +
+      "\022G\n\006Result\030\002 \001(\01327.Volcengine.Vod.Models" +
+      ".Business.VodDeleteTranscodesData\"\263\001\n\035Vo" +
+      "dDeleteMediaTosFileResponse\022G\n\020ResponseM" +
       "etadata\030\001 \001(\0132-.Volcengine.Base.Models.B" +
-      "ase.ResponseMetadata\022E\n\006Result\030\002 \001(\01325.V" +
-      "olcengine.Vod.Models.Business.VodListPro" +
-      "jectsResult\"\271\001\n VodGetTradeConfiguration" +
+      "ase.ResponseMetadata\022I\n\006Result\030\002 \001(\01329.V" +
+      "olcengine.Vod.Models.Business.VodDeleteM" +
+      "ediaTosFileData\"\247\001\n\027VodGetMediaListRespo" +
+      "nse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengi" +
+      "ne.Base.Models.Base.ResponseMetadata\022C\n\006" +
+      "Result\030\002 \001(\01323.Volcengine.Vod.Models.Bus" +
+      "iness.VodGetMediaListData\"\265\001\n\036VodGetSubt" +
+      "itleInfoListResponse\022G\n\020ResponseMetadata" +
+      "\030\001 \001(\0132-.Volcengine.Base.Models.Base.Res" +
+      "ponseMetadata\022J\n\006Result\030\002 \001(\0132:.Volcengi" +
+      "ne.Vod.Models.Business.VodGetSubtitleInf" +
+      "oListData\"\267\001\n\037VodUpdateSubtitleStatusRes" +
+      "ponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcen" +
+      "gine.Base.Models.Base.ResponseMetadata\022K" +
+      "\n\006Result\030\002 \001(\0132;.Volcengine.Vod.Models.B" +
+      "usiness.VodUpdateSubtitleStatusData\"h\n\035V" +
+      "odUpdateSubtitleInfoResponse\022G\n\020Response" +
+      "Metadata\030\001 \001(\0132-.Volcengine.Base.Models." +
+      "Base.ResponseMetadata\"\270\001\n!VodGetAuditFra" +
+      "mesForAuditResponse\022G\n\020ResponseMetadata\030" +
+      "\001 \001(\0132-.Volcengine.Base.Models.Base.Resp" +
+      "onseMetadata\022J\n\006Result\030\002 \001(\0132:.Volcengin" +
+      "e.Vod.Models.Business.VodGetFramesForAud" +
+      "itResult\"\265\001\n\036VodGetMLFramesForAuditRespo" +
+      "nse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengi" +
+      "ne.Base.Models.Base.ResponseMetadata\022J\n\006" +
+      "Result\030\002 \001(\0132:.Volcengine.Vod.Models.Bus" +
+      "iness.VodGetFramesForAuditResult\"\277\001\n\"Vod" +
+      "GetBetterFramesForAuditResponse\022G\n\020Respo" +
+      "nseMetadata\030\001 \001(\0132-.Volcengine.Base.Mode" +
+      "ls.Base.ResponseMetadata\022P\n\006Result\030\002 \001(\013" +
+      "2@.Volcengine.Vod.Models.Business.VodGet" +
+      "BetterFramesForAuditResult\"\271\001\n\037VodGetAud" +
+      "ioInfoForAuditResponse\022G\n\020ResponseMetada" +
+      "ta\030\001 \001(\0132-.Volcengine.Base.Models.Base.R" +
+      "esponseMetadata\022M\n\006Result\030\002 \001(\0132=.Volcen" +
+      "gine.Vod.Models.Business.VodGetAudioInfo" +
+      "ForAuditResult\"\333\001\n0VodGetAutomaticSpeech" +
+      "RecognitionForAuditResponse\022G\n\020ResponseM" +
+      "etadata\030\001 \001(\0132-.Volcengine.Base.Models.B" +
+      "ase.ResponseMetadata\022^\n\006Result\030\002 \001(\0132N.V" +
+      "olcengine.Vod.Models.Business.VodGetAuto" +
+      "maticSpeechRecognitionForAuditResult\"\315\001\n" +
+      ")VodGetAudioEventDetectionForAuditRespon" +
+      "se\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengin" +
+      "e.Base.Models.Base.ResponseMetadata\022W\n\006R" +
+      "esult\030\002 \001(\0132G.Volcengine.Vod.Models.Busi" +
+      "ness.VodGetAudioEventDetectionForAuditRe" +
+      "sult\"\301\001\n$VodCreateVideoClassificationRes" +
+      "ponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcen" +
+      "gine.Base.Models.Base.ResponseMetadata\022P" +
+      "\n\006Result\030\002 \001(\0132@.Volcengine.Vod.Models.B" +
+      "usiness.VodCreateVideoClassificationData" +
+      "\"o\n$VodUpdateVideoClassificationResponse" +
+      "\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine." +
+      "Base.Models.Base.ResponseMetadata\"o\n$Vod" +
+      "DeleteVideoClassificationResponse\022G\n\020Res" +
+      "ponseMetadata\030\001 \001(\0132-.Volcengine.Base.Mo" +
+      "dels.Base.ResponseMetadata\"\273\001\n#VodListVi" +
+      "deoClassificationsResponse\022G\n\020ResponseMe" +
+      "tadata\030\001 \001(\0132-.Volcengine.Base.Models.Ba" +
+      "se.ResponseMetadata\022K\n\006Result\030\002 \001(\0132;.Vo" +
+      "lcengine.Vod.Models.Business.VodVideoCla" +
+      "ssificationsData\"\244\001\n\030VodListSnapshotsRes" +
+      "ponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcen" +
+      "gine.Base.Models.Base.ResponseMetadata\022?" +
+      "\n\006Result\030\002 \001(\0132/.Volcengine.Vod.Models.B" +
+      "usiness.VodSnapshotData\"\247\001\n\026VodGetFileLi" +
+      "stResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.V" +
+      "olcengine.Base.Models.Base.ResponseMetad" +
+      "ata\022D\n\006Result\030\002 \001(\01324.Volcengine.Vod.Mod" +
+      "els.Business.VodGetMediaInfosData\"\247\001\n\027Vo" +
+      "dGetFileInfosResponse\022G\n\020ResponseMetadat" +
+      "a\030\001 \001(\0132-.Volcengine.Base.Models.Base.Re" +
+      "sponseMetadata\022C\n\006Result\030\002 \001(\01323.Volceng" +
+      "ine.Vod.Models.Business.VodGetFileInfosD" +
+      "ata\"\273\001\n!VodUpdateFileStorageClassRespons" +
+      "e\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine" +
+      ".Base.Models.Base.ResponseMetadata\022M\n\006Re" +
+      "sult\030\002 \001(\0132=.Volcengine.Vod.Models.Busin" +
+      "ess.VodUpdateFileStorageClassData\"\261\001\n\034Vo" +
+      "dGetInnerAuditURLsResponse\022G\n\020ResponseMe" +
+      "tadata\030\001 \001(\0132-.Volcengine.Base.Models.Ba" +
+      "se.ResponseMetadata\022H\n\006Result\030\002 \001(\01328.Vo" +
+      "lcengine.Vod.Models.Business.VodGetInner" +
+      "AuditURLsData\"\271\001\n VodGetAdAuditResultByV" +
+      "idResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.V" +
+      "olcengine.Base.Models.Base.ResponseMetad" +
+      "ata\022L\n\006Result\030\002 \001(\0132<.Volcengine.Vod.Mod" +
+      "els.Business.VodGetAdAuditResultByVidDat" +
+      "a\"j\n\037VodExtractMediaMetaTaskResponse\022G\n\020" +
+      "ResponseMetadata\030\001 \001(\0132-.Volcengine.Base" +
+      ".Models.Base.ResponseMetadata\"\253\001\n\030VodSta" +
+      "rtWorkflowResponse\022G\n\020ResponseMetadata\030\001" +
+      " \001(\0132-.Volcengine.Base.Models.Base.Respo" +
+      "nseMetadata\022F\n\006Result\030\002 \001(\01326.Volcengine" +
+      ".Vod.Models.Business.VodStartWorkflowRes" +
+      "ult\"\256\001\n\"VodRetrieveTranscodeResultRespon" +
+      "se\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengin" +
+      "e.Base.Models.Base.ResponseMetadata\022?\n\006R" +
+      "esult\030\002 \001(\0132/.Volcengine.Vod.Models.Busi" +
+      "ness.TranscodeResult\"\273\001\n VodListWorkflow" +
+      "ExecutionResponse\022G\n\020ResponseMetadata\030\001 " +
+      "\001(\0132-.Volcengine.Base.Models.Base.Respon" +
+      "seMetadata\022N\n\006Result\030\002 \001(\0132>.Volcengine." +
+      "Vod.Models.Business.VodListWorkflowExecu" +
+      "tionResult\"\305\001\n%VodGetWorkflowExecutionDe" +
+      "tailResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-" +
+      ".Volcengine.Base.Models.Base.ResponseMet" +
+      "adata\022S\n\006Result\030\002 \001(\0132C.Volcengine.Vod.M" +
+      "odels.Business.VodGetWorkflowExecutionDe" +
+      "tailResult\"\263\001\n%VodGetWorkflowExecutionSt" +
+      "atusResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-" +
+      ".Volcengine.Base.Models.Base.ResponseMet" +
+      "adata\022A\n\006Result\030\002 \001(\01321.Volcengine.Vod.M" +
+      "odels.Business.WorkflowExecution\"\252\001\n\034Vod" +
+      "GetWorkflowResultResponse\022G\n\020ResponseMet" +
+      "adata\030\001 \001(\0132-.Volcengine.Base.Models.Bas" +
+      "e.ResponseMetadata\022A\n\006Result\030\002 \001(\01321.Vol" +
+      "cengine.Vod.Models.Business.VodWorkflowR" +
+      "esult\"\257\001\n\035VodCreateTaskTemplateResponse\022" +
+      "G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine.B" +
+      "ase.Models.Base.ResponseMetadata\022E\n\006Resu" +
+      "lt\030\002 \001(\01325.Volcengine.Vod.Models.Busines" +
+      "s.VodTaskTemplateResult\"\257\001\n\035VodUpdateTas" +
+      "kTemplateResponse\022G\n\020ResponseMetadata\030\001 " +
+      "\001(\0132-.Volcengine.Base.Models.Base.Respon" +
+      "seMetadata\022E\n\006Result\030\002 \001(\01325.Volcengine." +
+      "Vod.Models.Business.VodTaskTemplateResul" +
+      "t\"\257\001\n\035VodDeleteTaskTemplateResponse\022G\n\020R" +
+      "esponseMetadata\030\001 \001(\0132-.Volcengine.Base." +
+      "Models.Base.ResponseMetadata\022E\n\006Result\030\002" +
+      " \001(\01325.Volcengine.Vod.Models.Business.Vo" +
+      "dTaskTemplateResult\"\254\001\n\032VodGetTaskTempla" +
+      "teResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.V" +
+      "olcengine.Base.Models.Base.ResponseMetad" +
+      "ata\022E\n\006Result\030\002 \001(\01325.Volcengine.Vod.Mod" +
+      "els.Business.VodTaskTemplateResult\"\261\001\n\033V" +
+      "odListTaskTemplateResponse\022G\n\020ResponseMe" +
+      "tadata\030\001 \001(\0132-.Volcengine.Base.Models.Ba" +
+      "se.ResponseMetadata\022I\n\006Result\030\002 \001(\01329.Vo" +
+      "lcengine.Vod.Models.Business.VodListTask" +
+      "TemplateResult\"\267\001\n!VodCreateWorkflowTemp" +
+      "lateResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-" +
+      ".Volcengine.Base.Models.Base.ResponseMet" +
+      "adata\022I\n\006Result\030\002 \001(\01329.Volcengine.Vod.M" +
+      "odels.Business.VodWorkflowTemplateResult" +
+      "\"l\n!VodUpdateWorkflowTemplateResponse\022G\n" +
+      "\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Bas" +
+      "e.Models.Base.ResponseMetadata\"l\n!VodDel" +
+      "eteWorkflowTemplateResponse\022G\n\020ResponseM" +
+      "etadata\030\001 \001(\0132-.Volcengine.Base.Models.B" +
+      "ase.ResponseMetadata\"\264\001\n\036VodGetWorkflowT" +
+      "emplateResponse\022G\n\020ResponseMetadata\030\001 \001(" +
+      "\0132-.Volcengine.Base.Models.Base.Response" +
+      "Metadata\022I\n\006Result\030\002 \001(\01329.Volcengine.Vo" +
+      "d.Models.Business.VodWorkflowTemplateRes" +
+      "ult\"\271\001\n\037VodListWorkflowTemplateResponse\022" +
+      "G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine.B" +
+      "ase.Models.Base.ResponseMetadata\022M\n\006Resu" +
+      "lt\030\002 \001(\0132=.Volcengine.Vod.Models.Busines" +
+      "s.VodListWorkflowTemplateResult\"\243\001\n\032VodC" +
+      "reateWatermarkResponse\022G\n\020ResponseMetada" +
+      "ta\030\001 \001(\0132-.Volcengine.Base.Models.Base.R" +
+      "esponseMetadata\022<\n\006Result\030\002 \001(\0132,.Volcen" +
+      "gine.Vod.Models.Business.LogoTemplate\"e\n" +
+      "\032VodUpdateWatermarkResponse\022G\n\020ResponseM" +
+      "etadata\030\001 \001(\0132-.Volcengine.Base.Models.B" +
+      "ase.ResponseMetadata\"e\n\032VodDeleteWaterma" +
+      "rkResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.V" +
+      "olcengine.Base.Models.Base.ResponseMetad" +
+      "ata\"\240\001\n\027VodGetWatermarkResponse\022G\n\020Respo" +
+      "nseMetadata\030\001 \001(\0132-.Volcengine.Base.Mode" +
+      "ls.Base.ResponseMetadata\022<\n\006Result\030\002 \001(\013" +
+      "2,.Volcengine.Vod.Models.Business.LogoTe" +
+      "mplate\"\263\001\n\030VodListWatermarkResponse\022G\n\020R" +
+      "esponseMetadata\030\001 \001(\0132-.Volcengine.Base." +
+      "Models.Base.ResponseMetadata\022N\n\006Result\030\002" +
+      " \001(\0132>.Volcengine.Vod.Models.Business.Vo" +
+      "dListWatermarkResponseResult\"\300\001\n$VodSubm" +
+      "itDirectEditTaskAsyncResponse\022G\n\020Respons" +
+      "eMetadata\030\001 \001(\0132-.Volcengine.Base.Models" +
+      ".Base.ResponseMetadata\022O\n\006Result\030\002 \001(\0132?" +
+      ".Volcengine.Vod.Models.Business.SubmitDi" +
+      "rectEditTaskAsyncResult\"\276\001\n#VodSubmitDir" +
+      "ectEditTaskSyncResponse\022G\n\020ResponseMetad" +
+      "ata\030\001 \001(\0132-.Volcengine.Base.Models.Base." +
+      "ResponseMetadata\022N\n\006Result\030\002 \001(\0132>.Volce" +
+      "ngine.Vod.Models.Business.SubmitDirectEd" +
+      "itTaskSyncResult\"\262\001\n VodGetDirectEditPro" +
+      "gressResponse\022G\n\020ResponseMetadata\030\001 \001(\0132" +
+      "-.Volcengine.Base.Models.Base.ResponseMe" +
+      "tadata\022E\n\006Result\030\002 \001(\01325.Volcengine.Vod." +
+      "Models.Business.GetDirectEditProgress\"\256\001" +
+      "\n\036VodGetDirectEditResultResponse\022G\n\020Resp" +
+      "onseMetadata\030\001 \001(\0132-.Volcengine.Base.Mod" +
+      "els.Base.ResponseMetadata\022C\n\006Result\030\002 \003(" +
+      "\01323.Volcengine.Vod.Models.Business.GetDi" +
+      "rectEditResult\"\260\001\n\037VodCancelDirectEditTa" +
+      "skResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.V" +
+      "olcengine.Base.Models.Base.ResponseMetad" +
+      "ata\022D\n\006Result\030\002 \001(\01324.Volcengine.Vod.Mod" +
+      "els.Business.CancelDirectEditTask\"a\n\026Vod" +
+      "CreateSpaceResponse\022G\n\020ResponseMetadata\030" +
+      "\001 \001(\0132-.Volcengine.Base.Models.Base.Resp" +
+      "onseMetadata\"a\n\026VodDeleteSpaceResponse\022G" +
+      "\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Ba" +
+      "se.Models.Base.ResponseMetadata\"\235\001\n\024VodL" +
+      "istSpaceResponse\022G\n\020ResponseMetadata\030\001 \001" +
+      "(\0132-.Volcengine.Base.Models.Base.Respons" +
+      "eMetadata\022<\n\006Result\030\002 \003(\0132,.Volcengine.V" +
+      "od.Models.Business.VodSpaceInfo\"\242\001\n\031VodG" +
+      "etSpaceDetailResponse\022G\n\020ResponseMetadat" +
+      "a\030\001 \001(\0132-.Volcengine.Base.Models.Base.Re" +
+      "sponseMetadata\022<\n\006Result\030\002 \001(\0132,.Volceng" +
+      "ine.Vod.Models.Business.VodSpaceInfo\"a\n\026" +
+      "VodUpdateSpaceResponse\022G\n\020ResponseMetada" +
+      "ta\030\001 \001(\0132-.Volcengine.Base.Models.Base.R" +
+      "esponseMetadata\"m\n\"VodUpdateSpaceUploadC" +
+      "onfigResponse\022G\n\020ResponseMetadata\030\001 \001(\0132" +
+      "-.Volcengine.Base.Models.Base.ResponseMe" +
+      "tadata\"\265\001\n$VodDescribeUploadSpaceConfigR" +
+      "esponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volc" +
+      "engine.Base.Models.Base.ResponseMetadata" +
+      "\022D\n\006Result\030\002 \001(\01324.Volcengine.Vod.Models" +
+      ".Business.VodUploadSpaceConfig\"m\n\"VodUpd" +
+      "ateUploadSpaceConfigResponse\022G\n\020Response" +
+      "Metadata\030\001 \001(\0132-.Volcengine.Base.Models." +
+      "Base.ResponseMetadata\"\307\001\n&VodDescribeVod" +
+      "SpaceStorageDataResponse\022G\n\020ResponseMeta" +
+      "data\030\001 \001(\0132-.Volcengine.Base.Models.Base" +
+      ".ResponseMetadata\022T\n\006Result\030\002 \001(\0132D.Volc" +
+      "engine.Vod.Models.Business.VodDescribeVo" +
+      "dSpaceStorageDataResult\"j\n\037VodUpdateDoma" +
+      "inPlayRuleResponse\022G\n\020ResponseMetadata\030\001" +
+      " \001(\0132-.Volcengine.Base.Models.Base.Respo" +
+      "nseMetadata\"j\n\037VodAddDomainToSchedulerRe" +
+      "sponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volce" +
+      "ngine.Base.Models.Base.ResponseMetadata\"" +
+      "o\n$VodRemoveDomainFromSchedulerResponse\022" +
+      "G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine.B" +
+      "ase.Models.Base.ResponseMetadata\"b\n\027VodD" +
+      "eleteDomainResponse\022G\n\020ResponseMetadata\030" +
+      "\001 \001(\0132-.Volcengine.Base.Models.Base.Resp" +
+      "onseMetadata\"a\n\026VodStartDomainResponse\022G" +
+      "\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Ba" +
+      "se.Models.Base.ResponseMetadata\"`\n\025VodSt" +
+      "opDomainResponse\022G\n\020ResponseMetadata\030\001 \001" +
+      "(\0132-.Volcengine.Base.Models.Base.Respons" +
+      "eMetadata\"\245\001\n\025VodListDomainResponse\022G\n\020R" +
+      "esponseMetadata\030\001 \001(\0132-.Volcengine.Base." +
+      "Models.Base.ResponseMetadata\022C\n\006Result\030\002" +
+      " \001(\01323.Volcengine.Vod.Models.Business.Vo" +
+      "dDomainConfigInfo\"\262\001\n\037VodCreateCdnRefres" +
+      "hTaskResponse\022G\n\020ResponseMetadata\030\001 \001(\0132" +
+      "-.Volcengine.Base.Models.Base.ResponseMe" +
+      "tadata\022F\n\006Result\030\002 \001(\01326.Volcengine.Vod." +
+      "Models.Business.VodCreateCdnTaskResult\"\262" +
+      "\001\n\037VodCreateCdnPreloadTaskResponse\022G\n\020Re" +
+      "sponseMetadata\030\001 \001(\0132-.Volcengine.Base.M" +
+      "odels.Base.ResponseMetadata\022F\n\006Result\030\002 " +
+      "\001(\01326.Volcengine.Vod.Models.Business.Vod" +
+      "CreateCdnTaskResult\"\244\001\n\027VodListCdnTasksR",
+      "esponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volc" +
+      "engine.Base.Models.Base.ResponseMetadata" +
+      "\022@\n\006Result\030\002 \001(\01320.Volcengine.Vod.Models" +
+      ".Business.VodCdnTaskResult\"\261\001\n\033VodListCd" +
+      "nAccessLogResponse\022G\n\020ResponseMetadata\030\001" +
+      " \001(\0132-.Volcengine.Base.Models.Base.Respo" +
+      "nseMetadata\022I\n\006Result\030\002 \001(\01329.Volcengine" +
+      ".Vod.Models.Business.VodListCdnAccessLog" +
+      "Result\"\267\001\n\036VodListCdnTopAccessUrlRespons" +
+      "e\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine" +
+      ".Base.Models.Base.ResponseMetadata\022L\n\006Re" +
+      "sult\030\002 \001(\0132<.Volcengine.Vod.Models.Busin" +
+      "ess.VodListCdnTopAccessUrlResult\"\261\001\n\033Vod" +
+      "ListCdnTopAccessResponse\022G\n\020ResponseMeta" +
+      "data\030\001 \001(\0132-.Volcengine.Base.Models.Base" +
+      ".ResponseMetadata\022I\n\006Result\030\002 \001(\01329.Volc" +
+      "engine.Vod.Models.Business.VodListCdnTop" +
+      "AccessResult\"\315\001\n)VodDescribeVodDomainBan" +
+      "dwidthDataResponse\022G\n\020ResponseMetadata\030\001" +
+      " \001(\0132-.Volcengine.Base.Models.Base.Respo" +
+      "nseMetadata\022W\n\006Result\030\002 \001(\0132G.Volcengine" +
+      ".Vod.Models.Business.VodDescribeVodDomai" +
+      "nBandwidthDataResult\"\267\001\n\036VodCdnStatistic" +
+      "sCommonResponse\022G\n\020ResponseMetadata\030\001 \001(" +
+      "\0132-.Volcengine.Base.Models.Base.Response" +
+      "Metadata\022L\n\006Result\030\002 \001(\0132<.Volcengine.Vo" +
+      "d.Models.Business.VodCdnStatisticsCommon" +
+      "Result\"\242\001\n\031VodDescribeIPInfoResponse\022G\n\020" +
+      "ResponseMetadata\030\001 \001(\0132-.Volcengine.Base" +
+      ".Models.Base.ResponseMetadata\022<\n\006Result\030" +
+      "\002 \003(\0132,.Volcengine.Vod.Models.Business.V" +
+      "odCdnIpInfo\"\311\001\n\'VodDescribeVodDomainTraf" +
+      "ficDataResponse\022G\n\020ResponseMetadata\030\001 \001(" +
+      "\0132-.Volcengine.Base.Models.Base.Response" +
+      "Metadata\022U\n\006Result\030\002 \001(\0132E.Volcengine.Vo" +
+      "d.Models.Business.VodDescribeVodDomainTr" +
+      "afficDataResult\"\261\001\n\033VodSubmitBlockTasksR" +
+      "esponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volc" +
+      "engine.Base.Models.Base.ResponseMetadata" +
+      "\022I\n\006Result\030\002 \001(\01329.Volcengine.Vod.Models" +
+      ".Business.VodSubmitBlockTasksResult\"\271\001\n\037" +
+      "VodGetContentBlockTasksResponse\022G\n\020Respo" +
+      "nseMetadata\030\001 \001(\0132-.Volcengine.Base.Mode" +
+      "ls.Base.ResponseMetadata\022M\n\006Result\030\002 \001(\013" +
+      "2=.Volcengine.Vod.Models.Business.VodGet" +
+      "ContentBlockTasksResult\"d\n\031VodCreateDoma" +
+      "inV2Response\022G\n\020ResponseMetadata\030\001 \001(\0132-" +
+      ".Volcengine.Base.Models.Base.ResponseMet" +
+      "adata\"d\n\031VodCreateDomainV3Response\022G\n\020Re" +
+      "sponseMetadata\030\001 \001(\0132-.Volcengine.Base.M" +
+      "odels.Base.ResponseMetadata\"j\n\037VodUpdate" +
+      "DomainExpireV2Response\022G\n\020ResponseMetada" +
+      "ta\030\001 \001(\0132-.Volcengine.Base.Models.Base.R" +
+      "esponseMetadata\"n\n#VodUpdateDomainAuthCo" +
+      "nfigV2Response\022G\n\020ResponseMetadata\030\001 \001(\013" +
+      "2-.Volcengine.Base.Models.Base.ResponseM" +
+      "etadata\"q\n&VodUpdateDomainUrlAuthConfigV" +
+      "2Response\022G\n\020ResponseMetadata\030\001 \001(\0132-.Vo" +
+      "lcengine.Base.Models.Base.ResponseMetada" +
+      "ta\"\263\001\n\034VodVerifyDomainOwnerResponse\022G\n\020R" +
+      "esponseMetadata\030\001 \001(\0132-.Volcengine.Base." +
+      "Models.Base.ResponseMetadata\022J\n\006Result\030\002" +
+      " \001(\0132:.Volcengine.Vod.Models.Business.Vo" +
+      "dVerifyDomainOwnerResult\"\307\001\n&VodDescribe" +
+      "DomainVerifyContentResponse\022G\n\020ResponseM" +
+      "etadata\030\001 \001(\0132-.Volcengine.Base.Models.B" +
+      "ase.ResponseMetadata\022T\n\006Result\030\002 \001(\0132D.V" +
+      "olcengine.Vod.Models.Business.VodDescrib" +
+      "eDomainVerifyContentResult\"\255\001\n\031VodListPC" +
+      "DNDomainResponse\022G\n\020ResponseMetadata\030\001 \001" +
+      "(\0132-.Volcengine.Base.Models.Base.Respons" +
+      "eMetadata\022G\n\006Result\030\002 \001(\01327.Volcengine.V" +
+      "od.Models.Business.VodPCDNDomainConfigIn" +
+      "fo\"f\n\033VodCreatePCDNDomainResponse\022G\n\020Res" +
+      "ponseMetadata\030\001 \001(\0132-.Volcengine.Base.Mo" +
+      "dels.Base.ResponseMetadata\"e\n\032VodStartPC" +
+      "DNDomainResponse\022G\n\020ResponseMetadata\030\001 \001" +
+      "(\0132-.Volcengine.Base.Models.Base.Respons" +
+      "eMetadata\"d\n\031VodStopPCDNDomainResponse\022G" +
+      "\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Ba" +
+      "se.Models.Base.ResponseMetadata\"f\n\033VodDe" +
+      "letePCDNDomainResponse\022G\n\020ResponseMetada" +
+      "ta\030\001 \001(\0132-.Volcengine.Base.Models.Base.R" +
+      "esponseMetadata\"h\n\035VodUpdateDomainConfig" +
       "Response\022G\n\020ResponseMetadata\030\001 \001(\0132-.Vol" +
       "cengine.Base.Models.Base.ResponseMetadat" +
-      "a\022L\n\006Result\030\002 \001(\0132<.Volcengine.Vod.Model" +
-      "s.Business.TradeConfigurationInfoResult\"" +
-      "\265\001\n\035VodSetCloudMigrateJobResponse\022G\n\020Res" +
-      "ponseMetadata\030\001 \001(\0132-.Volcengine.Base.Mo" +
-      "dels.Base.ResponseMetadata\022K\n\006Result\030\002 \001" +
-      "(\0132;.Volcengine.Vod.Models.Business.VodS" +
-      "etCloudMigrateJobResult\"k\n VodSubmitClou" +
-      "dMigrateJobResponse\022G\n\020ResponseMetadata\030" +
-      "\001 \001(\0132-.Volcengine.Base.Models.Base.Resp" +
-      "onseMetadata\"\265\001\n\035VodGetCloudMigrateJobRe" +
-      "sponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volce" +
-      "ngine.Base.Models.Base.ResponseMetadata\022" +
-      "K\n\006Result\030\002 \001(\0132;.Volcengine.Vod.Models." +
-      "Business.VodGetCloudMigrateJobResult\"\247\001\n" +
-      "\026VodReportEventResponse\022G\n\020ResponseMetad" +
+      "a\"\271\001\n\037VodDescribeDomainConfigResponse\022G\n" +
+      "\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Bas" +
+      "e.Models.Base.ResponseMetadata\022M\n\006Result" +
+      "\030\002 \001(\0132=.Volcengine.Vod.Models.Business." +
+      "VodDescribeDomainConfigResult\"\263\001\n\034VodDes" +
+      "cribeCdnEdgeIpResponse\022G\n\020ResponseMetada" +
+      "ta\030\001 \001(\0132-.Volcengine.Base.Models.Base.R" +
+      "esponseMetadata\022J\n\006Result\030\002 \001(\0132:.Volcen" +
+      "gine.Vod.Models.Business.VodDescribeCdnE" +
+      "dgeIpResult\"\277\001\n\"VodDescribeCdnRegionAndI" +
+      "spResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.V" +
+      "olcengine.Base.Models.Base.ResponseMetad" +
+      "ata\022P\n\006Result\030\002 \001(\0132@.Volcengine.Vod.Mod" +
+      "els.Business.VodDescribeCdnRegionAndIspR" +
+      "esult\"k\n AddOrUpdateCertificateV2Respons" +
+      "e\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengine" +
+      ".Base.Models.Base.ResponseMetadata\"c\n\030Up" +
+      "dateDomainAreaResponse\022G\n\020ResponseMetada" +
+      "ta\030\001 \001(\0132-.Volcengine.Base.Models.Base.R" +
+      "esponseMetadata\"m\n\"VodAddCallbackSubscri" +
+      "ptionResponse\022G\n\020ResponseMetadata\030\001 \001(\0132" +
+      "-.Volcengine.Base.Models.Base.ResponseMe" +
+      "tadata\"f\n\033VodSetCallbackEventResponse\022G\n" +
+      "\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Bas" +
+      "e.Models.Base.ResponseMetadata\"\245\001\n\031GetCa" +
+      "llbackRecordResponse\022G\n\020ResponseMetadata" +
+      "\030\001 \001(\0132-.Volcengine.Base.Models.Base.Res" +
+      "ponseMetadata\022?\n\006Result\030\002 \001(\0132/.Volcengi" +
+      "ne.Vod.Models.Business.CallbackRecords\"\311" +
+      "\001\n\'VodGetSmartStrategyLitePlayInfoRespon" +
+      "se\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengin" +
+      "e.Base.Models.Base.ResponseMetadata\022U\n\006R" +
+      "esult\030\002 \001(\0132E.Volcengine.Vod.Models.Busi" +
+      "ness.VodGetSmartStrategyLitePlayInfoResu" +
+      "lt\"\245\001\n\025VodGetAppInfoResponse\022G\n\020Response" +
+      "Metadata\030\001 \001(\0132-.Volcengine.Base.Models." +
+      "Base.ResponseMetadata\022C\n\006Result\030\002 \001(\01323." +
+      "Volcengine.Vod.Models.Business.VodGetApp" +
+      "InfoResult\"\305\001\n%DescribeVodSpaceTranscode" +
+      "DataResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-" +
+      ".Volcengine.Base.Models.Base.ResponseMet" +
+      "adata\022S\n\006Result\030\002 \001(\0132C.Volcengine.Vod.M" +
+      "odels.Business.DescribeVodSpaceTranscode" +
+      "DataResult\"\303\001\n$DescribeVodSpaceAIStatisD" +
+      "ataResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-." +
+      "Volcengine.Base.Models.Base.ResponseMeta" +
+      "data\022R\n\006Result\030\002 \001(\0132B.Volcengine.Vod.Mo" +
+      "dels.Business.DescribeVodSpaceAIStatisDa" +
+      "taResult\"\317\001\n*DescribeVodSpaceSubtitleSta" +
+      "tisDataResponse\022G\n\020ResponseMetadata\030\001 \001(" +
+      "\0132-.Volcengine.Base.Models.Base.Response" +
+      "Metadata\022X\n\006Result\030\002 \001(\0132H.Volcengine.Vo" +
+      "d.Models.Business.DescribeVodSpaceSubtit" +
+      "leStatisDataResult\"\313\001\n(DescribeVodSpaceD" +
+      "etectStatisDataResponse\022G\n\020ResponseMetad" +
       "ata\030\001 \001(\0132-.Volcengine.Base.Models.Base." +
-      "ResponseMetadata\022D\n\006Result\030\002 \001(\01324.Volce" +
-      "ngine.Vod.Models.Business.VodReportEvent" +
-      "ResultB\314\001\n)com.volcengine.service.vod.mo" +
-      "del.responseB\013VodResponseP\001ZAgithub.com/" +
-      "volcengine/volc-sdk-golang/service/vod/m" +
-      "odels/response\240\001\001\330\001\001\312\002 Volc\\Service\\Vod\\" +
-      "Models\\Response\342\002#Volc\\Service\\Vod\\Model" +
-      "s\\GPBMetadatab\006proto3"
+      "ResponseMetadata\022V\n\006Result\030\002 \001(\0132F.Volce" +
+      "ngine.Vod.Models.Business.DescribeVodSpa" +
+      "ceDetectStatisDataResult\"\271\001\n\037DescribeVod" +
+      "SnapshotDataResponse\022G\n\020ResponseMetadata" +
+      "\030\001 \001(\0132-.Volcengine.Base.Models.Base.Res" +
+      "ponseMetadata\022M\n\006Result\030\002 \001(\0132=.Volcengi" +
+      "ne.Vod.Models.Business.DescribeVodSnapsh" +
+      "otDataResult\"\317\001\n*DescribeVodSpaceWorkflo" +
+      "wDetailDataResponse\022G\n\020ResponseMetadata\030" +
+      "\001 \001(\0132-.Volcengine.Base.Models.Base.Resp" +
+      "onseMetadata\022X\n\006Result\030\002 \001(\0132H.Volcengin" +
+      "e.Vod.Models.Business.DescribeVodSpaceWo" +
+      "rkflowDetailDataResult\"\307\001\n&DescribeVodSp" +
+      "aceEditDetailDataResponse\022G\n\020ResponseMet" +
+      "adata\030\001 \001(\0132-.Volcengine.Base.Models.Bas" +
+      "e.ResponseMetadata\022T\n\006Result\030\002 \001(\0132D.Vol" +
+      "cengine.Vod.Models.Business.DescribeVodS" +
+      "paceEditDetailDataResult\"\303\001\n$DescribeVod" +
+      "RealtimeMediaDataResponse\022G\n\020ResponseMet" +
+      "adata\030\001 \001(\0132-.Volcengine.Base.Models.Bas" +
+      "e.ResponseMetadata\022R\n\006Result\030\002 \001(\0132B.Vol" +
+      "cengine.Vod.Models.Business.DescribeVodR" +
+      "ealtimeMediaDataResult\"\317\001\n*DescribeVodRe" +
+      "altimeMediaDetailDataResponse\022G\n\020Respons" +
+      "eMetadata\030\001 \001(\0132-.Volcengine.Base.Models" +
+      ".Base.ResponseMetadata\022X\n\006Result\030\002 \001(\0132H" +
+      ".Volcengine.Vod.Models.Business.Describe" +
+      "VodRealtimeMediaDetailDataResult\"\307\001\n&Des" +
+      "cribeVodPlayFileLogByDomainResponse\022G\n\020R" +
+      "esponseMetadata\030\001 \001(\0132-.Volcengine.Base." +
+      "Models.Base.ResponseMetadata\022T\n\006Result\030\002" +
+      " \001(\0132D.Volcengine.Vod.Models.Business.De" +
+      "scribeVodPlayFileLogByDomainResult\"\301\001\n#D" +
+      "escribeVodEnhanceImageDataResponse\022G\n\020Re" +
+      "sponseMetadata\030\001 \001(\0132-.Volcengine.Base.M" +
+      "odels.Base.ResponseMetadata\022Q\n\006Result\030\002 " +
+      "\001(\0132A.Volcengine.Vod.Models.Business.Des" +
+      "cribeVodEnhanceImageDataResult\"\307\001\n&Descr" +
+      "ibeVodSpaceEditStatisDataResponse\022G\n\020Res" +
+      "ponseMetadata\030\001 \001(\0132-.Volcengine.Base.Mo" +
+      "dels.Base.ResponseMetadata\022T\n\006Result\030\002 \001" +
+      "(\0132D.Volcengine.Vod.Models.Business.Desc" +
+      "ribeVodSpaceEditStatisDataResult\"\301\001\n#Des" +
+      "cribeVodPlayedStatisDataResponse\022G\n\020Resp" +
+      "onseMetadata\030\001 \001(\0132-.Volcengine.Base.Mod" +
+      "els.Base.ResponseMetadata\022Q\n\006Result\030\002 \001(" +
+      "\0132A.Volcengine.Vod.Models.Business.Descr" +
+      "ibeVodPlayedStatisDataResult\"\311\001\n\'Describ" +
+      "eVodMostPlayedStatisDataResponse\022G\n\020Resp" +
+      "onseMetadata\030\001 \001(\0132-.Volcengine.Base.Mod" +
+      "els.Base.ResponseMetadata\022U\n\006Result\030\002 \001(" +
+      "\0132E.Volcengine.Vod.Models.Business.Descr" +
+      "ibeVodMostPlayedStatisDataResult\"\303\001\n$Des" +
+      "cribeVodVidTrafficFileLogResponse\022G\n\020Res" +
+      "ponseMetadata\030\001 \001(\0132-.Volcengine.Base.Mo" +
+      "dels.Base.ResponseMetadata\022R\n\006Result\030\002 \001" +
+      "(\0132B.Volcengine.Vod.Models.Business.Desc" +
+      "ribeVodVidTrafficFileLogResult\"\271\001\n\037VodSu" +
+      "bmitBlockMediaTaskResponse\022G\n\020ResponseMe" +
+      "tadata\030\001 \001(\0132-.Volcengine.Base.Models.Ba" +
+      "se.ResponseMetadata\022M\n\006Result\030\002 \001(\0132=.Vo" +
+      "lcengine.Vod.Models.Business.VodSubmitBl" +
+      "ockMediaTaskResult\"\275\001\n!VodSubmitUnblockM" +
+      "ediaTaskResponse\022G\n\020ResponseMetadata\030\001 \001" +
+      "(\0132-.Volcengine.Base.Models.Base.Respons" +
+      "eMetadata\022O\n\006Result\030\002 \001(\0132?.Volcengine.V" +
+      "od.Models.Business.VodSubmitUnblockMedia" +
+      "TaskResult\"\273\001\n VodQueryMediaBlockStatusR" +
+      "esponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volc" +
+      "engine.Base.Models.Base.ResponseMetadata" +
+      "\022N\n\006Result\030\002 \001(\0132>.Volcengine.Vod.Models" +
+      ".Business.VodQueryMediaBlockStatusResult" +
+      "\"\251\001\n\027VodListProjectsResponse\022G\n\020Response" +
+      "Metadata\030\001 \001(\0132-.Volcengine.Base.Models." +
+      "Base.ResponseMetadata\022E\n\006Result\030\002 \001(\01325." +
+      "Volcengine.Vod.Models.Business.VodListPr" +
+      "ojectsResult\"\271\001\n VodGetTradeConfiguratio" +
+      "nResponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Vo" +
+      "lcengine.Base.Models.Base.ResponseMetada" +
+      "ta\022L\n\006Result\030\002 \001(\0132<.Volcengine.Vod.Mode" +
+      "ls.Business.TradeConfigurationInfoResult" +
+      "\"\265\001\n\035VodSetCloudMigrateJobResponse\022G\n\020Re" +
+      "sponseMetadata\030\001 \001(\0132-.Volcengine.Base.M" +
+      "odels.Base.ResponseMetadata\022K\n\006Result\030\002 " +
+      "\001(\0132;.Volcengine.Vod.Models.Business.Vod" +
+      "SetCloudMigrateJobResult\"k\n VodSubmitClo" +
+      "udMigrateJobResponse\022G\n\020ResponseMetadata" +
+      "\030\001 \001(\0132-.Volcengine.Base.Models.Base.Res" +
+      "ponseMetadata\"\265\001\n\035VodGetCloudMigrateJobR" +
+      "esponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volc" +
+      "engine.Base.Models.Base.ResponseMetadata" +
+      "\022K\n\006Result\030\002 \001(\0132;.Volcengine.Vod.Models" +
+      ".Business.VodGetCloudMigrateJobResult\"\247\001" +
+      "\n\026VodReportEventResponse\022G\n\020ResponseMeta" +
+      "data\030\001 \001(\0132-.Volcengine.Base.Models.Base" +
+      ".ResponseMetadata\022D\n\006Result\030\002 \001(\01324.Volc" +
+      "engine.Vod.Models.Business.VodReportEven" +
+      "tResult\"\271\001\n\037VodCreateDramaRecapTaskRespo" +
+      "nse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volcengi" +
+      "ne.Base.Models.Base.ResponseMetadata\022M\n\006" +
+      "Result\030\002 \001(\0132=.Volcengine.Vod.Models.Bus" +
+      "iness.VodCreateDramaRecapTaskResult\"\273\001\n " +
+      "VodCreateDramaScriptTaskResponse\022G\n\020Resp" +
+      "onseMetadata\030\001 \001(\0132-.Volcengine.Base.Mod" +
+      "els.Base.ResponseMetadata\022N\n\006Result\030\002 \001(" +
+      "\0132>.Volcengine.Vod.Models.Business.VodCr" +
+      "eateDramaScriptTaskResult\"\267\001\n\036VodQueryDr" +
+      "amaRecapTaskResponse\022G\n\020ResponseMetadata" +
+      "\030\001 \001(\0132-.Volcengine.Base.Models.Base.Res" +
+      "ponseMetadata\022L\n\006Result\030\002 \001(\0132<.Volcengi" +
+      "ne.Vod.Models.Business.VodQueryDramaReca" +
+      "pTaskResult\"\271\001\n\037VodQueryDramaScriptTaskR" +
+      "esponse\022G\n\020ResponseMetadata\030\001 \001(\0132-.Volc" +
+      "engine.Base.Models.Base.ResponseMetadata" +
+      "\022M\n\006Result\030\002 \001(\0132=.Volcengine.Vod.Models" +
+      ".Business.VodQueryDramaScriptTaskResultB" +
+      "\314\001\n)com.volcengine.service.vod.model.res" +
+      "ponseB\013VodResponseP\001ZAgithub.com/volceng" +
+      "ine/volc-sdk-golang/service/vod/models/r" +
+      "esponse\240\001\001\330\001\001\312\002 Volc\\Service\\Vod\\Models\\" +
+      "Response\342\002#Volc\\Service\\Vod\\Models\\GPBMe" +
+      "tadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1434,6 +1474,7 @@ public final class VodResponse {
           com.volcengine.service.vod.model.business.VodMigrate.getDescriptor(),
           com.volcengine.service.vod.model.business.VodCallback.getDescriptor(),
           com.volcengine.service.vod.model.business.VodReporter.getDescriptor(),
+          com.volcengine.service.vod.model.business.VodDrama.getDescriptor(),
         });
     internal_static_Volcengine_Vod_Models_Response_VodGetAllPlayInfoResponse_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -2329,6 +2370,30 @@ public final class VodResponse {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodReportEventResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
+    internal_static_Volcengine_Vod_Models_Response_VodCreateDramaRecapTaskResponse_descriptor =
+      getDescriptor().getMessageTypes().get(149);
+    internal_static_Volcengine_Vod_Models_Response_VodCreateDramaRecapTaskResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Response_VodCreateDramaRecapTaskResponse_descriptor,
+        new java.lang.String[] { "ResponseMetadata", "Result", });
+    internal_static_Volcengine_Vod_Models_Response_VodCreateDramaScriptTaskResponse_descriptor =
+      getDescriptor().getMessageTypes().get(150);
+    internal_static_Volcengine_Vod_Models_Response_VodCreateDramaScriptTaskResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Response_VodCreateDramaScriptTaskResponse_descriptor,
+        new java.lang.String[] { "ResponseMetadata", "Result", });
+    internal_static_Volcengine_Vod_Models_Response_VodQueryDramaRecapTaskResponse_descriptor =
+      getDescriptor().getMessageTypes().get(151);
+    internal_static_Volcengine_Vod_Models_Response_VodQueryDramaRecapTaskResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Response_VodQueryDramaRecapTaskResponse_descriptor,
+        new java.lang.String[] { "ResponseMetadata", "Result", });
+    internal_static_Volcengine_Vod_Models_Response_VodQueryDramaScriptTaskResponse_descriptor =
+      getDescriptor().getMessageTypes().get(152);
+    internal_static_Volcengine_Vod_Models_Response_VodQueryDramaScriptTaskResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Response_VodQueryDramaScriptTaskResponse_descriptor,
+        new java.lang.String[] { "ResponseMetadata", "Result", });
     com.volcengine.service.base.model.base.Base.getDescriptor();
     com.volcengine.service.vod.model.business.VodPlay.getDescriptor();
     com.volcengine.service.vod.model.business.VodMedia.getDescriptor();
@@ -2347,6 +2412,7 @@ public final class VodResponse {
     com.volcengine.service.vod.model.business.VodMigrate.getDescriptor();
     com.volcengine.service.vod.model.business.VodCallback.getDescriptor();
     com.volcengine.service.vod.model.business.VodReporter.getDescriptor();
+    com.volcengine.service.vod.model.business.VodDrama.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

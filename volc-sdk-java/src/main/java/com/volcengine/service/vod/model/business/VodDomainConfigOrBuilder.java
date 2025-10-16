@@ -274,4 +274,31 @@ public interface VodDomainConfigOrBuilder extends
    * <code>optional .Volcengine.Vod.Models.Business.UserAgentAccessRule UaAccessRule = 15;</code>
    */
   com.volcengine.service.vod.model.business.UserAgentAccessRuleOrBuilder getUaAccessRuleOrBuilder();
+
+  /**
+   * <pre>
+   * 源站重写
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodOriginRewrite OriginRewriteControl = 18;</code>
+   * @return Whether the originRewriteControl field is set.
+   */
+  boolean hasOriginRewriteControl();
+  /**
+   * <pre>
+   * 源站重写
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodOriginRewrite OriginRewriteControl = 18;</code>
+   * @return The originRewriteControl.
+   */
+  com.volcengine.service.vod.model.business.VodOriginRewrite getOriginRewriteControl();
+  /**
+   * <pre>
+   * 源站重写
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodOriginRewrite OriginRewriteControl = 18;</code>
+   */
+  com.volcengine.service.vod.model.business.VodOriginRewriteOrBuilder getOriginRewriteControlOrBuilder();
 }

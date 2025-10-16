@@ -70,6 +70,22 @@ public class ImagexConfig {
                         }
                     }
             ));
+            put("ap-southeast-1", new ServiceInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.CONNECTION_TIMEOUT, 5000);
+                            put(Const.SOCKET_TIMEOUT, 5000);
+                            put(Const.Scheme, "https");
+                            put(Const.Host, "imagex.ap-southeast-1.volcengineapi.com");
+                            put(Const.Header, new ArrayList<Header>() {
+                                {
+                                    add(new BasicHeader("Accept", "application/json"));
+                                }
+                            });
+                            put(Const.Credentials, new Credentials("ap-southeast-1", "ImageX"));
+                        }
+                    }
+            ));
         }
     };
 

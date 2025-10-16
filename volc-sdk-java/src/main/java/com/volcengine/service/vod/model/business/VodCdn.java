@@ -424,6 +424,21 @@ public final class VodCdn {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_NamePair_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodOriginRewriteAction_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodOriginRewriteAction_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodOriginRewriteRule_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodOriginRewriteRule_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodOriginRewrite_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodOriginRewrite_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -574,7 +589,7 @@ public final class VodCdn {
       "\001(\t\"~\n\022VodOriginalControl\022B\n\007Origins\030\001 \003" +
       "(\01321.Volcengine.Vod.Models.Business.VodO" +
       "riginalConfig\022\014\n\004Host\030\002 \001(\t\022\026\n\016OriginPro" +
-      "tocol\030\003 \001(\t\"\271\t\n\017VodDomainConfig\022W\n\025Respo" +
+      "tocol\030\003 \001(\t\"\211\n\n\017VodDomainConfig\022W\n\025Respo" +
       "nseHeaderControl\030\001 \001(\01328.Volcengine.Vod." +
       "Models.Business.VodResponseHeaderControl" +
       "\022K\n\017OriginalControl\030\002 \001(\01322.Volcengine.V" +
@@ -600,7 +615,9 @@ public final class VodCdn {
       "21.Volcengine.Vod.Models.Business.Reques" +
       "tHeaderRule\022N\n\014UaAccessRule\030\017 \001(\01323.Volc" +
       "engine.Vod.Models.Business.UserAgentAcce" +
-      "ssRuleH\t\210\001\001B\016\n\014_CompressionB\025\n\023_Download" +
+      "ssRuleH\t\210\001\001\022N\n\024OriginRewriteControl\030\022 \001(" +
+      "\01320.Volcengine.Vod.Models.Business.VodOr" +
+      "iginRewriteB\016\n\014_CompressionB\025\n\023_Download" +
       "SpeedLimitB\010\n\006_HTTPSB\025\n\023_HttpForcedRedir" +
       "ectB\007\n\005_IPv6B\021\n\017_FollowRedirectB\016\n\014_Orig" +
       "inRangeB\017\n\r_IpAccessRuleB\024\n\022_RefererAcce" +
@@ -746,21 +763,29 @@ public final class VodCdn {
       "Vod.Models.Business.NamePair\0229\n\007Regions\030" +
       "\002 \003(\0132(.Volcengine.Vod.Models.Business.N" +
       "amePair\"&\n\010NamePair\022\014\n\004Code\030\001 \001(\t\022\014\n\004Nam" +
-      "e\030\002 \001(\t*\222\001\n\032VodDomainSourceStationType\022\'" +
-      "\n#UndefinedVodDomainSourceStationType\020\000\022" +
-      "!\n\035VodVodDomainSourceStationType\020\001\022(\n$Th" +
-      "irdPartyVodDomainSourceStationType\020\002*\323\001\n" +
-      "!VodDomainSourceStationAddressType\022.\n*Un" +
-      "definedVodDomainSourceStationAddressType" +
-      "\020\000\022+\n\'DomainVodDomainSourceStationAddres" +
-      "sType\020\001\022\'\n#IPVodDomainSourceStationAddre" +
-      "ssType\020\002\022(\n$TOSVodDomainSourceStationAdd" +
-      "ressType\020\003B\312\001\n)com.volcengine.service.vo" +
-      "d.model.businessB\006VodCdnP\001ZAgithub.com/v" +
-      "olcengine/volc-sdk-golang/service/vod/mo" +
-      "dels/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vo" +
-      "d\\Models\\Business\342\002#Volc\\Service\\Vod\\Mod" +
-      "els\\GPBMetadatab\006proto3"
+      "e\030\002 \001(\t\"U\n\026VodOriginRewriteAction\022\022\n\nSou" +
+      "rcePath\030\001 \001(\t\022\022\n\nTargetPath\030\002 \001(\t\022\023\n\013Rew" +
+      "riteType\030\003 \001(\t\"k\n\024VodOriginRewriteRule\022S" +
+      "\n\023OriginRewriteAction\030\001 \001(\01326.Volcengine" +
+      ".Vod.Models.Business.VodOriginRewriteAct" +
+      "ion\"s\n\020VodOriginRewrite\022O\n\021OriginRewrite" +
+      "Rule\030\001 \003(\01324.Volcengine.Vod.Models.Busin" +
+      "ess.VodOriginRewriteRule\022\016\n\006Switch\030\002 \001(\010" +
+      "*\222\001\n\032VodDomainSourceStationType\022\'\n#Undef" +
+      "inedVodDomainSourceStationType\020\000\022!\n\035VodV" +
+      "odDomainSourceStationType\020\001\022(\n$ThirdPart" +
+      "yVodDomainSourceStationType\020\002*\323\001\n!VodDom" +
+      "ainSourceStationAddressType\022.\n*Undefined" +
+      "VodDomainSourceStationAddressType\020\000\022+\n\'D" +
+      "omainVodDomainSourceStationAddressType\020\001" +
+      "\022\'\n#IPVodDomainSourceStationAddressType\020" +
+      "\002\022(\n$TOSVodDomainSourceStationAddressTyp" +
+      "e\020\003B\312\001\n)com.volcengine.service.vod.model" +
+      ".businessB\006VodCdnP\001ZAgithub.com/volcengi" +
+      "ne/volc-sdk-golang/service/vod/models/bu" +
+      "siness\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Model" +
+      "s\\Business\342\002#Volc\\Service\\Vod\\Models\\GPB" +
+      "Metadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1012,7 +1037,7 @@ public final class VodCdn {
     internal_static_Volcengine_Vod_Models_Business_VodDomainConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodDomainConfig_descriptor,
-        new java.lang.String[] { "ResponseHeaderControl", "OriginalControl", "Cache", "CacheKey", "Compression", "DownloadSpeedLimit", "HTTPS", "HttpForcedRedirect", "IPv6", "FollowRedirect", "OriginRange", "IpAccessRule", "RefererAccessRule", "RequestHeader", "UaAccessRule", "Compression", "DownloadSpeedLimit", "HTTPS", "HttpForcedRedirect", "IPv6", "FollowRedirect", "OriginRange", "IpAccessRule", "RefererAccessRule", "UaAccessRule", });
+        new java.lang.String[] { "ResponseHeaderControl", "OriginalControl", "Cache", "CacheKey", "Compression", "DownloadSpeedLimit", "HTTPS", "HttpForcedRedirect", "IPv6", "FollowRedirect", "OriginRange", "IpAccessRule", "RefererAccessRule", "RequestHeader", "UaAccessRule", "OriginRewriteControl", "Compression", "DownloadSpeedLimit", "HTTPS", "HttpForcedRedirect", "IPv6", "FollowRedirect", "OriginRange", "IpAccessRule", "RefererAccessRule", "UaAccessRule", });
     internal_static_Volcengine_Vod_Models_Business_CdnCondition_descriptor =
       getDescriptor().getMessageTypes().get(41);
     internal_static_Volcengine_Vod_Models_Business_CdnCondition_fieldAccessorTable = new
@@ -1259,6 +1284,24 @@ public final class VodCdn {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_NamePair_descriptor,
         new java.lang.String[] { "Code", "Name", });
+    internal_static_Volcengine_Vod_Models_Business_VodOriginRewriteAction_descriptor =
+      getDescriptor().getMessageTypes().get(82);
+    internal_static_Volcengine_Vod_Models_Business_VodOriginRewriteAction_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodOriginRewriteAction_descriptor,
+        new java.lang.String[] { "SourcePath", "TargetPath", "RewriteType", });
+    internal_static_Volcengine_Vod_Models_Business_VodOriginRewriteRule_descriptor =
+      getDescriptor().getMessageTypes().get(83);
+    internal_static_Volcengine_Vod_Models_Business_VodOriginRewriteRule_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodOriginRewriteRule_descriptor,
+        new java.lang.String[] { "OriginRewriteAction", });
+    internal_static_Volcengine_Vod_Models_Business_VodOriginRewrite_descriptor =
+      getDescriptor().getMessageTypes().get(84);
+    internal_static_Volcengine_Vod_Models_Business_VodOriginRewrite_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodOriginRewrite_descriptor,
+        new java.lang.String[] { "OriginRewriteRule", "Switch", });
     com.volcengine.service.vod.model.business.VodCommon.getDescriptor();
   }
 

@@ -110,4 +110,7 @@ public class QualificationMainInfoFormDO {
      */
     @JSONField(name = "CertificateOfTaxationRegistrationPhotoFileCode")
     private String certificateOfTaxationRegistrationPhotoFileCode;
+
+    @JSONField(name = "ReqSourceType")
+    private Integer reqSourceType=3;
 }

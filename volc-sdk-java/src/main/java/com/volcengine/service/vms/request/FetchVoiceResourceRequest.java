@@ -23,4 +23,7 @@ public class FetchVoiceResourceRequest {
      */
     @JSONField(name = "Name")
     private String name;
+
+    @JSONField(name = "ReqSourceType")
+    private Integer reqSourceType=3;
 }

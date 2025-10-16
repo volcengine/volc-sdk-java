@@ -35,6 +35,28 @@ public final class DescribeAuthResResultAuthListItemAuthDetailListItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "EncryptField")
     private List<String> encryptField;
 
+    /**
+     * <p>鉴权类型，取值如下：</p>
+     *
+     * <p>- `TypeA`：A 类型。</p>
+     *
+     * <p>- `TypeB`：B 类型。</p>
+     *
+     * <p>- `TypeC`：C 类型。</p>
+     *
+     * <p>- `TypeCustom`：自定义类型。</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>更多有关 A、B、C 类型鉴权的信息，详见[配置 URL 鉴权](https://www.volcengine.com/docs/6469/1274178)。</p>
+     *
+     * <p>:::</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "AuthType")
+    private String authType;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

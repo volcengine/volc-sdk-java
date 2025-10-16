@@ -599,19 +599,19 @@ public class VodServiceConfig {
                     }
             ));
             put(Const.GetFileInfos, new ApiInfo(
-                                new HashMap<String, Object>() {
-                                    {
-                                        put(com.volcengine.helper.Const.Method, "GET");
-                                        put(com.volcengine.helper.Const.Path, "/");
-                                        put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
-                                            {
-                                                add(new BasicNameValuePair("Action", Const.GetFileInfos));
-                                                add(new BasicNameValuePair("Version", "2023-07-01"));
-                                            }
-                                        });
-                                    }
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetFileInfos));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
                                 }
-                        ));
+                            });
+                        }
+                    }
+            ));
 
             put(Const.DeleteMediaTosFile, new ApiInfo(
                     new HashMap<String, Object>() {
@@ -1826,46 +1826,46 @@ public class VodServiceConfig {
                     }
             ));
             put(Const.DescribeVodRealtimeMediaData, new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(com.volcengine.helper.Const.Method, "GET");
-                        put(com.volcengine.helper.Const.Path, "/");
-                        put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", Const.DescribeVodRealtimeMediaData));
-                                add(new BasicNameValuePair("Version", "2023-07-01"));
-                            }
-                        });
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeVodRealtimeMediaData));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
                     }
-                }
             ));
             put(Const.DescribeVodRealtimeMediaDetailData, new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(com.volcengine.helper.Const.Method, "GET");
-                        put(com.volcengine.helper.Const.Path, "/");
-                        put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", Const.DescribeVodRealtimeMediaDetailData));
-                                add(new BasicNameValuePair("Version", "2023-07-01"));
-                            }
-                        });
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeVodRealtimeMediaDetailData));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
                     }
-                }
             ));
             put(Const.DescribeVodVidTrafficFileLog, new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(com.volcengine.helper.Const.Method, "GET");
-                        put(com.volcengine.helper.Const.Path, "/");
-                        put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", Const.DescribeVodVidTrafficFileLog));
-                                add(new BasicNameValuePair("Version", "2023-07-01"));
-                            }
-                        });
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DescribeVodVidTrafficFileLog));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
                     }
-                }
             ));
             put(Const.SetCloudMigrateJob, new ApiInfo(
                     new HashMap<String, Object>() {

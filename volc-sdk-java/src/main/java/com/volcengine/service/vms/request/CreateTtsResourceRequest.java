@@ -19,4 +19,7 @@ public class CreateTtsResourceRequest {
 
     @JSONField(name = "Remark")
     private String remark;
+
+    @JSONField(name = "ReqSourceType")
+    private Integer reqSourceType=3;
 }

@@ -9,8 +9,8 @@ package com.volcengine.service.vod;
  * The interface Vod service.
  */
 public interface IVodService extends com.volcengine.service.IBaseService {
-     
-    /**
+
+	/**
 	 * Gets private drm auth token.
 	 *
 	 * @param input the params
@@ -19,136 +19,136 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	 * @throws Exception the exception
 	 */
 	String getPrivateDrmAuthToken(com.volcengine.service.vod.model.request.VodGetPrivateDrmPlayAuthRequest input, Long expireSeconds) throws Exception;
-    
-    /**
-     * Gets hls auth token.
-     *
-     * @param expireSeconds the params
-     * @return the hls auth token
-     * @throws Exception the exception
-     */
-    String createSha1HlsDrmAuthToken(Long expireSeconds) throws Exception;
 
-    /**
-     * Gets subtitle auth token.
-     *
-     * @param input the params
-     * @return the play auth token
-     * @throws Exception the exception
-     */
-    String getSubtitleAuthToken(com.volcengine.service.vod.model.request.VodGetSubtitleInfoListRequest input, Long expireSeconds) throws Exception;
-	
-    /**
-     * Gets play auth token.
-     *
-     * @param input the params
-     * @return the play auth token
-     * @throws Exception the exception
-     */
-    String getPlayAuthToken(com.volcengine.service.vod.model.request.VodGetPlayInfoRequest input, Long expireSeconds) throws Exception;
+	/**
+	 * Gets hls auth token.
+	 *
+	 * @param expireSeconds the params
+	 * @return the hls auth token
+	 * @throws Exception the exception
+	 */
+	String createSha1HlsDrmAuthToken(Long expireSeconds) throws Exception;
 
-    /**
-     * Get Upload Sts2 token.
-     *
-     * @return com.volcengine.model.sts2.SecurityToken2
-     * @throws Exception the exception
-     */
-    com.volcengine.model.sts2.SecurityToken2 getUploadSts2() throws Exception;
+	/**
+	 * Gets subtitle auth token.
+	 *
+	 * @param input the params
+	 * @return the play auth token
+	 * @throws Exception the exception
+	 */
+	String getSubtitleAuthToken(com.volcengine.service.vod.model.request.VodGetSubtitleInfoListRequest input, Long expireSeconds) throws Exception;
 
-    /**
-     * Get Upload Sts2 token with expired time.
-     *
-     * @param expire long
-     * @return com.volcengine.model.sts2.SecurityToken2
-     * @throws Exception the exception
-     */
-    com.volcengine.model.sts2.SecurityToken2 getUploadSts2WithExpire(long expire) throws Exception;
+	/**
+	 * Gets play auth token.
+	 *
+	 * @param input the params
+	 * @return the play auth token
+	 * @throws Exception the exception
+	 */
+	String getPlayAuthToken(com.volcengine.service.vod.model.request.VodGetPlayInfoRequest input, Long expireSeconds) throws Exception;
 
-    /**
-     * uploadMedia
-     *
-     * @param vodUploadMediaRequest com.volcengine.service.vod.model.request.VodUploadMediaRequest
-     * @return com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse
-     * @throws Exception the exception
-     */
-    com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadMedia(com.volcengine.service.vod.model.request.VodUploadMediaRequest vodUploadMediaRequest, com.volcengine.helper.VodUploadProgressListener listener) throws Exception;
+	/**
+	 * Get Upload Sts2 token.
+	 *
+	 * @return com.volcengine.model.sts2.SecurityToken2
+	 * @throws Exception the exception
+	 */
+	com.volcengine.model.sts2.SecurityToken2 getUploadSts2() throws Exception;
 
-    /**
-     * uploadObject
-     *
-     * @param vodUploadMediaRequest
-     * @param listener
-     * @return
-     * @throws Exception
-     */
-     com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadObject(com.volcengine.service.vod.model.request.VodUploadMediaRequest vodUploadMediaRequest, com.volcengine.helper.VodUploadProgressListener listener) throws Exception;
+	/**
+	 * Get Upload Sts2 token with expired time.
+	 *
+	 * @param expire long
+	 * @return com.volcengine.model.sts2.SecurityToken2
+	 * @throws Exception the exception
+	 */
+	com.volcengine.model.sts2.SecurityToken2 getUploadSts2WithExpire(long expire) throws Exception;
 
-     /**
-      * uploadLocalM3u8
-      *
-      * @param vodUploadMediaRequest
-      * @param tsFilePaths
-      * @param tsFileNames
-      * @param listener
-      * @return
-      * @throws Exception
-      */
-      com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadLocalM3u8(com.volcengine.service.vod.model.request.VodUploadMediaRequest vodUploadMediaRequest, java.util.List<String> tsFilePaths, java.util.List<String> tsFileNames, com.volcengine.helper.VodUploadProgressListener listener) throws Exception;
+	/**
+	 * uploadMedia
+	 *
+	 * @param vodUploadMediaRequest com.volcengine.service.vod.model.request.VodUploadMediaRequest
+	 * @return com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse
+	 * @throws Exception the exception
+	 */
+	com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadMedia(com.volcengine.service.vod.model.request.VodUploadMediaRequest vodUploadMediaRequest, com.volcengine.helper.VodUploadProgressListener listener) throws Exception;
+
+	/**
+	 * uploadObject
+	 *
+	 * @param vodUploadMediaRequest
+	 * @param listener
+	 * @return
+	 * @throws Exception
+	 */
+	com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadObject(com.volcengine.service.vod.model.request.VodUploadMediaRequest vodUploadMediaRequest, com.volcengine.helper.VodUploadProgressListener listener) throws Exception;
+
+	/**
+	 * uploadLocalM3u8
+	 *
+	 * @param vodUploadMediaRequest
+	 * @param tsFilePaths
+	 * @param tsFileNames
+	 * @param listener
+	 * @return
+	 * @throws Exception
+	 */
+	com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadLocalM3u8(com.volcengine.service.vod.model.request.VodUploadMediaRequest vodUploadMediaRequest, java.util.List<String> tsFilePaths, java.util.List<String> tsFileNames, com.volcengine.helper.VodUploadProgressListener listener) throws Exception;
 
 
-    /**
+	/**
 	 * uploadMaterial
 	 *
 	 * @param vodUploadMaterialRequest
 	 * @return
 	 * @throws Exception
 	 */
-    com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadMaterial(com.volcengine.service.vod.model.request.VodUploadMaterialRequest vodUploadMaterialRequest, com.volcengine.helper.VodUploadProgressListener listener) throws Exception;
+	com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse uploadMaterial(com.volcengine.service.vod.model.request.VodUploadMaterialRequest vodUploadMaterialRequest, com.volcengine.helper.VodUploadProgressListener listener) throws Exception;
 
 	/**
-    * submitDirectEditTaskAsync.
-    *
-    * @param input com.volcengine.service.vod.model.request.VodSubmitDirectEditTaskAsyncRequest
-    * @return com.volcengine.service.vod.model.response.VodSubmitDirectEditTaskAsyncResponse
-    * @throws Exception the exception
-    */
-    com.volcengine.service.vod.model.response.VodSubmitDirectEditTaskAsyncResponse submitDirectEditTaskAsync(com.volcengine.service.vod.model.request.VodSubmitDirectEditTaskAsyncRequest input) throws Exception;
+	 * submitDirectEditTaskAsync.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodSubmitDirectEditTaskAsyncRequest
+	 * @return com.volcengine.service.vod.model.response.VodSubmitDirectEditTaskAsyncResponse
+	 * @throws Exception the exception
+	 */
+	com.volcengine.service.vod.model.response.VodSubmitDirectEditTaskAsyncResponse submitDirectEditTaskAsync(com.volcengine.service.vod.model.request.VodSubmitDirectEditTaskAsyncRequest input) throws Exception;
 
 	/**
-    * submitDirectEditTaskSync.
-    *
-    * @param input com.volcengine.service.vod.model.request.VodSubmitDirectEditTaskSyncRequest
-    * @return com.volcengine.service.vod.model.response.VodSubmitDirectEditTaskSyncResponse
-    * @throws Exception the exception
-    */
-    com.volcengine.service.vod.model.response.VodSubmitDirectEditTaskSyncResponse submitDirectEditTaskSync(com.volcengine.service.vod.model.request.VodSubmitDirectEditTaskSyncRequest input) throws Exception;
+	 * submitDirectEditTaskSync.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodSubmitDirectEditTaskSyncRequest
+	 * @return com.volcengine.service.vod.model.response.VodSubmitDirectEditTaskSyncResponse
+	 * @throws Exception the exception
+	 */
+	com.volcengine.service.vod.model.response.VodSubmitDirectEditTaskSyncResponse submitDirectEditTaskSync(com.volcengine.service.vod.model.request.VodSubmitDirectEditTaskSyncRequest input) throws Exception;
 
-    /**
-    * getDirectEditResult.
-    *
-    * @param input com.volcengine.service.vod.model.request.VodGetDirectEditResultRequest
-    * @return com.volcengine.service.vod.model.response.VodGetDirectEditResultResponse
-    * @throws Exception the exception
-    */
-    com.volcengine.service.vod.model.response.VodGetDirectEditResultResponse getDirectEditResult(com.volcengine.service.vod.model.request.VodGetDirectEditResultRequest input) throws Exception;
-    
-    /**
-    * getDirectEditProgress.
-    *
-    * @param input com.volcengine.service.vod.model.request.VodGetDirectEditProgressRequest
-    * @return com.volcengine.service.vod.model.response.VodGetDirectEditProgressResponse
-    * @throws Exception the exception
-    */
-    com.volcengine.service.vod.model.response.VodGetDirectEditProgressResponse getDirectEditProgress(com.volcengine.service.vod.model.request.VodGetDirectEditProgressRequest input) throws Exception;
-    
-    /**
-    * cancelDirectEditTask.
-    *
-    * @param input com.volcengine.service.vod.model.request.VodCancelDirectEditTaskRequest
-    * @return com.volcengine.service.vod.model.response.VodCancelDirectEditTaskResponse
-    * @throws Exception the exception
-    */
-    com.volcengine.service.vod.model.response.VodCancelDirectEditTaskResponse cancelDirectEditTask(com.volcengine.service.vod.model.request.VodCancelDirectEditTaskRequest input) throws Exception;
+	/**
+	 * getDirectEditResult.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetDirectEditResultRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetDirectEditResultResponse
+	 * @throws Exception the exception
+	 */
+	com.volcengine.service.vod.model.response.VodGetDirectEditResultResponse getDirectEditResult(com.volcengine.service.vod.model.request.VodGetDirectEditResultRequest input) throws Exception;
+
+	/**
+	 * getDirectEditProgress.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetDirectEditProgressRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetDirectEditProgressResponse
+	 * @throws Exception the exception
+	 */
+	com.volcengine.service.vod.model.response.VodGetDirectEditProgressResponse getDirectEditProgress(com.volcengine.service.vod.model.request.VodGetDirectEditProgressRequest input) throws Exception;
+
+	/**
+	 * cancelDirectEditTask.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodCancelDirectEditTaskRequest
+	 * @return com.volcengine.service.vod.model.response.VodCancelDirectEditTaskResponse
+	 * @throws Exception the exception
+	 */
+	com.volcengine.service.vod.model.response.VodCancelDirectEditTaskResponse cancelDirectEditTask(com.volcengine.service.vod.model.request.VodCancelDirectEditTaskRequest input) throws Exception;
 
 	/**
 	 * streamUploadMedia
@@ -178,1164 +178,1164 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse streamUploadObject(com.volcengine.model.request.vod.VodStreamUploadRequest vodStreamUploadObjectRequest) throws Exception;
 
 	/**
-     * getAllPlayInfo.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest
-     * @return com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse
-     * @throws Exception the exception
-     */
+	 * getAllPlayInfo.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetAllPlayInfoResponse getAllPlayInfo(com.volcengine.service.vod.model.request.VodGetAllPlayInfoRequest input) throws Exception;
-	
+
 	/**
-     * getPlayInfo.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetPlayInfoRequest
-     * @return com.volcengine.service.vod.model.response.VodGetPlayInfoResponse
-     * @throws Exception the exception
-     */
+	 * getPlayInfo.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetPlayInfoRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetPlayInfoResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetPlayInfoResponse getPlayInfo(com.volcengine.service.vod.model.request.VodGetPlayInfoRequest input) throws Exception;
-	
+
 	/**
-     * getPrivateDrmPlayAuth.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetPrivateDrmPlayAuthRequest
-     * @return com.volcengine.service.vod.model.response.VodGetPrivateDrmPlayAuthResponse
-     * @throws Exception the exception
-     */
+	 * getPrivateDrmPlayAuth.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetPrivateDrmPlayAuthRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetPrivateDrmPlayAuthResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetPrivateDrmPlayAuthResponse getPrivateDrmPlayAuth(com.volcengine.service.vod.model.request.VodGetPrivateDrmPlayAuthRequest input) throws Exception;
-	
+
 	/**
-     * getHlsDecryptionKey.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetHlsDecryptionKeyRequest
-     * @return com.volcengine.service.vod.model.response.VodGetHlsDecryptionKeyResponse
-     * @throws Exception the exception
-     */
+	 * getHlsDecryptionKey.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetHlsDecryptionKeyRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetHlsDecryptionKeyResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetHlsDecryptionKeyResponse getHlsDecryptionKey(com.volcengine.service.vod.model.request.VodGetHlsDecryptionKeyRequest input) throws Exception;
-	
+
 	/**
-     * createHlsDecryptionKey.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodCreateHlsDecryptionKeyRequest
-     * @return com.volcengine.service.vod.model.response.VodCreateHlsDecryptionKeyResponse
-     * @throws Exception the exception
-     */
+	 * createHlsDecryptionKey.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodCreateHlsDecryptionKeyRequest
+	 * @return com.volcengine.service.vod.model.response.VodCreateHlsDecryptionKeyResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodCreateHlsDecryptionKeyResponse createHlsDecryptionKey(com.volcengine.service.vod.model.request.VodCreateHlsDecryptionKeyRequest input) throws Exception;
-	
+
 	/**
-     * getPlayInfoWithLiveTimeShiftScene.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetPlayInfoWithLiveTimeShiftSceneRequest
-     * @return com.volcengine.service.vod.model.response.VodGetPlayInfoWithLiveTimeShiftSceneResponse
-     * @throws Exception the exception
-     */
+	 * getPlayInfoWithLiveTimeShiftScene.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetPlayInfoWithLiveTimeShiftSceneRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetPlayInfoWithLiveTimeShiftSceneResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetPlayInfoWithLiveTimeShiftSceneResponse getPlayInfoWithLiveTimeShiftScene(com.volcengine.service.vod.model.request.VodGetPlayInfoWithLiveTimeShiftSceneRequest input) throws Exception;
-	
+
 	/**
-     * submitBlockObjectTasks.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodSubmitBlockObjectTasksRequest
-     * @return com.volcengine.service.vod.model.response.VodSubmitBlockObjectTasksResponse
-     * @throws Exception the exception
-     */
+	 * submitBlockObjectTasks.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodSubmitBlockObjectTasksRequest
+	 * @return com.volcengine.service.vod.model.response.VodSubmitBlockObjectTasksResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodSubmitBlockObjectTasksResponse submitBlockObjectTasks(com.volcengine.service.vod.model.request.VodSubmitBlockObjectTasksRequest input) throws Exception;
-	
+
 	/**
-     * listBlockObjectTasks.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodListBlockObjectTasksRequest
-     * @return com.volcengine.service.vod.model.response.VodListBlockObjectTasksResponse
-     * @throws Exception the exception
-     */
+	 * listBlockObjectTasks.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodListBlockObjectTasksRequest
+	 * @return com.volcengine.service.vod.model.response.VodListBlockObjectTasksResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodListBlockObjectTasksResponse listBlockObjectTasks(com.volcengine.service.vod.model.request.VodListBlockObjectTasksRequest input) throws Exception;
-	
+
 	/**
-     * uploadMediaByUrl.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUrlUploadRequest
-     * @return com.volcengine.service.vod.model.response.VodUrlUploadResponse
-     * @throws Exception the exception
-     */
+	 * uploadMediaByUrl.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUrlUploadRequest
+	 * @return com.volcengine.service.vod.model.response.VodUrlUploadResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUrlUploadResponse uploadMediaByUrl(com.volcengine.service.vod.model.request.VodUrlUploadRequest input) throws Exception;
-	
+
 	/**
-     * queryUploadTaskInfo.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodQueryUploadTaskInfoRequest
-     * @return com.volcengine.service.vod.model.response.VodQueryUploadTaskInfoResponse
-     * @throws Exception the exception
-     */
+	 * queryUploadTaskInfo.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodQueryUploadTaskInfoRequest
+	 * @return com.volcengine.service.vod.model.response.VodQueryUploadTaskInfoResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodQueryUploadTaskInfoResponse queryUploadTaskInfo(com.volcengine.service.vod.model.request.VodQueryUploadTaskInfoRequest input) throws Exception;
-	
+
 	/**
-     * applyUploadInfo.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodApplyUploadInfoRequest
-     * @return com.volcengine.service.vod.model.response.VodApplyUploadInfoResponse
-     * @throws Exception the exception
-     */
+	 * applyUploadInfo.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodApplyUploadInfoRequest
+	 * @return com.volcengine.service.vod.model.response.VodApplyUploadInfoResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodApplyUploadInfoResponse applyUploadInfo(com.volcengine.service.vod.model.request.VodApplyUploadInfoRequest input) throws Exception;
-	
+
 	/**
-     * commitUploadInfo.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest
-     * @return com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse
-     * @throws Exception the exception
-     */
+	 * commitUploadInfo.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest
+	 * @return com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse commitUploadInfo(com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest input) throws Exception;
-	
+
 	/**
-     * listFileMetaInfosByFileNames.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodListFileMetaInfosByFileNamesRequest
-     * @return com.volcengine.service.vod.model.response.VodListFileMetaInfosByFileNamesResponse
-     * @throws Exception the exception
-     */
+	 * listFileMetaInfosByFileNames.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodListFileMetaInfosByFileNamesRequest
+	 * @return com.volcengine.service.vod.model.response.VodListFileMetaInfosByFileNamesResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodListFileMetaInfosByFileNamesResponse listFileMetaInfosByFileNames(com.volcengine.service.vod.model.request.VodListFileMetaInfosByFileNamesRequest input) throws Exception;
-	
+
 	/**
-     * updateMediaInfo.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUpdateMediaInfoRequest
-     * @return com.volcengine.service.vod.model.response.VodUpdateMediaInfoResponse
-     * @throws Exception the exception
-     */
+	 * updateMediaInfo.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUpdateMediaInfoRequest
+	 * @return com.volcengine.service.vod.model.response.VodUpdateMediaInfoResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUpdateMediaInfoResponse updateMediaInfo(com.volcengine.service.vod.model.request.VodUpdateMediaInfoRequest input) throws Exception;
-	
+
 	/**
-     * updateMediaPublishStatus.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUpdateMediaPublishStatusRequest
-     * @return com.volcengine.service.vod.model.response.VodUpdateMediaPublishStatusResponse
-     * @throws Exception the exception
-     */
+	 * updateMediaPublishStatus.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUpdateMediaPublishStatusRequest
+	 * @return com.volcengine.service.vod.model.response.VodUpdateMediaPublishStatusResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUpdateMediaPublishStatusResponse updateMediaPublishStatus(com.volcengine.service.vod.model.request.VodUpdateMediaPublishStatusRequest input) throws Exception;
-	
+
 	/**
-     * updateMediaStorageClass.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUpdateMediaStorageClassRequest
-     * @return com.volcengine.service.vod.model.response.VodUpdateMediaStorageClassResponse
-     * @throws Exception the exception
-     */
+	 * updateMediaStorageClass.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUpdateMediaStorageClassRequest
+	 * @return com.volcengine.service.vod.model.response.VodUpdateMediaStorageClassResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUpdateMediaStorageClassResponse updateMediaStorageClass(com.volcengine.service.vod.model.request.VodUpdateMediaStorageClassRequest input) throws Exception;
-	
+
 	/**
-     * getMediaInfos.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetMediaInfosRequest
-     * @return com.volcengine.service.vod.model.response.VodGetMediaInfosResponse
-     * @throws Exception the exception
-     */
+	 * getMediaInfos.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetMediaInfosRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetMediaInfosResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetMediaInfosResponse getMediaInfos(com.volcengine.service.vod.model.request.VodGetMediaInfosRequest input) throws Exception;
-	
+
 	/**
-     * getMediaInfos20230701.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetMediaInfosRequest
-     * @return com.volcengine.service.vod.model.response.VodGetMediaInfosResponse
-     * @throws Exception the exception
-     */
+	 * getMediaInfos20230701.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetMediaInfosRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetMediaInfosResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetMediaInfosResponse getMediaInfos20230701(com.volcengine.service.vod.model.request.VodGetMediaInfosRequest input) throws Exception;
-	
+
 	/**
-     * getRecommendedPoster.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetRecommendedPosterRequest
-     * @return com.volcengine.service.vod.model.response.VodGetRecommendedPosterResponse
-     * @throws Exception the exception
-     */
+	 * getRecommendedPoster.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetRecommendedPosterRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetRecommendedPosterResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetRecommendedPosterResponse getRecommendedPoster(com.volcengine.service.vod.model.request.VodGetRecommendedPosterRequest input) throws Exception;
-	
+
 	/**
-     * deleteMedia.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDeleteMediaRequest
-     * @return com.volcengine.service.vod.model.response.VodDeleteMediaResponse
-     * @throws Exception the exception
-     */
+	 * deleteMedia.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDeleteMediaRequest
+	 * @return com.volcengine.service.vod.model.response.VodDeleteMediaResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDeleteMediaResponse deleteMedia(com.volcengine.service.vod.model.request.VodDeleteMediaRequest input) throws Exception;
-	
+
 	/**
-     * deleteTranscodes.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDeleteTranscodesRequest
-     * @return com.volcengine.service.vod.model.response.VodDeleteTranscodesResponse
-     * @throws Exception the exception
-     */
+	 * deleteTranscodes.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDeleteTranscodesRequest
+	 * @return com.volcengine.service.vod.model.response.VodDeleteTranscodesResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDeleteTranscodesResponse deleteTranscodes(com.volcengine.service.vod.model.request.VodDeleteTranscodesRequest input) throws Exception;
-	
+
 	/**
-     * getFileInfos.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetFileInfosRequest
-     * @return com.volcengine.service.vod.model.response.VodGetFileInfosResponse
-     * @throws Exception the exception
-     */
+	 * getFileInfos.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetFileInfosRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetFileInfosResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetFileInfosResponse getFileInfos(com.volcengine.service.vod.model.request.VodGetFileInfosRequest input) throws Exception;
-	
+
 	/**
-     * updateFileStorageClass.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUpdateFileStorageClassRequest
-     * @return com.volcengine.service.vod.model.response.VodUpdateFileStorageClassResponse
-     * @throws Exception the exception
-     */
+	 * updateFileStorageClass.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUpdateFileStorageClassRequest
+	 * @return com.volcengine.service.vod.model.response.VodUpdateFileStorageClassResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUpdateFileStorageClassResponse updateFileStorageClass(com.volcengine.service.vod.model.request.VodUpdateFileStorageClassRequest input) throws Exception;
-	
+
 	/**
-     * getInnerAuditURLs.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetInnerAuditURLsRequest
-     * @return com.volcengine.service.vod.model.response.VodGetInnerAuditURLsResponse
-     * @throws Exception the exception
-     */
+	 * getInnerAuditURLs.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetInnerAuditURLsRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetInnerAuditURLsResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetInnerAuditURLsResponse getInnerAuditURLs(com.volcengine.service.vod.model.request.VodGetInnerAuditURLsRequest input) throws Exception;
-	
+
 	/**
-     * getAdAuditResultByVid.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetAdAuditResultByVidRequest
-     * @return com.volcengine.service.vod.model.response.VodGetAdAuditResultByVidResponse
-     * @throws Exception the exception
-     */
+	 * getAdAuditResultByVid.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetAdAuditResultByVidRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetAdAuditResultByVidResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetAdAuditResultByVidResponse getAdAuditResultByVid(com.volcengine.service.vod.model.request.VodGetAdAuditResultByVidRequest input) throws Exception;
-	
+
 	/**
-     * deleteMediaTosFile.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDeleteMediaTosFileRequest
-     * @return com.volcengine.service.vod.model.response.VodDeleteMediaTosFileResponse
-     * @throws Exception the exception
-     */
+	 * deleteMediaTosFile.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDeleteMediaTosFileRequest
+	 * @return com.volcengine.service.vod.model.response.VodDeleteMediaTosFileResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDeleteMediaTosFileResponse deleteMediaTosFile(com.volcengine.service.vod.model.request.VodDeleteMediaTosFileRequest input) throws Exception;
-	
+
 	/**
-     * getMediaList.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetMediaListRequest
-     * @return com.volcengine.service.vod.model.response.VodGetMediaListResponse
-     * @throws Exception the exception
-     */
+	 * getMediaList.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetMediaListRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetMediaListResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetMediaListResponse getMediaList(com.volcengine.service.vod.model.request.VodGetMediaListRequest input) throws Exception;
-	
+
 	/**
-     * deleteMaterial.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDeleteMaterialRequest
-     * @return com.volcengine.service.vod.model.response.VodDeleteMaterialResponse
-     * @throws Exception the exception
-     */
+	 * deleteMaterial.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDeleteMaterialRequest
+	 * @return com.volcengine.service.vod.model.response.VodDeleteMaterialResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDeleteMaterialResponse deleteMaterial(com.volcengine.service.vod.model.request.VodDeleteMaterialRequest input) throws Exception;
-	
+
 	/**
-     * getSubtitleInfoList.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetSubtitleInfoListRequest
-     * @return com.volcengine.service.vod.model.response.VodGetSubtitleInfoListResponse
-     * @throws Exception the exception
-     */
+	 * getSubtitleInfoList.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetSubtitleInfoListRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetSubtitleInfoListResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetSubtitleInfoListResponse getSubtitleInfoList(com.volcengine.service.vod.model.request.VodGetSubtitleInfoListRequest input) throws Exception;
-	
+
 	/**
-     * updateSubtitleStatus.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUpdateSubtitleStatusRequest
-     * @return com.volcengine.service.vod.model.response.VodUpdateSubtitleStatusResponse
-     * @throws Exception the exception
-     */
+	 * updateSubtitleStatus.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUpdateSubtitleStatusRequest
+	 * @return com.volcengine.service.vod.model.response.VodUpdateSubtitleStatusResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUpdateSubtitleStatusResponse updateSubtitleStatus(com.volcengine.service.vod.model.request.VodUpdateSubtitleStatusRequest input) throws Exception;
-	
+
 	/**
-     * updateSubtitleInfo.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUpdateSubtitleInfoRequest
-     * @return com.volcengine.service.vod.model.response.VodUpdateSubtitleInfoResponse
-     * @throws Exception the exception
-     */
+	 * updateSubtitleInfo.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUpdateSubtitleInfoRequest
+	 * @return com.volcengine.service.vod.model.response.VodUpdateSubtitleInfoResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUpdateSubtitleInfoResponse updateSubtitleInfo(com.volcengine.service.vod.model.request.VodUpdateSubtitleInfoRequest input) throws Exception;
-	
+
 	/**
-     * getAuditFramesForAudit.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetAuditFramesForAuditRequest
-     * @return com.volcengine.service.vod.model.response.VodGetAuditFramesForAuditResponse
-     * @throws Exception the exception
-     */
+	 * getAuditFramesForAudit.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetAuditFramesForAuditRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetAuditFramesForAuditResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetAuditFramesForAuditResponse getAuditFramesForAudit(com.volcengine.service.vod.model.request.VodGetAuditFramesForAuditRequest input) throws Exception;
-	
+
 	/**
-     * getMLFramesForAudit.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetMLFramesForAuditRequest
-     * @return com.volcengine.service.vod.model.response.VodGetMLFramesForAuditResponse
-     * @throws Exception the exception
-     */
+	 * getMLFramesForAudit.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetMLFramesForAuditRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetMLFramesForAuditResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetMLFramesForAuditResponse getMLFramesForAudit(com.volcengine.service.vod.model.request.VodGetMLFramesForAuditRequest input) throws Exception;
-	
+
 	/**
-     * getBetterFramesForAudit.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetBetterFramesForAuditRequest
-     * @return com.volcengine.service.vod.model.response.VodGetBetterFramesForAuditResponse
-     * @throws Exception the exception
-     */
+	 * getBetterFramesForAudit.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetBetterFramesForAuditRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetBetterFramesForAuditResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetBetterFramesForAuditResponse getBetterFramesForAudit(com.volcengine.service.vod.model.request.VodGetBetterFramesForAuditRequest input) throws Exception;
-	
+
 	/**
-     * getAudioInfoForAudit.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetAudioInfoForAuditRequest
-     * @return com.volcengine.service.vod.model.response.VodGetAudioInfoForAuditResponse
-     * @throws Exception the exception
-     */
+	 * getAudioInfoForAudit.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetAudioInfoForAuditRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetAudioInfoForAuditResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetAudioInfoForAuditResponse getAudioInfoForAudit(com.volcengine.service.vod.model.request.VodGetAudioInfoForAuditRequest input) throws Exception;
-	
+
 	/**
-     * getAutomaticSpeechRecognitionForAudit.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetAutomaticSpeechRecognitionForAuditRequest
-     * @return com.volcengine.service.vod.model.response.VodGetAutomaticSpeechRecognitionForAuditResponse
-     * @throws Exception the exception
-     */
+	 * getAutomaticSpeechRecognitionForAudit.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetAutomaticSpeechRecognitionForAuditRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetAutomaticSpeechRecognitionForAuditResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetAutomaticSpeechRecognitionForAuditResponse getAutomaticSpeechRecognitionForAudit(com.volcengine.service.vod.model.request.VodGetAutomaticSpeechRecognitionForAuditRequest input) throws Exception;
-	
+
 	/**
-     * getAudioEventDetectionForAudit.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetAudioEventDetectionForAuditRequest
-     * @return com.volcengine.service.vod.model.response.VodGetAudioEventDetectionForAuditResponse
-     * @throws Exception the exception
-     */
+	 * getAudioEventDetectionForAudit.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetAudioEventDetectionForAuditRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetAudioEventDetectionForAuditResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetAudioEventDetectionForAuditResponse getAudioEventDetectionForAudit(com.volcengine.service.vod.model.request.VodGetAudioEventDetectionForAuditRequest input) throws Exception;
-	
+
 	/**
-     * createVideoClassification.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodCreateVideoClassificationRequest
-     * @return com.volcengine.service.vod.model.response.VodCreateVideoClassificationResponse
-     * @throws Exception the exception
-     */
+	 * createVideoClassification.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodCreateVideoClassificationRequest
+	 * @return com.volcengine.service.vod.model.response.VodCreateVideoClassificationResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodCreateVideoClassificationResponse createVideoClassification(com.volcengine.service.vod.model.request.VodCreateVideoClassificationRequest input) throws Exception;
-	
+
 	/**
-     * updateVideoClassification.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUpdateVideoClassificationRequest
-     * @return com.volcengine.service.vod.model.response.VodUpdateVideoClassificationResponse
-     * @throws Exception the exception
-     */
+	 * updateVideoClassification.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUpdateVideoClassificationRequest
+	 * @return com.volcengine.service.vod.model.response.VodUpdateVideoClassificationResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUpdateVideoClassificationResponse updateVideoClassification(com.volcengine.service.vod.model.request.VodUpdateVideoClassificationRequest input) throws Exception;
-	
+
 	/**
-     * deleteVideoClassification.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDeleteVideoClassificationRequest
-     * @return com.volcengine.service.vod.model.response.VodDeleteVideoClassificationResponse
-     * @throws Exception the exception
-     */
+	 * deleteVideoClassification.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDeleteVideoClassificationRequest
+	 * @return com.volcengine.service.vod.model.response.VodDeleteVideoClassificationResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDeleteVideoClassificationResponse deleteVideoClassification(com.volcengine.service.vod.model.request.VodDeleteVideoClassificationRequest input) throws Exception;
-	
+
 	/**
-     * listVideoClassifications.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodListVideoClassificationsRequest
-     * @return com.volcengine.service.vod.model.response.VodListVideoClassificationsResponse
-     * @throws Exception the exception
-     */
+	 * listVideoClassifications.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodListVideoClassificationsRequest
+	 * @return com.volcengine.service.vod.model.response.VodListVideoClassificationsResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodListVideoClassificationsResponse listVideoClassifications(com.volcengine.service.vod.model.request.VodListVideoClassificationsRequest input) throws Exception;
-	
+
 	/**
-     * listSnapshots.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodListSnapshotsRequest
-     * @return com.volcengine.service.vod.model.response.VodListSnapshotsResponse
-     * @throws Exception the exception
-     */
+	 * listSnapshots.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodListSnapshotsRequest
+	 * @return com.volcengine.service.vod.model.response.VodListSnapshotsResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodListSnapshotsResponse listSnapshots(com.volcengine.service.vod.model.request.VodListSnapshotsRequest input) throws Exception;
-	
+
 	/**
-     * extractMediaMetaTask.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodExtractMediaMetaTaskRequest
-     * @return com.volcengine.service.vod.model.response.VodExtractMediaMetaTaskResponse
-     * @throws Exception the exception
-     */
+	 * extractMediaMetaTask.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodExtractMediaMetaTaskRequest
+	 * @return com.volcengine.service.vod.model.response.VodExtractMediaMetaTaskResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodExtractMediaMetaTaskResponse extractMediaMetaTask(com.volcengine.service.vod.model.request.VodExtractMediaMetaTaskRequest input) throws Exception;
-	
+
 	/**
-     * startWorkflow.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodStartWorkflowRequest
-     * @return com.volcengine.service.vod.model.response.VodStartWorkflowResponse
-     * @throws Exception the exception
-     */
+	 * startWorkflow.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodStartWorkflowRequest
+	 * @return com.volcengine.service.vod.model.response.VodStartWorkflowResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodStartWorkflowResponse startWorkflow(com.volcengine.service.vod.model.request.VodStartWorkflowRequest input) throws Exception;
-	
+
 	/**
-     * retrieveTranscodeResult.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest
-     * @return com.volcengine.service.vod.model.response.VodRetrieveTranscodeResultResponse
-     * @throws Exception the exception
-     */
+	 * retrieveTranscodeResult.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest
+	 * @return com.volcengine.service.vod.model.response.VodRetrieveTranscodeResultResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodRetrieveTranscodeResultResponse retrieveTranscodeResult(com.volcengine.service.vod.model.request.VodRetrieveTranscodeResultRequest input) throws Exception;
-	
+
 	/**
-     * getWorkflowExecution.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetWorkflowExecutionStatusRequest
-     * @return com.volcengine.service.vod.model.response.VodGetWorkflowExecutionStatusResponse
-     * @throws Exception the exception
-     */
+	 * getWorkflowExecution.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetWorkflowExecutionStatusRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetWorkflowExecutionStatusResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetWorkflowExecutionStatusResponse getWorkflowExecution(com.volcengine.service.vod.model.request.VodGetWorkflowExecutionStatusRequest input) throws Exception;
-	
+
 	/**
-     * getWorkflowExecutionResult.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetWorkflowResultRequest
-     * @return com.volcengine.service.vod.model.response.VodGetWorkflowResultResponse
-     * @throws Exception the exception
-     */
+	 * getWorkflowExecutionResult.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetWorkflowResultRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetWorkflowResultResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetWorkflowResultResponse getWorkflowExecutionResult(com.volcengine.service.vod.model.request.VodGetWorkflowResultRequest input) throws Exception;
-	
+
 	/**
-     * createTaskTemplate.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodCreateTaskTemplateRequest
-     * @return com.volcengine.service.vod.model.response.VodCreateTaskTemplateResponse
-     * @throws Exception the exception
-     */
+	 * createTaskTemplate.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodCreateTaskTemplateRequest
+	 * @return com.volcengine.service.vod.model.response.VodCreateTaskTemplateResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodCreateTaskTemplateResponse createTaskTemplate(com.volcengine.service.vod.model.request.VodCreateTaskTemplateRequest input) throws Exception;
-	
+
 	/**
-     * updateTaskTemplate.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUpdateTaskTemplateRequest
-     * @return com.volcengine.service.vod.model.response.VodUpdateTaskTemplateResponse
-     * @throws Exception the exception
-     */
+	 * updateTaskTemplate.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUpdateTaskTemplateRequest
+	 * @return com.volcengine.service.vod.model.response.VodUpdateTaskTemplateResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUpdateTaskTemplateResponse updateTaskTemplate(com.volcengine.service.vod.model.request.VodUpdateTaskTemplateRequest input) throws Exception;
-	
+
 	/**
-     * getTaskTemplate.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetTaskTemplateRequest
-     * @return com.volcengine.service.vod.model.response.VodGetTaskTemplateResponse
-     * @throws Exception the exception
-     */
+	 * getTaskTemplate.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetTaskTemplateRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetTaskTemplateResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetTaskTemplateResponse getTaskTemplate(com.volcengine.service.vod.model.request.VodGetTaskTemplateRequest input) throws Exception;
-	
+
 	/**
-     * listTaskTemplate.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodListTaskTemplateRequest
-     * @return com.volcengine.service.vod.model.response.VodListTaskTemplateResponse
-     * @throws Exception the exception
-     */
+	 * listTaskTemplate.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodListTaskTemplateRequest
+	 * @return com.volcengine.service.vod.model.response.VodListTaskTemplateResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodListTaskTemplateResponse listTaskTemplate(com.volcengine.service.vod.model.request.VodListTaskTemplateRequest input) throws Exception;
-	
+
 	/**
-     * deleteTaskTemplate.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDeleteTaskTemplateRequest
-     * @return com.volcengine.service.vod.model.response.VodDeleteTaskTemplateResponse
-     * @throws Exception the exception
-     */
+	 * deleteTaskTemplate.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDeleteTaskTemplateRequest
+	 * @return com.volcengine.service.vod.model.response.VodDeleteTaskTemplateResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDeleteTaskTemplateResponse deleteTaskTemplate(com.volcengine.service.vod.model.request.VodDeleteTaskTemplateRequest input) throws Exception;
-	
+
 	/**
-     * createWorkflowTemplate.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodCreateWorkflowTemplateRequest
-     * @return com.volcengine.service.vod.model.response.VodCreateWorkflowTemplateResponse
-     * @throws Exception the exception
-     */
+	 * createWorkflowTemplate.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodCreateWorkflowTemplateRequest
+	 * @return com.volcengine.service.vod.model.response.VodCreateWorkflowTemplateResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodCreateWorkflowTemplateResponse createWorkflowTemplate(com.volcengine.service.vod.model.request.VodCreateWorkflowTemplateRequest input) throws Exception;
-	
+
 	/**
-     * updateWorkflowTemplate.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUpdateWorkflowTemplateRequest
-     * @return com.volcengine.service.vod.model.response.VodUpdateWorkflowTemplateResponse
-     * @throws Exception the exception
-     */
+	 * updateWorkflowTemplate.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUpdateWorkflowTemplateRequest
+	 * @return com.volcengine.service.vod.model.response.VodUpdateWorkflowTemplateResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUpdateWorkflowTemplateResponse updateWorkflowTemplate(com.volcengine.service.vod.model.request.VodUpdateWorkflowTemplateRequest input) throws Exception;
-	
+
 	/**
-     * getWorkflowTemplate.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetWorkflowTemplateRequest
-     * @return com.volcengine.service.vod.model.response.VodGetWorkflowTemplateResponse
-     * @throws Exception the exception
-     */
+	 * getWorkflowTemplate.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetWorkflowTemplateRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetWorkflowTemplateResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetWorkflowTemplateResponse getWorkflowTemplate(com.volcengine.service.vod.model.request.VodGetWorkflowTemplateRequest input) throws Exception;
-	
+
 	/**
-     * listWorkflowTemplate.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodListWorkflowTemplateRequest
-     * @return com.volcengine.service.vod.model.response.VodListWorkflowTemplateResponse
-     * @throws Exception the exception
-     */
+	 * listWorkflowTemplate.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodListWorkflowTemplateRequest
+	 * @return com.volcengine.service.vod.model.response.VodListWorkflowTemplateResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodListWorkflowTemplateResponse listWorkflowTemplate(com.volcengine.service.vod.model.request.VodListWorkflowTemplateRequest input) throws Exception;
-	
+
 	/**
-     * deleteWorkflowTemplate.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDeleteWorkflowTemplateRequest
-     * @return com.volcengine.service.vod.model.response.VodDeleteWorkflowTemplateResponse
-     * @throws Exception the exception
-     */
+	 * deleteWorkflowTemplate.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDeleteWorkflowTemplateRequest
+	 * @return com.volcengine.service.vod.model.response.VodDeleteWorkflowTemplateResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDeleteWorkflowTemplateResponse deleteWorkflowTemplate(com.volcengine.service.vod.model.request.VodDeleteWorkflowTemplateRequest input) throws Exception;
-	
+
 	/**
-     * createWatermarkTemplate.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodCreateWatermarkRequest
-     * @return com.volcengine.service.vod.model.response.VodCreateWatermarkResponse
-     * @throws Exception the exception
-     */
+	 * createWatermarkTemplate.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodCreateWatermarkRequest
+	 * @return com.volcengine.service.vod.model.response.VodCreateWatermarkResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodCreateWatermarkResponse createWatermarkTemplate(com.volcengine.service.vod.model.request.VodCreateWatermarkRequest input) throws Exception;
-	
+
 	/**
-     * updateWatermarkTemplate.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUpdateWatermarkRequest
-     * @return com.volcengine.service.vod.model.response.VodUpdateWatermarkResponse
-     * @throws Exception the exception
-     */
+	 * updateWatermarkTemplate.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUpdateWatermarkRequest
+	 * @return com.volcengine.service.vod.model.response.VodUpdateWatermarkResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUpdateWatermarkResponse updateWatermarkTemplate(com.volcengine.service.vod.model.request.VodUpdateWatermarkRequest input) throws Exception;
-	
+
 	/**
-     * getWatermarkTemplate.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetWatermarkRequest
-     * @return com.volcengine.service.vod.model.response.VodGetWatermarkResponse
-     * @throws Exception the exception
-     */
+	 * getWatermarkTemplate.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetWatermarkRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetWatermarkResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetWatermarkResponse getWatermarkTemplate(com.volcengine.service.vod.model.request.VodGetWatermarkRequest input) throws Exception;
-	
+
 	/**
-     * listWatermarkTemplate.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodListWatermarkRequest
-     * @return com.volcengine.service.vod.model.response.VodListWatermarkResponse
-     * @throws Exception the exception
-     */
+	 * listWatermarkTemplate.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodListWatermarkRequest
+	 * @return com.volcengine.service.vod.model.response.VodListWatermarkResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodListWatermarkResponse listWatermarkTemplate(com.volcengine.service.vod.model.request.VodListWatermarkRequest input) throws Exception;
-	
+
 	/**
-     * deleteWatermarkTemplate.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDeleteWatermarkRequest
-     * @return com.volcengine.service.vod.model.response.VodDeleteWatermarkResponse
-     * @throws Exception the exception
-     */
+	 * deleteWatermarkTemplate.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDeleteWatermarkRequest
+	 * @return com.volcengine.service.vod.model.response.VodDeleteWatermarkResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDeleteWatermarkResponse deleteWatermarkTemplate(com.volcengine.service.vod.model.request.VodDeleteWatermarkRequest input) throws Exception;
-	
+
 	/**
-     * deleteSpace.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDeleteSpaceRequest
-     * @return com.volcengine.service.vod.model.response.VodDeleteSpaceResponse
-     * @throws Exception the exception
-     */
+	 * deleteSpace.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDeleteSpaceRequest
+	 * @return com.volcengine.service.vod.model.response.VodDeleteSpaceResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDeleteSpaceResponse deleteSpace(com.volcengine.service.vod.model.request.VodDeleteSpaceRequest input) throws Exception;
-	
+
 	/**
-     * createSpace.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodCreateSpaceRequest
-     * @return com.volcengine.service.vod.model.response.VodCreateSpaceResponse
-     * @throws Exception the exception
-     */
+	 * createSpace.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodCreateSpaceRequest
+	 * @return com.volcengine.service.vod.model.response.VodCreateSpaceResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodCreateSpaceResponse createSpace(com.volcengine.service.vod.model.request.VodCreateSpaceRequest input) throws Exception;
-	
+
 	/**
-     * listSpace.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodListSpaceRequest
-     * @return com.volcengine.service.vod.model.response.VodListSpaceResponse
-     * @throws Exception the exception
-     */
+	 * listSpace.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodListSpaceRequest
+	 * @return com.volcengine.service.vod.model.response.VodListSpaceResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodListSpaceResponse listSpace(com.volcengine.service.vod.model.request.VodListSpaceRequest input) throws Exception;
-	
+
 	/**
-     * getSpaceDetail.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetSpaceDetailRequest
-     * @return com.volcengine.service.vod.model.response.VodGetSpaceDetailResponse
-     * @throws Exception the exception
-     */
+	 * getSpaceDetail.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetSpaceDetailRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetSpaceDetailResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetSpaceDetailResponse getSpaceDetail(com.volcengine.service.vod.model.request.VodGetSpaceDetailRequest input) throws Exception;
-	
+
 	/**
-     * updateSpace.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUpdateSpaceRequest
-     * @return com.volcengine.service.vod.model.response.VodUpdateSpaceResponse
-     * @throws Exception the exception
-     */
+	 * updateSpace.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUpdateSpaceRequest
+	 * @return com.volcengine.service.vod.model.response.VodUpdateSpaceResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUpdateSpaceResponse updateSpace(com.volcengine.service.vod.model.request.VodUpdateSpaceRequest input) throws Exception;
-	
+
 	/**
-     * updateSpaceUploadConfig.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUpdateSpaceUploadConfigRequest
-     * @return com.volcengine.service.vod.model.response.VodUpdateSpaceUploadConfigResponse
-     * @throws Exception the exception
-     */
+	 * updateSpaceUploadConfig.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUpdateSpaceUploadConfigRequest
+	 * @return com.volcengine.service.vod.model.response.VodUpdateSpaceUploadConfigResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUpdateSpaceUploadConfigResponse updateSpaceUploadConfig(com.volcengine.service.vod.model.request.VodUpdateSpaceUploadConfigRequest input) throws Exception;
-	
+
 	/**
-     * describeUploadSpaceConfig.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDescribeUploadSpaceConfigRequest
-     * @return com.volcengine.service.vod.model.response.VodDescribeUploadSpaceConfigResponse
-     * @throws Exception the exception
-     */
+	 * describeUploadSpaceConfig.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDescribeUploadSpaceConfigRequest
+	 * @return com.volcengine.service.vod.model.response.VodDescribeUploadSpaceConfigResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDescribeUploadSpaceConfigResponse describeUploadSpaceConfig(com.volcengine.service.vod.model.request.VodDescribeUploadSpaceConfigRequest input) throws Exception;
-	
+
 	/**
-     * updateUploadSpaceConfig.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUpdateUploadSpaceConfigRequest
-     * @return com.volcengine.service.vod.model.response.VodUpdateUploadSpaceConfigResponse
-     * @throws Exception the exception
-     */
+	 * updateUploadSpaceConfig.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUpdateUploadSpaceConfigRequest
+	 * @return com.volcengine.service.vod.model.response.VodUpdateUploadSpaceConfigResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUpdateUploadSpaceConfigResponse updateUploadSpaceConfig(com.volcengine.service.vod.model.request.VodUpdateUploadSpaceConfigRequest input) throws Exception;
-	
+
 	/**
-     * addDomainToScheduler.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodAddDomainToSchedulerRequest
-     * @return com.volcengine.service.vod.model.response.VodAddDomainToSchedulerResponse
-     * @throws Exception the exception
-     */
+	 * addDomainToScheduler.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodAddDomainToSchedulerRequest
+	 * @return com.volcengine.service.vod.model.response.VodAddDomainToSchedulerResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodAddDomainToSchedulerResponse addDomainToScheduler(com.volcengine.service.vod.model.request.VodAddDomainToSchedulerRequest input) throws Exception;
-	
+
 	/**
-     * removeDomainFromScheduler.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodRemoveDomainFromSchedulerRequest
-     * @return com.volcengine.service.vod.model.response.VodRemoveDomainFromSchedulerResponse
-     * @throws Exception the exception
-     */
+	 * removeDomainFromScheduler.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodRemoveDomainFromSchedulerRequest
+	 * @return com.volcengine.service.vod.model.response.VodRemoveDomainFromSchedulerResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodRemoveDomainFromSchedulerResponse removeDomainFromScheduler(com.volcengine.service.vod.model.request.VodRemoveDomainFromSchedulerRequest input) throws Exception;
-	
+
 	/**
-     * updateDomainPlayRule.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest
-     * @return com.volcengine.service.vod.model.response.VodUpdateDomainPlayRuleResponse
-     * @throws Exception the exception
-     */
+	 * updateDomainPlayRule.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest
+	 * @return com.volcengine.service.vod.model.response.VodUpdateDomainPlayRuleResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUpdateDomainPlayRuleResponse updateDomainPlayRule(com.volcengine.service.vod.model.request.VodUpdateDomainPlayRuleRequest input) throws Exception;
-	
+
 	/**
-     * startDomain.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodStartDomainRequest
-     * @return com.volcengine.service.vod.model.response.VodStartDomainResponse
-     * @throws Exception the exception
-     */
+	 * startDomain.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodStartDomainRequest
+	 * @return com.volcengine.service.vod.model.response.VodStartDomainResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodStartDomainResponse startDomain(com.volcengine.service.vod.model.request.VodStartDomainRequest input) throws Exception;
-	
+
 	/**
-     * stopDomain.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodStopDomainRequest
-     * @return com.volcengine.service.vod.model.response.VodStopDomainResponse
-     * @throws Exception the exception
-     */
+	 * stopDomain.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodStopDomainRequest
+	 * @return com.volcengine.service.vod.model.response.VodStopDomainResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodStopDomainResponse stopDomain(com.volcengine.service.vod.model.request.VodStopDomainRequest input) throws Exception;
-	
+
 	/**
-     * deleteDomain.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDeleteDomainRequest
-     * @return com.volcengine.service.vod.model.response.VodDeleteDomainResponse
-     * @throws Exception the exception
-     */
+	 * deleteDomain.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDeleteDomainRequest
+	 * @return com.volcengine.service.vod.model.response.VodDeleteDomainResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDeleteDomainResponse deleteDomain(com.volcengine.service.vod.model.request.VodDeleteDomainRequest input) throws Exception;
-	
+
 	/**
-     * listDomain.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodListDomainRequest
-     * @return com.volcengine.service.vod.model.response.VodListDomainResponse
-     * @throws Exception the exception
-     */
+	 * listDomain.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodListDomainRequest
+	 * @return com.volcengine.service.vod.model.response.VodListDomainResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodListDomainResponse listDomain(com.volcengine.service.vod.model.request.VodListDomainRequest input) throws Exception;
-	
+
 	/**
-     * createCdnRefreshTask.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest
-     * @return com.volcengine.service.vod.model.response.VodCreateCdnRefreshTaskResponse
-     * @throws Exception the exception
-     */
+	 * createCdnRefreshTask.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest
+	 * @return com.volcengine.service.vod.model.response.VodCreateCdnRefreshTaskResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodCreateCdnRefreshTaskResponse createCdnRefreshTask(com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest input) throws Exception;
-	
+
 	/**
-     * createCdnPreloadTask.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodCreateCdnPreloadTaskRequest
-     * @return com.volcengine.service.vod.model.response.VodCreateCdnPreloadTaskResponse
-     * @throws Exception the exception
-     */
+	 * createCdnPreloadTask.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodCreateCdnPreloadTaskRequest
+	 * @return com.volcengine.service.vod.model.response.VodCreateCdnPreloadTaskResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodCreateCdnPreloadTaskResponse createCdnPreloadTask(com.volcengine.service.vod.model.request.VodCreateCdnPreloadTaskRequest input) throws Exception;
-	
+
 	/**
-     * listCdnTasks.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodListCdnTasksRequest
-     * @return com.volcengine.service.vod.model.response.VodListCdnTasksResponse
-     * @throws Exception the exception
-     */
+	 * listCdnTasks.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodListCdnTasksRequest
+	 * @return com.volcengine.service.vod.model.response.VodListCdnTasksResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodListCdnTasksResponse listCdnTasks(com.volcengine.service.vod.model.request.VodListCdnTasksRequest input) throws Exception;
-	
+
 	/**
-     * listCdnAccessLog.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodListCdnAccessLogRequest
-     * @return com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse
-     * @throws Exception the exception
-     */
+	 * listCdnAccessLog.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodListCdnAccessLogRequest
+	 * @return com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodListCdnAccessLogResponse listCdnAccessLog(com.volcengine.service.vod.model.request.VodListCdnAccessLogRequest input) throws Exception;
-	
+
 	/**
-     * listCdnTopAccessUrl.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodListCdnTopAccessUrlRequest
-     * @return com.volcengine.service.vod.model.response.VodListCdnTopAccessUrlResponse
-     * @throws Exception the exception
-     */
+	 * listCdnTopAccessUrl.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodListCdnTopAccessUrlRequest
+	 * @return com.volcengine.service.vod.model.response.VodListCdnTopAccessUrlResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodListCdnTopAccessUrlResponse listCdnTopAccessUrl(com.volcengine.service.vod.model.request.VodListCdnTopAccessUrlRequest input) throws Exception;
-	
+
 	/**
-     * listCdnTopAccess.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodListCdnTopAccessRequest
-     * @return com.volcengine.service.vod.model.response.VodListCdnTopAccessResponse
-     * @throws Exception the exception
-     */
+	 * listCdnTopAccess.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodListCdnTopAccessRequest
+	 * @return com.volcengine.service.vod.model.response.VodListCdnTopAccessResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodListCdnTopAccessResponse listCdnTopAccess(com.volcengine.service.vod.model.request.VodListCdnTopAccessRequest input) throws Exception;
-	
+
 	/**
-     * listCdnUsageData.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest
-     * @return com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse
-     * @throws Exception the exception
-     */
+	 * listCdnUsageData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest
+	 * @return com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse listCdnUsageData(com.volcengine.service.vod.model.request.VodListCdnUsageDataRequest input) throws Exception;
-	
+
 	/**
-     * listCdnStatusData.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodListCdnStatusDataRequest
-     * @return com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse
-     * @throws Exception the exception
-     */
+	 * listCdnStatusData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodListCdnStatusDataRequest
+	 * @return com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse listCdnStatusData(com.volcengine.service.vod.model.request.VodListCdnStatusDataRequest input) throws Exception;
-	
+
 	/**
-     * describeIpInfo.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDescribeIPInfoRequest
-     * @return com.volcengine.service.vod.model.response.VodDescribeIPInfoResponse
-     * @throws Exception the exception
-     */
+	 * describeIpInfo.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDescribeIPInfoRequest
+	 * @return com.volcengine.service.vod.model.response.VodDescribeIPInfoResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDescribeIPInfoResponse describeIpInfo(com.volcengine.service.vod.model.request.VodDescribeIPInfoRequest input) throws Exception;
-	
+
 	/**
-     * listCdnPvData.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodListCdnPvDataRequest
-     * @return com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse
-     * @throws Exception the exception
-     */
+	 * listCdnPvData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodListCdnPvDataRequest
+	 * @return com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodCdnStatisticsCommonResponse listCdnPvData(com.volcengine.service.vod.model.request.VodListCdnPvDataRequest input) throws Exception;
-	
+
 	/**
-     * submitBlockTasks.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest
-     * @return com.volcengine.service.vod.model.response.VodSubmitBlockTasksResponse
-     * @throws Exception the exception
-     */
+	 * submitBlockTasks.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest
+	 * @return com.volcengine.service.vod.model.response.VodSubmitBlockTasksResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodSubmitBlockTasksResponse submitBlockTasks(com.volcengine.service.vod.model.request.VodSubmitBlockTasksRequest input) throws Exception;
-	
+
 	/**
-     * getContentBlockTasks.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetContentBlockTasksRequest
-     * @return com.volcengine.service.vod.model.response.VodGetContentBlockTasksResponse
-     * @throws Exception the exception
-     */
+	 * getContentBlockTasks.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetContentBlockTasksRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetContentBlockTasksResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetContentBlockTasksResponse getContentBlockTasks(com.volcengine.service.vod.model.request.VodGetContentBlockTasksRequest input) throws Exception;
-	
+
 	/**
-     * createDomain.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodCreateDomainV2Request
-     * @return com.volcengine.service.vod.model.response.VodCreateDomainV2Response
-     * @throws Exception the exception
-     */
+	 * createDomain.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodCreateDomainV2Request
+	 * @return com.volcengine.service.vod.model.response.VodCreateDomainV2Response
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodCreateDomainV2Response createDomain(com.volcengine.service.vod.model.request.VodCreateDomainV2Request input) throws Exception;
-	
+
 	/**
-     * updateDomainExpire.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUpdateDomainExpireV2Request
-     * @return com.volcengine.service.vod.model.response.VodUpdateDomainExpireV2Response
-     * @throws Exception the exception
-     */
+	 * updateDomainExpire.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUpdateDomainExpireV2Request
+	 * @return com.volcengine.service.vod.model.response.VodUpdateDomainExpireV2Response
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUpdateDomainExpireV2Response updateDomainExpire(com.volcengine.service.vod.model.request.VodUpdateDomainExpireV2Request input) throws Exception;
-	
+
 	/**
-     * updateDomainAuthConfig.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUpdateDomainAuthConfigV2Request
-     * @return com.volcengine.service.vod.model.response.VodUpdateDomainAuthConfigV2Response
-     * @throws Exception the exception
-     */
+	 * updateDomainAuthConfig.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUpdateDomainAuthConfigV2Request
+	 * @return com.volcengine.service.vod.model.response.VodUpdateDomainAuthConfigV2Response
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUpdateDomainAuthConfigV2Response updateDomainAuthConfig(com.volcengine.service.vod.model.request.VodUpdateDomainAuthConfigV2Request input) throws Exception;
-	
+
 	/**
-     * addOrUpdateCertificate.
-     *
-     * @param input com.volcengine.service.vod.model.request.AddOrUpdateCertificateV2Request
-     * @return com.volcengine.service.vod.model.response.AddOrUpdateCertificateV2Response
-     * @throws Exception the exception
-     */
+	 * addOrUpdateCertificate.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.AddOrUpdateCertificateV2Request
+	 * @return com.volcengine.service.vod.model.response.AddOrUpdateCertificateV2Response
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.AddOrUpdateCertificateV2Response addOrUpdateCertificate(com.volcengine.service.vod.model.request.AddOrUpdateCertificateV2Request input) throws Exception;
-	
+
 	/**
-     * updateDomainUrlAuthConfig.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUpdateDomainUrlAuthConfigV2Request
-     * @return com.volcengine.service.vod.model.response.VodUpdateDomainUrlAuthConfigV2Response
-     * @throws Exception the exception
-     */
+	 * updateDomainUrlAuthConfig.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUpdateDomainUrlAuthConfigV2Request
+	 * @return com.volcengine.service.vod.model.response.VodUpdateDomainUrlAuthConfigV2Response
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUpdateDomainUrlAuthConfigV2Response updateDomainUrlAuthConfig(com.volcengine.service.vod.model.request.VodUpdateDomainUrlAuthConfigV2Request input) throws Exception;
-	
+
 	/**
-     * verifyDomainOwner.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodVerifyDomainOwnerRequest
-     * @return com.volcengine.service.vod.model.response.VodVerifyDomainOwnerResponse
-     * @throws Exception the exception
-     */
+	 * verifyDomainOwner.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodVerifyDomainOwnerRequest
+	 * @return com.volcengine.service.vod.model.response.VodVerifyDomainOwnerResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodVerifyDomainOwnerResponse verifyDomainOwner(com.volcengine.service.vod.model.request.VodVerifyDomainOwnerRequest input) throws Exception;
-	
+
 	/**
-     * describeDomainVerifyContent.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDescribeDomainVerifyContentRequest
-     * @return com.volcengine.service.vod.model.response.VodDescribeDomainVerifyContentResponse
-     * @throws Exception the exception
-     */
+	 * describeDomainVerifyContent.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDescribeDomainVerifyContentRequest
+	 * @return com.volcengine.service.vod.model.response.VodDescribeDomainVerifyContentResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDescribeDomainVerifyContentResponse describeDomainVerifyContent(com.volcengine.service.vod.model.request.VodDescribeDomainVerifyContentRequest input) throws Exception;
-	
+
 	/**
-     * updateDomainConfig.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodUpdateDomainConfigRequest
-     * @return com.volcengine.service.vod.model.response.VodUpdateDomainConfigResponse
-     * @throws Exception the exception
-     */
+	 * updateDomainConfig.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodUpdateDomainConfigRequest
+	 * @return com.volcengine.service.vod.model.response.VodUpdateDomainConfigResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodUpdateDomainConfigResponse updateDomainConfig(com.volcengine.service.vod.model.request.VodUpdateDomainConfigRequest input) throws Exception;
-	
+
 	/**
-     * describeDomainConfig.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDescribeDomainConfigRequest
-     * @return com.volcengine.service.vod.model.response.VodDescribeDomainConfigResponse
-     * @throws Exception the exception
-     */
+	 * describeDomainConfig.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDescribeDomainConfigRequest
+	 * @return com.volcengine.service.vod.model.response.VodDescribeDomainConfigResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDescribeDomainConfigResponse describeDomainConfig(com.volcengine.service.vod.model.request.VodDescribeDomainConfigRequest input) throws Exception;
-	
+
 	/**
-     * describeCdnEdgeIp.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDescribeCdnEdgeIpRequest
-     * @return com.volcengine.service.vod.model.response.VodDescribeCdnEdgeIpResponse
-     * @throws Exception the exception
-     */
+	 * describeCdnEdgeIp.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDescribeCdnEdgeIpRequest
+	 * @return com.volcengine.service.vod.model.response.VodDescribeCdnEdgeIpResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDescribeCdnEdgeIpResponse describeCdnEdgeIp(com.volcengine.service.vod.model.request.VodDescribeCdnEdgeIpRequest input) throws Exception;
 
 	/**
-     * describeCdnRegionAndIsp.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDescribeCdnRegionAndIspRequest
-     * @return com.volcengine.service.vod.model.response.VodDescribeCdnRegionAndIspResponse
-     * @throws Exception the exception
-     */
+	 * describeCdnRegionAndIsp.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDescribeCdnRegionAndIspRequest
+	 * @return com.volcengine.service.vod.model.response.VodDescribeCdnRegionAndIspResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDescribeCdnRegionAndIspResponse describeCdnRegionAndIsp(com.volcengine.service.vod.model.request.VodDescribeCdnRegionAndIspRequest input) throws Exception;
 
 	/**
-     * addCallbackSubscription.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodAddCallbackSubscriptionRequest
-     * @return com.volcengine.service.vod.model.response.VodAddCallbackSubscriptionResponse
-     * @throws Exception the exception
-     */
+	 * addCallbackSubscription.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodAddCallbackSubscriptionRequest
+	 * @return com.volcengine.service.vod.model.response.VodAddCallbackSubscriptionResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodAddCallbackSubscriptionResponse addCallbackSubscription(com.volcengine.service.vod.model.request.VodAddCallbackSubscriptionRequest input) throws Exception;
-	
+
 	/**
-     * setCallbackEvent.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodSetCallbackEventRequest
-     * @return com.volcengine.service.vod.model.response.VodSetCallbackEventResponse
-     * @throws Exception the exception
-     */
+	 * setCallbackEvent.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodSetCallbackEventRequest
+	 * @return com.volcengine.service.vod.model.response.VodSetCallbackEventResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodSetCallbackEventResponse setCallbackEvent(com.volcengine.service.vod.model.request.VodSetCallbackEventRequest input) throws Exception;
-	
+
 	/**
-     * getCallbackRecord.
-     *
-     * @param input com.volcengine.service.vod.model.request.GetCallbackRecordRequest
-     * @return com.volcengine.service.vod.model.response.GetCallbackRecordResponse
-     * @throws Exception the exception
-     */
+	 * getCallbackRecord.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.GetCallbackRecordRequest
+	 * @return com.volcengine.service.vod.model.response.GetCallbackRecordResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.GetCallbackRecordResponse getCallbackRecord(com.volcengine.service.vod.model.request.GetCallbackRecordRequest input) throws Exception;
-	
+
 	/**
-     * getSmartStrategyLitePlayInfo.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest
-     * @return com.volcengine.service.vod.model.response.VodGetSmartStrategyLitePlayInfoResponse
-     * @throws Exception the exception
-     */
+	 * getSmartStrategyLitePlayInfo.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetSmartStrategyLitePlayInfoResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetSmartStrategyLitePlayInfoResponse getSmartStrategyLitePlayInfo(com.volcengine.service.vod.model.request.VodGetSmartStrategyLitePlayInfoRequest input) throws Exception;
-	
+
 	/**
-     * getAppInfo.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetAppInfoRequest
-     * @return com.volcengine.service.vod.model.response.VodGetAppInfoResponse
-     * @throws Exception the exception
-     */
+	 * getAppInfo.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetAppInfoRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetAppInfoResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetAppInfoResponse getAppInfo(com.volcengine.service.vod.model.request.VodGetAppInfoRequest input) throws Exception;
-	
+
 	/**
-     * describeVodSpaceTranscodeData.
-     *
-     * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceTranscodeDataRequest
-     * @return com.volcengine.service.vod.model.response.DescribeVodSpaceTranscodeDataResponse
-     * @throws Exception the exception
-     */
+	 * describeVodSpaceTranscodeData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceTranscodeDataRequest
+	 * @return com.volcengine.service.vod.model.response.DescribeVodSpaceTranscodeDataResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.DescribeVodSpaceTranscodeDataResponse describeVodSpaceTranscodeData(com.volcengine.service.vod.model.request.DescribeVodSpaceTranscodeDataRequest input) throws Exception;
-	
+
 	/**
-     * describeVodSpaceAIStatisData.
-     *
-     * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceAIStatisDataRequest
-     * @return com.volcengine.service.vod.model.response.DescribeVodSpaceAIStatisDataResponse
-     * @throws Exception the exception
-     */
+	 * describeVodSpaceAIStatisData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceAIStatisDataRequest
+	 * @return com.volcengine.service.vod.model.response.DescribeVodSpaceAIStatisDataResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.DescribeVodSpaceAIStatisDataResponse describeVodSpaceAIStatisData(com.volcengine.service.vod.model.request.DescribeVodSpaceAIStatisDataRequest input) throws Exception;
-	
+
 	/**
-     * describeVodSpaceSubtitleStatisData.
-     *
-     * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceSubtitleStatisDataRequest
-     * @return com.volcengine.service.vod.model.response.DescribeVodSpaceSubtitleStatisDataResponse
-     * @throws Exception the exception
-     */
+	 * describeVodSpaceSubtitleStatisData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceSubtitleStatisDataRequest
+	 * @return com.volcengine.service.vod.model.response.DescribeVodSpaceSubtitleStatisDataResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.DescribeVodSpaceSubtitleStatisDataResponse describeVodSpaceSubtitleStatisData(com.volcengine.service.vod.model.request.DescribeVodSpaceSubtitleStatisDataRequest input) throws Exception;
-	
+
 	/**
-     * describeVodSpaceDetectStatisData.
-     *
-     * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceDetectStatisDataRequest
-     * @return com.volcengine.service.vod.model.response.DescribeVodSpaceDetectStatisDataResponse
-     * @throws Exception the exception
-     */
+	 * describeVodSpaceDetectStatisData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceDetectStatisDataRequest
+	 * @return com.volcengine.service.vod.model.response.DescribeVodSpaceDetectStatisDataResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.DescribeVodSpaceDetectStatisDataResponse describeVodSpaceDetectStatisData(com.volcengine.service.vod.model.request.DescribeVodSpaceDetectStatisDataRequest input) throws Exception;
-	
+
 	/**
-     * describeVodSpaceWorkflowDetailData.
-     *
-     * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceWorkflowDetailDataRequest
-     * @return com.volcengine.service.vod.model.response.DescribeVodSpaceWorkflowDetailDataResponse
-     * @throws Exception the exception
-     */
+	 * describeVodSpaceWorkflowDetailData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceWorkflowDetailDataRequest
+	 * @return com.volcengine.service.vod.model.response.DescribeVodSpaceWorkflowDetailDataResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.DescribeVodSpaceWorkflowDetailDataResponse describeVodSpaceWorkflowDetailData(com.volcengine.service.vod.model.request.DescribeVodSpaceWorkflowDetailDataRequest input) throws Exception;
-	
+
 	/**
-     * describeVodSpaceEditDetailData.
-     *
-     * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest
-     * @return com.volcengine.service.vod.model.response.DescribeVodSpaceEditDetailDataResponse
-     * @throws Exception the exception
-     */
+	 * describeVodSpaceEditDetailData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest
+	 * @return com.volcengine.service.vod.model.response.DescribeVodSpaceEditDetailDataResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.DescribeVodSpaceEditDetailDataResponse describeVodSpaceEditDetailData(com.volcengine.service.vod.model.request.DescribeVodSpaceEditDetailDataRequest input) throws Exception;
-	
+
 	/**
-     * describeVodSnapshotData.
-     *
-     * @param input com.volcengine.service.vod.model.request.DescribeVodSnapshotDataRequest
-     * @return com.volcengine.service.vod.model.response.DescribeVodSnapshotDataResponse
-     * @throws Exception the exception
-     */
+	 * describeVodSnapshotData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.DescribeVodSnapshotDataRequest
+	 * @return com.volcengine.service.vod.model.response.DescribeVodSnapshotDataResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.DescribeVodSnapshotDataResponse describeVodSnapshotData(com.volcengine.service.vod.model.request.DescribeVodSnapshotDataRequest input) throws Exception;
-	
+
 	/**
-     * describeVodSpaceStorageData.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDescribeVodSpaceStorageDataRequest
-     * @return com.volcengine.service.vod.model.response.VodDescribeVodSpaceStorageDataResponse
-     * @throws Exception the exception
-     */
+	 * describeVodSpaceStorageData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDescribeVodSpaceStorageDataRequest
+	 * @return com.volcengine.service.vod.model.response.VodDescribeVodSpaceStorageDataResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDescribeVodSpaceStorageDataResponse describeVodSpaceStorageData(com.volcengine.service.vod.model.request.VodDescribeVodSpaceStorageDataRequest input) throws Exception;
-	
+
 	/**
-     * describeVodDomainTrafficData.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDescribeVodDomainTrafficDataRequest
-     * @return com.volcengine.service.vod.model.response.VodDescribeVodDomainTrafficDataResponse
-     * @throws Exception the exception
-     */
+	 * describeVodDomainTrafficData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDescribeVodDomainTrafficDataRequest
+	 * @return com.volcengine.service.vod.model.response.VodDescribeVodDomainTrafficDataResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDescribeVodDomainTrafficDataResponse describeVodDomainTrafficData(com.volcengine.service.vod.model.request.VodDescribeVodDomainTrafficDataRequest input) throws Exception;
-	
+
 	/**
-     * describeVodDomainBandwidthData.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodDescribeVodDomainBandwidthDataRequest
-     * @return com.volcengine.service.vod.model.response.VodDescribeVodDomainBandwidthDataResponse
-     * @throws Exception the exception
-     */
+	 * describeVodDomainBandwidthData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodDescribeVodDomainBandwidthDataRequest
+	 * @return com.volcengine.service.vod.model.response.VodDescribeVodDomainBandwidthDataResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodDescribeVodDomainBandwidthDataResponse describeVodDomainBandwidthData(com.volcengine.service.vod.model.request.VodDescribeVodDomainBandwidthDataRequest input) throws Exception;
-	
+
 	/**
-     * describeVodEnhanceImageData.
-     *
-     * @param input com.volcengine.service.vod.model.request.DescribeVodEnhanceImageDataRequest
-     * @return com.volcengine.service.vod.model.response.DescribeVodEnhanceImageDataResponse
-     * @throws Exception the exception
-     */
+	 * describeVodEnhanceImageData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.DescribeVodEnhanceImageDataRequest
+	 * @return com.volcengine.service.vod.model.response.DescribeVodEnhanceImageDataResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.DescribeVodEnhanceImageDataResponse describeVodEnhanceImageData(com.volcengine.service.vod.model.request.DescribeVodEnhanceImageDataRequest input) throws Exception;
-	
+
 	/**
-     * describeVodSpaceEditStatisData.
-     *
-     * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceEditStatisDataRequest
-     * @return com.volcengine.service.vod.model.response.DescribeVodSpaceEditStatisDataResponse
-     * @throws Exception the exception
-     */
+	 * describeVodSpaceEditStatisData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.DescribeVodSpaceEditStatisDataRequest
+	 * @return com.volcengine.service.vod.model.response.DescribeVodSpaceEditStatisDataResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.DescribeVodSpaceEditStatisDataResponse describeVodSpaceEditStatisData(com.volcengine.service.vod.model.request.DescribeVodSpaceEditStatisDataRequest input) throws Exception;
-	
+
 	/**
-     * describeVodPlayedStatisData.
-     *
-     * @param input com.volcengine.service.vod.model.request.DescribeVodPlayedStatisDataRequest
-     * @return com.volcengine.service.vod.model.response.DescribeVodPlayedStatisDataResponse
-     * @throws Exception the exception
-     */
+	 * describeVodPlayedStatisData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.DescribeVodPlayedStatisDataRequest
+	 * @return com.volcengine.service.vod.model.response.DescribeVodPlayedStatisDataResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.DescribeVodPlayedStatisDataResponse describeVodPlayedStatisData(com.volcengine.service.vod.model.request.DescribeVodPlayedStatisDataRequest input) throws Exception;
-	
+
 	/**
-     * describeVodMostPlayedStatisData.
-     *
-     * @param input com.volcengine.service.vod.model.request.DescribeVodMostPlayedStatisDataRequest
-     * @return com.volcengine.service.vod.model.response.DescribeVodMostPlayedStatisDataResponse
-     * @throws Exception the exception
-     */
+	 * describeVodMostPlayedStatisData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.DescribeVodMostPlayedStatisDataRequest
+	 * @return com.volcengine.service.vod.model.response.DescribeVodMostPlayedStatisDataResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.DescribeVodMostPlayedStatisDataResponse describeVodMostPlayedStatisData(com.volcengine.service.vod.model.request.DescribeVodMostPlayedStatisDataRequest input) throws Exception;
-	
+
 	/**
-     * describeVodRealtimeMediaData.
-     *
-     * @param input com.volcengine.service.vod.model.request.DescribeVodRealtimeMediaDataRequest
-     * @return com.volcengine.service.vod.model.response.DescribeVodRealtimeMediaDataResponse
-     * @throws Exception the exception
-     */
+	 * describeVodRealtimeMediaData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.DescribeVodRealtimeMediaDataRequest
+	 * @return com.volcengine.service.vod.model.response.DescribeVodRealtimeMediaDataResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.DescribeVodRealtimeMediaDataResponse describeVodRealtimeMediaData(com.volcengine.service.vod.model.request.DescribeVodRealtimeMediaDataRequest input) throws Exception;
-	
+
 	/**
-     * describeVodRealtimeMediaDetailData.
-     *
-     * @param input com.volcengine.service.vod.model.request.DescribeVodRealtimeMediaDetailDataRequest
-     * @return com.volcengine.service.vod.model.response.DescribeVodRealtimeMediaDetailDataResponse
-     * @throws Exception the exception
-     */
+	 * describeVodRealtimeMediaDetailData.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.DescribeVodRealtimeMediaDetailDataRequest
+	 * @return com.volcengine.service.vod.model.response.DescribeVodRealtimeMediaDetailDataResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.DescribeVodRealtimeMediaDetailDataResponse describeVodRealtimeMediaDetailData(com.volcengine.service.vod.model.request.DescribeVodRealtimeMediaDetailDataRequest input) throws Exception;
-	
+
 	/**
-     * describeVodVidTrafficFileLog.
-     *
-     * @param input com.volcengine.service.vod.model.request.DescribeVodVidTrafficFileLogRequest
-     * @return com.volcengine.service.vod.model.response.DescribeVodVidTrafficFileLogResponse
-     * @throws Exception the exception
-     */
+	 * describeVodVidTrafficFileLog.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.DescribeVodVidTrafficFileLogRequest
+	 * @return com.volcengine.service.vod.model.response.DescribeVodVidTrafficFileLogResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.DescribeVodVidTrafficFileLogResponse describeVodVidTrafficFileLog(com.volcengine.service.vod.model.request.DescribeVodVidTrafficFileLogRequest input) throws Exception;
-	
+
 	/**
-     * setCloudMigrateJob.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodSetCloudMigrateJobRequest
-     * @return com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse
-     * @throws Exception the exception
-     */
+	 * setCloudMigrateJob.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodSetCloudMigrateJobRequest
+	 * @return com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodSetCloudMigrateJobResponse setCloudMigrateJob(com.volcengine.service.vod.model.request.VodSetCloudMigrateJobRequest input) throws Exception;
-	
+
 	/**
-     * submitCloudMigrateJob.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest
-     * @return com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse
-     * @throws Exception the exception
-     */
+	 * submitCloudMigrateJob.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest
+	 * @return com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodSubmitCloudMigrateJobResponse submitCloudMigrateJob(com.volcengine.service.vod.model.request.VodSubmitCloudMigrateJobRequest input) throws Exception;
-	
+
 	/**
-     * getCloudMigrateJob.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodGetCloudMigrateJobRequest
-     * @return com.volcengine.service.vod.model.response.VodGetCloudMigrateJobResponse
-     * @throws Exception the exception
-     */
+	 * getCloudMigrateJob.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodGetCloudMigrateJobRequest
+	 * @return com.volcengine.service.vod.model.response.VodGetCloudMigrateJobResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodGetCloudMigrateJobResponse getCloudMigrateJob(com.volcengine.service.vod.model.request.VodGetCloudMigrateJobRequest input) throws Exception;
-	
+
 	/**
-     * createDramaRecapTask.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodCreateDramaRecapTaskRequest
-     * @return com.volcengine.service.vod.model.response.VodCreateDramaRecapTaskResponse
-     * @throws Exception the exception
-     */
+	 * createDramaRecapTask.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodCreateDramaRecapTaskRequest
+	 * @return com.volcengine.service.vod.model.response.VodCreateDramaRecapTaskResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodCreateDramaRecapTaskResponse createDramaRecapTask(com.volcengine.service.vod.model.request.VodCreateDramaRecapTaskRequest input) throws Exception;
 
 	/**
-     * queryDramaRecapTask.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodQueryDramaRecapTaskRequest
-     * @return com.volcengine.service.vod.model.response.VodQueryDramaRecapTaskResponse
-     * @throws Exception the exception
-     */
+	 * queryDramaRecapTask.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodQueryDramaRecapTaskRequest
+	 * @return com.volcengine.service.vod.model.response.VodQueryDramaRecapTaskResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodQueryDramaRecapTaskResponse queryDramaRecapTask(com.volcengine.service.vod.model.request.VodQueryDramaRecapTaskRequest input) throws Exception;
 
 	/**
-     * createDramaScriptTask.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodCreateDramaScriptTaskRequest
-     * @return com.volcengine.service.vod.model.response.VodCreateDramaScriptTaskResponse
-     * @throws Exception the exception
-     */
+	 * createDramaScriptTask.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodCreateDramaScriptTaskRequest
+	 * @return com.volcengine.service.vod.model.response.VodCreateDramaScriptTaskResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodCreateDramaScriptTaskResponse createDramaScriptTask(com.volcengine.service.vod.model.request.VodCreateDramaScriptTaskRequest input) throws Exception;
 
 	/**
-     * queryDramaScriptTask.
-     *
-     * @param input com.volcengine.service.vod.model.request.VodQueryDramaScriptTaskRequest
-     * @return com.volcengine.service.vod.model.response.VodQueryDramaScriptTaskResponse
-     * @throws Exception the exception
-     */
+	 * queryDramaScriptTask.
+	 *
+	 * @param input com.volcengine.service.vod.model.request.VodQueryDramaScriptTaskRequest
+	 * @return com.volcengine.service.vod.model.response.VodQueryDramaScriptTaskResponse
+	 * @throws Exception the exception
+	 */
 	com.volcengine.service.vod.model.response.VodQueryDramaScriptTaskResponse queryDramaScriptTask(com.volcengine.service.vod.model.request.VodQueryDramaScriptTaskRequest input) throws Exception;
 
 }  // end of service interface

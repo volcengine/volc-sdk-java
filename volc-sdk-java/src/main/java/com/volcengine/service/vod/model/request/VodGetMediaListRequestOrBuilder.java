@@ -246,4 +246,16 @@ public interface VodGetMediaListRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getVodUploadSourcesBytes();
+
+  /**
+   * <code>string Title = 13;</code>
+   * @return The title.
+   */
+  java.lang.String getTitle();
+  /**
+   * <code>string Title = 13;</code>
+   * @return The bytes for title.
+   */
+  com.google.protobuf.ByteString
+      getTitleBytes();
 }

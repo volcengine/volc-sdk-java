@@ -209,6 +209,4 @@ public class Const {
     public static final String QueryDramaRecapTask = "QueryDramaRecapTask";
     public static final String CreateDramaScriptTask = "CreateDramaScriptTask";
     public static final String QueryDramaScriptTask = "QueryDramaScriptTask";
-
-
 }

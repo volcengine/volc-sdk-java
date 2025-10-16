@@ -31,7 +31,7 @@ public final class GetImageStorageFilesResResultItemsItem  {
      * <p>文件大小，单位为 byte。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "FileSize")
-    private Integer fileSize;
+    private Long fileSize;
 
     /**
      * <p>文件的存储类型，取值如下所示：</p>

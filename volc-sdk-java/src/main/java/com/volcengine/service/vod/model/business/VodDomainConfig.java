@@ -219,6 +219,19 @@ private static final long serialVersionUID = 0L;
             bitField0_ |= 0x00000200;
             break;
           }
+          case 146: {
+            com.volcengine.service.vod.model.business.VodOriginRewrite.Builder subBuilder = null;
+            if (originRewriteControl_ != null) {
+              subBuilder = originRewriteControl_.toBuilder();
+            }
+            originRewriteControl_ = input.readMessage(com.volcengine.service.vod.model.business.VodOriginRewrite.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(originRewriteControl_);
+              originRewriteControl_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -703,6 +716,44 @@ private static final long serialVersionUID = 0L;
     return uaAccessRule_ == null ? com.volcengine.service.vod.model.business.UserAgentAccessRule.getDefaultInstance() : uaAccessRule_;
   }
 
+  public static final int ORIGINREWRITECONTROL_FIELD_NUMBER = 18;
+  private com.volcengine.service.vod.model.business.VodOriginRewrite originRewriteControl_;
+  /**
+   * <pre>
+   * 源站重写
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodOriginRewrite OriginRewriteControl = 18;</code>
+   * @return Whether the originRewriteControl field is set.
+   */
+  @java.lang.Override
+  public boolean hasOriginRewriteControl() {
+    return originRewriteControl_ != null;
+  }
+  /**
+   * <pre>
+   * 源站重写
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodOriginRewrite OriginRewriteControl = 18;</code>
+   * @return The originRewriteControl.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodOriginRewrite getOriginRewriteControl() {
+    return originRewriteControl_ == null ? com.volcengine.service.vod.model.business.VodOriginRewrite.getDefaultInstance() : originRewriteControl_;
+  }
+  /**
+   * <pre>
+   * 源站重写
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodOriginRewrite OriginRewriteControl = 18;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodOriginRewriteOrBuilder getOriginRewriteControlOrBuilder() {
+    return getOriginRewriteControl();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -761,6 +812,9 @@ private static final long serialVersionUID = 0L;
     }
     if (((bitField0_ & 0x00000200) != 0)) {
       output.writeMessage(15, getUaAccessRule());
+    }
+    if (originRewriteControl_ != null) {
+      output.writeMessage(18, getOriginRewriteControl());
     }
     unknownFields.writeTo(output);
   }
@@ -830,6 +884,10 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000200) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(15, getUaAccessRule());
+    }
+    if (originRewriteControl_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(18, getOriginRewriteControl());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -912,6 +970,11 @@ private static final long serialVersionUID = 0L;
       if (!getUaAccessRule()
           .equals(other.getUaAccessRule())) return false;
     }
+    if (hasOriginRewriteControl() != other.hasOriginRewriteControl()) return false;
+    if (hasOriginRewriteControl()) {
+      if (!getOriginRewriteControl()
+          .equals(other.getOriginRewriteControl())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -984,6 +1047,10 @@ private static final long serialVersionUID = 0L;
     if (hasUaAccessRule()) {
       hash = (37 * hash) + UAACCESSRULE_FIELD_NUMBER;
       hash = (53 * hash) + getUaAccessRule().hashCode();
+    }
+    if (hasOriginRewriteControl()) {
+      hash = (37 * hash) + ORIGINREWRITECONTROL_FIELD_NUMBER;
+      hash = (53 * hash) + getOriginRewriteControl().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -1211,6 +1278,12 @@ private static final long serialVersionUID = 0L;
         uaAccessRuleBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00001000);
+      if (originRewriteControlBuilder_ == null) {
+        originRewriteControl_ = null;
+      } else {
+        originRewriteControl_ = null;
+        originRewriteControlBuilder_ = null;
+      }
       return this;
     }
 
@@ -1347,6 +1420,11 @@ private static final long serialVersionUID = 0L;
           result.uaAccessRule_ = uaAccessRuleBuilder_.build();
         }
         to_bitField0_ |= 0x00000200;
+      }
+      if (originRewriteControlBuilder_ == null) {
+        result.originRewriteControl_ = originRewriteControl_;
+      } else {
+        result.originRewriteControl_ = originRewriteControlBuilder_.build();
       }
       result.bitField0_ = to_bitField0_;
       onBuilt();
@@ -1510,6 +1588,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasUaAccessRule()) {
         mergeUaAccessRule(other.getUaAccessRule());
+      }
+      if (other.hasOriginRewriteControl()) {
+        mergeOriginRewriteControl(other.getOriginRewriteControl());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -3607,6 +3688,161 @@ private static final long serialVersionUID = 0L;
         uaAccessRule_ = null;
       }
       return uaAccessRuleBuilder_;
+    }
+
+    private com.volcengine.service.vod.model.business.VodOriginRewrite originRewriteControl_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodOriginRewrite, com.volcengine.service.vod.model.business.VodOriginRewrite.Builder, com.volcengine.service.vod.model.business.VodOriginRewriteOrBuilder> originRewriteControlBuilder_;
+    /**
+     * <pre>
+     * 源站重写
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodOriginRewrite OriginRewriteControl = 18;</code>
+     * @return Whether the originRewriteControl field is set.
+     */
+    public boolean hasOriginRewriteControl() {
+      return originRewriteControlBuilder_ != null || originRewriteControl_ != null;
+    }
+    /**
+     * <pre>
+     * 源站重写
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodOriginRewrite OriginRewriteControl = 18;</code>
+     * @return The originRewriteControl.
+     */
+    public com.volcengine.service.vod.model.business.VodOriginRewrite getOriginRewriteControl() {
+      if (originRewriteControlBuilder_ == null) {
+        return originRewriteControl_ == null ? com.volcengine.service.vod.model.business.VodOriginRewrite.getDefaultInstance() : originRewriteControl_;
+      } else {
+        return originRewriteControlBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * 源站重写
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodOriginRewrite OriginRewriteControl = 18;</code>
+     */
+    public Builder setOriginRewriteControl(com.volcengine.service.vod.model.business.VodOriginRewrite value) {
+      if (originRewriteControlBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        originRewriteControl_ = value;
+        onChanged();
+      } else {
+        originRewriteControlBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站重写
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodOriginRewrite OriginRewriteControl = 18;</code>
+     */
+    public Builder setOriginRewriteControl(
+        com.volcengine.service.vod.model.business.VodOriginRewrite.Builder builderForValue) {
+      if (originRewriteControlBuilder_ == null) {
+        originRewriteControl_ = builderForValue.build();
+        onChanged();
+      } else {
+        originRewriteControlBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站重写
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodOriginRewrite OriginRewriteControl = 18;</code>
+     */
+    public Builder mergeOriginRewriteControl(com.volcengine.service.vod.model.business.VodOriginRewrite value) {
+      if (originRewriteControlBuilder_ == null) {
+        if (originRewriteControl_ != null) {
+          originRewriteControl_ =
+            com.volcengine.service.vod.model.business.VodOriginRewrite.newBuilder(originRewriteControl_).mergeFrom(value).buildPartial();
+        } else {
+          originRewriteControl_ = value;
+        }
+        onChanged();
+      } else {
+        originRewriteControlBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站重写
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodOriginRewrite OriginRewriteControl = 18;</code>
+     */
+    public Builder clearOriginRewriteControl() {
+      if (originRewriteControlBuilder_ == null) {
+        originRewriteControl_ = null;
+        onChanged();
+      } else {
+        originRewriteControl_ = null;
+        originRewriteControlBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * 源站重写
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodOriginRewrite OriginRewriteControl = 18;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodOriginRewrite.Builder getOriginRewriteControlBuilder() {
+      
+      onChanged();
+      return getOriginRewriteControlFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * 源站重写
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodOriginRewrite OriginRewriteControl = 18;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodOriginRewriteOrBuilder getOriginRewriteControlOrBuilder() {
+      if (originRewriteControlBuilder_ != null) {
+        return originRewriteControlBuilder_.getMessageOrBuilder();
+      } else {
+        return originRewriteControl_ == null ?
+            com.volcengine.service.vod.model.business.VodOriginRewrite.getDefaultInstance() : originRewriteControl_;
+      }
+    }
+    /**
+     * <pre>
+     * 源站重写
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodOriginRewrite OriginRewriteControl = 18;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodOriginRewrite, com.volcengine.service.vod.model.business.VodOriginRewrite.Builder, com.volcengine.service.vod.model.business.VodOriginRewriteOrBuilder> 
+        getOriginRewriteControlFieldBuilder() {
+      if (originRewriteControlBuilder_ == null) {
+        originRewriteControlBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.VodOriginRewrite, com.volcengine.service.vod.model.business.VodOriginRewrite.Builder, com.volcengine.service.vod.model.business.VodOriginRewriteOrBuilder>(
+                getOriginRewriteControl(),
+                getParentForChildren(),
+                isClean());
+        originRewriteControl_ = null;
+      }
+      return originRewriteControlBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

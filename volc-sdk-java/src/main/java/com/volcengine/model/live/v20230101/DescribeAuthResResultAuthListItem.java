@@ -60,6 +60,28 @@ public final class DescribeAuthResResultAuthListItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Vhost")
     private String vhost;
 
+    /**
+     * <p>时间戳进制。取值如下：</p>
+     *
+     * <p>- `2`：二进制</p>
+     *
+     * <p>- `8`：八进制</p>
+     *
+     * <p>- `10`：十进制</p>
+     *
+     * <p>- `16`：十六进制</p>
+     *
+     *
+     *
+     * <p>:::tip</p>
+     *
+     * <p>`SceneType` 取值为 `push` 时，该参数取值固定为 `10`。</p>
+     *
+     * <p>:::</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "TimeStampBase")
+    private Integer timeStampBase;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

@@ -16,4 +16,7 @@ public class UploadVoiceResourceRequest {
      */
     @JSONField(name = "FileName")
     private String fileName;
+
+    @JSONField(name = "ReqSourceType")
+    private Integer reqSourceType=3;
 }

@@ -44,6 +44,8 @@ public class GetMergedReportResponse {
 
     @Data
     public static class ManualDetail {
+        @JSONField(name = "MessageId")
+        Long MessageId;
         @JSONField(name = "ManualComment")
         String ManualComment;
         @JSONField(name = "Auditor")
@@ -114,6 +116,8 @@ public class GetMergedReportResponse {
 
     @Data
     public static class AnalysisText {
+        @JSONField(name = "MessageId")
+        Long MessageId;
         @JSONField(name = "Text")
         String Text;
         @JSONField(name = "Type")
@@ -126,6 +130,8 @@ public class GetMergedReportResponse {
 
     @Data
     public static class AnalysisImage {
+        @JSONField(name = "MessageId")
+        Long MessageId;
         @JSONField(name = "ImageURLs")
         List<String> ImageURLs;
         @JSONField(name = "Type")
@@ -138,6 +144,8 @@ public class GetMergedReportResponse {
 
     @Data
     public static class CustomSensitiveResult {
+        @JSONField(name = "MessageId")
+        Long MessageId;
         @JSONField(name = "SensitiveWord")
         String SensitiveWord;
         @JSONField(name = "Text")
@@ -150,6 +158,8 @@ public class GetMergedReportResponse {
 
     @Data
     public static class SystemSensitiveResult {
+        @JSONField(name = "MessageId")
+        Long MessageId;
         @JSONField(name = "Text")
         String Text;
         @JSONField(name = "AbsoluteStartTime")

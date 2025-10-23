@@ -3,6 +3,7 @@ package com.volcengine.model.livesaas.request;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.volcengine.model.beans.livesaas.SiteActivityTag;
 import com.volcengine.model.beans.livesaas.UpdateActivityLoopVideo;
+import com.volcengine.model.beans.livesaas.AutoStartConfig;
 import lombok.Data;
 
 import java.util.List;
@@ -51,4 +52,6 @@ public class CreateActivityAPIRequest {
     Integer IsAutoStartEnable;
     @JSONField(name = "LoopVideos")
     List<UpdateActivityLoopVideo> LoopVideos;
+    @JSONField(name = "AutoStartConfig")
+    AutoStartConfig AutoStartConfig;
 }

@@ -3,6 +3,7 @@ package com.volcengine.model.livesaas.response;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 import com.volcengine.model.response.ResponseMetadata;
+import com.volcengine.model.beans.livesaas.AutoStartConfig;
 
 
 import java.util.List;
@@ -174,6 +175,8 @@ public class GetBasicConfigAPIResponse {
         Long BindAccountLevelGroupId;
         @JSONField(name = "BindAccountLevelGroupName")
         String BindAccountLevelGroupName;
+        @JSONField(name = "AutoStartConfig")
+        AutoStartConfig AutoStartConfig;
     }
 
     @Data

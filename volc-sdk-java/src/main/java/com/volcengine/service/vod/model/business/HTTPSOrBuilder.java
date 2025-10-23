@@ -47,4 +47,15 @@ public interface HTTPSOrBuilder extends
    * <code>optional .Volcengine.Vod.Models.Business.ForcedRedirect ForcedRedirect = 3;</code>
    */
   com.volcengine.service.vod.model.business.ForcedRedirectOrBuilder getForcedRedirectOrBuilder();
+
+  /**
+   * <code>optional bool HTTP2 = 4;</code>
+   * @return Whether the hTTP2 field is set.
+   */
+  boolean hasHTTP2();
+  /**
+   * <code>optional bool HTTP2 = 4;</code>
+   * @return The hTTP2.
+   */
+  boolean getHTTP2();
 }

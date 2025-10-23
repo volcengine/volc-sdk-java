@@ -684,108 +684,109 @@ public final class VodCdn {
       "\010H\000\210\001\001B\t\n\007_Switch\"t\n\016ForcedRedirect\022!\n\024E" +
       "nableForcedRedirect\030\001 \001(\010H\000\210\001\001\022\027\n\nStatus" +
       "Code\030\002 \001(\tH\001\210\001\001B\027\n\025_EnableForcedRedirect" +
-      "B\r\n\013_StatusCode\"\325\001\n\005HTTPS\022\023\n\006Switch\030\001 \001(" +
+      "B\r\n\013_StatusCode\"\363\001\n\005HTTPS\022\023\n\006Switch\030\001 \001(" +
       "\010H\000\210\001\001\022?\n\010CertInfo\030\002 \001(\0132(.Volcengine.Vo" +
       "d.Models.Business.CertInfoH\001\210\001\001\022K\n\016Force" +
       "dRedirect\030\003 \001(\0132..Volcengine.Vod.Models." +
-      "Business.ForcedRedirectH\002\210\001\001B\t\n\007_SwitchB" +
-      "\013\n\t_CertInfoB\021\n\017_ForcedRedirect\"*\n\010CertI" +
-      "nfo\022\023\n\006CertId\030\001 \001(\tH\000\210\001\001B\t\n\007_CertId\"x\n\022H" +
-      "ttpForcedRedirect\022!\n\024EnableForcedRedirec" +
-      "t\030\001 \001(\010H\000\210\001\001\022\027\n\nStatusCode\030\002 \001(\tH\001\210\001\001B\027\n" +
-      "\025_EnableForcedRedirectB\r\n\013_StatusCode\")\n" +
-      "\007CdnIPv6\022\023\n\006Switch\030\001 \001(\010H\000\210\001\001B\t\n\007_Switch" +
-      "\"\326\001\n\021RequestHeaderRule\022D\n\tCondition\030\001 \001(" +
-      "\0132,.Volcengine.Vod.Models.Business.CdnCo" +
-      "nditionH\000\210\001\001\022U\n\023RequestHeaderAction\030\002 \001(" +
-      "\01323.Volcengine.Vod.Models.Business.Reque" +
-      "stHeaderActionH\001\210\001\001B\014\n\n_ConditionB\026\n\024_Re" +
-      "questHeaderAction\"l\n\023RequestHeaderAction" +
-      "\022U\n\026RequestHeaderInstances\030\001 \003(\01325.Volce" +
-      "ngine.Vod.Models.Business.RequestHeaderI" +
-      "nstance\"\225\001\n\025RequestHeaderInstance\022\023\n\006Act" +
-      "ion\030\001 \001(\tH\000\210\001\001\022\020\n\003Key\030\002 \001(\tH\001\210\001\001\022\022\n\005Valu" +
-      "e\030\003 \001(\tH\002\210\001\001\022\026\n\tValueType\030\004 \001(\tH\003\210\001\001B\t\n\007" +
-      "_ActionB\006\n\004_KeyB\010\n\006_ValueB\014\n\n_ValueType\"" +
-      "^\n\014IpAccessRule\022\n\n\002Ip\030\001 \003(\t\022\025\n\010RuleType\030" +
-      "\002 \001(\tH\000\210\001\001\022\023\n\006Switch\030\004 \001(\010H\001\210\001\001B\013\n\t_Rule" +
-      "TypeB\t\n\007_Switch\"<\n\022CommonGlobalConfig\022\027\n" +
-      "\nConfigName\030\001 \001(\tH\000\210\001\001B\r\n\013_ConfigName\",\n" +
-      "\nMultiRange\022\023\n\006Switch\030\001 \001(\010H\000\210\001\001B\t\n\007_Swi" +
-      "tch\"\274\001\n\023UserAgentAccessRule\022\027\n\nAllowEmpt" +
-      "y\030\001 \001(\010H\000\210\001\001\022\027\n\nIgnoreCase\030\002 \001(\010H\001\210\001\001\022\025\n" +
-      "\010RuleType\030\003 \001(\tH\002\210\001\001\022\023\n\006Switch\030\004 \001(\010H\003\210\001" +
-      "\001\022\021\n\tUserAgent\030\005 \003(\tB\r\n\013_AllowEmptyB\r\n\013_" +
-      "IgnoreCaseB\013\n\t_RuleTypeB\t\n\007_Switch\"\353\001\n\021R" +
-      "efererAccessRule\022\027\n\nAllowEmpty\030\001 \001(\010H\000\210\001" +
-      "\001\022\020\n\010Referers\030\002 \003(\t\022G\n\014ReferersType\030\003 \001(" +
-      "\0132,.Volcengine.Vod.Models.Business.Refer" +
-      "ersTypeH\001\210\001\001\022\025\n\010RuleType\030\004 \001(\tH\002\210\001\001\022\023\n\006S" +
-      "witch\030\006 \001(\010H\003\210\001\001B\r\n\013_AllowEmptyB\017\n\r_Refe" +
-      "rersTypeB\013\n\t_RuleTypeB\t\n\007_Switch\"g\n\014Refe" +
-      "rersType\022H\n\nCommonType\030\001 \001(\0132/.Volcengin" +
-      "e.Vod.Models.Business.CommonReferTypeH\000\210" +
-      "\001\001B\r\n\013_CommonType\"w\n\017CommonReferType\022\027\n\n" +
-      "IgnoreCase\030\001 \001(\010H\000\210\001\001\022\031\n\014IgnoreScheme\030\002 " +
-      "\001(\010H\001\210\001\001\022\020\n\010Referers\030\003 \003(\tB\r\n\013_IgnoreCas" +
-      "eB\017\n\r_IgnoreScheme\"q\n\022VodDomainBasicInfo" +
-      "\022\016\n\006Domain\030\001 \001(\t\022\r\n\005Cname\030\002 \001(\t\022\024\n\014Confi" +
-      "gStatus\030\003 \001(\t\022\022\n\nCreateTime\030\004 \001(\t\022\022\n\nLoc" +
-      "kStatus\030\005 \001(\t\"\267\001\n\035VodDescribeDomainConfi" +
-      "gResult\022\021\n\tSpaceName\030\001 \001(\t\022B\n\006Domain\030\002 \001" +
-      "(\01322.Volcengine.Vod.Models.Business.VodD" +
-      "omainBasicInfo\022?\n\006Config\030\003 \001(\0132/.Volceng" +
-      "ine.Vod.Models.Business.VodDomainConfig\"" +
-      "\241\001\n\027VodPCDNDomainConfigInfo\022\021\n\tSpaceName" +
-      "\030\001 \001(\t\022T\n\020PCDNInstanceInfo\030\002 \001(\0132:.Volce" +
-      "ngine.Vod.Models.Business.VodPCDNDomainI" +
-      "nstanceInfos\022\r\n\005Total\030\003 \001(\003\022\016\n\006Offset\030\004 " +
-      "\001(\003\"`\n\032VodPCDNDomainInstanceInfos\022B\n\007Dom" +
-      "ains\030\001 \003(\01321.Volcengine.Vod.Models.Busin" +
-      "ess.VodPCDNDomainInfo\"[\n\021VodPCDNDomainIn" +
-      "fo\022\016\n\006Domain\030\001 \001(\t\022\016\n\006Status\030\002 \001(\t\022\022\n\nCr" +
-      "eateTime\030\003 \001(\t\022\022\n\nUpdateTime\030\004 \001(\t\"H\n\032Vo" +
-      "dVerifyDomainOwnerResult\022\024\n\014VerifyResult" +
-      "\030\001 \001(\010\022\024\n\014ErrorMessage\030\002 \001(\t\"O\n\026VodDomai" +
-      "nDNSVerifyInfo\022\014\n\004Host\030\001 \001(\t\022\022\n\nRecordTy" +
-      "pe\030\002 \001(\t\022\023\n\013RecordValue\030\003 \001(\t\"c\n\027VodDoma" +
-      "inFileVerifyInfo\022\025\n\rVerifyDomains\030\001 \003(\t\022" +
-      "\026\n\016VerifyFileName\030\002 \001(\t\022\031\n\021VerifyFileCon" +
-      "tent\030\003 \001(\t\"\332\001\n$VodDescribeDomainVerifyCo" +
-      "ntentResult\022\022\n\nNeedVerify\030\001 \001(\010\022M\n\rDNSVe" +
-      "rifyInfo\030\002 \001(\01326.Volcengine.Vod.Models.B" +
-      "usiness.VodDomainDNSVerifyInfo\022O\n\016FileVe" +
-      "rifyInfo\030\003 \001(\01327.Volcengine.Vod.Models.B" +
-      "usiness.VodDomainFileVerifyInfo\">\n\032VodDe" +
-      "scribeCdnEdgeIpResult\022\017\n\007CdnIpv4\030\001 \003(\t\022\017" +
-      "\n\007CdnIpv6\030\002 \003(\t\"\225\001\n VodDescribeCdnRegion" +
-      "AndIspResult\0226\n\004Isps\030\001 \003(\0132(.Volcengine." +
-      "Vod.Models.Business.NamePair\0229\n\007Regions\030" +
-      "\002 \003(\0132(.Volcengine.Vod.Models.Business.N" +
-      "amePair\"&\n\010NamePair\022\014\n\004Code\030\001 \001(\t\022\014\n\004Nam" +
-      "e\030\002 \001(\t\"U\n\026VodOriginRewriteAction\022\022\n\nSou" +
-      "rcePath\030\001 \001(\t\022\022\n\nTargetPath\030\002 \001(\t\022\023\n\013Rew" +
-      "riteType\030\003 \001(\t\"k\n\024VodOriginRewriteRule\022S" +
-      "\n\023OriginRewriteAction\030\001 \001(\01326.Volcengine" +
-      ".Vod.Models.Business.VodOriginRewriteAct" +
-      "ion\"s\n\020VodOriginRewrite\022O\n\021OriginRewrite" +
-      "Rule\030\001 \003(\01324.Volcengine.Vod.Models.Busin" +
-      "ess.VodOriginRewriteRule\022\016\n\006Switch\030\002 \001(\010" +
-      "*\222\001\n\032VodDomainSourceStationType\022\'\n#Undef" +
-      "inedVodDomainSourceStationType\020\000\022!\n\035VodV" +
-      "odDomainSourceStationType\020\001\022(\n$ThirdPart" +
-      "yVodDomainSourceStationType\020\002*\323\001\n!VodDom" +
-      "ainSourceStationAddressType\022.\n*Undefined" +
-      "VodDomainSourceStationAddressType\020\000\022+\n\'D" +
-      "omainVodDomainSourceStationAddressType\020\001" +
-      "\022\'\n#IPVodDomainSourceStationAddressType\020" +
-      "\002\022(\n$TOSVodDomainSourceStationAddressTyp" +
-      "e\020\003B\312\001\n)com.volcengine.service.vod.model" +
-      ".businessB\006VodCdnP\001ZAgithub.com/volcengi" +
-      "ne/volc-sdk-golang/service/vod/models/bu" +
-      "siness\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Model" +
-      "s\\Business\342\002#Volc\\Service\\Vod\\Models\\GPB" +
-      "Metadatab\006proto3"
+      "Business.ForcedRedirectH\002\210\001\001\022\022\n\005HTTP2\030\004 " +
+      "\001(\010H\003\210\001\001B\t\n\007_SwitchB\013\n\t_CertInfoB\021\n\017_For" +
+      "cedRedirectB\010\n\006_HTTP2\"*\n\010CertInfo\022\023\n\006Cer" +
+      "tId\030\001 \001(\tH\000\210\001\001B\t\n\007_CertId\"x\n\022HttpForcedR" +
+      "edirect\022!\n\024EnableForcedRedirect\030\001 \001(\010H\000\210" +
+      "\001\001\022\027\n\nStatusCode\030\002 \001(\tH\001\210\001\001B\027\n\025_EnableFo" +
+      "rcedRedirectB\r\n\013_StatusCode\")\n\007CdnIPv6\022\023" +
+      "\n\006Switch\030\001 \001(\010H\000\210\001\001B\t\n\007_Switch\"\326\001\n\021Reque" +
+      "stHeaderRule\022D\n\tCondition\030\001 \001(\0132,.Volcen" +
+      "gine.Vod.Models.Business.CdnConditionH\000\210" +
+      "\001\001\022U\n\023RequestHeaderAction\030\002 \001(\01323.Volcen" +
+      "gine.Vod.Models.Business.RequestHeaderAc" +
+      "tionH\001\210\001\001B\014\n\n_ConditionB\026\n\024_RequestHeade" +
+      "rAction\"l\n\023RequestHeaderAction\022U\n\026Reques" +
+      "tHeaderInstances\030\001 \003(\01325.Volcengine.Vod." +
+      "Models.Business.RequestHeaderInstance\"\225\001" +
+      "\n\025RequestHeaderInstance\022\023\n\006Action\030\001 \001(\tH" +
+      "\000\210\001\001\022\020\n\003Key\030\002 \001(\tH\001\210\001\001\022\022\n\005Value\030\003 \001(\tH\002\210" +
+      "\001\001\022\026\n\tValueType\030\004 \001(\tH\003\210\001\001B\t\n\007_ActionB\006\n" +
+      "\004_KeyB\010\n\006_ValueB\014\n\n_ValueType\"^\n\014IpAcces" +
+      "sRule\022\n\n\002Ip\030\001 \003(\t\022\025\n\010RuleType\030\002 \001(\tH\000\210\001\001" +
+      "\022\023\n\006Switch\030\004 \001(\010H\001\210\001\001B\013\n\t_RuleTypeB\t\n\007_S" +
+      "witch\"<\n\022CommonGlobalConfig\022\027\n\nConfigNam" +
+      "e\030\001 \001(\tH\000\210\001\001B\r\n\013_ConfigName\",\n\nMultiRang" +
+      "e\022\023\n\006Switch\030\001 \001(\010H\000\210\001\001B\t\n\007_Switch\"\274\001\n\023Us" +
+      "erAgentAccessRule\022\027\n\nAllowEmpty\030\001 \001(\010H\000\210" +
+      "\001\001\022\027\n\nIgnoreCase\030\002 \001(\010H\001\210\001\001\022\025\n\010RuleType\030" +
+      "\003 \001(\tH\002\210\001\001\022\023\n\006Switch\030\004 \001(\010H\003\210\001\001\022\021\n\tUserA" +
+      "gent\030\005 \003(\tB\r\n\013_AllowEmptyB\r\n\013_IgnoreCase" +
+      "B\013\n\t_RuleTypeB\t\n\007_Switch\"\353\001\n\021RefererAcce" +
+      "ssRule\022\027\n\nAllowEmpty\030\001 \001(\010H\000\210\001\001\022\020\n\010Refer" +
+      "ers\030\002 \003(\t\022G\n\014ReferersType\030\003 \001(\0132,.Volcen" +
+      "gine.Vod.Models.Business.ReferersTypeH\001\210" +
+      "\001\001\022\025\n\010RuleType\030\004 \001(\tH\002\210\001\001\022\023\n\006Switch\030\006 \001(" +
+      "\010H\003\210\001\001B\r\n\013_AllowEmptyB\017\n\r_ReferersTypeB\013" +
+      "\n\t_RuleTypeB\t\n\007_Switch\"g\n\014ReferersType\022H" +
+      "\n\nCommonType\030\001 \001(\0132/.Volcengine.Vod.Mode" +
+      "ls.Business.CommonReferTypeH\000\210\001\001B\r\n\013_Com" +
+      "monType\"w\n\017CommonReferType\022\027\n\nIgnoreCase" +
+      "\030\001 \001(\010H\000\210\001\001\022\031\n\014IgnoreScheme\030\002 \001(\010H\001\210\001\001\022\020" +
+      "\n\010Referers\030\003 \003(\tB\r\n\013_IgnoreCaseB\017\n\r_Igno" +
+      "reScheme\"q\n\022VodDomainBasicInfo\022\016\n\006Domain" +
+      "\030\001 \001(\t\022\r\n\005Cname\030\002 \001(\t\022\024\n\014ConfigStatus\030\003 " +
+      "\001(\t\022\022\n\nCreateTime\030\004 \001(\t\022\022\n\nLockStatus\030\005 " +
+      "\001(\t\"\267\001\n\035VodDescribeDomainConfigResult\022\021\n" +
+      "\tSpaceName\030\001 \001(\t\022B\n\006Domain\030\002 \001(\01322.Volce" +
+      "ngine.Vod.Models.Business.VodDomainBasic" +
+      "Info\022?\n\006Config\030\003 \001(\0132/.Volcengine.Vod.Mo" +
+      "dels.Business.VodDomainConfig\"\241\001\n\027VodPCD" +
+      "NDomainConfigInfo\022\021\n\tSpaceName\030\001 \001(\t\022T\n\020" +
+      "PCDNInstanceInfo\030\002 \001(\0132:.Volcengine.Vod." +
+      "Models.Business.VodPCDNDomainInstanceInf" +
+      "os\022\r\n\005Total\030\003 \001(\003\022\016\n\006Offset\030\004 \001(\003\"`\n\032Vod" +
+      "PCDNDomainInstanceInfos\022B\n\007Domains\030\001 \003(\013" +
+      "21.Volcengine.Vod.Models.Business.VodPCD" +
+      "NDomainInfo\"[\n\021VodPCDNDomainInfo\022\016\n\006Doma" +
+      "in\030\001 \001(\t\022\016\n\006Status\030\002 \001(\t\022\022\n\nCreateTime\030\003" +
+      " \001(\t\022\022\n\nUpdateTime\030\004 \001(\t\"H\n\032VodVerifyDom" +
+      "ainOwnerResult\022\024\n\014VerifyResult\030\001 \001(\010\022\024\n\014" +
+      "ErrorMessage\030\002 \001(\t\"O\n\026VodDomainDNSVerify" +
+      "Info\022\014\n\004Host\030\001 \001(\t\022\022\n\nRecordType\030\002 \001(\t\022\023" +
+      "\n\013RecordValue\030\003 \001(\t\"c\n\027VodDomainFileVeri" +
+      "fyInfo\022\025\n\rVerifyDomains\030\001 \003(\t\022\026\n\016VerifyF" +
+      "ileName\030\002 \001(\t\022\031\n\021VerifyFileContent\030\003 \001(\t" +
+      "\"\332\001\n$VodDescribeDomainVerifyContentResul" +
+      "t\022\022\n\nNeedVerify\030\001 \001(\010\022M\n\rDNSVerifyInfo\030\002" +
+      " \001(\01326.Volcengine.Vod.Models.Business.Vo" +
+      "dDomainDNSVerifyInfo\022O\n\016FileVerifyInfo\030\003" +
+      " \001(\01327.Volcengine.Vod.Models.Business.Vo" +
+      "dDomainFileVerifyInfo\">\n\032VodDescribeCdnE" +
+      "dgeIpResult\022\017\n\007CdnIpv4\030\001 \003(\t\022\017\n\007CdnIpv6\030" +
+      "\002 \003(\t\"\225\001\n VodDescribeCdnRegionAndIspResu" +
+      "lt\0226\n\004Isps\030\001 \003(\0132(.Volcengine.Vod.Models" +
+      ".Business.NamePair\0229\n\007Regions\030\002 \003(\0132(.Vo" +
+      "lcengine.Vod.Models.Business.NamePair\"&\n" +
+      "\010NamePair\022\014\n\004Code\030\001 \001(\t\022\014\n\004Name\030\002 \001(\t\"U\n" +
+      "\026VodOriginRewriteAction\022\022\n\nSourcePath\030\001 " +
+      "\001(\t\022\022\n\nTargetPath\030\002 \001(\t\022\023\n\013RewriteType\030\003" +
+      " \001(\t\"k\n\024VodOriginRewriteRule\022S\n\023OriginRe" +
+      "writeAction\030\001 \001(\01326.Volcengine.Vod.Model" +
+      "s.Business.VodOriginRewriteAction\"s\n\020Vod" +
+      "OriginRewrite\022O\n\021OriginRewriteRule\030\001 \003(\013" +
+      "24.Volcengine.Vod.Models.Business.VodOri" +
+      "ginRewriteRule\022\016\n\006Switch\030\002 \001(\010*\222\001\n\032VodDo" +
+      "mainSourceStationType\022\'\n#UndefinedVodDom" +
+      "ainSourceStationType\020\000\022!\n\035VodVodDomainSo" +
+      "urceStationType\020\001\022(\n$ThirdPartyVodDomain" +
+      "SourceStationType\020\002*\323\001\n!VodDomainSourceS" +
+      "tationAddressType\022.\n*UndefinedVodDomainS" +
+      "ourceStationAddressType\020\000\022+\n\'DomainVodDo" +
+      "mainSourceStationAddressType\020\001\022\'\n#IPVodD" +
+      "omainSourceStationAddressType\020\002\022(\n$TOSVo" +
+      "dDomainSourceStationAddressType\020\003B\312\001\n)co" +
+      "m.volcengine.service.vod.model.businessB" +
+      "\006VodCdnP\001ZAgithub.com/volcengine/volc-sd" +
+      "k-golang/service/vod/models/business\240\001\001\330" +
+      "\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Models\\Business" +
+      "\342\002#Volc\\Service\\Vod\\Models\\GPBMetadatab\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1133,7 +1134,7 @@ public final class VodCdn {
     internal_static_Volcengine_Vod_Models_Business_HTTPS_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_HTTPS_descriptor,
-        new java.lang.String[] { "Switch", "CertInfo", "ForcedRedirect", "Switch", "CertInfo", "ForcedRedirect", });
+        new java.lang.String[] { "Switch", "CertInfo", "ForcedRedirect", "HTTP2", "Switch", "CertInfo", "ForcedRedirect", "HTTP2", });
     internal_static_Volcengine_Vod_Models_Business_CertInfo_descriptor =
       getDescriptor().getMessageTypes().get(57);
     internal_static_Volcengine_Vod_Models_Business_CertInfo_fieldAccessorTable = new

@@ -80,6 +80,11 @@ private static final long serialVersionUID = 0L;
             bitField0_ |= 0x00000004;
             break;
           }
+          case 32: {
+            bitField0_ |= 0x00000008;
+            hTTP2_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -184,6 +189,25 @@ private static final long serialVersionUID = 0L;
     return forcedRedirect_ == null ? com.volcengine.service.vod.model.business.ForcedRedirect.getDefaultInstance() : forcedRedirect_;
   }
 
+  public static final int HTTP2_FIELD_NUMBER = 4;
+  private boolean hTTP2_;
+  /**
+   * <code>optional bool HTTP2 = 4;</code>
+   * @return Whether the hTTP2 field is set.
+   */
+  @java.lang.Override
+  public boolean hasHTTP2() {
+    return ((bitField0_ & 0x00000008) != 0);
+  }
+  /**
+   * <code>optional bool HTTP2 = 4;</code>
+   * @return The hTTP2.
+   */
+  @java.lang.Override
+  public boolean getHTTP2() {
+    return hTTP2_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -207,6 +231,9 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       output.writeMessage(3, getForcedRedirect());
     }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      output.writeBool(4, hTTP2_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -227,6 +254,10 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getForcedRedirect());
+    }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(4, hTTP2_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -258,6 +289,11 @@ private static final long serialVersionUID = 0L;
       if (!getForcedRedirect()
           .equals(other.getForcedRedirect())) return false;
     }
+    if (hasHTTP2() != other.hasHTTP2()) return false;
+    if (hasHTTP2()) {
+      if (getHTTP2()
+          != other.getHTTP2()) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -281,6 +317,11 @@ private static final long serialVersionUID = 0L;
     if (hasForcedRedirect()) {
       hash = (37 * hash) + FORCEDREDIRECT_FIELD_NUMBER;
       hash = (53 * hash) + getForcedRedirect().hashCode();
+    }
+    if (hasHTTP2()) {
+      hash = (37 * hash) + HTTP2_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getHTTP2());
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -431,6 +472,8 @@ private static final long serialVersionUID = 0L;
         forcedRedirectBuilder_.clear();
       }
       bitField0_ = (bitField0_ & ~0x00000004);
+      hTTP2_ = false;
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -478,6 +521,10 @@ private static final long serialVersionUID = 0L;
           result.forcedRedirect_ = forcedRedirectBuilder_.build();
         }
         to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.hTTP2_ = hTTP2_;
+        to_bitField0_ |= 0x00000008;
       }
       result.bitField0_ = to_bitField0_;
       onBuilt();
@@ -536,6 +583,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasForcedRedirect()) {
         mergeForcedRedirect(other.getForcedRedirect());
+      }
+      if (other.hasHTTP2()) {
+        setHTTP2(other.getHTTP2());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -844,6 +894,45 @@ private static final long serialVersionUID = 0L;
         forcedRedirect_ = null;
       }
       return forcedRedirectBuilder_;
+    }
+
+    private boolean hTTP2_ ;
+    /**
+     * <code>optional bool HTTP2 = 4;</code>
+     * @return Whether the hTTP2 field is set.
+     */
+    @java.lang.Override
+    public boolean hasHTTP2() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional bool HTTP2 = 4;</code>
+     * @return The hTTP2.
+     */
+    @java.lang.Override
+    public boolean getHTTP2() {
+      return hTTP2_;
+    }
+    /**
+     * <code>optional bool HTTP2 = 4;</code>
+     * @param value The hTTP2 to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHTTP2(boolean value) {
+      bitField0_ |= 0x00000008;
+      hTTP2_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional bool HTTP2 = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHTTP2() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      hTTP2_ = false;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

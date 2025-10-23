@@ -2,6 +2,7 @@ package com.volcengine.model.livesaas.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.volcengine.model.beans.livesaas.SiteActivityTag;
+import com.volcengine.model.beans.livesaas.AutoStartConfig;
 import lombok.Data;
 
 import java.util.List;
@@ -160,6 +161,8 @@ public class UpdateBasicConfigAPIRequest {
     Integer IsViewerLevelShowEnable;
     @JSONField(name = "BindAccountLevelGroupId")
     Long BindAccountLevelGroupId;
+    @JSONField(name = "AutoStartConfig")
+    AutoStartConfig AutoStartConfig;
     @Data
     public static class RiskWarningSetting {
         @JSONField(name = "IsRiskWarningEnable")

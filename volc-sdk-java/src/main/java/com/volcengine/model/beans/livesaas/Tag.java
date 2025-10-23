@@ -6,6 +6,8 @@ import lombok.Data;
 
 @Data
 public class Tag {
+    @JSONField(name = "Id")
+    Long Id;
     @JSONField(name = "TagId")
     Long TagId;
     @JSONField(name = "TagName")

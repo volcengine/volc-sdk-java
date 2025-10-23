@@ -2819,4 +2819,11 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetBMReportResponse getBMReport(GetBMReportRequest getBMReportRequest) throws Exception;
+    /**
+     * getTask
+     * @param getTaskRequest GetTaskRequest
+     * @return GetTaskResponse
+     * @throws Exception the exception
+     */
+    GetTaskResponse getTask(GetTaskRequest getTaskRequest) throws Exception;
 }

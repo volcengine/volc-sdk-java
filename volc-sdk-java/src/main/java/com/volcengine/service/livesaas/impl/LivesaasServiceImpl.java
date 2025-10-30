@@ -295,6 +295,21 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public ListPlayUrlsAPIResponse listPlayUrlsAPI(ListPlayUrlsAPIRequest listPlayUrlsAPIRequest) throws Exception {
+        RawResponse response = json(Const.ListPlayUrlsAPI, new ArrayList<>(), JSON.toJSONString(listPlayUrlsAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListPlayUrlsAPIResponse res = JSON.parseObject(response.getData(), ListPlayUrlsAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public CreateActivityAPIResponse createActivityAPIV2(CreateActivityAPIRequest createActivityAPIRequest) throws Exception {
         RawResponse response = json(Const.CreateActivityAPIV2, new ArrayList<>(), JSON.toJSONString(createActivityAPIRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -436,6 +451,21 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
             throw response.getException();
         }
         GetActivityAPIResponse res = JSON.parseObject(response.getData(), GetActivityAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetActivityThumbUpNumberResponse getActivityThumbUpNumber(GetActivityThumbUpNumberRequest getActivityThumbUpNumberRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityThumbUpNumber, Utils.paramsToPair(getActivityThumbUpNumberRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityThumbUpNumberResponse res = JSON.parseObject(response.getData(), GetActivityThumbUpNumberResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
@@ -4964,6 +4994,51 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         }
         GetTaskResponse res = JSON.parseObject(response.getData(), GetTaskResponse.class);
         if (res.getResponseMetadata().getError()!= null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateAwardConfigResponse updateAwardConfig(UpdateAwardConfigRequest updateAwardConfigRequest) throws Exception {
+        RawResponse response = json(Const.UpdateAwardConfig, new ArrayList<>(), JSON.toJSONString(updateAwardConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateAwardConfigResponse res = JSON.parseObject(response.getData(), UpdateAwardConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+    
+    @Override
+    public SendAwardResponse sendAward(SendAwardRequest sendAwardRequest) throws Exception {
+        RawResponse response = json(Const.SendAward, new ArrayList<>(), JSON.toJSONString(sendAwardRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        SendAwardResponse res = JSON.parseObject(response.getData(), SendAwardResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public WithdrawAwardResponse withdrawAward(WithdrawAwardRequest withdrawAwardRequest) throws Exception {
+        RawResponse response = json(Const.WithdrawAward, new ArrayList<>(), JSON.toJSONString(withdrawAwardRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        WithdrawAwardResponse res = JSON.parseObject(response.getData(), WithdrawAwardResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
         }

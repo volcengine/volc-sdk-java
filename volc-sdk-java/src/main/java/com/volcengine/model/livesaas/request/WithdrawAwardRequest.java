@@ -3,11 +3,10 @@ package com.volcengine.model.livesaas.request;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
-
 @Data
-public class ListAwardConfigsRequest {
+public class WithdrawAwardRequest {
     @JSONField(name = "ActivityId")
     Long ActivityId;
-    @JSONField(name = "All")
-    Integer All;
+    @JSONField(name = "Id")
+    Long Id;
 }

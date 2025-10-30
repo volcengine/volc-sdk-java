@@ -230,6 +230,10 @@ public class Const {
 
     public static final String GetActivityAPI = "GetActivityAPI";
 
+    public static final String GetActivityThumbUpNumber = "GetActivityThumbUpNumber";
+
+    public static final String ListPlayUrlsAPI = "ListPlayUrlsAPI";
+
     public static final String GetStreamsAPI = "GetStreamsAPI";
 
     public static final String UpdateActivityBasicConfigAPI = "UpdateActivityBasicConfigAPI";
@@ -523,6 +527,9 @@ public class Const {
     public static final String UpdateActivityCustomEmojiSetStatus = "UpdateActivityCustomEmojiSetStatus";
     public static final String ListAwardConfigs = "ListAwardConfigs";
     public static final String ListAwardRecordStatistics = "ListAwardRecordStatistics";
+    public static final String UpdateAwardConfig = "UpdateAwardConfig";
+    public static final String SendAward = "SendAward";
+    public static final String WithdrawAward = "WithdrawAward";
 
     public static final String GetLiveTrafficPostPayData = "GetLiveTrafficPostPayData";
 

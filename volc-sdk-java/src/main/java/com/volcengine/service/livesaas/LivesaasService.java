@@ -139,6 +139,15 @@ public interface LivesaasService extends IBaseService {
     GetActivityAPIResponse getActivityAPI(CommonRequest commonRequest) throws Exception;
 
     /**
+     * GetActivityThumbUpNumber
+     *
+     * @param getActivityThumbUpNumberRequest GetActivityThumbUpNumberRequest
+     * @return GetActivityThumbUpNumberResponse
+     * @throws Exception the exception
+     */
+    GetActivityThumbUpNumberResponse getActivityThumbUpNumber(GetActivityThumbUpNumberRequest getActivityThumbUpNumberRequest) throws Exception;
+
+    /**
      * GetStreamsAPI
      *
      * @param getStreamsAPIRequest GetStreamsAPIRequest
@@ -272,6 +281,16 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetAccountRealTimeOnlineNumberResponse getAccountRealTimeOnlineNumber(GetAccountRealTimeOnlineNumberRequest getAccountRealTimeOnlineNumberRequest) throws Exception;
+
+    /**
+     * listPlayUrlsAPI
+     *
+     * @param listPlayUrlsAPIRequest ListPlayUrlsAPIRequest
+     * @return ListPlayUrlsAPIResponse
+     * @throws Exception the exception
+     */
+    ListPlayUrlsAPIResponse listPlayUrlsAPI(ListPlayUrlsAPIRequest listPlayUrlsAPIRequest) throws Exception;
+
     /**
      * ListAnActivityStartAndEndTimeAPI
      *
@@ -1525,6 +1544,33 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception
      */
     ListAwardRecordStatisticsResponse listAwardRecordStatistics(ListAwardRecordStatisticsRequest listAwardRecordStatisticsRequest) throws Exception;
+
+    /**
+     * UpdateAwardConfig
+     *
+     * @param updateAwardConfigRequest UpdateAwardConfigRequest
+     * @return UpdateAwardConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateAwardConfigResponse updateAwardConfig(UpdateAwardConfigRequest updateAwardConfigRequest) throws Exception;
+
+    /**
+     * SendAward
+     *
+     * @param sendAwardRequest SendAwardRequest
+     * @return SendAwardResponse
+     * @throws Exception the exception
+     */
+    SendAwardResponse sendAward(SendAwardRequest sendAwardRequest) throws Exception;
+
+    /**
+     * WithdrawAward
+     *
+     * @param withdrawAwardRequest WithdrawAwardRequest
+     * @return WithdrawAwardResponse
+     * @throws Exception the exception
+     */
+    WithdrawAwardResponse withdrawAward(WithdrawAwardRequest withdrawAwardRequest) throws Exception;
 
     /**
      * GetActivityLivePromotionData

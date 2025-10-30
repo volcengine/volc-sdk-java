@@ -219,6 +219,34 @@ public class LivesaasConfig {
                         }
                     }
             ));
+            put(Const.GetActivityThumbUpNumber, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetActivityThumbUpNumber));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListPlayUrlsAPI, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListPlayUrlsAPI));
+                                    add(new BasicNameValuePair("Version", "2020-06-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.GetStreamsAPI, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -2383,6 +2411,48 @@ public class LivesaasConfig {
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.ListAwardRecordStatistics));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateAwardConfig, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateAwardConfig));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.SendAward, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.SendAward));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.WithdrawAward, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.WithdrawAward));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });

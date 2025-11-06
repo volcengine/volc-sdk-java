@@ -66,4 +66,34 @@ public interface VodListCdnAccessLogRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getSpaceNameBytes();
+
+  /**
+   * <pre>
+   * 分页 
+   * </pre>
+   *
+   * <code>optional int64 PageNum = 5;</code>
+   * @return Whether the pageNum field is set.
+   */
+  boolean hasPageNum();
+  /**
+   * <pre>
+   * 分页 
+   * </pre>
+   *
+   * <code>optional int64 PageNum = 5;</code>
+   * @return The pageNum.
+   */
+  long getPageNum();
+
+  /**
+   * <code>optional int64 PageSize = 6;</code>
+   * @return Whether the pageSize field is set.
+   */
+  boolean hasPageSize();
+  /**
+   * <code>optional int64 PageSize = 6;</code>
+   * @return The pageSize.
+   */
+  long getPageSize();
 }

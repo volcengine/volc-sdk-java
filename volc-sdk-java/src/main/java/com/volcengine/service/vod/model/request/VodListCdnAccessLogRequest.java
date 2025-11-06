@@ -40,6 +40,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -70,6 +71,16 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             spaceName_ = s;
+            break;
+          }
+          case 40: {
+            bitField0_ |= 0x00000001;
+            pageNum_ = input.readInt64();
+            break;
+          }
+          case 48: {
+            bitField0_ |= 0x00000002;
+            pageSize_ = input.readInt64();
             break;
           }
           default: {
@@ -104,6 +115,7 @@ private static final long serialVersionUID = 0L;
             com.volcengine.service.vod.model.request.VodListCdnAccessLogRequest.class, com.volcengine.service.vod.model.request.VodListCdnAccessLogRequest.Builder.class);
   }
 
+  private int bitField0_;
   public static final int DOMAINS_FIELD_NUMBER = 1;
   private volatile java.lang.Object domains_;
   /**
@@ -226,6 +238,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int PAGENUM_FIELD_NUMBER = 5;
+  private long pageNum_;
+  /**
+   * <pre>
+   * 分页 
+   * </pre>
+   *
+   * <code>optional int64 PageNum = 5;</code>
+   * @return Whether the pageNum field is set.
+   */
+  @java.lang.Override
+  public boolean hasPageNum() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <pre>
+   * 分页 
+   * </pre>
+   *
+   * <code>optional int64 PageNum = 5;</code>
+   * @return The pageNum.
+   */
+  @java.lang.Override
+  public long getPageNum() {
+    return pageNum_;
+  }
+
+  public static final int PAGESIZE_FIELD_NUMBER = 6;
+  private long pageSize_;
+  /**
+   * <code>optional int64 PageSize = 6;</code>
+   * @return Whether the pageSize field is set.
+   */
+  @java.lang.Override
+  public boolean hasPageSize() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>optional int64 PageSize = 6;</code>
+   * @return The pageSize.
+   */
+  @java.lang.Override
+  public long getPageSize() {
+    return pageSize_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -252,6 +310,12 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(spaceName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, spaceName_);
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeInt64(5, pageNum_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      output.writeInt64(6, pageSize_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -274,6 +338,14 @@ private static final long serialVersionUID = 0L;
     }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(spaceName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, spaceName_);
+    }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(5, pageNum_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(6, pageSize_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -298,6 +370,16 @@ private static final long serialVersionUID = 0L;
         != other.getEndTimestamp()) return false;
     if (!getSpaceName()
         .equals(other.getSpaceName())) return false;
+    if (hasPageNum() != other.hasPageNum()) return false;
+    if (hasPageNum()) {
+      if (getPageNum()
+          != other.getPageNum()) return false;
+    }
+    if (hasPageSize() != other.hasPageSize()) return false;
+    if (hasPageSize()) {
+      if (getPageSize()
+          != other.getPageSize()) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -317,6 +399,16 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getEndTimestamp();
     hash = (37 * hash) + SPACENAME_FIELD_NUMBER;
     hash = (53 * hash) + getSpaceName().hashCode();
+    if (hasPageNum()) {
+      hash = (37 * hash) + PAGENUM_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getPageNum());
+    }
+    if (hasPageSize()) {
+      hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getPageSize());
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -458,6 +550,10 @@ private static final long serialVersionUID = 0L;
 
       spaceName_ = "";
 
+      pageNum_ = 0L;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      pageSize_ = 0L;
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -484,10 +580,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.volcengine.service.vod.model.request.VodListCdnAccessLogRequest buildPartial() {
       com.volcengine.service.vod.model.request.VodListCdnAccessLogRequest result = new com.volcengine.service.vod.model.request.VodListCdnAccessLogRequest(this);
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       result.domains_ = domains_;
       result.startTimestamp_ = startTimestamp_;
       result.endTimestamp_ = endTimestamp_;
       result.spaceName_ = spaceName_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.pageNum_ = pageNum_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.pageSize_ = pageSize_;
+        to_bitField0_ |= 0x00000002;
+      }
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -550,6 +657,12 @@ private static final long serialVersionUID = 0L;
         spaceName_ = other.spaceName_;
         onChanged();
       }
+      if (other.hasPageNum()) {
+        setPageNum(other.getPageNum());
+      }
+      if (other.hasPageSize()) {
+        setPageSize(other.getPageSize());
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -578,6 +691,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object domains_ = "";
     /**
@@ -853,6 +967,100 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       spaceName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private long pageNum_ ;
+    /**
+     * <pre>
+     * 分页 
+     * </pre>
+     *
+     * <code>optional int64 PageNum = 5;</code>
+     * @return Whether the pageNum field is set.
+     */
+    @java.lang.Override
+    public boolean hasPageNum() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * 分页 
+     * </pre>
+     *
+     * <code>optional int64 PageNum = 5;</code>
+     * @return The pageNum.
+     */
+    @java.lang.Override
+    public long getPageNum() {
+      return pageNum_;
+    }
+    /**
+     * <pre>
+     * 分页 
+     * </pre>
+     *
+     * <code>optional int64 PageNum = 5;</code>
+     * @param value The pageNum to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPageNum(long value) {
+      bitField0_ |= 0x00000001;
+      pageNum_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 分页 
+     * </pre>
+     *
+     * <code>optional int64 PageNum = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPageNum() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      pageNum_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long pageSize_ ;
+    /**
+     * <code>optional int64 PageSize = 6;</code>
+     * @return Whether the pageSize field is set.
+     */
+    @java.lang.Override
+    public boolean hasPageSize() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional int64 PageSize = 6;</code>
+     * @return The pageSize.
+     */
+    @java.lang.Override
+    public long getPageSize() {
+      return pageSize_;
+    }
+    /**
+     * <code>optional int64 PageSize = 6;</code>
+     * @param value The pageSize to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPageSize(long value) {
+      bitField0_ |= 0x00000002;
+      pageSize_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional int64 PageSize = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPageSize() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      pageSize_ = 0L;
       onChanged();
       return this;
     }

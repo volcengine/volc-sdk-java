@@ -310,6 +310,21 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public GetActivityLoginSecretResponse getActivityLoginSecret(GetActivityLoginSecretRequest getActivityLoginSecretRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityLoginSecret, Utils.paramsToPair(getActivityLoginSecretRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityLoginSecretResponse res = JSON.parseObject(response.getData(), GetActivityLoginSecretResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public CreateActivityAPIResponse createActivityAPIV2(CreateActivityAPIRequest createActivityAPIRequest) throws Exception {
         RawResponse response = json(Const.CreateActivityAPIV2, new ArrayList<>(), JSON.toJSONString(createActivityAPIRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

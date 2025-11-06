@@ -264,6 +264,8 @@ public class Const {
 
     public static final String GetAccountRealTimeOnlineNumber = "GetAccountRealTimeOnlineNumber";
 
+    public static final String GetActivityLoginSecret = "GetActivityLoginSecret";
+
     public static final String ListAnActivityStartAndEndTimeAPI = "ListAnActivityStartAndEndTimeAPI";
 
     public static final String GetActivityReservationAPI = "GetActivityReservationAPI";

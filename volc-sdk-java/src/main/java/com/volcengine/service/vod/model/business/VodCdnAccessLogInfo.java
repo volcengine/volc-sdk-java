@@ -66,6 +66,21 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(com.volcengine.service.vod.model.business.VodCdnAccessLogElement.parser(), extensionRegistry));
             break;
           }
+          case 24: {
+
+            pageNum_ = input.readInt64();
+            break;
+          }
+          case 32: {
+
+            pageSize_ = input.readInt64();
+            break;
+          }
+          case 40: {
+
+            totalCount_ = input.readInt64();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -207,6 +222,39 @@ private static final long serialVersionUID = 0L;
     return logList_.get(index);
   }
 
+  public static final int PAGENUM_FIELD_NUMBER = 3;
+  private long pageNum_;
+  /**
+   * <code>int64 PageNum = 3;</code>
+   * @return The pageNum.
+   */
+  @java.lang.Override
+  public long getPageNum() {
+    return pageNum_;
+  }
+
+  public static final int PAGESIZE_FIELD_NUMBER = 4;
+  private long pageSize_;
+  /**
+   * <code>int64 PageSize = 4;</code>
+   * @return The pageSize.
+   */
+  @java.lang.Override
+  public long getPageSize() {
+    return pageSize_;
+  }
+
+  public static final int TOTALCOUNT_FIELD_NUMBER = 5;
+  private long totalCount_;
+  /**
+   * <code>int64 TotalCount = 5;</code>
+   * @return The totalCount.
+   */
+  @java.lang.Override
+  public long getTotalCount() {
+    return totalCount_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -227,6 +275,15 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < logList_.size(); i++) {
       output.writeMessage(2, logList_.get(i));
     }
+    if (pageNum_ != 0L) {
+      output.writeInt64(3, pageNum_);
+    }
+    if (pageSize_ != 0L) {
+      output.writeInt64(4, pageSize_);
+    }
+    if (totalCount_ != 0L) {
+      output.writeInt64(5, totalCount_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -242,6 +299,18 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < logList_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, logList_.get(i));
+    }
+    if (pageNum_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(3, pageNum_);
+    }
+    if (pageSize_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(4, pageSize_);
+    }
+    if (totalCount_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(5, totalCount_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -262,6 +331,12 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDomain())) return false;
     if (!getLogListList()
         .equals(other.getLogListList())) return false;
+    if (getPageNum()
+        != other.getPageNum()) return false;
+    if (getPageSize()
+        != other.getPageSize()) return false;
+    if (getTotalCount()
+        != other.getTotalCount()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -279,6 +354,15 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LOGLIST_FIELD_NUMBER;
       hash = (53 * hash) + getLogListList().hashCode();
     }
+    hash = (37 * hash) + PAGENUM_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getPageNum());
+    hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getPageSize());
+    hash = (37 * hash) + TOTALCOUNT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getTotalCount());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -421,6 +505,12 @@ private static final long serialVersionUID = 0L;
       } else {
         logListBuilder_.clear();
       }
+      pageNum_ = 0L;
+
+      pageSize_ = 0L;
+
+      totalCount_ = 0L;
+
       return this;
     }
 
@@ -458,6 +548,9 @@ private static final long serialVersionUID = 0L;
       } else {
         result.logList_ = logListBuilder_.build();
       }
+      result.pageNum_ = pageNum_;
+      result.pageSize_ = pageSize_;
+      result.totalCount_ = totalCount_;
       onBuilt();
       return result;
     }
@@ -535,6 +628,15 @@ private static final long serialVersionUID = 0L;
             logListBuilder_.addAllMessages(other.logList_);
           }
         }
+      }
+      if (other.getPageNum() != 0L) {
+        setPageNum(other.getPageNum());
+      }
+      if (other.getPageSize() != 0L) {
+        setPageSize(other.getPageSize());
+      }
+      if (other.getTotalCount() != 0L) {
+        setTotalCount(other.getTotalCount());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -972,6 +1074,99 @@ private static final long serialVersionUID = 0L;
         logList_ = null;
       }
       return logListBuilder_;
+    }
+
+    private long pageNum_ ;
+    /**
+     * <code>int64 PageNum = 3;</code>
+     * @return The pageNum.
+     */
+    @java.lang.Override
+    public long getPageNum() {
+      return pageNum_;
+    }
+    /**
+     * <code>int64 PageNum = 3;</code>
+     * @param value The pageNum to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPageNum(long value) {
+      
+      pageNum_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 PageNum = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPageNum() {
+      
+      pageNum_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long pageSize_ ;
+    /**
+     * <code>int64 PageSize = 4;</code>
+     * @return The pageSize.
+     */
+    @java.lang.Override
+    public long getPageSize() {
+      return pageSize_;
+    }
+    /**
+     * <code>int64 PageSize = 4;</code>
+     * @param value The pageSize to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPageSize(long value) {
+      
+      pageSize_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 PageSize = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPageSize() {
+      
+      pageSize_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long totalCount_ ;
+    /**
+     * <code>int64 TotalCount = 5;</code>
+     * @return The totalCount.
+     */
+    @java.lang.Override
+    public long getTotalCount() {
+      return totalCount_;
+    }
+    /**
+     * <code>int64 TotalCount = 5;</code>
+     * @param value The totalCount to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTotalCount(long value) {
+      
+      totalCount_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 TotalCount = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTotalCount() {
+      
+      totalCount_ = 0L;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

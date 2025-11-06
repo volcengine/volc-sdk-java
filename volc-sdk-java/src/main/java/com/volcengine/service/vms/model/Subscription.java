@@ -32,4 +32,6 @@ public class Subscription {
     private String outId;
 
     private String phoneNoE;
+
+    private String groupId;
 }

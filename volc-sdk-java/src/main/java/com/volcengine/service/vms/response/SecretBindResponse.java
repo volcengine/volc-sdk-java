@@ -38,5 +38,7 @@ public class SecretBindResponse {
         private String ybSubId;
 
         private Integer ybStatus;
+
+        private String groupId;
     }
 }

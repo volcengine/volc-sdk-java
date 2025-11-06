@@ -55,4 +55,8 @@ public class BindAXYBRequest {
     private List<String> yDegradeCityList;
 
     private Integer randomFlagY;
+
+    private String orderId;
+
+    private String industrialId;
 }

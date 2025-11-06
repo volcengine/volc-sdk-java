@@ -3,16 +3,18 @@ package com.volcengine.model.response;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
-public class RcCustomRiskResponse {
+public class RcMultiModerationAsyncResponse {
 
     @JSONField(name = "ResponseMetadata")
     ResponseMetadata responseMetadata;
     @JSONField(name = "Result")
-    CustomRiskResult result;
+    MultiModerationResult result;
 
     @Data
-    public static class CustomRiskResult {
+    public static class MultiModerationResult {
 
         @JSONField(name = "RequestId")
         private String requestId;
@@ -24,12 +26,12 @@ public class RcCustomRiskResponse {
         private String message;
 
         @JSONField(name = "Data")
-        private CustomRiskData data;
+        private MultiModerationData data;
 
     }
 
     @Data
-    public static class CustomRiskData {
+    public static class MultiModerationData {
 
         @JSONField(name = "Decision")
         private String Decision;
@@ -37,8 +39,11 @@ public class RcCustomRiskResponse {
         @JSONField(name = "DecisionLabel")
         private String DecisionLabel;
 
-        @JSONField(name = "DecisionReason")
-        private String DecisionReason;
+        @JSONField(name = "DataId")
+        private String DataId;
+
+        @JSONField(name = "HitLabels")
+        private List<String> HitLabels;
 
         @JSONField(name = "PassThrough")
         private String PassThrough;

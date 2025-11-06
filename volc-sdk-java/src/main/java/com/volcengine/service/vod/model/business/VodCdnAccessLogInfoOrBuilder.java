@@ -70,4 +70,22 @@ public interface VodCdnAccessLogInfoOrBuilder extends
    */
   com.volcengine.service.vod.model.business.VodCdnAccessLogElementOrBuilder getLogListOrBuilder(
       int index);
+
+  /**
+   * <code>int64 PageNum = 3;</code>
+   * @return The pageNum.
+   */
+  long getPageNum();
+
+  /**
+   * <code>int64 PageSize = 4;</code>
+   * @return The pageSize.
+   */
+  long getPageSize();
+
+  /**
+   * <code>int64 TotalCount = 5;</code>
+   * @return The totalCount.
+   */
+  long getTotalCount();
 }

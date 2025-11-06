@@ -227,6 +227,36 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
     }
 
     @Override
+    public SecretBindResponse bindAXG(BindAXGRequest request) throws Exception {
+        return doJson("BindAXG", request, new TypeReference<SecretBindResponse>(){});
+    }
+
+    @Override
+    public OperateResponse unbindAXG(UnbindAXGRequest request) throws Exception {
+        return doJson("UnbindAXG", request, new TypeReference<OperateResponse>(){});
+    }
+
+    @Override
+    public OperateResponse updateAXG(UpdateAXGRequest request) throws Exception {
+        return doJson("UpdateAXG", request, new TypeReference<OperateResponse>(){});
+    }
+
+    @Override
+    public CreateAXGGroupResponse createAXGGroup(CreateAXGGroupRequest request) throws Exception {
+        return doJson("CreateAXGGroup", request, new TypeReference<CreateAXGGroupResponse>(){});
+    }
+
+    @Override
+    public OperateResponse deleteAXGGroup(DeleteAXGGroupRequest request) throws Exception {
+        return doJson("DeleteAXGGroup", request, new TypeReference<OperateResponse>(){});
+    }
+
+    @Override
+    public OperateResponse updateAXGGroup(UpdateAXGGroupRequest request) throws Exception {
+        return doJson("UpdateAXGGroup", request, new TypeReference<OperateResponse>(){});
+    }
+
+    @Override
     public RouteAAuthResponse routeAAuth(RouteAAuthRequest request) throws Exception {
         RawResponse response = formPostWithRetry("RouteAAuth", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

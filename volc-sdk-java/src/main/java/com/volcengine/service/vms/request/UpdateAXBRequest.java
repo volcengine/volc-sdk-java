@@ -30,4 +30,8 @@ public class UpdateAXBRequest {
     private Integer autoCreateFlag;
 
     private String outId;
+
+    private String orderId;
+
+    private String industrialId;
 }

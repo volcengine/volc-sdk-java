@@ -102,12 +102,12 @@ public class SecuritySourceServiceImpl extends BaseServiceImpl implements Securi
     }
 
     @Override
-    public RcTextModerationResponse textModeration(RcLlmRequest rcLlmRequest) throws Exception {
+    public RcTextModerationSyncResponse textModeration(RcLlmRequest rcLlmRequest) throws Exception {
         RawResponse response = json(Const.TextModeration, new ArrayList<>(), JSON.toJSONString(rcLlmRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        return JSON.parseObject(response.getData(), RcTextModerationResponse.class);
+        return JSON.parseObject(response.getData(), RcTextModerationSyncResponse.class);
     }
 
     @Override
@@ -120,21 +120,21 @@ public class SecuritySourceServiceImpl extends BaseServiceImpl implements Securi
     }
 
     @Override
-    public RcTextModerationResponse textModerationResult(RcLlmResultRequest rcLlmResultRequest) throws Exception{
+    public RcTextModerationAsyncResponse textModerationResult(RcLlmResultRequest rcLlmResultRequest) throws Exception{
         RawResponse response = json(Const.TextModerationResult, new ArrayList<>(), JSON.toJSONString(rcLlmResultRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        return JSON.parseObject(response.getData(), RcTextModerationResponse.class);
+        return JSON.parseObject(response.getData(), RcTextModerationAsyncResponse.class);
     }
 
     @Override
-    public RcMultiModerationResponse multiModeration(RcLlmRequest rcLlmRequest) throws Exception {
+    public RcMultiModerationSyncResponse multiModeration(RcLlmRequest rcLlmRequest) throws Exception {
         RawResponse response = json(Const.MultiModeration, new ArrayList<>(), JSON.toJSONString(rcLlmRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        return JSON.parseObject(response.getData(), RcMultiModerationResponse.class);
+        return JSON.parseObject(response.getData(), RcMultiModerationSyncResponse.class);
     }
 
     @Override
@@ -147,21 +147,21 @@ public class SecuritySourceServiceImpl extends BaseServiceImpl implements Securi
     }
 
     @Override
-    public RcMultiModerationResponse multiModerationResult(RcLlmResultRequest rcLlmResultRequest) throws Exception{
+    public RcMultiModerationAsyncResponse multiModerationResult(RcLlmResultRequest rcLlmResultRequest) throws Exception{
         RawResponse response = json(Const.MultiModerationResult, new ArrayList<>(), JSON.toJSONString(rcLlmResultRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        return JSON.parseObject(response.getData(), RcMultiModerationResponse.class);
+        return JSON.parseObject(response.getData(), RcMultiModerationAsyncResponse.class);
     }
 
     @Override
-    public RcCustomRiskResponse customRisk(RcLlmRequest rcLlmRequest) throws Exception {
+    public RcCustomRiskSyncResponse customRisk(RcLlmRequest rcLlmRequest) throws Exception {
         RawResponse response = json(Const.CustomRisk, new ArrayList<>(), JSON.toJSONString(rcLlmRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        return JSON.parseObject(response.getData(), RcCustomRiskResponse.class);
+        return JSON.parseObject(response.getData(), RcCustomRiskSyncResponse.class);
     }
 
     @Override
@@ -174,12 +174,12 @@ public class SecuritySourceServiceImpl extends BaseServiceImpl implements Securi
     }
 
     @Override
-    public RcCustomRiskResponse customRiskResult(RcLlmResultRequest rcLlmResultRequest) throws Exception{
+    public RcCustomRiskAsyncResponse customRiskResult(RcLlmResultRequest rcLlmResultRequest) throws Exception{
         RawResponse response = json(Const.CustomRiskResult, new ArrayList<>(), JSON.toJSONString(rcLlmResultRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
-        return JSON.parseObject(response.getData(), RcCustomRiskResponse.class);
+        return JSON.parseObject(response.getData(), RcCustomRiskAsyncResponse.class);
     }
 
 }

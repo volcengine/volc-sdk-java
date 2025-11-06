@@ -3,6 +3,8 @@ package com.volcengine.model.livesaas.request;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class UpdateActivityCouponRequest {
     @JSONField(name = "ActivityId")
@@ -23,4 +25,8 @@ public class UpdateActivityCouponRequest {
     Long CutOffTime;
     @JSONField(name = "IsWatchLiveLimit")
     Integer IsWatchLiveLimit;
+    @JSONField(name = "IsViewerLevelLimit")
+    Integer IsViewerLevelLimit;
+    @JSONField(name = "ViewerLevelConfigIds")
+    List<Long> ViewerLevelConfigIds;
 }

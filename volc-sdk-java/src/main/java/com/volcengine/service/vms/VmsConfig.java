@@ -337,6 +337,90 @@ public class VmsConfig {
                     }
                 }
             ));
+            put("BindAXG", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, DEFAULT_PATH);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair(ACTION, "BindAXG"));
+                                    add(new BasicNameValuePair(VERSION, DEFAULT_VERSION));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("UnbindAXG", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, DEFAULT_PATH);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair(ACTION, "UnbindAXG"));
+                                    add(new BasicNameValuePair(VERSION, DEFAULT_VERSION));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("UpdateAXG", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, DEFAULT_PATH);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair(ACTION, "UpdateAXG"));
+                                    add(new BasicNameValuePair(VERSION, DEFAULT_VERSION));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("CreateAXGGroup", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, DEFAULT_PATH);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair(ACTION, "CreateAXGGroup"));
+                                    add(new BasicNameValuePair(VERSION, DEFAULT_VERSION));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("UpdateAXGGroup", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, DEFAULT_PATH);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair(ACTION, "UpdateAXGGroup"));
+                                    add(new BasicNameValuePair(VERSION, DEFAULT_VERSION));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put("DeleteAXGGroup", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, DEFAULT_PATH);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair(ACTION, "DeleteAXGGroup"));
+                                    add(new BasicNameValuePair(VERSION, DEFAULT_VERSION));
+                                }
+                            });
+                        }
+                    }
+            ));
             put("RouteAAuth", new ApiInfo(
                     new HashMap<String, Object>() {
                         {

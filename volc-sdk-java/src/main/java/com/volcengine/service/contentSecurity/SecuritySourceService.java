@@ -34,7 +34,7 @@ public interface SecuritySourceService extends IBaseService {
      * @return rc textModeration response
      * @throws Exception the exception
      */
-    RcTextModerationResponse textModeration(RcLlmRequest rcLlmRequest) throws Exception;
+    RcTextModerationSyncResponse textModeration(RcLlmRequest rcLlmRequest) throws Exception;
 
     /**
      * asyncTextModeration
@@ -50,7 +50,7 @@ public interface SecuritySourceService extends IBaseService {
      * @return RcTextModerationResponse
      * @throws Exception the exception
      */
-    RcTextModerationResponse textModerationResult(RcLlmResultRequest rcLlmResultRequest) throws Exception;
+    RcTextModerationAsyncResponse textModerationResult(RcLlmResultRequest rcLlmResultRequest) throws Exception;
 
     /**
      * multiModeration
@@ -58,7 +58,7 @@ public interface SecuritySourceService extends IBaseService {
      * @return rc multiModeration response
      * @throws Exception the exception
      */
-    RcMultiModerationResponse multiModeration(RcLlmRequest rcLlmRequest) throws Exception;
+    RcMultiModerationSyncResponse multiModeration(RcLlmRequest rcLlmRequest) throws Exception;
 
     /**
      * asyncMultiModeration
@@ -74,15 +74,15 @@ public interface SecuritySourceService extends IBaseService {
      * @return RcTextModerationResponse
      * @throws Exception the exception
      */
-    RcMultiModerationResponse multiModerationResult(RcLlmResultRequest rcLlmResultRequest) throws Exception;
+    RcMultiModerationAsyncResponse multiModerationResult(RcLlmResultRequest rcLlmResultRequest) throws Exception;
 
     /**
      * customRisk
      * @param rcLlmRequest rcLlmRequest
-     * @return rc customRisk response
+     * @return RcCustomRiskSyncResponse
      * @throws Exception the exception
      */
-    RcCustomRiskResponse customRisk(RcLlmRequest rcLlmRequest) throws Exception;
+    RcCustomRiskSyncResponse customRisk(RcLlmRequest rcLlmRequest) throws Exception;
 
     /**
      * asyncCustomRisk
@@ -95,8 +95,8 @@ public interface SecuritySourceService extends IBaseService {
     /**
      * customRiskResult
      * @param rcLlmResultRequest rcLlmResultRequest
-     * @return RcCustomRiskResponse
+     * @return RcCustomRiskAsyncResponse
      * @throws Exception the exception
      */
-    RcCustomRiskResponse customRiskResult(RcLlmResultRequest rcLlmResultRequest) throws Exception;
+    RcCustomRiskAsyncResponse customRiskResult(RcLlmResultRequest rcLlmResultRequest) throws Exception;
 }

@@ -292,6 +292,15 @@ public interface LivesaasService extends IBaseService {
     ListPlayUrlsAPIResponse listPlayUrlsAPI(ListPlayUrlsAPIRequest listPlayUrlsAPIRequest) throws Exception;
 
     /**
+     * GetActivityLoginSecret
+     *
+     * @param getActivityLoginSecretRequest GetActivityLoginSecretRequest
+     * @return GetActivityLoginSecretResponse
+     * @throws Exception the exception
+     */
+    GetActivityLoginSecretResponse getActivityLoginSecret(GetActivityLoginSecretRequest getActivityLoginSecretRequest) throws Exception;
+
+    /**
      * ListAnActivityStartAndEndTimeAPI
      *
      * @param commonRequest CommonRequest

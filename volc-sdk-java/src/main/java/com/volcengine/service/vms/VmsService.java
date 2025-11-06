@@ -50,6 +50,18 @@ public interface VmsService extends IBaseService {
 
     OperationResponse updateAXYB(UpdateAXYBRequest request) throws Exception;
 
+    SecretBindResponse bindAXG(BindAXGRequest request) throws Exception;
+
+    OperateResponse unbindAXG(UnbindAXGRequest request) throws Exception;
+
+    OperateResponse updateAXG(UpdateAXGRequest request) throws Exception;
+
+    CreateAXGGroupResponse createAXGGroup(CreateAXGGroupRequest request) throws Exception;
+
+    OperateResponse deleteAXGGroup(DeleteAXGGroupRequest request) throws Exception;
+
+    OperateResponse updateAXGGroup(UpdateAXGGroupRequest request) throws Exception;
+
     RouteAAuthResponse routeAAuth(RouteAAuthRequest request) throws Exception;
 
     AuthQueryResponse queryAuth(AuthQueryRequest request) throws Exception;

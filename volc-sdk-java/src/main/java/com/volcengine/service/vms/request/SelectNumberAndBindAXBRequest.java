@@ -42,4 +42,8 @@ public class SelectNumberAndBindAXBRequest {
     private String idempotentId;
 
     private String voiceCode;
+
+    private String orderId;
+
+    private String industrialId;
 }

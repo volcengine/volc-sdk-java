@@ -32,4 +32,8 @@ public class UpdateAXYBRequest {
     private String userData;
 
     private Integer autoCreateFlag;
+
+    private String orderId;
+
+    private String industrialId;
 }

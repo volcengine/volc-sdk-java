@@ -2,6 +2,7 @@ package com.volcengine.model.beans.livesaas;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
+import java.util.List;
 
 @Data
 public class CreateActivityCouponModel {
@@ -31,4 +32,8 @@ public class CreateActivityCouponModel {
     Coupon Coupon;
     @JSONField(name = "IsWatchLiveLimit")
     Integer IsWatchLiveLimit;
+    @JSONField(name = "IsViewerLevelLimit")
+    Integer IsViewerLevelLimit;
+    @JSONField(name = "ViewerLevelConfigIds")
+    List<Long> ViewerLevelConfigIds;
 }

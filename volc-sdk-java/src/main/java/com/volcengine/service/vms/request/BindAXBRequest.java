@@ -32,4 +32,8 @@ public class BindAXBRequest {
     private Integer verifyFlag;
 
     private String voiceCode;
+
+    private String orderId;
+
+    private String industrialId;
 }

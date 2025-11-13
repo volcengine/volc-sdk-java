@@ -9,4 +9,6 @@ public class SiteActivityTag  {
     Integer Index;
     @JSONField(name = "Value")
     java.lang.String Value;
+    @JSONField(name = "Name")
+    java.lang.String Name;
 }

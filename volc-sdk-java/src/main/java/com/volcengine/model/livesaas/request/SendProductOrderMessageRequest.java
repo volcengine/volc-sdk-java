@@ -11,4 +11,6 @@ public class SendProductOrderMessageRequest {
     Long ProductId;
     @JSONField(name = "UserName")
     String UserName;
+    @JSONField(name = "Amount")
+    Integer Amount;
 }

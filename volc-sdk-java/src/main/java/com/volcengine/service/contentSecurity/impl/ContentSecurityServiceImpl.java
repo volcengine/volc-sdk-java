@@ -27,6 +27,23 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
         return contentSecurityInstance;
     }
 
+    public void setTextPath() {
+        contentSecurityInstance.getApiInfoList().put(Const.TextSliceRisk, new ApiInfo(
+                new HashMap<String, Object>() {
+                    {
+                        put(Const.Method, "POST");
+                        put(Const.Path, "/open/api/v3/text_risk_v5");
+                        put(Const.Query, new ArrayList<NameValuePair>() {
+                            {
+                                add(new BasicNameValuePair("Action", Const.TextSliceRisk));
+                                add(new BasicNameValuePair("Version", "2022-11-07"));
+                            }
+                        });
+                    }
+                }
+        ));
+    }
+
     public void setImgPath() {
         contentSecurityInstance.getApiInfoList().put(Const.ImageContentRiskV2, new ApiInfo(
                 new HashMap<String, Object>() {

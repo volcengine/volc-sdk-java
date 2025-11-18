@@ -2,8 +2,7 @@ package com.volcengine.service.contentsecurity;
 
 import com.volcengine.model.request.ImageRiskResultRequest;
 import com.volcengine.model.request.RiskDetectionRequest;
-import com.volcengine.model.response.ImageRiskDetectionResponse;
-import com.volcengine.model.response.MobileStatusResponseV2;
+import com.volcengine.model.response.*;
 import com.volcengine.service.businessSecurity.BusinessSecurityService;
 import com.volcengine.service.businessSecurity.impl.BusinessSecurityServiceImpl;
 import com.volcengine.service.contentSecurity.ContentSecurityService;

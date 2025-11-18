@@ -9,7 +9,7 @@ import com.volcengine.service.IBaseService;
  */
 public interface ContentSecurityService extends IBaseService {
     void setImgPath();
-
+    void setTextPath();
     /**
      * Image Risk Detection.
      *

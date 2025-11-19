@@ -125,6 +125,8 @@ public class GetBMReportResponse {
     public static class PricingAnalysisResult {
         @JSONField(name = "MachineDetails")
         List<PricingAnalysisMachineDetail> machineDetails;
+        @JSONField(name = "TotalCount")
+        Long TotalCount;
     }
 
     @Data
@@ -147,12 +149,24 @@ public class GetBMReportResponse {
         String minimumQuotation;
         @JSONField(name = "PaymentMethod")
         String paymentMethod;
+        @JSONField(name = "Discount")
+        String Discount;
+        @JSONField(name = "Amount")
+        String Amount;
+        @JSONField(name = "QuotationType")
+        String QuotationType;
+        @JSONField(name = "SubsidyType")
+        String SubsidyType;
+        @JSONField(name = "GiftPackageType")
+        String GiftPackageType;
     }
 
     @Data
     public static class PitchAnalysisResult {
         @JSONField(name = "MachineDetails")
         List<PitchAnalysisMachineDetail> machineDetails;
+        @JSONField(name = "Summary")
+        String Summary;
     }
 
     @Data
@@ -175,6 +189,8 @@ public class GetBMReportResponse {
     public static class VehicleAppearanceResult {
         @JSONField(name = "MachineDetails")
         List<VehicleAppearanceMachineDetail> machineDetails;
+        @JSONField(name = "TotalCount")
+        Long TotalCount;
     }
 
     @Data
@@ -195,6 +211,8 @@ public class GetBMReportResponse {
     public static class NonStandardMaterialDisplayResult {
         @JSONField(name = "MachineDetails")
         List<NonStandardMaterialDisplayDetail> machineDetails;
+        @JSONField(name = "TotalCount")
+        Long TotalCount;
     }
 
     @Data
@@ -213,6 +231,8 @@ public class GetBMReportResponse {
     public static class OnScreenPresenceMonitoringResult {
         @JSONField(name = "MachineDetails")
         List<OnScreenPresenceMonitoringDetail> machineDetails;
+        @JSONField(name = "TotalDuration")
+        Long TotalDuration;
     }
 
     @Data
@@ -231,6 +251,8 @@ public class GetBMReportResponse {
     public static class VehicleSalesPitchResult {
         @JSONField(name = "MachineDetails")
         List<VehicleSalesPitchDetail> machineDetails;
+        @JSONField(name = "TotalCount")
+        Long TotalCount;
     }
 
     @Data

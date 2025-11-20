@@ -13,4 +13,8 @@ public class ListWebSDKDomainConfigsRequest {
     Integer PageNumber;
     @JSONField(name = "PageSize")
     Integer PageSize;
+    @JSONField(name = "LiveDomainStatus")
+    Integer LiveDomainStatus;
+    @JSONField(name = "VodDomainStatus")
+    Integer VodDomainStatus;
 }

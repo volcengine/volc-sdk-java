@@ -1,6 +1,7 @@
 package com.volcengine.service.vikingDB;
 
 import com.volcengine.service.vikingDB.common.DataObject;
+import com.volcengine.service.vikingDB.common.FetchDataParam;
 import com.volcengine.service.vikingDB.common.ScalarOrder;
 import com.volcengine.service.vikingDB.common.SearchParam;
 import com.volcengine.service.vikingDB.common.SearchWithMultiModalParam;
@@ -85,6 +86,15 @@ public class IndexSearchTest {
                 .setText("1")
                 .setImage("tos://your_bucket/your_object")
                 .build());
+        System.out.println(datas);
+    }
+
+    @Test
+    public void testIndexFetch() throws Exception {
+        VikingDBService vikingDBService = BaseService.getService();
+        Index index = vikingDBService.getIndex("test_coll_for_java_sdk", "index_hnsw");
+        FetchDataParam param = new FetchDataParam().build();
+        List<DataObject> datas = index.fetchData(Arrays.asList(1), param);
         System.out.println(datas);
     }
 }

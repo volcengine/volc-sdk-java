@@ -19,6 +19,7 @@ private static final long serialVersionUID = 0L;
     cache_ = java.util.Collections.emptyList();
     cacheKey_ = java.util.Collections.emptyList();
     requestHeader_ = java.util.Collections.emptyList();
+    originArg_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -232,6 +233,15 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 154: {
+            if (!((mutable_bitField0_ & 0x00002000) != 0)) {
+              originArg_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodOriginArgRule>();
+              mutable_bitField0_ |= 0x00002000;
+            }
+            originArg_.add(
+                input.readMessage(com.volcengine.service.vod.model.business.VodOriginArgRule.parser(), extensionRegistry));
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -255,6 +265,9 @@ private static final long serialVersionUID = 0L;
       }
       if (((mutable_bitField0_ & 0x00000800) != 0)) {
         requestHeader_ = java.util.Collections.unmodifiableList(requestHeader_);
+      }
+      if (((mutable_bitField0_ & 0x00002000) != 0)) {
+        originArg_ = java.util.Collections.unmodifiableList(originArg_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -754,6 +767,46 @@ private static final long serialVersionUID = 0L;
     return getOriginRewriteControl();
   }
 
+  public static final int ORIGINARG_FIELD_NUMBER = 19;
+  private java.util.List<com.volcengine.service.vod.model.business.VodOriginArgRule> originArg_;
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.volcengine.service.vod.model.business.VodOriginArgRule> getOriginArgList() {
+    return originArg_;
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.volcengine.service.vod.model.business.VodOriginArgRuleOrBuilder> 
+      getOriginArgOrBuilderList() {
+    return originArg_;
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+   */
+  @java.lang.Override
+  public int getOriginArgCount() {
+    return originArg_.size();
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodOriginArgRule getOriginArg(int index) {
+    return originArg_.get(index);
+  }
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodOriginArgRuleOrBuilder getOriginArgOrBuilder(
+      int index) {
+    return originArg_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -815,6 +868,9 @@ private static final long serialVersionUID = 0L;
     }
     if (originRewriteControl_ != null) {
       output.writeMessage(18, getOriginRewriteControl());
+    }
+    for (int i = 0; i < originArg_.size(); i++) {
+      output.writeMessage(19, originArg_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -888,6 +944,10 @@ private static final long serialVersionUID = 0L;
     if (originRewriteControl_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(18, getOriginRewriteControl());
+    }
+    for (int i = 0; i < originArg_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(19, originArg_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -975,6 +1035,8 @@ private static final long serialVersionUID = 0L;
       if (!getOriginRewriteControl()
           .equals(other.getOriginRewriteControl())) return false;
     }
+    if (!getOriginArgList()
+        .equals(other.getOriginArgList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1051,6 +1113,10 @@ private static final long serialVersionUID = 0L;
     if (hasOriginRewriteControl()) {
       hash = (37 * hash) + ORIGINREWRITECONTROL_FIELD_NUMBER;
       hash = (53 * hash) + getOriginRewriteControl().hashCode();
+    }
+    if (getOriginArgCount() > 0) {
+      hash = (37 * hash) + ORIGINARG_FIELD_NUMBER;
+      hash = (53 * hash) + getOriginArgList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -1191,6 +1257,7 @@ private static final long serialVersionUID = 0L;
         getRefererAccessRuleFieldBuilder();
         getRequestHeaderFieldBuilder();
         getUaAccessRuleFieldBuilder();
+        getOriginArgFieldBuilder();
       }
     }
     @java.lang.Override
@@ -1283,6 +1350,12 @@ private static final long serialVersionUID = 0L;
       } else {
         originRewriteControl_ = null;
         originRewriteControlBuilder_ = null;
+      }
+      if (originArgBuilder_ == null) {
+        originArg_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00002000);
+      } else {
+        originArgBuilder_.clear();
       }
       return this;
     }
@@ -1425,6 +1498,15 @@ private static final long serialVersionUID = 0L;
         result.originRewriteControl_ = originRewriteControl_;
       } else {
         result.originRewriteControl_ = originRewriteControlBuilder_.build();
+      }
+      if (originArgBuilder_ == null) {
+        if (((bitField0_ & 0x00002000) != 0)) {
+          originArg_ = java.util.Collections.unmodifiableList(originArg_);
+          bitField0_ = (bitField0_ & ~0x00002000);
+        }
+        result.originArg_ = originArg_;
+      } else {
+        result.originArg_ = originArgBuilder_.build();
       }
       result.bitField0_ = to_bitField0_;
       onBuilt();
@@ -1591,6 +1673,32 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasOriginRewriteControl()) {
         mergeOriginRewriteControl(other.getOriginRewriteControl());
+      }
+      if (originArgBuilder_ == null) {
+        if (!other.originArg_.isEmpty()) {
+          if (originArg_.isEmpty()) {
+            originArg_ = other.originArg_;
+            bitField0_ = (bitField0_ & ~0x00002000);
+          } else {
+            ensureOriginArgIsMutable();
+            originArg_.addAll(other.originArg_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.originArg_.isEmpty()) {
+          if (originArgBuilder_.isEmpty()) {
+            originArgBuilder_.dispose();
+            originArgBuilder_ = null;
+            originArg_ = other.originArg_;
+            bitField0_ = (bitField0_ & ~0x00002000);
+            originArgBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getOriginArgFieldBuilder() : null;
+          } else {
+            originArgBuilder_.addAllMessages(other.originArg_);
+          }
+        }
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -3843,6 +3951,246 @@ private static final long serialVersionUID = 0L;
         originRewriteControl_ = null;
       }
       return originRewriteControlBuilder_;
+    }
+
+    private java.util.List<com.volcengine.service.vod.model.business.VodOriginArgRule> originArg_ =
+      java.util.Collections.emptyList();
+    private void ensureOriginArgIsMutable() {
+      if (!((bitField0_ & 0x00002000) != 0)) {
+        originArg_ = new java.util.ArrayList<com.volcengine.service.vod.model.business.VodOriginArgRule>(originArg_);
+        bitField0_ |= 0x00002000;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodOriginArgRule, com.volcengine.service.vod.model.business.VodOriginArgRule.Builder, com.volcengine.service.vod.model.business.VodOriginArgRuleOrBuilder> originArgBuilder_;
+
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.VodOriginArgRule> getOriginArgList() {
+      if (originArgBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(originArg_);
+      } else {
+        return originArgBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+     */
+    public int getOriginArgCount() {
+      if (originArgBuilder_ == null) {
+        return originArg_.size();
+      } else {
+        return originArgBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodOriginArgRule getOriginArg(int index) {
+      if (originArgBuilder_ == null) {
+        return originArg_.get(index);
+      } else {
+        return originArgBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+     */
+    public Builder setOriginArg(
+        int index, com.volcengine.service.vod.model.business.VodOriginArgRule value) {
+      if (originArgBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOriginArgIsMutable();
+        originArg_.set(index, value);
+        onChanged();
+      } else {
+        originArgBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+     */
+    public Builder setOriginArg(
+        int index, com.volcengine.service.vod.model.business.VodOriginArgRule.Builder builderForValue) {
+      if (originArgBuilder_ == null) {
+        ensureOriginArgIsMutable();
+        originArg_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        originArgBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+     */
+    public Builder addOriginArg(com.volcengine.service.vod.model.business.VodOriginArgRule value) {
+      if (originArgBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOriginArgIsMutable();
+        originArg_.add(value);
+        onChanged();
+      } else {
+        originArgBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+     */
+    public Builder addOriginArg(
+        int index, com.volcengine.service.vod.model.business.VodOriginArgRule value) {
+      if (originArgBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOriginArgIsMutable();
+        originArg_.add(index, value);
+        onChanged();
+      } else {
+        originArgBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+     */
+    public Builder addOriginArg(
+        com.volcengine.service.vod.model.business.VodOriginArgRule.Builder builderForValue) {
+      if (originArgBuilder_ == null) {
+        ensureOriginArgIsMutable();
+        originArg_.add(builderForValue.build());
+        onChanged();
+      } else {
+        originArgBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+     */
+    public Builder addOriginArg(
+        int index, com.volcengine.service.vod.model.business.VodOriginArgRule.Builder builderForValue) {
+      if (originArgBuilder_ == null) {
+        ensureOriginArgIsMutable();
+        originArg_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        originArgBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+     */
+    public Builder addAllOriginArg(
+        java.lang.Iterable<? extends com.volcengine.service.vod.model.business.VodOriginArgRule> values) {
+      if (originArgBuilder_ == null) {
+        ensureOriginArgIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, originArg_);
+        onChanged();
+      } else {
+        originArgBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+     */
+    public Builder clearOriginArg() {
+      if (originArgBuilder_ == null) {
+        originArg_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00002000);
+        onChanged();
+      } else {
+        originArgBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+     */
+    public Builder removeOriginArg(int index) {
+      if (originArgBuilder_ == null) {
+        ensureOriginArgIsMutable();
+        originArg_.remove(index);
+        onChanged();
+      } else {
+        originArgBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodOriginArgRule.Builder getOriginArgBuilder(
+        int index) {
+      return getOriginArgFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodOriginArgRuleOrBuilder getOriginArgOrBuilder(
+        int index) {
+      if (originArgBuilder_ == null) {
+        return originArg_.get(index);  } else {
+        return originArgBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+     */
+    public java.util.List<? extends com.volcengine.service.vod.model.business.VodOriginArgRuleOrBuilder> 
+         getOriginArgOrBuilderList() {
+      if (originArgBuilder_ != null) {
+        return originArgBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(originArg_);
+      }
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodOriginArgRule.Builder addOriginArgBuilder() {
+      return getOriginArgFieldBuilder().addBuilder(
+          com.volcengine.service.vod.model.business.VodOriginArgRule.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodOriginArgRule.Builder addOriginArgBuilder(
+        int index) {
+      return getOriginArgFieldBuilder().addBuilder(
+          index, com.volcengine.service.vod.model.business.VodOriginArgRule.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+     */
+    public java.util.List<com.volcengine.service.vod.model.business.VodOriginArgRule.Builder> 
+         getOriginArgBuilderList() {
+      return getOriginArgFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodOriginArgRule, com.volcengine.service.vod.model.business.VodOriginArgRule.Builder, com.volcengine.service.vod.model.business.VodOriginArgRuleOrBuilder> 
+        getOriginArgFieldBuilder() {
+      if (originArgBuilder_ == null) {
+        originArgBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.volcengine.service.vod.model.business.VodOriginArgRule, com.volcengine.service.vod.model.business.VodOriginArgRule.Builder, com.volcengine.service.vod.model.business.VodOriginArgRuleOrBuilder>(
+                originArg_,
+                ((bitField0_ & 0x00002000) != 0),
+                getParentForChildren(),
+                isClean());
+        originArg_ = null;
+      }
+      return originArgBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

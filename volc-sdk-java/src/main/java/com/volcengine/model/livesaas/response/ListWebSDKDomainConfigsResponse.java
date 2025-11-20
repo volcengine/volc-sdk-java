@@ -21,5 +21,9 @@ public class ListWebSDKDomainConfigsResponse {
         List<DomainConfig> DomainConfigs;
         @JSONField(name = "TotalCount")
         Long TotalCount;
+        @JSONField(name = "MaxCount")
+        Long MaxCount;
+        @JSONField(name = "AddedCount")
+        Long AddedCount;
     }
 }

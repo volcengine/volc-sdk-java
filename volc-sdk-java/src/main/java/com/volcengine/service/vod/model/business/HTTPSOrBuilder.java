@@ -58,4 +58,29 @@ public interface HTTPSOrBuilder extends
    * @return The hTTP2.
    */
   boolean getHTTP2();
+
+  /**
+   * <code>repeated string TlsVersion = 5;</code>
+   * @return A list containing the tlsVersion.
+   */
+  java.util.List<java.lang.String>
+      getTlsVersionList();
+  /**
+   * <code>repeated string TlsVersion = 5;</code>
+   * @return The count of tlsVersion.
+   */
+  int getTlsVersionCount();
+  /**
+   * <code>repeated string TlsVersion = 5;</code>
+   * @param index The index of the element to return.
+   * @return The tlsVersion at the given index.
+   */
+  java.lang.String getTlsVersion(int index);
+  /**
+   * <code>repeated string TlsVersion = 5;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the tlsVersion at the given index.
+   */
+  com.google.protobuf.ByteString
+      getTlsVersionBytes(int index);
 }

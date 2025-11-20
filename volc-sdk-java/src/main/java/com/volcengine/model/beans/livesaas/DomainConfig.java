@@ -13,4 +13,8 @@ public class DomainConfig {
     Long CreateTime;
     @JSONField(name = "UpdateTime")
     Long UpdateTime;
+    @JSONField(name = "LiveDomainStatus")
+    Integer LiveDomainStatus;
+    @JSONField(name = "VodDomainStatus")
+    Integer VodDomainStatus;
 }

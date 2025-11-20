@@ -301,4 +301,28 @@ public interface VodDomainConfigOrBuilder extends
    * <code>.Volcengine.Vod.Models.Business.VodOriginRewrite OriginRewriteControl = 18;</code>
    */
   com.volcengine.service.vod.model.business.VodOriginRewriteOrBuilder getOriginRewriteControlOrBuilder();
+
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+   */
+  java.util.List<com.volcengine.service.vod.model.business.VodOriginArgRule> 
+      getOriginArgList();
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+   */
+  com.volcengine.service.vod.model.business.VodOriginArgRule getOriginArg(int index);
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+   */
+  int getOriginArgCount();
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+   */
+  java.util.List<? extends com.volcengine.service.vod.model.business.VodOriginArgRuleOrBuilder> 
+      getOriginArgOrBuilderList();
+  /**
+   * <code>repeated .Volcengine.Vod.Models.Business.VodOriginArgRule OriginArg = 19;</code>
+   */
+  com.volcengine.service.vod.model.business.VodOriginArgRuleOrBuilder getOriginArgOrBuilder(
+      int index);
 }

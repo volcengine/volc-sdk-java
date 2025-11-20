@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private HTTPS() {
+    tlsVersion_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -85,6 +86,15 @@ private static final long serialVersionUID = 0L;
             hTTP2_ = input.readBool();
             break;
           }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+              tlsVersion_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000010;
+            }
+            tlsVersion_.add(s);
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -100,6 +110,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000010) != 0)) {
+        tlsVersion_ = tlsVersion_.getUnmodifiableView();
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -208,6 +221,41 @@ private static final long serialVersionUID = 0L;
     return hTTP2_;
   }
 
+  public static final int TLSVERSION_FIELD_NUMBER = 5;
+  private com.google.protobuf.LazyStringList tlsVersion_;
+  /**
+   * <code>repeated string TlsVersion = 5;</code>
+   * @return A list containing the tlsVersion.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getTlsVersionList() {
+    return tlsVersion_;
+  }
+  /**
+   * <code>repeated string TlsVersion = 5;</code>
+   * @return The count of tlsVersion.
+   */
+  public int getTlsVersionCount() {
+    return tlsVersion_.size();
+  }
+  /**
+   * <code>repeated string TlsVersion = 5;</code>
+   * @param index The index of the element to return.
+   * @return The tlsVersion at the given index.
+   */
+  public java.lang.String getTlsVersion(int index) {
+    return tlsVersion_.get(index);
+  }
+  /**
+   * <code>repeated string TlsVersion = 5;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the tlsVersion at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getTlsVersionBytes(int index) {
+    return tlsVersion_.getByteString(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -234,6 +282,9 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000008) != 0)) {
       output.writeBool(4, hTTP2_);
     }
+    for (int i = 0; i < tlsVersion_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, tlsVersion_.getRaw(i));
+    }
     unknownFields.writeTo(output);
   }
 
@@ -258,6 +309,14 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000008) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, hTTP2_);
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < tlsVersion_.size(); i++) {
+        dataSize += computeStringSizeNoTag(tlsVersion_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getTlsVersionList().size();
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -294,6 +353,8 @@ private static final long serialVersionUID = 0L;
       if (getHTTP2()
           != other.getHTTP2()) return false;
     }
+    if (!getTlsVersionList()
+        .equals(other.getTlsVersionList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -322,6 +383,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + HTTP2_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getHTTP2());
+    }
+    if (getTlsVersionCount() > 0) {
+      hash = (37 * hash) + TLSVERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getTlsVersionList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -474,6 +539,8 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00000004);
       hTTP2_ = false;
       bitField0_ = (bitField0_ & ~0x00000008);
+      tlsVersion_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -526,6 +593,11 @@ private static final long serialVersionUID = 0L;
         result.hTTP2_ = hTTP2_;
         to_bitField0_ |= 0x00000008;
       }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        tlsVersion_ = tlsVersion_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
+      result.tlsVersion_ = tlsVersion_;
       result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
@@ -586,6 +658,16 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasHTTP2()) {
         setHTTP2(other.getHTTP2());
+      }
+      if (!other.tlsVersion_.isEmpty()) {
+        if (tlsVersion_.isEmpty()) {
+          tlsVersion_ = other.tlsVersion_;
+          bitField0_ = (bitField0_ & ~0x00000010);
+        } else {
+          ensureTlsVersionIsMutable();
+          tlsVersion_.addAll(other.tlsVersion_);
+        }
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -931,6 +1013,116 @@ private static final long serialVersionUID = 0L;
     public Builder clearHTTP2() {
       bitField0_ = (bitField0_ & ~0x00000008);
       hTTP2_ = false;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.LazyStringList tlsVersion_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureTlsVersionIsMutable() {
+      if (!((bitField0_ & 0x00000010) != 0)) {
+        tlsVersion_ = new com.google.protobuf.LazyStringArrayList(tlsVersion_);
+        bitField0_ |= 0x00000010;
+       }
+    }
+    /**
+     * <code>repeated string TlsVersion = 5;</code>
+     * @return A list containing the tlsVersion.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getTlsVersionList() {
+      return tlsVersion_.getUnmodifiableView();
+    }
+    /**
+     * <code>repeated string TlsVersion = 5;</code>
+     * @return The count of tlsVersion.
+     */
+    public int getTlsVersionCount() {
+      return tlsVersion_.size();
+    }
+    /**
+     * <code>repeated string TlsVersion = 5;</code>
+     * @param index The index of the element to return.
+     * @return The tlsVersion at the given index.
+     */
+    public java.lang.String getTlsVersion(int index) {
+      return tlsVersion_.get(index);
+    }
+    /**
+     * <code>repeated string TlsVersion = 5;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the tlsVersion at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getTlsVersionBytes(int index) {
+      return tlsVersion_.getByteString(index);
+    }
+    /**
+     * <code>repeated string TlsVersion = 5;</code>
+     * @param index The index to set the value at.
+     * @param value The tlsVersion to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTlsVersion(
+        int index, java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTlsVersionIsMutable();
+      tlsVersion_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string TlsVersion = 5;</code>
+     * @param value The tlsVersion to add.
+     * @return This builder for chaining.
+     */
+    public Builder addTlsVersion(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTlsVersionIsMutable();
+      tlsVersion_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string TlsVersion = 5;</code>
+     * @param values The tlsVersion to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllTlsVersion(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureTlsVersionIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, tlsVersion_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string TlsVersion = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTlsVersion() {
+      tlsVersion_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>repeated string TlsVersion = 5;</code>
+     * @param value The bytes of the tlsVersion to add.
+     * @return This builder for chaining.
+     */
+    public Builder addTlsVersionBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      ensureTlsVersionIsMutable();
+      tlsVersion_.add(value);
       onChanged();
       return this;
     }

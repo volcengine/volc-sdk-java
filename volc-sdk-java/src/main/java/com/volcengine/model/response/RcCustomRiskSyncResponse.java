@@ -3,6 +3,8 @@ package com.volcengine.model.response;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
+import java.util.Map;
+
 @Data
 public class RcCustomRiskSyncResponse {
 
@@ -42,6 +44,9 @@ public class RcCustomRiskSyncResponse {
 
         @JSONField(name = "DecisionReason")
         private String DecisionReason;
+
+        @JSONField(name = "Detail")
+        private Map<String, Object> Detail;
 
     }
 

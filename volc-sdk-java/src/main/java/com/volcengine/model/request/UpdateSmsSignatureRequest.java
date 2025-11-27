@@ -39,7 +39,7 @@ public class UpdateSmsSignatureRequest {
 
 
     @JSONField(name = "signatureIdentificationID")
-    int signatureIdentificationID;
+    long signatureIdentificationID;
 
     @JSONField(name = "scene")
     String scene;

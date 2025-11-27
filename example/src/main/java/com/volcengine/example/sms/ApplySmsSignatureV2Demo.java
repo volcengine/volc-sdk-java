@@ -34,7 +34,7 @@ public class ApplySmsSignatureV2Demo {
         req.setSource(SignSourceTypeV2.SignSourceTypeApp);
         req.setDomain("www.xxx.com");
         req.setPurpose(PurposeType.SignPurposeForOwn);
-        req.setSignatureIdentificationID(1); // 实名资质id
+        req.setSignatureIdentificationID(5827123307211L); // 实名资质id(类型从int转成long)
         SignAuthFile appIcpFileList = new SignAuthFile(DocType.AppIcpCertificate, "", ImageType.JPG.getImageType(), "http://wechatapppro.com/cdba1974330.jpg");
         AppIcp appIcp = new AppIcp();
         appIcp.setAppIcpFileList(new ArrayList<>(Collections.singletonList(appIcpFileList)));

@@ -36,7 +36,7 @@ public class ApplySmsSignatureV2Request {
     String from;
 
     @JSONField(name = "signatureIdentificationID")
-    int signatureIdentificationID;
+    long signatureIdentificationID;
 
     @JSONField(name = "appIcp")
     AppIcp appIcp;

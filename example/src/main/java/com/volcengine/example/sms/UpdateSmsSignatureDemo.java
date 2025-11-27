@@ -33,7 +33,7 @@ public class UpdateSmsSignatureDemo {
         req.setSource(SignSourceTypeV2.SignSourceTypeApp);
         req.setDomain("www.xxx.com");
         req.setPurpose(PurposeType.SignPurposeForOwn);
-        req.setSignatureIdentificationID(1); // 实名资质id
+        req.setSignatureIdentificationID(5827123307211L); // 实名资质id(类型从int转成long)
         SignAuthFile appIcpFileList = new SignAuthFile(DocType.AppIcpCertificate, "", ImageType.JPG.getImageType(), "http://wechatapppr/fda5cf6cdba1974330.jpg");
         AppIcp appIcp = new AppIcp();
         appIcp.setAppIcpFileList(new ArrayList<>(Collections.singletonList(appIcpFileList)));

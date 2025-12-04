@@ -1,6 +1,7 @@
 package com.volcengine.model.tls.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.tls.EncryptConf;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -37,6 +38,8 @@ public class ModifyTopicRequest {
     Integer coldTtl;
     @JSONField(name = ARCHIVE_TTL)
     Integer archiveTtl;
+    @JSONField(name = KMS_ENCRYPT_CONF)
+    EncryptConf encryptConf;
 
     /**
      * @return 日志主题 ID

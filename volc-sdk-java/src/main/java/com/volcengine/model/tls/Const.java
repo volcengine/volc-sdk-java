@@ -124,6 +124,13 @@ public class Const {
     public static final String HOT_TTL = "HotTtl";
     public static final String COLD_TTL = "ColdTtl";
     public static final String ARCHIVE_TTL = "ArchiveTtl";
+    public static final String KMS_ENCRYPT_CONF = "EncryptConf";
+    public static final String KMS_ENABLE = "enable";
+    public static final String KMS_ENCRYPT_TYPE = "encrypt_type";
+    public static final String KMS_ENCRYPT_USER_CMK_CONF = "user_cmk_info";
+    public static final String KMS_ENCRYPT_USER_CMK_CONF_USER_CMK_ID = "user_cmk_id";
+    public static final String KMS_ENCRYPT_USER_CMK_CONF_TRN = "trn";
+    public static final String KMS_ENCRYPT_USER_CMK_CONF_REGION_ID = "region_id";
 
     //shard
     public static final String SHARDS = "Shards";

@@ -27,4 +27,15 @@ public class ActMediaForm  {
     Long MediaId;
     @JSONField(name = "Vid")
     java.lang.String Vid;
+    @JSONField(name = "InteractionScript")
+    ActMediaFormInteractionScript InteractionScript;
+
+
+    @Data
+    public static class ActMediaFormInteractionScript {
+        @JSONField(name = "ScriptId")
+        Long ScriptId;
+        @JSONField(name = "CommentOffset")
+        Integer CommentOffset;
+    }
 }

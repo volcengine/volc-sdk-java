@@ -48,5 +48,7 @@ public class ListMediasAPIResponse {
         Long StartTime;
         @JSONField(name = "EndTime")
         Long EndTime;
+        @JSONField(name = "InteractionScriptId")
+        Long InteractionScriptId;
     }
 }

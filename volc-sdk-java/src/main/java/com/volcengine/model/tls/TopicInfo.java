@@ -51,4 +51,6 @@ public class TopicInfo {
     Integer coldTtl;
     @JSONField(name = ARCHIVE_TTL)
     Integer archiveTtl;
+    @JSONField(name = KMS_ENCRYPT_CONF)
+    EncryptConf encryptConf;
 }

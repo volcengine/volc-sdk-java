@@ -39,4 +39,8 @@ public class UpdateAwardConfigRequest {
     Integer AwardSendType;
     @JSONField(name = "DeadLineSecond")
     Long DeadLineSecond;
+    @JSONField(name = "BlackUserInfoId")
+    Long BlackUserInfoId;
+    @JSONField(name = "VipUserInfoId")
+    Long VipUserInfoId;
 }

@@ -62,6 +62,8 @@ public interface VmsService extends IBaseService {
 
     OperateResponse updateAXGGroup(UpdateAXGGroupRequest request) throws Exception;
 
+    OperateResponse registerIndustrialId(RegisterIndustrialIdRequest request) throws Exception;
+
     RouteAAuthResponse routeAAuth(RouteAAuthRequest request) throws Exception;
 
     AuthQueryResponse queryAuth(AuthQueryRequest request) throws Exception;

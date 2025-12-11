@@ -11,4 +11,6 @@ public class AwardUserInfo {
     String UserName;
     @JSONField(name = "UserTel")
     String UserTel;
+    @JSONField(name = "ExternalUserId")
+    String ExternalUserId;
 }

@@ -257,6 +257,12 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
     }
 
     @Override
+    public OperateResponse registerIndustrialId(RegisterIndustrialIdRequest request) throws Exception {
+        return doJson("RegisterIndustrialId", request, new TypeReference<OperateResponse>(){});
+    }
+
+
+    @Override
     public RouteAAuthResponse routeAAuth(RouteAAuthRequest request) throws Exception {
         RawResponse response = formPostWithRetry("RouteAAuth", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

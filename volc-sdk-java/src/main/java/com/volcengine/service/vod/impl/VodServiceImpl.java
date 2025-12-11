@@ -15,6 +15,7 @@ import com.google.common.base.Predicates;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.beans.PartInputStream;
+import com.volcengine.service.vod.Const;
 import com.volcengine.service.vod.UploadException;
 import com.volcengine.service.vod.model.business.CandidateUploadAddresses;
 import com.volcengine.service.vod.model.business.UploadAddress;
@@ -776,6 +777,46 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
             throw response.getException();
         }
         com.volcengine.service.vod.model.response.VodCancelDirectEditTaskResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodCancelDirectEditTaskResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+    /**
+     * asyncVCreativeTask.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodAsyncVCreativeTaskRequest
+     * @return com.volcengine.service.vod.model.response.VodAsyncVCreativeTaskResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.vod.model.response.VodAsyncVCreativeTaskResponse asyncVCreativeTask(com.volcengine.service.vod.model.request.VodAsyncVCreativeTaskRequest input) throws Exception {
+        String jsonData = JsonFormat.printer().print(input);
+
+        com.volcengine.model.response.RawResponse response = json(com.volcengine.service.vod.Const.AsyncVCreativeTask, new ArrayList<>(), jsonData);
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodAsyncVCreativeTaskResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodAsyncVCreativeTaskResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+    }
+
+    /**
+     * getVCreativeTaskResult.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetVCreativeTaskResultRequest
+     * @return com.volcengine.service.vod.model.response.VodGetVCreativeTaskResultResponse
+     * @throws Exception the exception
+     */
+    @Override
+    public com.volcengine.service.vod.model.response.VodGetVCreativeTaskResultResponse getVCreativeTaskResult(com.volcengine.service.vod.model.request.VodGetVCreativeTaskResultRequest input) throws Exception {
+        String jsonData = JsonFormat.printer().print(input);
+
+        com.volcengine.model.response.RawResponse response = query(Const.GetVCreativeTaskResult, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodGetVCreativeTaskResultResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetVCreativeTaskResultResponse.newBuilder();
         JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
         return responseBuilder.build();
     }

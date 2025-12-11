@@ -150,6 +150,24 @@ public interface IVodService extends com.volcengine.service.IBaseService {
     */
     com.volcengine.service.vod.model.response.VodCancelDirectEditTaskResponse cancelDirectEditTask(com.volcengine.service.vod.model.request.VodCancelDirectEditTaskRequest input) throws Exception;
 
+    /**
+    * asyncVCreativeTask.
+    *
+    * @param input com.volcengine.service.vod.model.request.VodAsyncVCreativeTaskRequest
+    * @return com.volcengine.service.vod.model.response.VodAsyncVCreativeTaskResponse
+    * @throws Exception the exception
+    */
+    com.volcengine.service.vod.model.response.VodAsyncVCreativeTaskResponse asyncVCreativeTask(com.volcengine.service.vod.model.request.VodAsyncVCreativeTaskRequest input) throws Exception;
+
+    /**
+    * getVCreativeTaskResult.
+    *
+    * @param input com.volcengine.service.vod.model.request.VodGetVCreativeTaskResultRequest
+    * @return com.volcengine.service.vod.model.response.VodGetVCreativeTaskResultResponse
+    * @throws Exception the exception
+    */
+    com.volcengine.service.vod.model.response.VodGetVCreativeTaskResultResponse getVCreativeTaskResult(com.volcengine.service.vod.model.request.VodGetVCreativeTaskResultRequest input) throws Exception;
+
 	/**
 	 * streamUploadMedia
 	 *

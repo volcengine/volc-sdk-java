@@ -39,6 +39,16 @@ public final class VodEdit {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_CancelDirectEditTask_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_AsyncVCreativeTaskResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_AsyncVCreativeTaskResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_GetVCreativeTaskResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_GetVCreativeTaskResult_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -59,12 +69,16 @@ public final class VodEdit {
       "\n\013CallbackUri\030\004 \001(\t\022\024\n\014CallbackArgs\030\005 \001(" +
       "\t\022\016\n\006Status\030\006 \001(\t\022\021\n\tOutputVid\030\007 \001(\t\022\017\n\007" +
       "Message\030\010 \001(\t\"\'\n\024CancelDirectEditTask\022\017\n" +
-      "\007Message\030\001 \001(\tB\310\001\n)com.volcengine.servic" +
-      "e.vod.model.businessB\007VodEditP\001ZAgithub." +
-      "com/volcengine/volc-sdk-golang/service/v" +
-      "od/models/business\240\001\001\330\001\001\312\002 Volc\\Service\\" +
-      "Vod\\Models\\Business\342\002#Volc\\Service\\Vod\\M" +
-      "odels\\GPBMetadatab\006proto3"
+      "\007Message\030\001 \001(\t\"/\n\030AsyncVCreativeTaskResu" +
+      "lt\022\023\n\013VCreativeId\030\001 \001(\t\"a\n\026GetVCreativeT" +
+      "askResult\022\020\n\010Uploader\030\001 \001(\t\022\021\n\tParamJson" +
+      "\030\002 \001(\t\022\016\n\006Status\030\003 \001(\t\022\022\n\nOutputJson\030\004 \001" +
+      "(\tB\310\001\n)com.volcengine.service.vod.model." +
+      "businessB\007VodEditP\001ZAgithub.com/volcengi" +
+      "ne/volc-sdk-golang/service/vod/models/bu" +
+      "siness\240\001\001\330\001\001\312\002 Volc\\Service\\Vod\\Models\\B" +
+      "usiness\342\002#Volc\\Service\\Vod\\Models\\GPBMet" +
+      "adatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -100,6 +114,18 @@ public final class VodEdit {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_CancelDirectEditTask_descriptor,
         new java.lang.String[] { "Message", });
+    internal_static_Volcengine_Vod_Models_Business_AsyncVCreativeTaskResult_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_Volcengine_Vod_Models_Business_AsyncVCreativeTaskResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_AsyncVCreativeTaskResult_descriptor,
+        new java.lang.String[] { "VCreativeId", });
+    internal_static_Volcengine_Vod_Models_Business_GetVCreativeTaskResult_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_Volcengine_Vod_Models_Business_GetVCreativeTaskResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_GetVCreativeTaskResult_descriptor,
+        new java.lang.String[] { "Uploader", "ParamJson", "Status", "OutputJson", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

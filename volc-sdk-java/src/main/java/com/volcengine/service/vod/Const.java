@@ -110,6 +110,8 @@ public class Const {
     public static final String GetDirectEditResult = "GetDirectEditResult";
     public static final String GetDirectEditProgress = "GetDirectEditProgress";
     public static final String CancelDirectEditTask = "CancelDirectEditTask";
+    public static final String AsyncVCreativeTask = "AsyncVCreativeTask";
+    public static final String GetVCreativeTaskResult = "GetVCreativeTaskResult";
     //vod-space
     public static final String CreateSpace = "CreateSpace";
     public static final String ListSpace = "ListSpace";

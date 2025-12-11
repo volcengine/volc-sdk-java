@@ -34,4 +34,8 @@ public class Subscription {
     private String phoneNoE;
 
     private String groupId;
+
+    private String orderId;
+
+    private String industrialId;
 }

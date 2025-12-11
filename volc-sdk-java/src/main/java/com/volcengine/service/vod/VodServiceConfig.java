@@ -973,6 +973,38 @@ public class VodServiceConfig {
             ));
 
             // **********************************************************************
+            // 视频剪辑云创
+            // **********************************************************************
+            put(Const.AsyncVCreativeTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "POST");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AsyncVCreativeTask));
+                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetVCreativeTaskResult, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetVCreativeTaskResult));
+                                    add(new BasicNameValuePair("Version", "2018-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // **********************************************************************
             // 空间管理
             // **********************************************************************
             put(Const.CreateSpace, new ApiInfo(

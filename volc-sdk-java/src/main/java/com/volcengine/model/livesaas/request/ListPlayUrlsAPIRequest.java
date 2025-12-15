@@ -9,4 +9,6 @@ import java.util.List;
 public class ListPlayUrlsAPIRequest {
     @JSONField(name = "Vids")
     List<String> Vids;
+    @JSONField(name = "ExpireTime")
+    Long ExpireTime;
 }

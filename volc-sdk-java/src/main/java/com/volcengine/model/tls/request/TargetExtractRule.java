@@ -10,7 +10,7 @@ import static com.volcengine.model.tls.Const.*;
 
 @Data
 @NoArgsConstructor
-public class ExtractRule {
+public class TargetExtractRule {
     @JSONField(name = KEYS)
     private List<String> keys;
     

@@ -1,6 +1,7 @@
 package com.volcengine.service.tls.impl;
 
 import com.volcengine.model.tls.*;
+import com.volcengine.model.tls.ExtractRule;
 import com.volcengine.model.tls.exception.LogException;
 import com.volcengine.model.tls.request.*;
 import com.volcengine.model.tls.response.*;

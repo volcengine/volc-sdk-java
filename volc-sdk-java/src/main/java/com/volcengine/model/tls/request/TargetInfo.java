@@ -19,5 +19,5 @@ public class TargetInfo {
     private String logSample;
     
     @JSONField(name = EXTRACT_RULE)
-    private ExtractRule extractRule;
+    private TargetExtractRule extractRule;
 }

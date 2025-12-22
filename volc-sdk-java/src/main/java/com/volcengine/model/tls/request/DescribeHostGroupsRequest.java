@@ -11,6 +11,9 @@ public class DescribeHostGroupsRequest {
     Integer pageNumber;
     Integer pageSize;
     String hostIdentifier;
+    Boolean autoUpdate;
+    String iamProjectName;
+    Boolean serviceLogging;
 
     /**
      * @return 机器组的名称

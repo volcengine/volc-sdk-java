@@ -19,6 +19,12 @@ public class CreateIndexRequest {
     FullTextInfo fullTextInfo;
     @JSONField(name = KEY_VALUE)
     List<KeyValueInfo> keyValue;
+    @JSONField(name = "UserInnerKeyValue")
+    List<KeyValueInfo> userInnerKeyValue;
+    @JSONField(name = "MaxTextLen")
+    Integer maxTextLen;
+    @JSONField(name = "EnableAutoIndex")
+    Boolean enableAutoIndex;
 
     /**
      * @param topicId      日志主题 ID
@@ -29,6 +35,24 @@ public class CreateIndexRequest {
         this.topicId = topicId;
         this.fullTextInfo = fullTextInfo;
         this.keyValue = keyValue;
+    }
+
+    /**
+     * @param topicId      日志主题 ID
+     * @param fullTextInfo 全文索引配置
+     * @param keyValue     键值索引配置
+     * @param userInnerKeyValue 预留字段索引配置
+     * @param maxTextLen   统计字段值最大长度
+     * @param enableAutoIndex 是否开启索引自动更新
+     */
+    public CreateIndexRequest(String topicId, FullTextInfo fullTextInfo, List<KeyValueInfo> keyValue,
+                              List<KeyValueInfo> userInnerKeyValue, Integer maxTextLen, Boolean enableAutoIndex) {
+        this.topicId = topicId;
+        this.fullTextInfo = fullTextInfo;
+        this.keyValue = keyValue;
+        this.userInnerKeyValue = userInnerKeyValue;
+        this.maxTextLen = maxTextLen;
+        this.enableAutoIndex = enableAutoIndex;
     }
 
     /**
@@ -71,6 +95,48 @@ public class CreateIndexRequest {
      */
     public void setKeyValue(List<KeyValueInfo> keyValue) {
         this.keyValue = keyValue;
+    }
+
+    /**
+     * @return 预留字段索引配置
+     */
+    public List<KeyValueInfo> getUserInnerKeyValue() {
+        return userInnerKeyValue;
+    }
+
+    /**
+     * @param userInnerKeyValue 预留字段索引配置
+     */
+    public void setUserInnerKeyValue(List<KeyValueInfo> userInnerKeyValue) {
+        this.userInnerKeyValue = userInnerKeyValue;
+    }
+
+    /**
+     * @return 统计字段值最大长度
+     */
+    public Integer getMaxTextLen() {
+        return maxTextLen;
+    }
+
+    /**
+     * @param maxTextLen 统计字段值最大长度
+     */
+    public void setMaxTextLen(Integer maxTextLen) {
+        this.maxTextLen = maxTextLen;
+    }
+
+    /**
+     * @return 是否开启索引自动更新
+     */
+    public Boolean getEnableAutoIndex() {
+        return enableAutoIndex;
+    }
+
+    /**
+     * @param enableAutoIndex 是否开启索引自动更新
+     */
+    public void setEnableAutoIndex(Boolean enableAutoIndex) {
+        this.enableAutoIndex = enableAutoIndex;
     }
 
     /**

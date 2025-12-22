@@ -19,6 +19,8 @@ public class Advanced {
     boolean closeEOF;
     @JSONField(name = CLOSE_TIMEOUT)
     int closeTimeout;
+    @JSONField(name = NO_LINE_TERMINATOR_EOF_MAX_TIME)
+    Integer noLineTerminatorEOFMaxTime;
 
     /**
      * @param closeInactive 释放日志文件句柄的等待时间

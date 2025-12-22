@@ -47,6 +47,7 @@ public class Const {
     public static final String DELETE_HOST = "/DeleteHost";
     public static final String DESCRIBE_HOST_GROUP_RULES = "/DescribeHostGroupRules";
     public static final String MODIFY_HOST_GROUPS_AUTO_UPDATE = "/ModifyHostGroupsAutoUpdate";
+    public static final String DELETE_ABNORMAL_HOSTS = "/DeleteAbnormalHosts";
 
 
     //interface-logs
@@ -56,6 +57,7 @@ public class Const {
     public static final String CONSUME_ORIGIN_LOGS = "/ConsumeOriginalLogs";
     public static final String TLS_ORIGINAL_HEADER = "x-tls-original";
     public static final String SEARCH_LOGS = "/SearchLogs";
+    public static final String MANUAL_SHARD_SPLIT = "/ManualShardSplit";
     //alarm and group
     public static final String CREATE_ALARM = "/CreateAlarm";
     public static final String MODIFY_ALARM = "/ModifyAlarm";
@@ -73,8 +75,33 @@ public class Const {
 
     // download task
     public static final String CREATE_DOWNLOAD_TASK = "/CreateDownloadTask";
+    public static final String CANCEL_DOWNLOAD_TASK = "/CancelDownloadTask";
     public static final String DESCRIBE_DOWNLOAD_TASKS = "/DescribeDownloadTasks";
     public static final String DESCRIBE_DOWNLOAD_URL = "/DescribeDownloadUrl";
+
+    // import task
+    public static final String DESCRIBE_IMPORT_TASKS = "/DescribeImportTasks";
+    public static final String MODIFY_IMPORT_TASK = "/ModifyImportTask";
+    public static final String IMPORT_SOURCE_INFO = "ImportSourceInfo";
+    public static final String SOURCE_TYPE = "SourceType";
+    public static final String TARGET_INFO = "TargetInfo";
+    public static final String TOS_SOURCE_INFO = "TosSourceInfo";
+    public static final String KAFKA_SOURCE_INFO = "KafkaSourceInfo";
+    public static final String BUCKET = "bucket";
+    public static final String PREFIX = "prefix";
+    public static final String COMPRESS_TYPE = "compress_type";
+    public static final String HOST = "host";
+    public static final String GROUP = "group";
+    public static final String KAFKA_TOPIC = "topic";
+    public static final String ENCODE = "encode";
+    public static final String PASSWORD = "password";
+    public static final String PROTOCOL = "protocol";
+    public static final String USERNAME = "username";
+    public static final String MECHANISM = "mechanism";
+    public static final String INSTANCE_ID = "instance_id";
+    public static final String IS_NEED_AUTH = "is_need_auth";
+    public static final String INITIAL_OFFSET = "initial_offset";
+    public static final String TIME_SOURCE_DEFAULT = "time_source_default";
 
     // Consumer group
     public static final String CREATE_CONSUMER_GROUP = "/CreateConsumerGroup";
@@ -84,7 +111,16 @@ public class Const {
     public static final String CONSUMER_HEARTBEAT = "/ConsumerHeartbeat";
     public static final String DESCRIBE_CHECKPOINT = "/DescribeCheckPoint";
     public static final String MODIFY_CHECKPOINT = "/ModifyCheckPoint";
+    public static final String GET_ACCOUNT_STATUS = "/GetAccountStatus";
 
+    // trace instance
+    public static final String TRACE_INSTANCE_ID = "TraceInstanceId";
+    public static final String MODIFY_TRACE_INSTANCE = "/ModifyTraceInstance";
+    public static final String DELETE_TRACE_INSTANCE = "/DeleteTraceInstance";
+    public static final String CREATE_TRACE_INSTANCE = "/CreateTraceInstance";
+    public static final String DESCRIBE_TRACE_INSTANCE = "/DescribeTraceInstance";
+
+    public static final String ACTIVE_TLS_ACCOUNT = "/ActiveTlsAccount";
     public static final String TLS = "TLS";
     public static final int CONNECTION_TIMEOUT_MS = 60000;
     public static final int SOCKET_TIMEOUT_MS = 60000;
@@ -94,6 +130,14 @@ public class Const {
     public static final String PROJECTS_LIST_KEY = "Projects";
     public static final String TOPICS_LIST_KEY = "Topics";
     public static final String TOTAL = "Total";
+    public static final String IMPORT_CONFIG = "ImportConfig";
+    public static final String IMPORT_TYPE = "ImportType";
+    public static final String SOURCE_CONFIG = "SourceConfig";
+    public static final String DESTINATION_CONFIG = "DestinationConfig";
+    public static final String PROGRESS = "Progress";
+    public static final String IMPORTED_LOG_COUNT = "ImportedLogCount";
+    public static final String TOTAL_LOG_COUNT = "TotalLogCount";
+    public static final String PERCENTAGE = "Percentage";
 
 
     //projectInfo
@@ -152,6 +196,9 @@ public class Const {
     public static final String MODIFY_TIME = "ModifyTime";
     public static final String JSON_KEYS = "JsonKeys";
     public static final String INDEX_ALL = "IndexAll";
+    public static final String USER_INNER_KEY_VALUE = "UserInnerKeyValue";
+    public static final String MAX_TEXT_LEN = "MaxTextLen";
+    public static final String ENABLE_AUTO_INDEX = "EnableAutoIndex";
 
     // ruleInfo
     public static final String RULE_ID = "RuleId";
@@ -170,6 +217,8 @@ public class Const {
     public static final String KEYS = "Keys";
     public static final String TIME_KEY = "TimeKey";
     public static final String TIME_FORMAT = "TimeFormat";
+    public static final String SKIP_LINE_COUNT = "SkipLineCount";
+    public static final String TIME_SAMPLE = "TimeSample";
     public static final String FILTER_KEY_REGEX = "FilterKeyRegex";
     public static final String REGEX = "Regex";
     public static final String UN_MATCH_UP_LOAD_SWITCH = "UnMatchUpLoadSwitch";
@@ -210,6 +259,7 @@ public class Const {
     public static final String CLOSE_RENAMED = "CloseRenamed";
     public static final String CLOSE_EOF = "CloseEOF";
     public static final String CLOSE_TIMEOUT = "CloseTimeout";
+    public static final String PAUSE = "Pause";
 
 
     //hostGroupInfo
@@ -234,7 +284,23 @@ public class Const {
     public static final String AUTO_UPDATE = "AutoUpdate";
     public static final String UPDATE_START_TIME = "UpdateStartTime";
     public static final String UPDATE_END_TIME = "UpdateEndTime";
+    public static final String SERVICE_LOGGING = "ServiceLogging";
     public static final String AGENT_LATEST_VERSION = "AgentLatestVersion";
+    public static final String TIME_ZONE = "TimeZone";
+    public static final String TIME_EXTRACT_REGEX = "TimeExtractRegex";
+    public static final String ENABLE_NANOSECOND = "EnableNanosecond";
+    public static final String EXCLUDE_POD_ANNOTATION_REGEX = "ExcludePodAnnotationRegex";
+    public static final String INCLUDE_POD_ANNOTATION_REGEX = "IncludePodAnnotationRegex";
+    public static final String ENABLE_ALL_LABEL_TAG = "EnableAllLabelTag";
+    public static final String NO_LINE_TERMINATOR_EOF_MAX_TIME = "NoLineTerminatorEOFMaxTime";
+    public static final String RAW_LOG_KEY = "RawLogKey";
+    public static final String HOSTNAME_KEY = "HostnameKey";
+    public static final String ENABLE_HOSTNAME = "EnableHostname";
+    public static final String HOST_GROUP_LABEL_KEY = "HostGroupLabelKey";
+    public static final String ENABLE_HOST_GROUP_LABEL = "EnableHostGroupLabel";
+    public static final String TAIL_SIZE_KB = "TailSizeKb";
+    public static final String IGNORE_OLDER = "IgnoreOlder";
+    public static final String MULTI_COLLECTS_TYPE = "MultiCollectsType";
 
     //alarmNotifyGroup
     public static final String ALARM_ID = "AlarmId";
@@ -306,6 +372,9 @@ public class Const {
     public static final String ANALYSIS_RESULT = "AnalysisResult";
     public static final String SCHEMA = "Schema";
     public static final String DATA = "Data";
+    public static final String HIGH_LIGHT = "HighLight";
+    public static final String ACCURATE_QUERY = "AccurateQuery";
+    public static final String ELAPSED_MILLISECOND = "ElapsedMillisecond";
     public static final String LZ4 = "lz4";
     public static final String ZLIB = "zlib";
     public static final String MD5 = "MD5";

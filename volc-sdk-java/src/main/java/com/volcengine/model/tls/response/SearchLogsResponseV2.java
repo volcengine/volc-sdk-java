@@ -36,6 +36,10 @@ public class SearchLogsResponseV2 extends CommonResponse {
     List<Map<String, Object>> logs;
     @JSONField(name = ANALYSIS_RESULT)
     AnalysisResult analysisResult;
+    @JSONField(name = HIGH_LIGHT)
+    List<Map<String, Object>> highLight;
+    @JSONField(name = ELAPSED_MILLISECOND)
+    Integer elapsedMillisecond;
 
 
     public SearchLogsResponseV2(Header[] headers) {
@@ -54,6 +58,8 @@ public class SearchLogsResponseV2 extends CommonResponse {
         this.setContext(response.getContext());
         this.setLogs(response.getLogs());
         this.setAnalysisResult(response.getAnalysisResult());
+        this.setHighLight(response.getHighLight());
+        this.setElapsedMillisecond(response.getElapsedMillisecond());
         return this;
     }
 

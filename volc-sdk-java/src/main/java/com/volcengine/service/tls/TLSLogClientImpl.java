@@ -163,7 +163,18 @@ public class TLSLogClientImpl implements TLSLogClient {
         String compressType = request.getCompressType();
         if (compressType != null) {
             headers.put(X_TLS_COMPRESS_TYPE, compressType);
+        }
+        
+        // 设置请求体原始大小
+        if (request.getBodyRawSize() != null) {
+            headers.put(X_TLS_BODY_RAW_SIZE, request.getBodyRawSize());
+        } else if (compressType != null) {
             headers.put(X_TLS_BODY_RAW_SIZE, String.valueOf(request.getLogGroupList().toByteArray().length));
+        }
+        
+        // 设置Content-MD5
+        if (request.getContentMd5() != null) {
+            headers.put(HEADER_CONTENT_MD5, request.getContentMd5());
         }
 
         headers.put(Log_Count_Header, String.valueOf(logCnt));
@@ -345,9 +356,9 @@ public class TLSLogClientImpl implements TLSLogClient {
         HashMap<String, String> headers = new HashMap<>();
         {
             headers.put("Content-Type", "application/json");
+            headers.put(X_TLS_BODY_RAW_SIZE, String.valueOf(requestBody.length()));
             if (compressType != null) {
                 headers.put(X_TLS_COMPRESS_TYPE, compressType);
-                headers.put(X_TLS_BODY_RAW_SIZE, String.valueOf(requestBody.length()));
             }
         }
 
@@ -991,6 +1002,15 @@ public class TLSLogClientImpl implements TLSLogClient {
         if (StringUtils.isNotEmpty(request.getHostIdentifier())) {
             params.add(new BasicNameValuePair(HOST_IDENTIFIER, request.getHostIdentifier()));
         }
+        if (request.getAutoUpdate() != null) {
+            params.add(new BasicNameValuePair(AUTO_UPDATE, String.valueOf(request.getAutoUpdate())));
+        }
+        if (StringUtils.isNotEmpty(request.getIamProjectName())) {
+            params.add(new BasicNameValuePair(IAM_PROJECT_NAME, request.getIamProjectName()));
+        }
+        if (request.getServiceLogging() != null) {
+            params.add(new BasicNameValuePair(SERVICE_LOGGING, String.valueOf(request.getServiceLogging())));
+        }
 
         // 3、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_HOST_GROUPS, params, Const.EMPTY_JSON);
@@ -1088,6 +1108,18 @@ public class TLSLogClientImpl implements TLSLogClient {
 
         // 4. parse response
         return new ModifyHostGroupsAutoUpdateResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public DeleteAbnormalHostsResponse deleteAbnormalHosts(DeleteAbnormalHostsRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        String requestBody = JSONObject.toJSONString(request);
+        RawResponse rawResponse = sendJsonRequest(DELETE_ABNORMAL_HOSTS, new ArrayList<>(), requestBody);
+
+        return new DeleteAbnormalHostsResponse(rawResponse.getHeaders());
     }
 
     @Override
@@ -1332,6 +1364,23 @@ public class TLSLogClientImpl implements TLSLogClient {
     }
 
     @Override
+    public CancelDownloadTaskResponse cancelDownloadTask(CancelDownloadTaskRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 2. prepare request
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 3. check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(CANCEL_DOWNLOAD_TASK, params, requestBody);
+
+        // 4. parse response
+        return new CancelDownloadTaskResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), CancelDownloadTaskResponse.class);
+    }
+
+    @Override
     public DescribeDownloadTasksResponse describeDownloadTasks(DescribeDownloadTasksRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
@@ -1379,6 +1428,64 @@ public class TLSLogClientImpl implements TLSLogClient {
 
         // 4. parse response
         return new DescribeDownloadUrlResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeDownloadUrlResponse.class);
+    }
+
+    @Override
+    public DescribeImportTasksResponse describeImportTasks(DescribeImportTasksRequest request) throws LogException {
+        // 1. validate request
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 2. prepare request
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        {
+            if (request.getPageNumber() != null) {
+                params.add(new BasicNameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
+            }
+            if (request.getPageSize() != null) {
+                params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
+            }
+            if (StringUtils.isNotEmpty(request.getTaskId())) {
+                params.add(new BasicNameValuePair(TASK_ID, request.getTaskId()));
+            }
+            if (StringUtils.isNotEmpty(request.getTaskName())) {
+                params.add(new BasicNameValuePair(TASK_NAME, request.getTaskName()));
+            }
+            if (StringUtils.isNotEmpty(request.getTopicId())) {
+                params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
+            }
+            if (StringUtils.isNotEmpty(request.getProjectName())) {
+                params.add(new BasicNameValuePair(PROJECT_NAME, request.getProjectName()));
+            }
+            if (StringUtils.isNotEmpty(request.getStatus())) {
+                params.add(new BasicNameValuePair(STATUS, request.getStatus()));
+            }
+        }
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 3. check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_IMPORT_TASKS, params, requestBody);
+
+        // 4. parse response
+        return new DescribeImportTasksResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeImportTasksResponse.class);
+    }
+
+    @Override
+    public ModifyImportTaskResponse modifyImportTask(ModifyImportTaskRequest request) throws LogException {
+        // 1. validate request
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 2. prepare request
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 3. send request
+        RawResponse rawResponse = sendJsonRequest(MODIFY_IMPORT_TASK, new ArrayList<>(), requestBody);
+
+        // 4. parse response
+        return new ModifyImportTaskResponse(rawResponse.getHeaders());
     }
 
     @Override
@@ -1511,6 +1618,159 @@ public class TLSLogClientImpl implements TLSLogClient {
 
         // 3、parse response
         return new ModifyCheckpointResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public DescribeTraceInstanceResponse describeTraceInstance(DescribeTraceInstanceRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 1、prepare request
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair(TRACE_INSTANCE_ID, request.getTraceInstanceId()));
+
+        // 2、check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_TRACE_INSTANCE, params, Const.EMPTY_JSON);
+
+        // 3、parse response
+        return new DescribeTraceInstanceResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeTraceInstanceResponse.class);
+    }
+
+    @Override
+    public DeleteTraceInstanceResponse deleteTraceInstance(DeleteTraceInstanceRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 1、prepare request
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 2、check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(DELETE_TRACE_INSTANCE, new ArrayList<>(), requestBody);
+
+        // 3、parse response
+        return new DeleteTraceInstanceResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public CreateTraceInstanceResponse createTraceInstance(CreateTraceInstanceRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 1、prepare request
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 2、check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(CREATE_TRACE_INSTANCE, new ArrayList<>(), requestBody);
+
+        // 3、parse response
+        return new CreateTraceInstanceResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), CreateTraceInstanceResponse.class);
+    }
+
+    @Override
+    public ActiveTlsAccountResponse activeTlsAccount(ActiveTlsAccountRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 1、prepare request
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 2、check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(Const.ACTIVE_TLS_ACCOUNT, new ArrayList<>(), requestBody);
+
+        // 3、parse response
+        return new ActiveTlsAccountResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), ActiveTlsAccountResponse.class);
+    }
+
+    @Override
+    public ManualShardSplitResponse manualShardSplit(ManualShardSplitRequest request) throws LogException {
+        if (request == null || !request.checkValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 1、prepare request
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 2、check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(MANUAL_SHARD_SPLIT, new ArrayList<>(), requestBody);
+
+        // 3、parse response
+        return new ManualShardSplitResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), ManualShardSplitResponse.class);
+    }
+
+    @Override
+    public DescribeTraceInstancesResponse describeTraceInstances(DescribeTraceInstancesRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 1、prepare request
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        if (request.getPageNumber() != null) {
+            params.add(new BasicNameValuePair("PageNumber", String.valueOf(request.getPageNumber())));
+        }
+        if (request.getPageSize() != null) {
+            params.add(new BasicNameValuePair("PageSize", String.valueOf(request.getPageSize())));
+        }
+        if (request.getTraceInstanceName() != null) {
+            params.add(new BasicNameValuePair("TraceInstanceName", request.getTraceInstanceName()));
+        }
+        if (request.getTraceInstanceId() != null) {
+            params.add(new BasicNameValuePair("TraceInstanceId", request.getTraceInstanceId()));
+        }
+        if (request.getProjectId() != null) {
+            params.add(new BasicNameValuePair("ProjectId", request.getProjectId()));
+        }
+        if (request.getProjectName() != null) {
+            params.add(new BasicNameValuePair("ProjectName", request.getProjectName()));
+        }
+        if (request.getStatus() != null) {
+            params.add(new BasicNameValuePair("Status", request.getStatus()));
+        }
+        if (request.getIamProjectName() != null) {
+            params.add(new BasicNameValuePair("IamProjectName", request.getIamProjectName()));
+        }
+
+        // 2、check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest("DescribeTraceInstances", params, Const.EMPTY_JSON);
+
+        // 3、parse response
+        return new DescribeTraceInstancesResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeTraceInstancesResponse.class);
+    }
+
+    @Override
+    public ModifyTraceInstanceResponse modifyTraceInstance(ModifyTraceInstanceRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 1、prepare request
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 2、check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(MODIFY_TRACE_INSTANCE, new ArrayList<>(), requestBody);
+
+        // 3、parse response
+        return new ModifyTraceInstanceResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public GetAccountStatusResponse getAccountStatus(GetAccountStatusRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        // 1、prepare request
+        String requestBody = JSONObject.toJSONString(request);
+
+        // 2、check sum and sendRequest
+        RawResponse rawResponse = sendJsonRequest(GET_ACCOUNT_STATUS, new ArrayList<>(), requestBody);
+
+        // 3、parse response
+        return new GetAccountStatusResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), GetAccountStatusResponse.class);
     }
 
     private RawResponse doProtoRetryRequest(String api, List<NameValuePair> params, Map<String, String> headers, byte[] body, String compressType) throws LogException {

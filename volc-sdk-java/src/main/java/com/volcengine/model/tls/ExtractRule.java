@@ -33,6 +33,12 @@ public class ExtractRule {
     String unMatchLogKey;
     @JSONField(name = LOG_TEMPLATE)
     LogTemplate logTemplate;
+    @JSONField(name = TIME_ZONE)
+    String timeZone;
+    @JSONField(name = TIME_EXTRACT_REGEX)
+    String timeExtractRegex;
+    @JSONField(name = ENABLE_NANOSECOND)
+    Boolean enableNanosecond;
 
     /**
      * @return 日志分隔符

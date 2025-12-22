@@ -35,4 +35,8 @@ public class HostGroupInfo {
     String updateEndTime;
     @JSONField(name = AGENT_LATEST_VERSION)
     String agentLatestVersion;
+    @JSONField(name = IAM_PROJECT_NAME)
+    String iamProjectName;
+    @JSONField(name = SERVICE_LOGGING)
+    Boolean serviceLogging;
 }

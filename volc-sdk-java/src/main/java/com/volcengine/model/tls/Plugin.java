@@ -1,5 +1,6 @@
 package com.volcengine.model.tls;
 
+import java.util.List;
 import java.util.Map;
 
 import com.alibaba.fastjson.annotation.JSONField;
@@ -12,19 +13,19 @@ import static com.volcengine.model.tls.Const.*;
 @NoArgsConstructor
 public class Plugin {
     @JSONField(name = PROCESSORS)
-    Map<String, Object> processors;
+    List<Map<String, Object>> processors;
 
     /**
      * @return LogCollector插件
      */
-    public Map<String, Object> getProcessors() {
+    public List<Map<String, Object>> getProcessors() {
         return processors;
     }
 
     /**
      * @param processors LogCollector插件
      */
-    public void setProcessors(Map<String, Object> processors) {
+    public void setProcessors(List<Map<String, Object>> processors) {
         this.processors = processors;
     }
 }

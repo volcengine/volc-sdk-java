@@ -37,6 +37,8 @@ public class RuleInfo {
     ContainerRule containerRule;
     @JSONField(name=CREATE_TIME)
     String createTime;
+    @JSONField(name=PAUSE)
+    Integer pause;
     @JSONField(name=MODIFY_TIME)
     String modifyTime;
 }

@@ -128,6 +128,8 @@ public interface TLSLogClient {
 
     ModifyHostGroupsAutoUpdateResponse modifyHostGroupsAutoUpdate(ModifyHostGroupsAutoUpdateRequest request) throws LogException;
 
+    DeleteAbnormalHostsResponse deleteAbnormalHosts(DeleteAbnormalHostsRequest request) throws LogException;
+
     /**
      * 告警
      */
@@ -162,9 +164,16 @@ public interface TLSLogClient {
      */
     CreateDownloadTaskResponse createDownloadTask(CreateDownloadTaskRequest request) throws LogException;
 
+    CancelDownloadTaskResponse cancelDownloadTask(CancelDownloadTaskRequest request) throws LogException;
+
     DescribeDownloadTasksResponse describeDownloadTasks(DescribeDownloadTasksRequest request) throws LogException;
 
     DescribeDownloadUrlResponse describeDownloadUrl(DescribeDownloadUrlRequest request) throws LogException;
+
+    /**
+     * 导入任务
+     */
+    DescribeImportTasksResponse describeImportTasks(DescribeImportTasksRequest request) throws LogException;
 
     /**
      * 消费组消费
@@ -182,4 +191,34 @@ public interface TLSLogClient {
     DescribeCheckpointResponse describeCheckPoint(DescribeCheckpointRequest request) throws LogException;
 
     ModifyCheckpointResponse modifyCheckPoint(ModifyCheckpointRequest request) throws LogException;
+
+    /**
+     * 手动分裂分区
+     */
+    ManualShardSplitResponse manualShardSplit(ManualShardSplitRequest request) throws LogException;
+
+    /**
+     * 导入任务
+     */
+    ModifyImportTaskResponse modifyImportTask(ModifyImportTaskRequest request) throws LogException;
+
+    DescribeTraceInstancesResponse describeTraceInstances(DescribeTraceInstancesRequest request) throws LogException;
+
+    ModifyTraceInstanceResponse modifyTraceInstance(ModifyTraceInstanceRequest request) throws LogException;
+    
+    CreateTraceInstanceResponse createTraceInstance(CreateTraceInstanceRequest request) throws LogException;
+    
+    DescribeTraceInstanceResponse describeTraceInstance(DescribeTraceInstanceRequest request) throws LogException;
+    
+    DeleteTraceInstanceResponse deleteTraceInstance(DeleteTraceInstanceRequest request) throws LogException;
+
+    /**
+     * 获取账户状态
+     */
+    GetAccountStatusResponse getAccountStatus(GetAccountStatusRequest request) throws LogException;
+
+    /**
+     * 激活TLS账户
+     */
+    ActiveTlsAccountResponse activeTlsAccount(ActiveTlsAccountRequest request) throws LogException;
 }

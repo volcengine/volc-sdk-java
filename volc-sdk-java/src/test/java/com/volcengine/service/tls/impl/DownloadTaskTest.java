@@ -104,6 +104,23 @@ public class DownloadTaskTest extends BaseTest {
             // Wait for download task finish
             Thread.sleep(1000 * 10);
 
+            // CancelDownloadTask
+            {
+                CancelDownloadTaskRequest request = new CancelDownloadTaskRequest();
+                {
+                    request.setTaskId(taskId);
+                }
+                CancelDownloadTaskResponse response = client.cancelDownloadTask(request);
+                System.out.println("Cancel download task success, response: " + response);
+                assertTrue(response.getRequestId().length() > 0);
+
+                // Invalid case
+                Exception exception = assertThrows(LogException.class, () -> {
+                    request.setTaskId("notexist");
+                    client.cancelDownloadTask(request);
+                });
+            }
+
             // DescribeDownloadUrl
             {
                 DescribeDownloadUrlRequest request = new DescribeDownloadUrlRequest();

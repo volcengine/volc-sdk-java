@@ -25,6 +25,10 @@ public class SearchLogsRequest {
     String context;
     @JSONField(name = SORT)
     String sort;
+    @JSONField(name = HIGH_LIGHT)
+    Boolean highLight;
+    @JSONField(name = ACCURATE_QUERY)
+    Boolean accurateQuery;
 
     /**
      * @return 日志主题 ID
@@ -108,6 +112,34 @@ public class SearchLogsRequest {
      */
     public void setSort(String sort) {
         this.sort = sort;
+    }
+
+    /**
+     * @return 搜索的关键字在查询结果中是否高亮显示
+     */
+    public Boolean getHighLight() {
+        return highLight;
+    }
+
+    /**
+     * @param highLight 搜索的关键字在查询结果中是否高亮显示
+     */
+    public void setHighLight(Boolean highLight) {
+        this.highLight = highLight;
+    }
+
+    /**
+     * @return 是否使用纳秒精度查询日志
+     */
+    public Boolean getAccurateQuery() {
+        return accurateQuery;
+    }
+
+    /**
+     * @param accurateQuery 是否使用纳秒精度查询日志
+     */
+    public void setAccurateQuery(Boolean accurateQuery) {
+        this.accurateQuery = accurateQuery;
     }
 
     /**

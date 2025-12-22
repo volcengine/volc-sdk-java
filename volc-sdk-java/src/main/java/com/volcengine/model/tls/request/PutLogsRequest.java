@@ -13,6 +13,8 @@ public class PutLogsRequest {
     private String topicId;
     private String hashKey;
     private String compressType = LZ4;
+    private String bodyRawSize;
+    private String contentMd5;
 
     /**
      * @param logGroupList 日志列表
@@ -30,10 +32,24 @@ public class PutLogsRequest {
      * @param compressType 压缩格式，支持lz4、zlib
      */
     public PutLogsRequest(PutLogRequest.LogGroupList logGroupList, String topicId, String hashKey, String compressType) {
+        this(logGroupList, topicId, hashKey, compressType, null, null);
+    }
+
+    /**
+     * @param logGroupList 日志列表
+     * @param topicId      日志主题 ID
+     * @param hashKey      路由 Shard 的key
+     * @param compressType 压缩格式，支持lz4、zlib
+     * @param bodyRawSize  请求体原始大小
+     * @param contentMd5   请求体MD5值
+     */
+    public PutLogsRequest(PutLogRequest.LogGroupList logGroupList, String topicId, String hashKey, String compressType, String bodyRawSize, String contentMd5) {
         this.logGroupList = logGroupList;
         this.topicId = topicId;
         this.hashKey = hashKey;
         this.compressType = compressType;
+        this.bodyRawSize = bodyRawSize;
+        this.contentMd5 = contentMd5;
     }
 
     /**
@@ -90,6 +106,34 @@ public class PutLogsRequest {
      */
     public void setCompressType(String compressType) {
         this.compressType = compressType;
+    }
+
+    /**
+     * @return 请求体原始大小
+     */
+    public String getBodyRawSize() {
+        return bodyRawSize;
+    }
+
+    /**
+     * @param bodyRawSize 请求体原始大小
+     */
+    public void setBodyRawSize(String bodyRawSize) {
+        this.bodyRawSize = bodyRawSize;
+    }
+
+    /**
+     * @return 请求体MD5值
+     */
+    public String getContentMd5() {
+        return contentMd5;
+    }
+
+    /**
+     * @param contentMd5 请求体MD5值
+     */
+    public void setContentMd5(String contentMd5) {
+        this.contentMd5 = contentMd5;
     }
 
     /**

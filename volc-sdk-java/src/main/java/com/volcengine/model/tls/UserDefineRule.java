@@ -25,6 +25,22 @@ public class UserDefineRule {
     Advanced advanced;
     @JSONField(name = TAIL_FILES)
     Boolean tailFiles;
+    @JSONField(name = RAW_LOG_KEY)
+    String rawLogKey;
+    @JSONField(name = HOSTNAME_KEY)
+    String hostnameKey;
+    @JSONField(name = ENABLE_HOSTNAME)
+    Boolean enableHostname;
+    @JSONField(name = HOST_GROUP_LABEL_KEY)
+    String hostGroupLabelKey;
+    @JSONField(name = ENABLE_HOST_GROUP_LABEL)
+    Boolean enableHostGroupLabel;
+    @JSONField(name = TAIL_SIZE_KB)
+    Integer tailSizeKb;
+    @JSONField(name = IGNORE_OLDER)
+    Integer ignoreOlder;
+    @JSONField(name = MULTI_COLLECTS_TYPE)
+    String multiCollectsType;
 
     /**
      * @param parsePathRule 解析采集路径的规则

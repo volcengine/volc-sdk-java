@@ -27,6 +27,8 @@ public class ModifyHostGroupRequest {
     String updateStartTime;
     @JSONField(name = UPDATE_END_TIME)
     String updateEndTime;
+    @JSONField(name = SERVICE_LOGGING)
+    Boolean serviceLogging;
 
     /**
      * @param hostGroupId 机器组 ID
@@ -138,6 +140,14 @@ public class ModifyHostGroupRequest {
      */
     public void setUpdateEndTime(String updateEndTime) {
         this.updateEndTime = updateEndTime;
+    }
+
+    public Boolean getServiceLogging() {
+        return serviceLogging;
+    }
+
+    public void setServiceLogging(Boolean serviceLogging) {
+        this.serviceLogging = serviceLogging;
     }
 
     /**

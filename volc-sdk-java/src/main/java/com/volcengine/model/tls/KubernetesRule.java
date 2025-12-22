@@ -27,6 +27,12 @@ public class KubernetesRule {
     Map<String, String> labelTag;
     @JSONField(name = ANNOTATION_TAG)
     Map<String, String> annotationTag;
+    @JSONField(name = EXCLUDE_POD_ANNOTATION_REGEX)
+    Map<String, String> excludePodAnnotationRegex;
+    @JSONField(name = INCLUDE_POD_ANNOTATION_REGEX)
+    Map<String, String> includePodAnnotationRegex;
+    @JSONField(name = ENABLE_ALL_LABEL_TAG)
+    Boolean enableAllLabelTag;
 
     /**
      * @return 待采集的 Kubernetes Namespace 名称，不指定 Namespace 名称时表示采集全部容器

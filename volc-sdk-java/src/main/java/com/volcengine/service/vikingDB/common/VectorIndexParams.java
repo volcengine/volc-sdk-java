@@ -1,5 +1,7 @@
 package com.volcengine.service.vikingDB.common;
 
+import com.google.common.base.Strings;
+import com.volcengine.service.vikingDB.VikingDBException;
 import lombok.Data;
 
 import java.util.HashMap;
@@ -7,14 +9,17 @@ import java.util.Map;
 
 @Data
 public class VectorIndexParams {
-    private String indexType = DistanceType.IP;
+    private String indexType;
     private String distance = IndexType.HNSW;
     private String quant = QuantType.Int8;
     private Integer hnswM = 20;
     private Integer hnswCef = 400;
     private Integer hnswSef = 800;
 
-    public Map<String, Object> dict() {
+    public Map<String, Object> dict() throws VikingDBException {
+        if (Strings.isNullOrEmpty(distance)) {
+            throw new VikingDBException(1000003, "", "Index distance can not be empty.");
+        }
         Map<String, Object> map = new HashMap<>();
         map.put("distance", distance);
         map.put("index_type", indexType);

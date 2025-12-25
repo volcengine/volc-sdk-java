@@ -364,6 +364,20 @@ public class BusinessSecurityConfig {
                     }
                 }
             ));
+            put(Const.ActivationRiskConfirmAsyncDetectRisk,new ApiInfo(
+                    new  HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ActivationRiskConfirmAsyncDetectRisk"));
+                                    add(new BasicNameValuePair("Version", "2025-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.ActivationRiskListBasePackagePart,new ApiInfo(
                     new HashMap<String, Object>() {
                         {

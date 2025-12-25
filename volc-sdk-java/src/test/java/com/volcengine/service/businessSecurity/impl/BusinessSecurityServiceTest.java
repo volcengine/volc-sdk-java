@@ -184,7 +184,6 @@ public class BusinessSecurityServiceTest extends TestCase {
         request.setAppId(1);
         request.setPackageId("id00004");
         request.setScene(1);
-        request.setDataSize(20000);
         ActivationRiskCompleteBasePackageResponse response = service.ActivationRiskCompleteBasePackage(request);
         System.out.println(response);
 

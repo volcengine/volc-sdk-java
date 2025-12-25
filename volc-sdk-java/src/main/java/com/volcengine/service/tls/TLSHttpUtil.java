@@ -35,8 +35,10 @@ public class TLSHttpUtil extends BaseServiceImpl {
         if (headers != null && !headers.isEmpty()) {
             headers.forEach(request::setHeader);
         }
-        request.setHeader("Content-Type", "application/json");
-        request.setEntity(new StringEntity(body, "utf-8"));
+        if (body != null) {
+            request.setHeader("Content-Type", "application/json");
+            request.setEntity(new StringEntity(body, "utf-8"));
+        }
         return makeRequest(api, request);
     }
 
@@ -540,6 +542,26 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         }
                     }
             ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_IMPORT_TASKS, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.GET);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_IMPORT_TASKS);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.MODIFY_IMPORT_TASK, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.PUT);
+                            put(Const.Path, com.volcengine.model.tls.Const.MODIFY_IMPORT_TASK);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
             put(com.volcengine.model.tls.Const.DESCRIBE_HISTOGRAM, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -660,6 +682,78 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         }
                     }
             ));
+            put(com.volcengine.model.tls.Const.GET_ACCOUNT_STATUS, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.GET);
+                            put(Const.Path, com.volcengine.model.tls.Const.GET_ACCOUNT_STATUS);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+
+            put(com.volcengine.model.tls.Const.DESCRIBE_TRACE_INSTANCE, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.GET);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_TRACE_INSTANCE);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.CREATE_TRACE_INSTANCE, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.CREATE_TRACE_INSTANCE);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.MODIFY_TRACE_INSTANCE, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.PUT);
+                            put(Const.Path, com.volcengine.model.tls.Const.MODIFY_TRACE_INSTANCE);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DELETE_TRACE_INSTANCE, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.DELETE);
+                            put(Const.Path, com.volcengine.model.tls.Const.DELETE_TRACE_INSTANCE);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_TRACE_INSTANCES, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.GET);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_TRACE_INSTANCES);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.ACTIVE_TLS_ACCOUNT, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.ACTIVE_TLS_ACCOUNT);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
         }
+
     };
 }

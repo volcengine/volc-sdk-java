@@ -429,7 +429,9 @@ public class TLSLogClientImpl implements TLSLogClient {
     }
 
     private RawResponse sendJsonRequest(String path, ArrayList<NameValuePair> query, String requestBody, Map<String, String> headers) throws LogException {
-        checkMd5(path, requestBody.getBytes(), headers);
+        if (requestBody != null) {
+            checkMd5(path, requestBody.getBytes(), headers);
+        }
 
         if (headers == null) {
             headers = new HashMap<>();
@@ -1461,11 +1463,19 @@ public class TLSLogClientImpl implements TLSLogClient {
             if (StringUtils.isNotEmpty(request.getStatus())) {
                 params.add(new BasicNameValuePair(STATUS, request.getStatus()));
             }
+            if (StringUtils.isNotEmpty(request.getTopicName())) {
+                params.add(new BasicNameValuePair(TOPIC_NAME, request.getTopicName()));
+            }
+            if (StringUtils.isNotEmpty(request.getSourceType())) {
+                params.add(new BasicNameValuePair(SOURCE_TYPE, request.getSourceType()));
+            }
+            if (StringUtils.isNotEmpty(request.getIamProjectName())) {
+                params.add(new BasicNameValuePair(IAM_PROJECT_NAME, request.getIamProjectName()));
+            }
         }
-        String requestBody = JSONObject.toJSONString(request);
 
         // 3. check sum and sendRequest
-        RawResponse rawResponse = sendJsonRequest(DESCRIBE_IMPORT_TASKS, params, requestBody);
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_IMPORT_TASKS, params, Const.EMPTY_JSON);
 
         // 4. parse response
         return new DescribeImportTasksResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeImportTasksResponse.class);
@@ -1735,7 +1745,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         }
 
         // 2、check sum and sendRequest
-        RawResponse rawResponse = sendJsonRequest("DescribeTraceInstances", params, Const.EMPTY_JSON);
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_TRACE_INSTANCES, params, Const.EMPTY_JSON);
 
         // 3、parse response
         return new DescribeTraceInstancesResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeTraceInstancesResponse.class);
@@ -1764,10 +1774,10 @@ public class TLSLogClientImpl implements TLSLogClient {
         }
 
         // 1、prepare request
-        String requestBody = JSONObject.toJSONString(request);
+        ArrayList<NameValuePair> params = new ArrayList<>();
 
         // 2、check sum and sendRequest
-        RawResponse rawResponse = sendJsonRequest(GET_ACCOUNT_STATUS, new ArrayList<>(), requestBody);
+        RawResponse rawResponse = sendJsonRequest(GET_ACCOUNT_STATUS, params, Const.EMPTY_JSON);
 
         // 3、parse response
         return new GetAccountStatusResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), GetAccountStatusResponse.class);

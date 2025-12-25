@@ -117,6 +117,24 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 64: {
+            bitField0_ |= 0x00000004;
+            batchGenerateCount_ = input.readInt32();
+            break;
+          }
+          case 74: {
+            com.volcengine.service.vod.model.business.DramaRecapConfig.Builder subBuilder = null;
+            if (((bitField0_ & 0x00000008) != 0)) {
+              subBuilder = dramaRecapConfig_.toBuilder();
+            }
+            dramaRecapConfig_ = input.readMessage(com.volcengine.service.vod.model.business.DramaRecapConfig.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(dramaRecapConfig_);
+              dramaRecapConfig_ = subBuilder.buildPartial();
+            }
+            bitField0_ |= 0x00000008;
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -381,6 +399,51 @@ private static final long serialVersionUID = 0L;
     return getFontConfig();
   }
 
+  public static final int BATCHGENERATECOUNT_FIELD_NUMBER = 8;
+  private int batchGenerateCount_;
+  /**
+   * <code>optional int32 BatchGenerateCount = 8;</code>
+   * @return Whether the batchGenerateCount field is set.
+   */
+  @java.lang.Override
+  public boolean hasBatchGenerateCount() {
+    return ((bitField0_ & 0x00000004) != 0);
+  }
+  /**
+   * <code>optional int32 BatchGenerateCount = 8;</code>
+   * @return The batchGenerateCount.
+   */
+  @java.lang.Override
+  public int getBatchGenerateCount() {
+    return batchGenerateCount_;
+  }
+
+  public static final int DRAMARECAPCONFIG_FIELD_NUMBER = 9;
+  private com.volcengine.service.vod.model.business.DramaRecapConfig dramaRecapConfig_;
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.DramaRecapConfig DramaRecapConfig = 9;</code>
+   * @return Whether the dramaRecapConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasDramaRecapConfig() {
+    return ((bitField0_ & 0x00000008) != 0);
+  }
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.DramaRecapConfig DramaRecapConfig = 9;</code>
+   * @return The dramaRecapConfig.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.DramaRecapConfig getDramaRecapConfig() {
+    return dramaRecapConfig_ == null ? com.volcengine.service.vod.model.business.DramaRecapConfig.getDefaultInstance() : dramaRecapConfig_;
+  }
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.DramaRecapConfig DramaRecapConfig = 9;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.DramaRecapConfigOrBuilder getDramaRecapConfigOrBuilder() {
+    return dramaRecapConfig_ == null ? com.volcengine.service.vod.model.business.DramaRecapConfig.getDefaultInstance() : dramaRecapConfig_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -415,6 +478,12 @@ private static final long serialVersionUID = 0L;
     }
     if (fontConfig_ != null) {
       output.writeMessage(7, getFontConfig());
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
+      output.writeInt32(8, batchGenerateCount_);
+    }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      output.writeMessage(9, getDramaRecapConfig());
     }
     unknownFields.writeTo(output);
   }
@@ -453,6 +522,14 @@ private static final long serialVersionUID = 0L;
     if (fontConfig_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getFontConfig());
+    }
+    if (((bitField0_ & 0x00000004) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(8, batchGenerateCount_);
+    }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, getDramaRecapConfig());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -495,6 +572,16 @@ private static final long serialVersionUID = 0L;
       if (!getFontConfig()
           .equals(other.getFontConfig())) return false;
     }
+    if (hasBatchGenerateCount() != other.hasBatchGenerateCount()) return false;
+    if (hasBatchGenerateCount()) {
+      if (getBatchGenerateCount()
+          != other.getBatchGenerateCount()) return false;
+    }
+    if (hasDramaRecapConfig() != other.hasDramaRecapConfig()) return false;
+    if (hasDramaRecapConfig()) {
+      if (!getDramaRecapConfig()
+          .equals(other.getDramaRecapConfig())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -530,6 +617,14 @@ private static final long serialVersionUID = 0L;
     if (hasFontConfig()) {
       hash = (37 * hash) + FONTCONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getFontConfig().hashCode();
+    }
+    if (hasBatchGenerateCount()) {
+      hash = (37 * hash) + BATCHGENERATECOUNT_FIELD_NUMBER;
+      hash = (53 * hash) + getBatchGenerateCount();
+    }
+    if (hasDramaRecapConfig()) {
+      hash = (37 * hash) + DRAMARECAPCONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getDramaRecapConfig().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -665,6 +760,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getDramaRecapConfigFieldBuilder();
       }
     }
     @java.lang.Override
@@ -692,6 +788,14 @@ private static final long serialVersionUID = 0L;
         fontConfig_ = null;
         fontConfigBuilder_ = null;
       }
+      batchGenerateCount_ = 0;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      if (dramaRecapConfigBuilder_ == null) {
+        dramaRecapConfig_ = null;
+      } else {
+        dramaRecapConfigBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -744,6 +848,18 @@ private static final long serialVersionUID = 0L;
         result.fontConfig_ = fontConfig_;
       } else {
         result.fontConfig_ = fontConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.batchGenerateCount_ = batchGenerateCount_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        if (dramaRecapConfigBuilder_ == null) {
+          result.dramaRecapConfig_ = dramaRecapConfig_;
+        } else {
+          result.dramaRecapConfig_ = dramaRecapConfigBuilder_.build();
+        }
+        to_bitField0_ |= 0x00000008;
       }
       result.bitField0_ = to_bitField0_;
       onBuilt();
@@ -825,6 +941,12 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasFontConfig()) {
         mergeFontConfig(other.getFontConfig());
+      }
+      if (other.hasBatchGenerateCount()) {
+        setBatchGenerateCount(other.getBatchGenerateCount());
+      }
+      if (other.hasDramaRecapConfig()) {
+        mergeDramaRecapConfig(other.getDramaRecapConfig());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1476,6 +1598,165 @@ private static final long serialVersionUID = 0L;
         fontConfig_ = null;
       }
       return fontConfigBuilder_;
+    }
+
+    private int batchGenerateCount_ ;
+    /**
+     * <code>optional int32 BatchGenerateCount = 8;</code>
+     * @return Whether the batchGenerateCount field is set.
+     */
+    @java.lang.Override
+    public boolean hasBatchGenerateCount() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional int32 BatchGenerateCount = 8;</code>
+     * @return The batchGenerateCount.
+     */
+    @java.lang.Override
+    public int getBatchGenerateCount() {
+      return batchGenerateCount_;
+    }
+    /**
+     * <code>optional int32 BatchGenerateCount = 8;</code>
+     * @param value The batchGenerateCount to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBatchGenerateCount(int value) {
+      bitField0_ |= 0x00000008;
+      batchGenerateCount_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional int32 BatchGenerateCount = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBatchGenerateCount() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      batchGenerateCount_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private com.volcengine.service.vod.model.business.DramaRecapConfig dramaRecapConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.DramaRecapConfig, com.volcengine.service.vod.model.business.DramaRecapConfig.Builder, com.volcengine.service.vod.model.business.DramaRecapConfigOrBuilder> dramaRecapConfigBuilder_;
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.DramaRecapConfig DramaRecapConfig = 9;</code>
+     * @return Whether the dramaRecapConfig field is set.
+     */
+    public boolean hasDramaRecapConfig() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.DramaRecapConfig DramaRecapConfig = 9;</code>
+     * @return The dramaRecapConfig.
+     */
+    public com.volcengine.service.vod.model.business.DramaRecapConfig getDramaRecapConfig() {
+      if (dramaRecapConfigBuilder_ == null) {
+        return dramaRecapConfig_ == null ? com.volcengine.service.vod.model.business.DramaRecapConfig.getDefaultInstance() : dramaRecapConfig_;
+      } else {
+        return dramaRecapConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.DramaRecapConfig DramaRecapConfig = 9;</code>
+     */
+    public Builder setDramaRecapConfig(com.volcengine.service.vod.model.business.DramaRecapConfig value) {
+      if (dramaRecapConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        dramaRecapConfig_ = value;
+        onChanged();
+      } else {
+        dramaRecapConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000010;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.DramaRecapConfig DramaRecapConfig = 9;</code>
+     */
+    public Builder setDramaRecapConfig(
+        com.volcengine.service.vod.model.business.DramaRecapConfig.Builder builderForValue) {
+      if (dramaRecapConfigBuilder_ == null) {
+        dramaRecapConfig_ = builderForValue.build();
+        onChanged();
+      } else {
+        dramaRecapConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000010;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.DramaRecapConfig DramaRecapConfig = 9;</code>
+     */
+    public Builder mergeDramaRecapConfig(com.volcengine.service.vod.model.business.DramaRecapConfig value) {
+      if (dramaRecapConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) != 0) &&
+            dramaRecapConfig_ != null &&
+            dramaRecapConfig_ != com.volcengine.service.vod.model.business.DramaRecapConfig.getDefaultInstance()) {
+          dramaRecapConfig_ =
+            com.volcengine.service.vod.model.business.DramaRecapConfig.newBuilder(dramaRecapConfig_).mergeFrom(value).buildPartial();
+        } else {
+          dramaRecapConfig_ = value;
+        }
+        onChanged();
+      } else {
+        dramaRecapConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000010;
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.DramaRecapConfig DramaRecapConfig = 9;</code>
+     */
+    public Builder clearDramaRecapConfig() {
+      if (dramaRecapConfigBuilder_ == null) {
+        dramaRecapConfig_ = null;
+        onChanged();
+      } else {
+        dramaRecapConfigBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000010);
+      return this;
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.DramaRecapConfig DramaRecapConfig = 9;</code>
+     */
+    public com.volcengine.service.vod.model.business.DramaRecapConfig.Builder getDramaRecapConfigBuilder() {
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return getDramaRecapConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.DramaRecapConfig DramaRecapConfig = 9;</code>
+     */
+    public com.volcengine.service.vod.model.business.DramaRecapConfigOrBuilder getDramaRecapConfigOrBuilder() {
+      if (dramaRecapConfigBuilder_ != null) {
+        return dramaRecapConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return dramaRecapConfig_ == null ?
+            com.volcengine.service.vod.model.business.DramaRecapConfig.getDefaultInstance() : dramaRecapConfig_;
+      }
+    }
+    /**
+     * <code>optional .Volcengine.Vod.Models.Business.DramaRecapConfig DramaRecapConfig = 9;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.DramaRecapConfig, com.volcengine.service.vod.model.business.DramaRecapConfig.Builder, com.volcengine.service.vod.model.business.DramaRecapConfigOrBuilder> 
+        getDramaRecapConfigFieldBuilder() {
+      if (dramaRecapConfigBuilder_ == null) {
+        dramaRecapConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.DramaRecapConfig, com.volcengine.service.vod.model.business.DramaRecapConfig.Builder, com.volcengine.service.vod.model.business.DramaRecapConfigOrBuilder>(
+                getDramaRecapConfig(),
+                getParentForChildren(),
+                isClean());
+        dramaRecapConfig_ = null;
+      }
+      return dramaRecapConfigBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

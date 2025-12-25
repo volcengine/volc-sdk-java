@@ -13,7 +13,7 @@ public final class ListVhostRecordPresetV2ResResultPresetListItemSlicePresetV2  
      * <p>录制配置 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ID")
-    private Integer iD;
+    private Long iD;
 
     /**
      * <p>录制配置名称。</p>

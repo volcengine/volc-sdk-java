@@ -46,10 +46,28 @@ public class DescribeImportTasksRequest {
     private String projectName;
 
     /**
+     * 日志主题名称
+     */
+    @JSONField(name = TOPIC_NAME)
+    private String topicName;
+
+    /**
+     * 导入源类型
+     */
+    @JSONField(name = SOURCE_TYPE)
+    private String sourceType;
+
+    /**
      * 导入任务状态
      */
     @JSONField(name = STATUS)
     private String status;
+
+    /**
+     * 访问控制项目名称
+     */
+    @JSONField(name = IAM_PROJECT_NAME)
+    private String iamProjectName;
 
     public boolean CheckValidation() {
         return true;

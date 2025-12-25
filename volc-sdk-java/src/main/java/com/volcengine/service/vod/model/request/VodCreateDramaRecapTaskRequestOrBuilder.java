@@ -113,4 +113,30 @@ public interface VodCreateDramaRecapTaskRequestOrBuilder extends
    * <code>.Volcengine.Vod.Models.Business.VodCreateDramaRecapTaskFontconfig FontConfig = 7;</code>
    */
   com.volcengine.service.vod.model.business.VodCreateDramaRecapTaskFontconfigOrBuilder getFontConfigOrBuilder();
+
+  /**
+   * <code>optional int32 BatchGenerateCount = 8;</code>
+   * @return Whether the batchGenerateCount field is set.
+   */
+  boolean hasBatchGenerateCount();
+  /**
+   * <code>optional int32 BatchGenerateCount = 8;</code>
+   * @return The batchGenerateCount.
+   */
+  int getBatchGenerateCount();
+
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.DramaRecapConfig DramaRecapConfig = 9;</code>
+   * @return Whether the dramaRecapConfig field is set.
+   */
+  boolean hasDramaRecapConfig();
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.DramaRecapConfig DramaRecapConfig = 9;</code>
+   * @return The dramaRecapConfig.
+   */
+  com.volcengine.service.vod.model.business.DramaRecapConfig getDramaRecapConfig();
+  /**
+   * <code>optional .Volcengine.Vod.Models.Business.DramaRecapConfig DramaRecapConfig = 9;</code>
+   */
+  com.volcengine.service.vod.model.business.DramaRecapConfigOrBuilder getDramaRecapConfigOrBuilder();
 }

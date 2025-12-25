@@ -153,6 +153,8 @@ public interface BusinessSecurityService extends IBaseService {
 
     ActivationRiskAsyncDetectRiskResponse ActivationRiskAsyncDetectRisk(ActivationRiskAsyncDetectRiskRequest request)throws Exception;
 
+    ActivationRiskConfirmAsyncDetectRiskResponse ActivationRiskConfirmAsyncDetectRisk(ActivationRiskConfirmAsyncDetectRiskRequest request)throws Exception;
+
     ActivationRiskCancelAsyncDetectRiskResponse ActivationRiskCancelAsyncDetectRisk(ActivationRiskCancelAsyncDetectRiskRequest request)throws Exception;
 
     ActivationRiskListBasePackagePartResponse ActivationRiskListBasePackagePart(ActivationRiskListBasePackagePartRequest request)throws Exception;

@@ -107,6 +107,15 @@ public class BusinessSecurityServiceImpl extends BaseServiceImpl implements Busi
     }
 
     @Override
+    public ActivationRiskConfirmAsyncDetectRiskResponse ActivationRiskConfirmAsyncDetectRisk(ActivationRiskConfirmAsyncDetectRiskRequest request) throws Exception {
+        RawResponse response = json(Const.ActivationRiskConfirmAsyncDetectRisk, new ArrayList<>(), JSON.toJSONString(request));
+        if (response.getCode()!= SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), ActivationRiskConfirmAsyncDetectRiskResponse.class);
+    }
+
+    @Override
     public ActivationRiskCancelAsyncDetectRiskResponse ActivationRiskCancelAsyncDetectRisk(ActivationRiskCancelAsyncDetectRiskRequest request) throws Exception {
         RawResponse response = json(Const.ActivationRiskCancelAsyncDetectRisk, new ArrayList<>(), JSON.toJSONString(request));
         if (response.getCode()!= SdkError.SUCCESS.getNumber()) {

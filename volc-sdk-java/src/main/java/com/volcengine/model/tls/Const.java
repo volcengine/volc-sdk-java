@@ -86,6 +86,7 @@ public class Const {
     public static final String SOURCE_TYPE = "SourceType";
     public static final String TARGET_INFO = "TargetInfo";
     public static final String TOS_SOURCE_INFO = "TosSourceInfo";
+    public static final String ES_SOURCE_INFO = "EsSourceInfo";
     public static final String KAFKA_SOURCE_INFO = "KafkaSourceInfo";
     public static final String BUCKET = "bucket";
     public static final String PREFIX = "prefix";
@@ -119,6 +120,7 @@ public class Const {
     public static final String DELETE_TRACE_INSTANCE = "/DeleteTraceInstance";
     public static final String CREATE_TRACE_INSTANCE = "/CreateTraceInstance";
     public static final String DESCRIBE_TRACE_INSTANCE = "/DescribeTraceInstance";
+    public static final String DESCRIBE_TRACE_INSTANCES = "/DescribeTraceInstances";
 
     public static final String ACTIVE_TLS_ACCOUNT = "/ActiveTlsAccount";
     public static final String TLS = "TLS";
@@ -161,7 +163,9 @@ public class Const {
     public static final String SHARD_COUNT = "ShardCount";
     public static final String AUTO_SPLIT = "AutoSplit";
     public static final String MAX_SPLIT_SHARD = "MaxSplitShard";
+    public static final String MAX_SPLIT_PARTITIONS = "MaxSplitPartitions";
     public static final String ENABLE_TRACKING = "EnableTracking";
+    public static final String BACKEND_CONFIG = "BackendConfig";
     public static final String TAGS = "Tags";
     public static final String LOG_PUBLIC_IP = "LogPublicIP";
     public static final String ENABLE_HOT_TTL = "EnableHotTtl";
@@ -197,6 +201,11 @@ public class Const {
     public static final String JSON_KEYS = "JsonKeys";
     public static final String INDEX_ALL = "IndexAll";
     public static final String USER_INNER_KEY_VALUE = "UserInnerKeyValue";
+    public static final String LOG_REDUCE = "LogReduce";
+    public static final String LOG_REDUCE_BLACK_LIST = "LogReduceBlackList";
+    public static final String LOG_REDUCE_WHITE_LIST = "LogReduceWhiteList";
+    public static final String ALLOW_EDIT = "AllowEdit";
+    public static final String ALLOW_DELETE = "AllowDelete";
     public static final String MAX_TEXT_LEN = "MaxTextLen";
     public static final String ENABLE_AUTO_INDEX = "EnableAutoIndex";
 
@@ -324,6 +333,7 @@ public class Const {
     public static final String START_TIME = "StartTime";
     public static final String END_TIME = "EndTime";
     public static final String IAM_PROJECT_NAME = "IamProjectName";
+    public static final String CS_ACCOUNT_CHANNEL = "CsAccountChannel";
     public static final String QUERY = "Query";
     public static final String NUMBER = "Number";
     public static final String START_TIME_OFFSET = "StartTimeOffset";

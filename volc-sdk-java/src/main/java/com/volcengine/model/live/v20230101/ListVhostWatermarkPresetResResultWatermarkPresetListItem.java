@@ -25,7 +25,7 @@ public final class ListVhostWatermarkPresetResResultWatermarkPresetListItem  {
      * <p>水印模版 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ID")
-    private Integer iD;
+    private Long iD;
 
     /**
      * <p>需要添加水印的直播画面方向。</p>

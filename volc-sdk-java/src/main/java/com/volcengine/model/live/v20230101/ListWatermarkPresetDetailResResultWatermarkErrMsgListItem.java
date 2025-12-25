@@ -19,7 +19,7 @@ public final class ListWatermarkPresetDetailResResultWatermarkErrMsgListItem  {
      * <p>水印模板的 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ID")
-    private Integer iD;
+    private Long iD;
 
     /**
      * <p>水印模板的名称。</p>

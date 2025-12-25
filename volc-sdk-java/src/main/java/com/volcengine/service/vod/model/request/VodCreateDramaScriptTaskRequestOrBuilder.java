@@ -60,4 +60,27 @@ public interface VodCreateDramaScriptTaskRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getReRunDramaScriptTaskIdBytes();
+
+  /**
+   * <code>optional bool HasHardSubtitle = 4;</code>
+   * @return Whether the hasHardSubtitle field is set.
+   */
+  boolean hasHasHardSubtitle();
+  /**
+   * <code>optional bool HasHardSubtitle = 4;</code>
+   * @return The hasHardSubtitle.
+   */
+  boolean getHasHardSubtitle();
+
+  /**
+   * <code>string ClientToken = 5;</code>
+   * @return The clientToken.
+   */
+  java.lang.String getClientToken();
+  /**
+   * <code>string ClientToken = 5;</code>
+   * @return The bytes for clientToken.
+   */
+  com.google.protobuf.ByteString
+      getClientTokenBytes();
 }

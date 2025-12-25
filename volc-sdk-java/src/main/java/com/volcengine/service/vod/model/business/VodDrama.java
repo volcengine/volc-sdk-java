@@ -44,6 +44,11 @@ public final class VodDrama {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_VodCreateDramaRecapTaskFontconfig_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_DramaRecapConfig_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_DramaRecapConfig_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -80,12 +85,21 @@ public final class VodDrama {
       "orB\022\n\020_BackgroundColorB\027\n\025_BackgroundBor" +
       "derSizeB\016\n\014_BorderColorB\016\n\014_BorderWidthB" +
       "\016\n\014_TypesettingB\014\n\n_AlignTypeB\007\n\005_PosXB\007" +
-      "\n\005_PosYB\017\n\r_LineMaxWidthB\314\001\n)com.volceng" +
-      "ine.service.vod.model.businessB\010VodDrama" +
-      "P\001ZAgithub.com/volcengine/volc-sdk-golan" +
-      "g/service/vod/models/business\240\001\001\330\001\001\302\002\000\312\002" +
-      " Volc\\Service\\Vod\\Models\\Business\342\002#Volc" +
-      "\\Service\\Vod\\Models\\GPBMetadatab\006proto3"
+      "\n\005_PosYB\017\n\r_LineMaxWidth\"\346\002\n\020DramaRecapC" +
+      "onfig\022\"\n\025AutoGenerateRecapText\030\001 \001(\010H\000\210\001" +
+      "\001\022\034\n\017HasHardSubtitle\030\002 \001(\010H\001\210\001\001\022\034\n\017Recap" +
+      "TextLength\030\003 \001(\005H\002\210\001\001\022\027\n\nRecapStyle\030\004 \001(" +
+      "\tH\003\210\001\001\022\033\n\016RecapTextSpeed\030\005 \001(\001H\004\210\001\001\022\035\n\020A" +
+      "llowRepeatMatch\030\006 \001(\010H\005\210\001\001\022\026\n\tPauseTime\030" +
+      "\007 \001(\005H\006\210\001\001B\030\n\026_AutoGenerateRecapTextB\022\n\020" +
+      "_HasHardSubtitleB\022\n\020_RecapTextLengthB\r\n\013" +
+      "_RecapStyleB\021\n\017_RecapTextSpeedB\023\n\021_Allow" +
+      "RepeatMatchB\014\n\n_PauseTimeB\314\001\n)com.volcen" +
+      "gine.service.vod.model.businessB\010VodDram" +
+      "aP\001ZAgithub.com/volcengine/volc-sdk-gola" +
+      "ng/service/vod/models/business\240\001\001\330\001\001\302\002\000\312" +
+      "\002 Volc\\Service\\Vod\\Models\\Business\342\002#Vol" +
+      "c\\Service\\Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -127,6 +141,12 @@ public final class VodDrama {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodCreateDramaRecapTaskFontconfig_descriptor,
         new java.lang.String[] { "NoSubtitle", "FontType", "FontSize", "Width", "Height", "Alpha", "TextRes", "FontColor", "BackgroundColor", "BackgroundBorderSize", "BorderColor", "BorderWidth", "Typesetting", "AlignType", "PosX", "PosY", "LineMaxWidth", "FontType", "FontSize", "Width", "Height", "Alpha", "TextRes", "FontColor", "BackgroundColor", "BackgroundBorderSize", "BorderColor", "BorderWidth", "Typesetting", "AlignType", "PosX", "PosY", "LineMaxWidth", });
+    internal_static_Volcengine_Vod_Models_Business_DramaRecapConfig_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_Volcengine_Vod_Models_Business_DramaRecapConfig_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_DramaRecapConfig_descriptor,
+        new java.lang.String[] { "AutoGenerateRecapText", "HasHardSubtitle", "RecapTextLength", "RecapStyle", "RecapTextSpeed", "AllowRepeatMatch", "PauseTime", "AutoGenerateRecapText", "HasHardSubtitle", "RecapTextLength", "RecapStyle", "RecapTextSpeed", "AllowRepeatMatch", "PauseTime", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

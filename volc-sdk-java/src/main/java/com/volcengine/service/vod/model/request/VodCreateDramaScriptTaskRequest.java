@@ -19,6 +19,7 @@ private static final long serialVersionUID = 0L;
     spaceName_ = "";
     vids_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     reRunDramaScriptTaskId_ = "";
+    clientToken_ = "";
   }
 
   @java.lang.Override
@@ -71,6 +72,17 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
             bitField0_ |= 0x00000001;
             reRunDramaScriptTaskId_ = s;
+            break;
+          }
+          case 32: {
+            bitField0_ |= 0x00000002;
+            hasHardSubtitle_ = input.readBool();
+            break;
+          }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            clientToken_ = s;
             break;
           }
           default: {
@@ -228,6 +240,63 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int HASHARDSUBTITLE_FIELD_NUMBER = 4;
+  private boolean hasHardSubtitle_;
+  /**
+   * <code>optional bool HasHardSubtitle = 4;</code>
+   * @return Whether the hasHardSubtitle field is set.
+   */
+  @java.lang.Override
+  public boolean hasHasHardSubtitle() {
+    return ((bitField0_ & 0x00000002) != 0);
+  }
+  /**
+   * <code>optional bool HasHardSubtitle = 4;</code>
+   * @return The hasHardSubtitle.
+   */
+  @java.lang.Override
+  public boolean getHasHardSubtitle() {
+    return hasHardSubtitle_;
+  }
+
+  public static final int CLIENTTOKEN_FIELD_NUMBER = 5;
+  private volatile java.lang.Object clientToken_;
+  /**
+   * <code>string ClientToken = 5;</code>
+   * @return The clientToken.
+   */
+  @java.lang.Override
+  public java.lang.String getClientToken() {
+    java.lang.Object ref = clientToken_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      clientToken_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string ClientToken = 5;</code>
+   * @return The bytes for clientToken.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getClientTokenBytes() {
+    java.lang.Object ref = clientToken_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      clientToken_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -251,6 +320,12 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, reRunDramaScriptTaskId_);
     }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      output.writeBool(4, hasHardSubtitle_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientToken_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, clientToken_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -273,6 +348,13 @@ private static final long serialVersionUID = 0L;
     }
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, reRunDramaScriptTaskId_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(4, hasHardSubtitle_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientToken_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, clientToken_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -298,6 +380,13 @@ private static final long serialVersionUID = 0L;
       if (!getReRunDramaScriptTaskId()
           .equals(other.getReRunDramaScriptTaskId())) return false;
     }
+    if (hasHasHardSubtitle() != other.hasHasHardSubtitle()) return false;
+    if (hasHasHardSubtitle()) {
+      if (getHasHardSubtitle()
+          != other.getHasHardSubtitle()) return false;
+    }
+    if (!getClientToken()
+        .equals(other.getClientToken())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -319,6 +408,13 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RERUNDRAMASCRIPTTASKID_FIELD_NUMBER;
       hash = (53 * hash) + getReRunDramaScriptTaskId().hashCode();
     }
+    if (hasHasHardSubtitle()) {
+      hash = (37 * hash) + HASHARDSUBTITLE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getHasHardSubtitle());
+    }
+    hash = (37 * hash) + CLIENTTOKEN_FIELD_NUMBER;
+    hash = (53 * hash) + getClientToken().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -458,6 +554,10 @@ private static final long serialVersionUID = 0L;
       bitField0_ = (bitField0_ & ~0x00000001);
       reRunDramaScriptTaskId_ = "";
       bitField0_ = (bitField0_ & ~0x00000002);
+      hasHardSubtitle_ = false;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      clientToken_ = "";
+
       return this;
     }
 
@@ -496,6 +596,11 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       result.reRunDramaScriptTaskId_ = reRunDramaScriptTaskId_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.hasHardSubtitle_ = hasHardSubtitle_;
+        to_bitField0_ |= 0x00000002;
+      }
+      result.clientToken_ = clientToken_;
       result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
@@ -562,6 +667,13 @@ private static final long serialVersionUID = 0L;
       if (other.hasReRunDramaScriptTaskId()) {
         bitField0_ |= 0x00000002;
         reRunDramaScriptTaskId_ = other.reRunDramaScriptTaskId_;
+        onChanged();
+      }
+      if (other.hasHasHardSubtitle()) {
+        setHasHardSubtitle(other.getHasHardSubtitle());
+      }
+      if (!other.getClientToken().isEmpty()) {
+        clientToken_ = other.clientToken_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -859,6 +971,121 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       bitField0_ |= 0x00000002;
       reRunDramaScriptTaskId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private boolean hasHardSubtitle_ ;
+    /**
+     * <code>optional bool HasHardSubtitle = 4;</code>
+     * @return Whether the hasHardSubtitle field is set.
+     */
+    @java.lang.Override
+    public boolean hasHasHardSubtitle() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional bool HasHardSubtitle = 4;</code>
+     * @return The hasHardSubtitle.
+     */
+    @java.lang.Override
+    public boolean getHasHardSubtitle() {
+      return hasHardSubtitle_;
+    }
+    /**
+     * <code>optional bool HasHardSubtitle = 4;</code>
+     * @param value The hasHardSubtitle to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHasHardSubtitle(boolean value) {
+      bitField0_ |= 0x00000004;
+      hasHardSubtitle_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional bool HasHardSubtitle = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHasHardSubtitle() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      hasHardSubtitle_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object clientToken_ = "";
+    /**
+     * <code>string ClientToken = 5;</code>
+     * @return The clientToken.
+     */
+    public java.lang.String getClientToken() {
+      java.lang.Object ref = clientToken_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        clientToken_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string ClientToken = 5;</code>
+     * @return The bytes for clientToken.
+     */
+    public com.google.protobuf.ByteString
+        getClientTokenBytes() {
+      java.lang.Object ref = clientToken_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        clientToken_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string ClientToken = 5;</code>
+     * @param value The clientToken to set.
+     * @return This builder for chaining.
+     */
+    public Builder setClientToken(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      clientToken_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string ClientToken = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearClientToken() {
+      
+      clientToken_ = getDefaultInstance().getClientToken();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string ClientToken = 5;</code>
+     * @param value The bytes for clientToken to set.
+     * @return This builder for chaining.
+     */
+    public Builder setClientTokenBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      clientToken_ = value;
       onChanged();
       return this;
     }

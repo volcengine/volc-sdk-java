@@ -17,7 +17,6 @@ public class CancelDownloadTaskResponse extends CommonResponse {
 
     @Override
     public CancelDownloadTaskResponse deSerialize(byte[] data, Class clazz) throws LogException {
-        CancelDownloadTaskResponse response = (CancelDownloadTaskResponse) super.deSerialize(data, clazz);
         return this;
     }
 }

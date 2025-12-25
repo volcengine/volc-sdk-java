@@ -12,5 +12,5 @@ public class ActivationRiskCompleteBasePackageRequest {
     @JSONField(name = "PackageId")
     String packageId;
     @JSONField(name = "DataSize")
-    Integer dataSize; // 包大小(MB
+    Long dataSize; // 包大小(MB
 }

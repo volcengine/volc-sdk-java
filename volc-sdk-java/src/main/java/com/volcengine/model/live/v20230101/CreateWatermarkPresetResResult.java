@@ -13,7 +13,7 @@ public final class CreateWatermarkPresetResResult  {
      * <p>水印模版 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ID")
-    private Integer iD;
+    private Long iD;
 
     /**
      * <p>模板名称。</p>

@@ -148,6 +148,7 @@ public class Const {
     public static final String ActivationRiskDetectRisk = "ActivationRiskDetectRisk";
     public static final String ActivationRiskAsyncDetectRisk = "ActivationRiskAsyncDetectRisk";
     public static final String ActivationRiskCancelAsyncDetectRisk = "ActivationRiskCancelAsyncDetectRisk";
+    public static final String ActivationRiskConfirmAsyncDetectRisk = "ActivationRiskConfirmAsyncDetectRisk";
 
     public static final String ActivationRiskListBasePackagePart = "ActivationRiskListBasePackagePart";
     public static final String ActivationRiskListSampleDataPart = "ListSampleDataPart";

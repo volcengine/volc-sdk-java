@@ -11,12 +11,14 @@ import org.apache.commons.logging.LogFactory;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class CheckpointTracker {
     private static final Log LOG = LogFactory.getLog(CheckpointTracker.class);
 
     private final ConsumerConfig consumerConfig;
     private final TLSLogClient tlsClient;
+    private final AtomicBoolean started;
 
     private String checkpoint;
     private String lastCheckpoint;
@@ -31,18 +33,21 @@ public class CheckpointTracker {
         this.tlsClient = consumer.tlsClient;
         this.consumeShard = consumeShard;
         this.lastCheckpoint = "";
+        this.started = new AtomicBoolean(false);
     }
 
     void start() {
-        LOG.debug("CheckpointTracker starts to work, intervalSecond "+ this.consumerConfig.getFlushCheckpointIntervalInSecond());
-        executorService = Executors.newScheduledThreadPool(1);
-        executorService.scheduleWithFixedDelay(() -> {
-            try {
-                uploadCheckpoint();
-            } catch (Exception e) {
-                LOG.error("Upload checkpoint with fixed delay failed.", e);
-            }
-        }, 0L, this.consumerConfig.getFlushCheckpointIntervalInSecond(), TimeUnit.SECONDS);
+        if (started.compareAndSet(false, true)) {
+            LOG.debug("CheckpointTracker starts to work, intervalSecond "+ this.consumerConfig.getFlushCheckpointIntervalInSecond());
+            executorService = Executors.newScheduledThreadPool(1);
+            executorService.scheduleWithFixedDelay(() -> {
+                try {
+                    uploadCheckpoint();
+                } catch (Exception e) {
+                    LOG.error("Upload checkpoint with fixed delay failed.", e);
+                }
+            }, 0L, this.consumerConfig.getFlushCheckpointIntervalInSecond(), TimeUnit.SECONDS);
+        }
     }
 
     public void setCheckpoint(CheckpointInfo checkpointInfo) {
@@ -63,12 +68,14 @@ public class CheckpointTracker {
     }
 
     public void stop() {
-        executorService.shutdown();
-        try {
-            executorService.awaitTermination(this.consumerConfig.getStopTimeout(), TimeUnit.SECONDS);
-        } catch (InterruptedException e) {
-            executorService.shutdownNow();
+        if (started.compareAndSet(true, false)) {
+            executorService.shutdown();
+            try {
+                executorService.awaitTermination(this.consumerConfig.getStopTimeout(), TimeUnit.SECONDS);
+            } catch (InterruptedException e) {
+                executorService.shutdownNow();
+            }
+            LOG.debug("CheckpointTracker stops.");
         }
-        LOG.debug("CheckpointTracker stops.");
     }
 }

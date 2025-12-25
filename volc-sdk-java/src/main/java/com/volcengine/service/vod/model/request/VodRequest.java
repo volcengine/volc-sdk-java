@@ -1367,7 +1367,7 @@ public final class VodRequest {
       "rceVid\030\003 \001(\t\022\021\n\tTargetVid\030\004 \001(\t\022\024\n\014Callb" +
       "ackArgs\030\005 \001(\t\022\021\n\tSpaceName\030\006 \001(\t\"@\n\034VodG" +
       "etCloudMigrateJobRequest\022\r\n\005JobId\030\001 \001(\003\022" +
-      "\021\n\tSpaceName\030\002 \001(\t\"\360\002\n\036VodCreateDramaRec" +
+      "\021\n\tSpaceName\030\002 \001(\t\"\216\004\n\036VodCreateDramaRec" +
       "apTaskRequest\022\021\n\tSpaceName\030\001 \001(\t\022\014\n\004Vids" +
       "\030\002 \003(\t\022\036\n\021DramaScriptTaskId\030\003 \001(\tH\000\210\001\001\022\021" +
       "\n\tRecapText\030\004 \001(\t\022[\n\rSpeakerConfig\030\005 \001(\013" +
@@ -1375,20 +1375,26 @@ public final class VodRequest {
       "ateDramaRecapTaskSpeakerConfig\022\034\n\017IsEras" +
       "eSubtitle\030\006 \001(\010H\001\210\001\001\022U\n\nFontConfig\030\007 \001(\013" +
       "2A.Volcengine.Vod.Models.Business.VodCre" +
-      "ateDramaRecapTaskFontconfigB\024\n\022_DramaScr" +
-      "iptTaskIdB\022\n\020_IsEraseSubtitle\"\202\001\n\037VodCre" +
-      "ateDramaScriptTaskRequest\022\021\n\tSpaceName\030\001" +
-      " \001(\t\022\014\n\004Vids\030\002 \003(\t\022#\n\026ReRunDramaScriptTa" +
-      "skId\030\003 \001(\tH\000\210\001\001B\031\n\027_ReRunDramaScriptTask" +
-      "Id\"B\n\035VodQueryDramaRecapTaskRequest\022\021\n\tS" +
-      "paceName\030\001 \001(\t\022\016\n\006TaskId\030\002 \001(\t\"C\n\036VodQue" +
-      "ryDramaScriptTaskRequest\022\021\n\tSpaceName\030\001 " +
-      "\001(\t\022\016\n\006TaskId\030\002 \001(\tB\310\001\n(com.volcengine.s" +
-      "ervice.vod.model.requestB\nVodRequestP\001Z@" +
-      "github.com/volcengine/volc-sdk-golang/se" +
-      "rvice/vod/models/request\240\001\001\330\001\001\312\002\037Volc\\Se" +
-      "rvice\\Vod\\Models\\Request\342\002#Volc\\Service\\" +
-      "Vod\\Models\\GPBMetadatab\006proto3"
+      "ateDramaRecapTaskFontconfig\022\037\n\022BatchGene" +
+      "rateCount\030\010 \001(\005H\002\210\001\001\022O\n\020DramaRecapConfig" +
+      "\030\t \001(\01320.Volcengine.Vod.Models.Business." +
+      "DramaRecapConfigH\003\210\001\001B\024\n\022_DramaScriptTas" +
+      "kIdB\022\n\020_IsEraseSubtitleB\025\n\023_BatchGenerat" +
+      "eCountB\023\n\021_DramaRecapConfig\"\311\001\n\037VodCreat" +
+      "eDramaScriptTaskRequest\022\021\n\tSpaceName\030\001 \001" +
+      "(\t\022\014\n\004Vids\030\002 \003(\t\022#\n\026ReRunDramaScriptTask" +
+      "Id\030\003 \001(\tH\000\210\001\001\022\034\n\017HasHardSubtitle\030\004 \001(\010H\001" +
+      "\210\001\001\022\023\n\013ClientToken\030\005 \001(\tB\031\n\027_ReRunDramaS" +
+      "criptTaskIdB\022\n\020_HasHardSubtitle\"B\n\035VodQu" +
+      "eryDramaRecapTaskRequest\022\021\n\tSpaceName\030\001 " +
+      "\001(\t\022\016\n\006TaskId\030\002 \001(\t\"C\n\036VodQueryDramaScri" +
+      "ptTaskRequest\022\021\n\tSpaceName\030\001 \001(\t\022\016\n\006Task" +
+      "Id\030\002 \001(\tB\310\001\n(com.volcengine.service.vod." +
+      "model.requestB\nVodRequestP\001Z@github.com/" +
+      "volcengine/volc-sdk-golang/service/vod/m" +
+      "odels/request\240\001\001\330\001\001\312\002\037Volc\\Service\\Vod\\M" +
+      "odels\\Request\342\002#Volc\\Service\\Vod\\Models\\" +
+      "GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2343,13 +2349,13 @@ public final class VodRequest {
     internal_static_Volcengine_Vod_Models_Request_VodCreateDramaRecapTaskRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Request_VodCreateDramaRecapTaskRequest_descriptor,
-        new java.lang.String[] { "SpaceName", "Vids", "DramaScriptTaskId", "RecapText", "SpeakerConfig", "IsEraseSubtitle", "FontConfig", "DramaScriptTaskId", "IsEraseSubtitle", });
+        new java.lang.String[] { "SpaceName", "Vids", "DramaScriptTaskId", "RecapText", "SpeakerConfig", "IsEraseSubtitle", "FontConfig", "BatchGenerateCount", "DramaRecapConfig", "DramaScriptTaskId", "IsEraseSubtitle", "BatchGenerateCount", "DramaRecapConfig", });
     internal_static_Volcengine_Vod_Models_Request_VodCreateDramaScriptTaskRequest_descriptor =
       getDescriptor().getMessageTypes().get(157);
     internal_static_Volcengine_Vod_Models_Request_VodCreateDramaScriptTaskRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Request_VodCreateDramaScriptTaskRequest_descriptor,
-        new java.lang.String[] { "SpaceName", "Vids", "ReRunDramaScriptTaskId", "ReRunDramaScriptTaskId", });
+        new java.lang.String[] { "SpaceName", "Vids", "ReRunDramaScriptTaskId", "HasHardSubtitle", "ClientToken", "ReRunDramaScriptTaskId", "HasHardSubtitle", });
     internal_static_Volcengine_Vod_Models_Request_VodQueryDramaRecapTaskRequest_descriptor =
       getDescriptor().getMessageTypes().get(158);
     internal_static_Volcengine_Vod_Models_Request_VodQueryDramaRecapTaskRequest_fieldAccessorTable = new

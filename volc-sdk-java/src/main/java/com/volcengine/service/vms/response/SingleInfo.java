@@ -34,4 +34,7 @@ public class SingleInfo {
 
     @JSONField(name = "Duration")
     private Integer duration;
+
+    @JSONField(name = "CallUuid")
+    private String callUuid;
 }

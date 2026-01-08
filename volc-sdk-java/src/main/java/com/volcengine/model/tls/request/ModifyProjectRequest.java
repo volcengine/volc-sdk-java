@@ -74,7 +74,7 @@ public class ModifyProjectRequest {
      * @return 检验必填参数，true合法false不合法
      */
     public boolean CheckValidation() {
-        if (this.projectId == null) {
+        if (this.projectId == null || this.projectId.isEmpty()) {
             return false;
         }
         return true;

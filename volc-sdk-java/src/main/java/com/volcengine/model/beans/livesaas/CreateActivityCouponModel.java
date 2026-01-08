@@ -36,4 +36,8 @@ public class CreateActivityCouponModel {
     Integer IsViewerLevelLimit;
     @JSONField(name = "ViewerLevelConfigIds")
     List<Long> ViewerLevelConfigIds;
+    @JSONField(name = "SendCouponType")
+    Integer SendCouponType;
+    @JSONField(name = "AutoSendTime")
+    Integer AutoSendTime;
 }

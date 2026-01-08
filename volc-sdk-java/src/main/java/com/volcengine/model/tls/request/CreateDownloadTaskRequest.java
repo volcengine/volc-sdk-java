@@ -1,6 +1,7 @@
 package com.volcengine.model.tls.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.tls.LogContextInfos;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -38,26 +39,37 @@ public class CreateDownloadTaskRequest {
     @JSONField(name = COMPRESSION)
     String compression;
 
+    @JSONField(name = TASK_TYPE)
+    Integer taskType;
+
+    @JSONField(name = ALLOW_INCOMPLETE)
+    Boolean allowIncomplete;
+
+    @JSONField(name = LOG_CONTEXT_INFOS)
+    LogContextInfos logContextInfos;
+
     /**
      * @return 检验必填参数，true合法false不合法
      */
     public boolean CheckValidation() {
-        if (this.topicId == null || this.query == null || this.startTime == null || this.endTime == null ||
-                this.dataFormat == null || this.sort == null || this.limit == null || this.compression == null) {
+        // 对齐服务端 CreateDownloadTaskReq 结构体的 binding:"required" 字段
+        if (this.topicId == null || this.taskName == null || this.taskType == null
+                || this.startTime == null || this.endTime == null
+                || this.dataFormat == null || this.compression == null) {
             return false;
         }
         return true;
     }
 
     /**
-     * @param startTime 查询开始时间点，精确到毫秒
+     * @param startTime 查询开始时间点，单位为秒级 Unix 时间戳
      */
     public void setStartTime(long startTime) {
         this.startTime = startTime;
     }
 
     /**
-     * @param endTime 查询结束时间点，精确到毫秒
+     * @param endTime 查询结束时间点，单位为秒级 Unix 时间戳
      */
     public void setEndTime(long endTime) {
         this.endTime = endTime;
@@ -106,14 +118,14 @@ public class CreateDownloadTaskRequest {
     }
 
     /**
-     * @return 导出的文件格式，支持：csv、json
+     * @return 导出的文件格式，支持：csv、json、jsonl
      */
     public String getDataFormat() {
         return dataFormat;
     }
 
     /**
-     * @param dataFormat 导出的文件格式，支持设置为：csv、json
+     * @param dataFormat 导出的文件格式，支持设置为：csv、json、jsonl
      */
     public void setDataFormat(String dataFormat) {
         this.dataFormat = dataFormat;
@@ -148,21 +160,21 @@ public class CreateDownloadTaskRequest {
     }
 
     /**
-     * @return 导出文件的压缩类型，目前仅支持设置为 gzip
+     * @return 导出文件的压缩类型，支持 gzip、zip、none
      */
     public String getCompression() {
         return compression;
     }
 
     /**
-     * @param compression 导出文件的压缩类型，目前仅支持设置为 gzip
+     * @param compression 导出文件的压缩类型，支持 gzip、zip、none
      */
     public void setCompression(String compression) {
         this.compression = compression;
     }
 
     /**
-     * @param startTime 查询开始时间点，精确到毫秒
+     * @param startTime 查询开始时间点，单位为秒级 Unix 时间戳
      */
     @Deprecated
     public void setStartTime(BigInteger startTime) {
@@ -170,7 +182,7 @@ public class CreateDownloadTaskRequest {
     }
 
     /**
-     * @param endTime 查询结束时间点，精确到毫秒
+     * @param endTime 查询结束时间点，单位为秒级 Unix 时间戳
      */
     @Deprecated
     public void setEndTime(BigInteger endTime) {

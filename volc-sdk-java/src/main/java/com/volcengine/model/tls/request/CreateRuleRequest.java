@@ -180,7 +180,7 @@ public class CreateRuleRequest {
      * @return 检验必填参数，true合法false不合法
      */
     public boolean CheckValidation() {
-        if (this.topicId == null || this.ruleName == null) {
+        if (this.topicId == null || this.topicId.isEmpty() || this.ruleName == null || this.ruleName.isEmpty()) {
             return false;
         }
         return true;

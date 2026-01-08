@@ -16,6 +16,9 @@ public class DescribeDownloadTasksRequest {
     @JSONField(serialize = false)
     Integer pageSize;
 
+    @JSONField(serialize = false)
+    String taskName;
+
     /**
      * @param topicId    日志所在的日志主题 ID
      * @param pageNumber 分页查询时的页码。默认为 1
@@ -67,6 +70,20 @@ public class DescribeDownloadTasksRequest {
      */
     public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
+    }
+
+    /**
+     * @return 根据任务名称进行筛选，支持模糊搜索
+     */
+    public String getTaskName() {
+        return taskName;
+    }
+
+    /**
+     * @param taskName 根据任务名称进行筛选，支持模糊搜索
+     */
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
     }
 
     /**

@@ -212,7 +212,7 @@ public class ModifyAlarmRequest {
      * @return 检验必填参数，true合法false不合法
      */
     public boolean CheckValidation() {
-        if (this.alarmId == null) {
+        if (this.alarmId == null || this.alarmId.isEmpty()) {
             return false;
         }
         return true;

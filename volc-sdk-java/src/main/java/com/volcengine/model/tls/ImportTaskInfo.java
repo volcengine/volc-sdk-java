@@ -48,7 +48,7 @@ public class ImportTaskInfo {
     /**
      * 导入任务状态
      */
-    @JSONField(name = STATUS)
+    @JSONField(name = "status")
     private String status;
 
     /**

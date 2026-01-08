@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
+
 import static com.volcengine.model.tls.Const.*;
 
 @Data
@@ -19,4 +21,8 @@ public class ConsumerGroup {
     int heartbeatTTL;
     @JSONField(name = ORDERED_CONSUME)
     boolean orderedConsume;
+    @JSONField(name = TOPIC_ID)
+    List<String> topicId;
+    @JSONField(name = PROJECT_NAME)
+    String projectName;
 }

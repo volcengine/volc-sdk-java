@@ -5,6 +5,10 @@ import com.volcengine.model.tls.DescribeRulesRequest;
 import com.volcengine.model.tls.exception.LogException;
 import com.volcengine.model.tls.request.*;
 import com.volcengine.model.tls.response.*;
+import com.volcengine.model.tls.request.DeleteShipperRequest;
+import com.volcengine.model.tls.response.DeleteShipperResponse;
+import com.volcengine.model.tls.request.TagResourcesRequest;
+import com.volcengine.model.tls.response.TagResourcesResponse;
 import org.apache.http.client.HttpClient;
 
 public interface TLSLogClient {
@@ -26,6 +30,12 @@ public interface TLSLogClient {
      * @param request
      */
     PutLogsResponse putLogs(PutLogsRequest request) throws LogException;
+
+    /**
+     * 标签管理
+     * @param request
+     */
+    TagResourcesResponse tagResources(TagResourcesRequest request) throws LogException;
 
     PutLogsResponse putLogsV2(PutLogsRequestV2 request) throws LogException;
 
@@ -107,6 +117,8 @@ public interface TLSLogClient {
 
     DeleteRuleFromHostGroupsResponse deleteRuleFromHostGroups(DeleteRuleFromHostGroupsRequest request) throws LogException;
 
+    ModifyETLTaskResponse modifyETLTask(ModifyETLTaskRequest request) throws LogException;
+
     /**
      * 机器组
      */
@@ -150,6 +162,25 @@ public interface TLSLogClient {
 
     DescribeAlarmNotifyGroupsResponse describeAlarmNotifyGroups(DescribeAlarmNotifyGroupsRequest request) throws LogException;
 
+    CreateAlarmContentTemplateResponse createAlarmContentTemplate(CreateAlarmContentTemplateRequest request) throws LogException;
+
+    CreateAlarmWebhookIntegrationResponse createAlarmWebhookIntegration(CreateAlarmWebhookIntegrationRequest request) throws LogException;
+
+    DeleteAlarmContentTemplateResponse deleteAlarmContentTemplate(DeleteAlarmContentTemplateRequest request) throws LogException;
+
+    DeleteAlarmWebhookIntegrationResponse deleteAlarmWebhookIntegration(DeleteAlarmWebhookIntegrationRequest request) throws LogException;
+
+    DescribeAlarmContentTemplatesResponse describeAlarmContentTemplates(DescribeAlarmContentTemplatesRequest request) throws LogException;
+
+    DescribeAlarmWebhookIntegrationsResponse describeAlarmWebhookIntegrations(DescribeAlarmWebhookIntegrationsRequest request) throws LogException;
+
+    ModifyAlarmContentTemplateResponse modifyAlarmContentTemplate(ModifyAlarmContentTemplateRequest request) throws LogException;
+
+    /**
+     * 告警Webhook集成
+     */
+    ModifyAlarmWebhookIntegrationResponse modifyAlarmWebhookIntegration(ModifyAlarmWebhookIntegrationRequest request) throws LogException;
+
     /**
      * Kafka协议消费
      */
@@ -171,9 +202,17 @@ public interface TLSLogClient {
     DescribeDownloadUrlResponse describeDownloadUrl(DescribeDownloadUrlRequest request) throws LogException;
 
     /**
-     * 导入任务
+     * 数据导入任务
      */
+    CreateImportTaskResponse createImportTask(CreateImportTaskRequest request) throws LogException;
+
+    DescribeImportTaskResponse describeImportTask(DescribeImportTaskRequest request) throws LogException;
+
     DescribeImportTasksResponse describeImportTasks(DescribeImportTasksRequest request) throws LogException;
+
+    DeleteImportTaskResponse deleteImportTask(DeleteImportTaskRequest request) throws LogException;
+
+    DescribeShippersResponse describeShippers(DescribeShippersRequest request) throws LogException;
 
     /**
      * 消费组消费
@@ -192,15 +231,37 @@ public interface TLSLogClient {
 
     ModifyCheckpointResponse modifyCheckPoint(ModifyCheckpointRequest request) throws LogException;
 
-    /**
-     * 手动分裂分区
-     */
+    ResetCheckPointResponse resetCheckPoint(ResetCheckPointRequest request) throws LogException;
+
     ManualShardSplitResponse manualShardSplit(ManualShardSplitRequest request) throws LogException;
 
-    /**
-     * 导入任务
-     */
     ModifyImportTaskResponse modifyImportTask(ModifyImportTaskRequest request) throws LogException;
+
+    DescribeETLTasksResponse describeETLTasks(DescribeETLTasksRequest request) throws LogException;
+
+    DescribeETLTaskResponse describeETLTask(DescribeETLTaskRequest request) throws LogException;
+
+    DeleteETLTaskResponse deleteETLTask(DeleteETLTaskRequest request) throws LogException;
+
+    ModifyETLTaskStatusResponse modifyETLTaskStatus(ModifyETLTaskStatusRequest request) throws LogException;
+
+    CreateETLTaskResponse createETLTask(CreateETLTaskRequest request) throws LogException;
+
+    DeleteShipperResponse deleteShipper(DeleteShipperRequest request) throws LogException;
+
+    DescribeShipperResponse describeShipper(DescribeShipperRequest request) throws LogException;
+
+    ModifyShipperResponse modifyShipper(ModifyShipperRequest request) throws LogException;
+
+    CreateShipperResponse createShipper(CreateShipperRequest request) throws LogException;
+
+    AddTagsToResourceResponse addTagsToResource(AddTagsToResourceRequest request) throws LogException;
+ 
+    RemoveTagsFromResourceResponse removeTagsFromResource(RemoveTagsFromResourceRequest request) throws LogException;
+ 
+    ListTagsForResourcesResponse listTagsForResources(ListTagsForResourcesRequest request) throws LogException;
+
+    UntagResourcesResponse untagResources(UntagResourcesRequest request) throws LogException;
 
     DescribeTraceInstancesResponse describeTraceInstances(DescribeTraceInstancesRequest request) throws LogException;
 
@@ -209,8 +270,12 @@ public interface TLSLogClient {
     CreateTraceInstanceResponse createTraceInstance(CreateTraceInstanceRequest request) throws LogException;
     
     DescribeTraceInstanceResponse describeTraceInstance(DescribeTraceInstanceRequest request) throws LogException;
-    
+
     DeleteTraceInstanceResponse deleteTraceInstance(DeleteTraceInstanceRequest request) throws LogException;
+
+    DescribeTraceResponse describeTrace(DescribeTraceRequest request) throws LogException;
+
+    SearchTracesResponse searchTraces(SearchTracesRequest request) throws LogException;
 
     /**
      * 获取账户状态
@@ -221,4 +286,17 @@ public interface TLSLogClient {
      * 激活TLS账户
      */
     ActiveTlsAccountResponse activeTlsAccount(ActiveTlsAccountRequest request) throws LogException;
+
+    /**
+     * 定时SQL任务
+     */
+    CreateScheduleSqlTaskResponse createScheduleSqlTask(CreateScheduleSqlTaskRequest request) throws LogException;
+
+    ModifyScheduleSqlTaskResponse modifyScheduleSqlTask(ModifyScheduleSqlTaskRequest request) throws LogException;
+
+    DeleteScheduleSqlTaskResponse deleteScheduleSqlTask(DeleteScheduleSqlTaskRequest request) throws LogException;
+
+    DescribeScheduleSqlTaskResponse describeScheduleSqlTask(DescribeScheduleSqlTaskRequest request) throws LogException;
+
+    DescribeScheduleSqlTasksResponse describeScheduleSqlTasks(DescribeScheduleSqlTasksRequest request) throws LogException;
 }

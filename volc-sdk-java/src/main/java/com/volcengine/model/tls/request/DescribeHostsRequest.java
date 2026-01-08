@@ -84,7 +84,7 @@ public class DescribeHostsRequest {
      * @return 检验必填参数，true合法false不合法
      */
     public boolean CheckValidation() {
-        if (this.hostGroupId == null) {
+        if (this.hostGroupId == null || this.hostGroupId.isEmpty()) {
             return false;
         }
         return true;

@@ -34,6 +34,6 @@ public class DeleteProjectRequest {
     }
 
     public boolean CheckValidation() {
-        return this.projectId != null;
+        return this.projectId != null && !this.projectId.isEmpty();
     }
 }

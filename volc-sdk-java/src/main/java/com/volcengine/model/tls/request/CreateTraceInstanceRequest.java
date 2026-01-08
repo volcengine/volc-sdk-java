@@ -75,6 +75,6 @@ public class CreateTraceInstanceRequest {
      * @return 检验必填参数，true合法false不合法
      */
     public boolean CheckValidation() {
-        return this.projectId != null && this.traceInstanceName != null;
+        return this.projectId != null && !this.projectId.isEmpty() && this.traceInstanceName != null && !this.traceInstanceName.isEmpty();
     }
 }

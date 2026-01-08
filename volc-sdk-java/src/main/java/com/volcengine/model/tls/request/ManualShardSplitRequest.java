@@ -65,7 +65,7 @@ public class ManualShardSplitRequest {
      * @return 检验必填参数，true合法false不合法
      */
     public boolean checkValidation() {
-        return this.topicId != null && this.shardId != null 
+        return this.topicId != null && !this.topicId.isEmpty() && this.shardId != null 
             && this.number != null;
     }
 }

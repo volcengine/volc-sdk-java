@@ -34,7 +34,7 @@ public class DeleteIndexRequest {
     }
 
     public boolean CheckValidation() {
-        if (this.topicId == null) {
+        if (this.topicId == null || this.topicId.isEmpty()) {
             return false;
         }
         return true;

@@ -38,7 +38,9 @@ public class ExtractRule {
     @JSONField(name = TIME_EXTRACT_REGEX)
     String timeExtractRegex;
     @JSONField(name = ENABLE_NANOSECOND)
-    Boolean enableNanosecond;
+    boolean enableNanosecond;
+    @JSONField(name = TIME_SAMPLE)
+    String timeSample;
 
     /**
      * @return 日志分隔符
@@ -192,5 +194,61 @@ public class ExtractRule {
      */
     public void setLogTemplate(LogTemplate logTemplate) {
         this.logTemplate = logTemplate;
+    }
+
+    /**
+     * @return 时区
+     */
+    public String getTimeZone() {
+        return timeZone;
+    }
+
+    /**
+     * @param timeZone 时区
+     */
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
+
+    /**
+     * @return 提取时间的正则表达式
+     */
+    public String getTimeExtractRegex() {
+        return timeExtractRegex;
+    }
+
+    /**
+     * @param timeExtractRegex 提取时间的正则表达式
+     */
+    public void setTimeExtractRegex(String timeExtractRegex) {
+        this.timeExtractRegex = timeExtractRegex;
+    }
+
+    /**
+     * @return 是否启用纳秒精度时间功能
+     */
+    public boolean isEnableNanosecond() {
+        return enableNanosecond;
+    }
+
+    /**
+     * @param enableNanosecond 是否启用纳秒精度时间功能
+     */
+    public void setEnableNanosecond(boolean enableNanosecond) {
+        this.enableNanosecond = enableNanosecond;
+    }
+
+    /**
+     * @return 时间样例
+     */
+    public String getTimeSample() {
+        return timeSample;
+    }
+
+    /**
+     * @param timeSample 时间样例
+     */
+    public void setTimeSample(String timeSample) {
+        this.timeSample = timeSample;
     }
 }

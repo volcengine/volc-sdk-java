@@ -71,6 +71,7 @@ public class DownloadTaskTest extends BaseTest {
                     request.setDataFormat("csv");
                     request.setSort("desc");
                     request.setLimit(100);
+                    request.setTaskType(0);
                 }
                 CreateDownloadTaskResponse response = client.createDownloadTask(request);
                 System.out.println("Create download task success, response: " + response);

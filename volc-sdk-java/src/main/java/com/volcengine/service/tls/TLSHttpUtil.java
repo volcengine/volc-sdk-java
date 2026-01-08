@@ -271,6 +271,58 @@ public class TLSHttpUtil extends BaseServiceImpl {
                     }
             ));
 
+            // resource tag management
+            put(com.volcengine.model.tls.Const.TAG_RESOURCES, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.TAG_RESOURCES);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.ADD_TAGS_TO_RESOURCE, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.ADD_TAGS_TO_RESOURCE);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.LIST_TAGS_FOR_RESOURCES, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.LIST_TAGS_FOR_RESOURCES);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.UNTAG_RESOURCES, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.UNTAG_RESOURCES);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.REMOVE_TAGS_FROM_RESOURCE, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.REMOVE_TAGS_FROM_RESOURCE);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+
             //config for hostGroup create modify describe search delete host rule
             put(com.volcengine.model.tls.Const.CREATE_HOST_GROUP, new ApiInfo(
                     new HashMap<String, Object>() {
@@ -327,6 +379,16 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         {
                             put(Const.Method, Const.DELETE);
                             put(Const.Path, com.volcengine.model.tls.Const.DELETE_HOST);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DELETE_ABNORMAL_HOSTS, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.DELETE);
+                            put(Const.Path, com.volcengine.model.tls.Const.DELETE_ABNORMAL_HOSTS);
                             put(Const.Query, new ArrayList<NameValuePair>() {
                             });
                         }
@@ -432,6 +494,86 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         }
                     }
             ));
+            put(com.volcengine.model.tls.Const.CREATE_ALARM_CONTENT_TEMPLATE, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.CREATE_ALARM_CONTENT_TEMPLATE);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.MODIFY_ALARM_CONTENT_TEMPLATE, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.PUT);
+                            put(Const.Path, com.volcengine.model.tls.Const.MODIFY_ALARM_CONTENT_TEMPLATE);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DELETE_ALARM_CONTENT_TEMPLATE, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.DELETE);
+                            put(Const.Path, com.volcengine.model.tls.Const.DELETE_ALARM_CONTENT_TEMPLATE);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_ALARM_CONTENT_TEMPLATES, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.GET);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_ALARM_CONTENT_TEMPLATES);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.CREATE_ALARM_WEBHOOK_INTEGRATION, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.CREATE_ALARM_WEBHOOK_INTEGRATION);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.MODIFY_ALARM_WEBHOOK_INTEGRATION, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.PUT);
+                            put(Const.Path, com.volcengine.model.tls.Const.MODIFY_ALARM_WEBHOOK_INTEGRATION);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DELETE_ALARM_WEBHOOK_INTEGRATION, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.DELETE);
+                            put(Const.Path, com.volcengine.model.tls.Const.DELETE_ALARM_WEBHOOK_INTEGRATION);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_ALARM_WEBHOOK_INTEGRATIONS, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.GET);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_ALARM_WEBHOOK_INTEGRATIONS);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
             put(com.volcengine.model.tls.Const.PUT_LOGS, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -477,6 +619,16 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         {
                             put(Const.Method, Const.POST);
                             put(Const.Path, com.volcengine.model.tls.Const.SEARCH_LOGS);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.MANUAL_SHARD_SPLIT, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.MANUAL_SHARD_SPLIT);
                             put(Const.Query, new ArrayList<NameValuePair>() {
                             });
                         }
@@ -542,6 +694,26 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         }
                     }
             ));
+            put(com.volcengine.model.tls.Const.CANCEL_DOWNLOAD_TASK, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.CANCEL_DOWNLOAD_TASK);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.CREATE_IMPORT_TASK, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.CREATE_IMPORT_TASK);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
             put(com.volcengine.model.tls.Const.DESCRIBE_IMPORT_TASKS, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -557,6 +729,136 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         {
                             put(Const.Method, Const.PUT);
                             put(Const.Path, com.volcengine.model.tls.Const.MODIFY_IMPORT_TASK);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DELETE_IMPORT_TASK, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.DELETE);
+                            put(Const.Path, com.volcengine.model.tls.Const.DELETE_IMPORT_TASK);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_IMPORT_TASK, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.GET);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_IMPORT_TASK);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.CREATE_ETL_TASK, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.CREATE_ETL_TASK);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_ETL_TASKS, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.GET);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_ETL_TASKS);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_ETL_TASK, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.GET);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_ETL_TASK);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.MODIFY_ETL_TASK, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.PUT);
+                            put(Const.Path, com.volcengine.model.tls.Const.MODIFY_ETL_TASK);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DELETE_ETL_TASK, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.DELETE);
+                            put(Const.Path, com.volcengine.model.tls.Const.DELETE_ETL_TASK);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.MODIFY_ETL_TASK_STATUS, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.PUT);
+                            put(Const.Path, com.volcengine.model.tls.Const.MODIFY_ETL_TASK_STATUS);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_SHIPPERS, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.GET);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_SHIPPERS);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_SHIPPER, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.GET);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_SHIPPER);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DELETE_SHIPPER, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.DELETE);
+                            put(Const.Path, com.volcengine.model.tls.Const.DELETE_SHIPPER);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.MODIFY_SHIPPER, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.PUT);
+                            put(Const.Path, com.volcengine.model.tls.Const.MODIFY_SHIPPER);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.MODIFY_SCHEDULE_SQL_TASK, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.PUT);
+                            put(Const.Path, com.volcengine.model.tls.Const.MODIFY_SCHEDULE_SQL_TASK);
                             put(Const.Query, new ArrayList<NameValuePair>() {
                             });
                         }
@@ -682,6 +984,16 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         }
                     }
             ));
+            put(com.volcengine.model.tls.Const.RESET_CHECKPOINT, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.PUT);
+                            put(Const.Path, com.volcengine.model.tls.Const.RESET_CHECKPOINT);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
             put(com.volcengine.model.tls.Const.GET_ACCOUNT_STATUS, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -738,6 +1050,16 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         {
                             put(Const.Method, Const.GET);
                             put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_TRACE_INSTANCES);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_TRACE, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.GET);
+                            put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_TRACE);
                             put(Const.Query, new ArrayList<NameValuePair>() {
                             });
                         }

@@ -45,7 +45,7 @@ public class RuleTest extends BaseTest {
             createRuleRequest.setPaths(Arrays.asList("/data/nginx/log/*/*/*.log"));
             createRuleRequest.setLogType("delimiter_log");
 
-            ExtractRule extractRule = new ExtractRule();
+            com.volcengine.model.tls.ExtractRule extractRule = new com.volcengine.model.tls.ExtractRule();
             extractRule.setDelimiter("#");
             extractRule.setKeys(Arrays.asList("time", "level"));
             extractRule.setTimeKey("time");
@@ -93,7 +93,7 @@ public class RuleTest extends BaseTest {
             ruleInfo.setPaths(Arrays.asList("/data/nginx/log/*/*/*.log"));
             ruleInfo.setLogType("delimiter_log");
 
-            extractRule = new ExtractRule();
+            extractRule = new com.volcengine.model.tls.ExtractRule();
             extractRule.setDelimiter("#");
             extractRule.setKeys(Arrays.asList("time", "level"));
             extractRule.setTimeKey("time");

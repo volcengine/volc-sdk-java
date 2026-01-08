@@ -94,7 +94,7 @@ public class ModifyAlarmNotifyGroupRequest {
      * @return 检验必填参数，true合法false不合法
      */
     public boolean CheckValidation() {
-        if (this.alarmNotifyGroupId == null) {
+        if (this.alarmNotifyGroupId == null || this.alarmNotifyGroupId.isEmpty()) {
             return false;
         }
         return true;

@@ -47,7 +47,7 @@ public class ModifyTraceInstanceRequest {
      * @return 检验必填参数，true合法false不合法
      */
     public boolean CheckValidation() {
-        if (this.traceInstanceId == null) {
+        if (this.traceInstanceId == null || this.traceInstanceId.isEmpty()) {
             return false;
         }
         return true;

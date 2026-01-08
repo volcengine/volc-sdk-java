@@ -4,109 +4,172 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import static com.volcengine.model.tls.Const.*;
+import static com.volcengine.model.tls.Const.END_TIME_OFFSET;
+import static com.volcengine.model.tls.Const.END_TIME_OFFSET_UNIT;
+import static com.volcengine.model.tls.Const.NUMBER;
+import static com.volcengine.model.tls.Const.QUERY;
+import static com.volcengine.model.tls.Const.START_TIME_OFFSET;
+import static com.volcengine.model.tls.Const.START_TIME_OFFSET_UNIT;
+import static com.volcengine.model.tls.Const.TIME_SPAN_TYPE;
+import static com.volcengine.model.tls.Const.TOPIC_ID;
+import static com.volcengine.model.tls.Const.TOPIC_NAME;
+import static com.volcengine.model.tls.Const.TRUNCATED_TIME;
 
 @Data
 @NoArgsConstructor
 public class QueryRequest {
+
+    /** 告警策略执行的日志主题 ID. */
     @JSONField(name = TOPIC_ID)
-    String topicId;
+    private String topicId;
+
+    /** 告警策略执行的日志主题名称. */
     @JSONField(name = TOPIC_NAME)
-    String topicName;
+    private String topicName;
+
+    /** 查询语句，最大长度为 1024. */
     @JSONField(name = QUERY)
-    String query;
+    private String query;
+
+    /** 告警对象序号，从 1 开始递增. */
     @JSONField(name = NUMBER)
-    int number;
-    @JSONField(name = START_TIME_OFFSET)
-    int startTimeOffset;
-    @JSONField(name = END_TIME_OFFSET)
-    int endTimeOffset;
-    @JSONField(name = TIME_SPAN_TYPE)
-    String timeSpanType;
-    @JSONField(name = TRUNCATED_TIME)
-    String truncatedTime;
+    private int number;
 
     /**
-     * @return 告警策略执行的日志主题 ID
+     * 查询范围起始时间相对当前的历史时间.
+     * 单位为分钟，取值为非正，最大值为 0，最小值为 -1440。
+     */
+    @JSONField(name = START_TIME_OFFSET)
+    private int startTimeOffset;
+
+    /**
+     * 查询范围终止时间相对当前的历史时间.
+     * 单位为分钟，取值为非正，须大于起始时间偏移，最大值为 0，最小值为 -1440。
+     */
+    @JSONField(name = END_TIME_OFFSET)
+    private int endTimeOffset;
+
+    /** 时间跨度类型. */
+    @JSONField(name = TIME_SPAN_TYPE)
+    private String timeSpanType;
+
+    /** 截断时间. */
+    @JSONField(name = TRUNCATED_TIME)
+    private String truncatedTime;
+
+    /** 结束时间偏移单位. */
+    @JSONField(name = END_TIME_OFFSET_UNIT)
+    private String endTimeOffsetUnit;
+
+    /** 起始时间偏移单位. */
+    @JSONField(name = START_TIME_OFFSET_UNIT)
+    private String startTimeOffsetUnit;
+
+    /**
+     * 获取日志主题 ID.
+     *
+     * @return 日志主题 ID
      */
     public String getTopicId() {
         return topicId;
     }
 
     /**
-     * @param topicId 告警策略执行的日志主题 ID
+     * 设置日志主题 ID.
+     *
+     * @param newTopicId 日志主题 ID
      */
-    public void setTopicId(String topicId) {
-        this.topicId = topicId;
+    public void setTopicId(final String newTopicId) {
+        this.topicId = newTopicId;
     }
 
     /**
-     * @return 告警策略执行的日志主题名称
+     * 获取日志主题名称.
+     *
+     * @return 日志主题名称
      */
     public String getTopicName() {
         return topicName;
     }
 
     /**
-     * @param topicName 告警策略执行的日志主题名称
+     * 设置日志主题名称.
+     *
+     * @param newTopicName 日志主题名称
      */
-    public void setTopicName(String topicName) {
-        this.topicName = topicName;
+    public void setTopicName(final String newTopicName) {
+        this.topicName = newTopicName;
     }
 
     /**
-     * @return 查询语句，支持的最大长度为 1024
+     * 获取查询语句.
+     *
+     * @return 查询语句
      */
     public String getQuery() {
         return query;
     }
 
     /**
-     * @param query 查询语句，支持的最大长度为 1024
+     * 设置查询语句.
+     *
+     * @param newQuery 查询语句
      */
-    public void setQuery(String query) {
-        this.query = query;
+    public void setQuery(final String newQuery) {
+        this.query = newQuery;
     }
 
     /**
-     * @return 告警对象序号；从 1 开始递增
+     * 获取告警对象序号.
+     *
+     * @return 告警对象序号
      */
     public int getNumber() {
         return number;
     }
 
     /**
-     * @param number 告警对象序号；从 1 开始递增
+     * 设置告警对象序号.
+     *
+     * @param newNumber 告警对象序号
      */
-    public void setNumber(int number) {
-        this.number = number;
+    public void setNumber(final int newNumber) {
+        this.number = newNumber;
     }
 
     /**
-     * @return 查询范围起始时间相对当前的历史时间，单位为分钟，取值为非正，最大值为 0，最小值为 -1440
+     * 获取查询范围起始时间偏移.
+     *
+     * @return 起始时间偏移（分钟）
      */
     public int getStartTimeOffset() {
         return startTimeOffset;
     }
 
     /**
-     * @param startTimeOffset 查询范围起始时间相对当前的历史时间，单位为分钟，取值为非正，最大值为 0，最小值为 -1440
+     * 设置查询范围起始时间偏移.
+     *
+     * @param newStartTimeOffset 起始时间偏移（分钟）
      */
-    public void setStartTimeOffset(int startTimeOffset) {
-        this.startTimeOffset = startTimeOffset;
+    public void setStartTimeOffset(final int newStartTimeOffset) {
+        this.startTimeOffset = newStartTimeOffset;
     }
 
     /**
-     * @return 查询范围终止时间相对当前的历史时间，单位为分钟，取值为非正，须大于StartTimeOffset，最大值为 0，最小值为 -1440
+     * 获取查询范围结束时间偏移.
+     *
+     * @return 结束时间偏移（分钟）
      */
     public int getEndTimeOffset() {
         return endTimeOffset;
     }
 
     /**
-     * @param endTimeOffset 查询范围终止时间相对当前的历史时间，单位为分钟，取值为非正，须大于StartTimeOffset，最大值为 0，最小值为 -1440
+     * 设置查询范围结束时间偏移.
+     *
+     * @param newEndTimeOffset 结束时间偏移（分钟）
      */
-    public void setEndTimeOffset(int endTimeOffset) {
-        this.endTimeOffset = endTimeOffset;
+    public void setEndTimeOffset(final int newEndTimeOffset) {
+        this.endTimeOffset = newEndTimeOffset;
     }
 }

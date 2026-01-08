@@ -220,7 +220,7 @@ public class CreateTopicRequest {
      * @return 检验必填参数，true合法false不合法
      */
     public boolean CheckValidation() {
-        if (this.topicName == null || this.projectId == null) {
+        if (this.topicName == null || this.topicName.isEmpty() || this.projectId == null || this.projectId.isEmpty()) {
             return false;
         }
         return true;

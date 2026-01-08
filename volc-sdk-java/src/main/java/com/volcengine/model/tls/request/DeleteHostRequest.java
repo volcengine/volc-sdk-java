@@ -53,7 +53,7 @@ public class DeleteHostRequest {
     }
 
     public boolean CheckValidation() {
-        if (this.hostGroupId == null || this.ip == null) {
+        if (this.hostGroupId == null || this.hostGroupId.isEmpty() || this.ip == null || this.ip.isEmpty()) {
             return false;
         }
         return true;

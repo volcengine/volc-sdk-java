@@ -35,7 +35,7 @@ public class DeleteAlarmNotifyGroupRequest {
     }
 
     public boolean CheckValidation() {
-        if (this.alarmNotifyGroupId == null) {
+        if (this.alarmNotifyGroupId == null || this.alarmNotifyGroupId.isEmpty()) {
             return false;
         }
         return true;

@@ -35,6 +35,8 @@ public class ModifyRuleRequest {
     int inputType;
     @JSONField(name = CONTAINER_RULE)
     ContainerRule containerRule;
+    @JSONField(name = PAUSE)
+    Integer pause;
 
     /**
      * @return 采集配置的 ID
@@ -174,6 +176,20 @@ public class ModifyRuleRequest {
      */
     public void setContainerRule(ContainerRule containerRule) {
         this.containerRule = containerRule;
+    }
+
+    /**
+     * @return 是否暂停采集配置
+     */
+    public Integer getPause() {
+        return pause;
+    }
+
+    /**
+     * @param pause 是否暂停采集配置
+     */
+    public void setPause(Integer pause) {
+        this.pause = pause;
     }
 
     /**

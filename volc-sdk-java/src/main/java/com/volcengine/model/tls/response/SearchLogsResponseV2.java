@@ -49,17 +49,17 @@ public class SearchLogsResponseV2 extends CommonResponse {
     @Override
     public SearchLogsResponseV2 deSerialize(byte[] data, Class clazz) throws LogException {
         SearchLogsResponseV2 response = (SearchLogsResponseV2) super.deSerialize(data, clazz);
-        this.setResultStatus(response.getResultStatus());
-        this.setHitCount(response.getHitCount());
-        this.setListOver(response.isListOver());
-        this.setAnalysis(response.isAnalysis());
-        this.setCount(response.getCount());
-        this.setLimit(response.getLimit());
-        this.setContext(response.getContext());
-        this.setLogs(response.getLogs());
-        this.setAnalysisResult(response.getAnalysisResult());
-        this.setHighLight(response.getHighLight());
-        this.setElapsedMillisecond(response.getElapsedMillisecond());
+        this.resultStatus = response.resultStatus;
+        this.hitCount = response.hitCount;
+        this.listOver = response.listOver;
+        this.analysis = response.analysis;
+        this.count = response.count;
+        this.limit = response.limit;
+        this.context = response.context;
+        this.logs = response.logs;
+        this.analysisResult = response.analysisResult;
+        this.highLight = response.highLight;
+        this.elapsedMillisecond = response.elapsedMillisecond;
         return this;
     }
 

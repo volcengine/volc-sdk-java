@@ -25,8 +25,6 @@ public class UserDefineRule {
     Advanced advanced;
     @JSONField(name = TAIL_FILES)
     Boolean tailFiles;
-    @JSONField(name = RAW_LOG_KEY)
-    String rawLogKey;
     @JSONField(name = HOSTNAME_KEY)
     String hostnameKey;
     @JSONField(name = ENABLE_HOSTNAME)
@@ -41,6 +39,8 @@ public class UserDefineRule {
     Integer ignoreOlder;
     @JSONField(name = MULTI_COLLECTS_TYPE)
     String multiCollectsType;
+    @JSONField(name = RAW_LOG_KEY)
+    String rawLogKey;
 
     /**
      * @param parsePathRule 解析采集路径的规则
@@ -151,5 +151,117 @@ public class UserDefineRule {
      */
     public void setTailFiles(Boolean tailFiles) {
         this.tailFiles = tailFiles;
+    }
+
+    /**
+     * @return hostname字段名称
+     */
+    public String getHostnameKey() {
+        return hostnameKey;
+    }
+
+    /**
+     * @param hostnameKey hostname字段名称
+     */
+    public void setHostnameKey(String hostnameKey) {
+        this.hostnameKey = hostnameKey;
+    }
+
+    /**
+     * @return 是否上传hostname字段
+     */
+    public Boolean getEnableHostname() {
+        return enableHostname;
+    }
+
+    /**
+     * @param enableHostname 是否上传hostname字段
+     */
+    public void setEnableHostname(Boolean enableHostname) {
+        this.enableHostname = enableHostname;
+    }
+
+    /**
+     * @return 用于存储机器组Label信息的字段名称
+     */
+    public String getHostGroupLabelKey() {
+        return hostGroupLabelKey;
+    }
+
+    /**
+     * @param hostGroupLabelKey 用于存储机器组Label信息的字段名称
+     */
+    public void setHostGroupLabelKey(String hostGroupLabelKey) {
+        this.hostGroupLabelKey = hostGroupLabelKey;
+    }
+
+    /**
+     * @return 是否将机器组的Label信息上传到日志服务
+     */
+    public Boolean getEnableHostGroupLabel() {
+        return enableHostGroupLabel;
+    }
+
+    /**
+     * @param enableHostGroupLabel 是否将机器组的Label信息上传到日志服务
+     */
+    public void setEnableHostGroupLabel(Boolean enableHostGroupLabel) {
+        this.enableHostGroupLabel = enableHostGroupLabel;
+    }
+
+    /**
+     * @return 增量采集的回溯阈值
+     */
+    public Integer getTailSizeKb() {
+        return tailSizeKb;
+    }
+
+    /**
+     * @param tailSizeKb 增量采集的回溯阈值
+     */
+    public void setTailSizeKb(Integer tailSizeKb) {
+        this.tailSizeKb = tailSizeKb;
+    }
+
+    /**
+     * @return 忽略多久没有更新的日志文件
+     */
+    public Integer getIgnoreOlder() {
+        return ignoreOlder;
+    }
+
+    /**
+     * @param ignoreOlder 忽略多久没有更新的日志文件
+     */
+    public void setIgnoreOlder(Integer ignoreOlder) {
+        this.ignoreOlder = ignoreOlder;
+    }
+
+    /**
+     * @return 允许多次采集日志文件
+     */
+    public String getMultiCollectsType() {
+        return multiCollectsType;
+    }
+
+    /**
+     * @param multiCollectsType 允许多次采集日志文件
+     */
+    public void setMultiCollectsType(String multiCollectsType) {
+        this.multiCollectsType = multiCollectsType;
+    }
+
+    /**
+     * @return 原始日志字段名称
+     */
+    public String getRawLogKey() {
+        return rawLogKey;
+    }
+
+    /**
+     * @param rawLogKey 原始日志字段名称
+     */
+    public void setRawLogKey(String rawLogKey) {
+        this.rawLogKey = rawLogKey;
     }
 }

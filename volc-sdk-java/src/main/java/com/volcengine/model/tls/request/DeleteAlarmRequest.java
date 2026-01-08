@@ -30,7 +30,7 @@ public class DeleteAlarmRequest {
     }
 
     public boolean CheckValidation() {
-        if (this.alarmId == null) {
+        if (this.alarmId == null || this.alarmId.isEmpty()) {
             return false;
         }
         return true;

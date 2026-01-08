@@ -19,6 +19,7 @@ public class ClientConfig {
     String securityToken;
     String region;
     String apiVersion;
+    boolean localValidationOnly;
 
     public ClientConfig(String endPoint, String region, String accessKeyId, String accessKeySecret,
                         String securityToken) {

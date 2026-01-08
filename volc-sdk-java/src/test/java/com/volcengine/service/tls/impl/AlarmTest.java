@@ -13,6 +13,7 @@ import org.junit.Test;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -259,6 +260,96 @@ public class AlarmTest extends BaseTest {
             System.out.println("delete topic success,response:" + deleteTopicResponse);
             DeleteProjectResponse deleteProjectResponse = client.deleteProject(new DeleteProjectRequest(projectId));
             System.out.println("delete project success,response:" + deleteProjectResponse);
+        } catch (LogException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testModifyAlarmContentTemplate() {
+        try {
+            // Test modify alarm content template
+            ModifyAlarmContentTemplateRequest request = new ModifyAlarmContentTemplateRequest();
+            request.setAlarmContentTemplateId("test-template-id");
+            request.setAlarmContentTemplateName("test-alarm-content-template");
+
+            // Set email content template
+            EmailContentTemplateInfo emailInfo = new EmailContentTemplateInfo();
+            emailInfo.setSubject("告警通知");
+            emailInfo.setContent("告警策略：{{Alarm}}<br> 告警日志项目：{{ProjectName}}<br>");
+            emailInfo.setLocale("zh-CN,en-US");
+            request.setEmail(emailInfo);
+
+            // Set DingTalk content template
+            DingTalkContentTemplateInfo dingTalkInfo = new DingTalkContentTemplateInfo();
+            dingTalkInfo.setTitle("告警通知");
+            dingTalkInfo.setContent("尊敬的用户，您好！\n您的账号（主账户ID：{{AccountID}} ）的日志服务{%if NotifyType==1%}触发告警{%else%}告警恢复{%endif%}\n告警策略：{{Alarm}}\n告警日志主题：{{AlarmTopicName}}\n触发时间：{{StartTime}}\n触发条件：{{Condition}}\n当前查询结果：[{%-for x in TriggerParams-%}]{{-x-}} {%-endfor-%}]\n通知内容：{{NotifyMsg\\|escapejs}}\n日志检索详情：[查看详情]({{QueryUrl}})\n告警详情：[查看详情]({{SignInUrl}})\n\n感谢对火山引擎的支持");
+            dingTalkInfo.setLocale("zh-CN");
+            request.setDingTalk(dingTalkInfo);
+
+            request.setNeedValidContent(true);
+
+            ModifyAlarmContentTemplateResponse response = client.modifyAlarmContentTemplate(request);
+            assertNotNull(response.getRequestId());
+            System.out.println("modify alarm content template success, response: " + response);
+
+            // Test validation - missing required fields
+            Exception exception = assertThrows(LogException.class, () -> {
+                ModifyAlarmContentTemplateRequest invalidRequest = new ModifyAlarmContentTemplateRequest();
+                client.modifyAlarmContentTemplate(invalidRequest);
+            });
+            String expectedMessage = "InvalidArgument";
+            String actualMessage = exception.getMessage();
+            assertTrue(actualMessage.contains(expectedMessage));
+
+        } catch (LogException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testModifyAlarmWebhookIntegration() {
+        try {
+            // Test ModifyAlarmWebhookIntegration with Lark webhook
+            ModifyAlarmWebhookIntegrationRequest request = new ModifyAlarmWebhookIntegrationRequest();
+            request.setWebhookID("test-webhook-id");
+            request.setWebhookName("tls-java-sdk-test-webhook-" + System.currentTimeMillis());
+            request.setWebhookType("Lark");
+            request.setWebhookUrl("https://open.feishu.cn/open-apis/bot/v2/hook/test-hook");
+            request.setWebhookSecret("test-secret");
+
+            // Test successful modification
+            ModifyAlarmWebhookIntegrationResponse response = client.modifyAlarmWebhookIntegration(request);
+            assertNotNull(response.getRequestId());
+            System.out.println("modify alarm webhook integration success, response: " + response);
+
+            // Test validation failure - missing required fields
+            Exception exception = assertThrows(LogException.class, () -> {
+                ModifyAlarmWebhookIntegrationRequest invalidRequest = new ModifyAlarmWebhookIntegrationRequest();
+                invalidRequest.setWebhookID(null); // Missing webhookID
+                invalidRequest.setWebhookName("test");
+                invalidRequest.setWebhookType("Lark");
+                invalidRequest.setWebhookUrl("https://example.com");
+                client.modifyAlarmWebhookIntegration(invalidRequest);
+            });
+
+            // Test with custom headers for GeneralWebhook type
+            ModifyAlarmWebhookIntegrationRequest generalWebhookRequest = new ModifyAlarmWebhookIntegrationRequest();
+            generalWebhookRequest.setWebhookID("test-general-webhook-id");
+            generalWebhookRequest.setWebhookName("tls-java-sdk-test-general-webhook-" + System.currentTimeMillis());
+            generalWebhookRequest.setWebhookType("GeneralWebhook");
+            generalWebhookRequest.setWebhookUrl("https://example.com/webhook");
+            generalWebhookRequest.setWebhookMethod("POST");
+
+            ArrayList<GeneralWebhookHeaderKV> headers = new ArrayList<>();
+            headers.add(new GeneralWebhookHeaderKV("Content-Type", "application/json"));
+            headers.add(new GeneralWebhookHeaderKV("Authorization", "Bearer token123"));
+            generalWebhookRequest.setWebhookHeaders(headers);
+
+            ModifyAlarmWebhookIntegrationResponse generalResponse = client.modifyAlarmWebhookIntegration(generalWebhookRequest);
+            assertNotNull(generalResponse.getRequestId());
+            System.out.println("modify general alarm webhook integration success, response: " + generalResponse);
+
         } catch (LogException e) {
             e.printStackTrace();
         }

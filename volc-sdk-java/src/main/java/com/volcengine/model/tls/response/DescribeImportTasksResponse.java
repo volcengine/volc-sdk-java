@@ -19,7 +19,7 @@ public class DescribeImportTasksResponse extends CommonResponse {
     @JSONField(name = TOTAL)
     private Integer total;
 
-    @JSONField(name = TASKS)
+    @JSONField(name = "TaskInfo")
     private List<ImportTaskInfo> tasks;
 
     public DescribeImportTasksResponse(Header[] headers) {

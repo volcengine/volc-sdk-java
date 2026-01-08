@@ -34,6 +34,6 @@ public class DeleteTraceInstanceRequest {
     }
 
     public boolean CheckValidation() {
-        return this.traceInstanceId != null;
+        return this.traceInstanceId != null && !this.traceInstanceId.isEmpty();
     }
 }

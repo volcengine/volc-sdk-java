@@ -57,4 +57,8 @@ public class UpdateActivityRedPacketRequest {
     Long VipUserInfoId;
     @JSONField(name = "Name")
     String Name;
+    @JSONField(name = "SendRedPacketType")
+    Integer SendRedPacketType;
+    @JSONField(name = "AutoSendTime")
+    Integer AutoSendTime;
 }

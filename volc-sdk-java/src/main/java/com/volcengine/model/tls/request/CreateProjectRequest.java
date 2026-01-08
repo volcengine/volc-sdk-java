@@ -80,6 +80,6 @@ public class CreateProjectRequest {
      * @return 检验必填参数，true合法false不合法
      */
     public boolean CheckValidation() {
-        return this.projectName != null && this.region != null;
+        return this.projectName != null && !this.projectName.isEmpty() && this.region != null && !this.region.isEmpty();
     }
 }

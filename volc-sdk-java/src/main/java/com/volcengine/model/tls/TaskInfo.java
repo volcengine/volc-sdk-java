@@ -12,27 +12,47 @@ import static com.volcengine.model.tls.Const.*;
 @NoArgsConstructor
 public class TaskInfo {
     @JSONField(name = TASK_ID)
-    String taskId;
+    private String taskId;
+
     @JSONField(name = TASK_NAME)
-    String taskName;
+    private String taskName;
+
+    @JSONField(name = TASK_TYPE)
+    private Integer taskType;
+
     @JSONField(name = TOPIC_ID)
-    String topicId;
+    private String topicId;
+
     @JSONField(name = QUERY)
-    String query;
+    private String query;
+
     @JSONField(name = START_TIME)
-    String startTime;
+    private String startTime;
+
     @JSONField(name = END_TIME)
-    String endTime;
+    private String endTime;
+
     @JSONField(name = DATA_FORMAT)
-    String dataFormat;
+    private String dataFormat;
+
     @JSONField(name = TASK_STATUS)
-    String taskStatus;
+    private String taskStatus;
+
+    @JSONField(name = ALLOW_INCOMPLETE)
+    private Boolean allowIncomplete;
+
     @JSONField(name = COMPRESSION)
-    String compression;
+    private String compression;
+
     @JSONField(name = CREATE_TIME)
-    String createTime;
+    private String createTime;
+
     @JSONField(name = LOG_SIZE)
-    BigInteger logSize;
+    private BigInteger logSize;
+
     @JSONField(name = LOG_COUNT)
-    BigInteger logCount;
+    private BigInteger logCount;
+
+    @JSONField(name = LOG_CONTEXT_INFOS)
+    private LogContextInfos logContextInfos;
 }

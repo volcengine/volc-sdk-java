@@ -6,6 +6,8 @@ import com.alibaba.fastjson.annotation.JSONField;
 import com.volcengine.model.tls.AlarmPeriodSetting;
 import com.volcengine.model.tls.QueryRequest;
 import com.volcengine.model.tls.RequestCycle;
+import com.volcengine.model.tls.JoinConfig;
+import com.volcengine.model.tls.TriggerCondition;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -38,6 +40,12 @@ public class CreateAlarmRequest {
     String severity;
     @JSONField(name = ALARM_PERIOD_DETAIL)
     AlarmPeriodSetting alarmPeriodDetail;
+    @JSONField(name = JOIN_CONFIGURATIONS)
+    List<JoinConfig> joinConfigurations;
+    @JSONField(name = TRIGGER_CONDITIONS)
+    List<TriggerCondition> triggerConditions;
+    @JSONField(name = SEND_RESOLVED)
+    Boolean sendResolved;
 
     /**
      * @return 告警策略名称
@@ -211,9 +219,24 @@ public class CreateAlarmRequest {
      * @return 检验必填参数，true合法false不合法
      */
     public boolean CheckValidation() {
-        if (this.alarmName == null || this.projectId == null || this.queryRequest == null ||
-                this.requestCycle == null || this.condition == null || this.alarmPeriod == null ||
-                this.alarmNotifyGroup == null) {
+        if (this.alarmName == null || this.alarmName.isEmpty()
+                || this.projectId == null || this.projectId.isEmpty()
+                || this.queryRequest == null || this.queryRequest.isEmpty()
+                || this.requestCycle == null
+                || this.alarmNotifyGroup == null || this.alarmNotifyGroup.isEmpty()) {
+            return false;
+        }
+        boolean hasTriggerConditions = this.triggerConditions != null && !this.triggerConditions.isEmpty();
+        boolean hasCondition = this.condition != null && !this.condition.isEmpty();
+        if (!hasTriggerConditions && !hasCondition) {
+            return false;
+        }
+        boolean hasAlarmPeriod = this.alarmPeriod != null;
+        boolean hasAlarmPeriodDetail = this.alarmPeriodDetail != null;
+        if (!hasAlarmPeriod && !hasAlarmPeriodDetail) {
+            return false;
+        }
+        if (this.triggerPeriod == null) {
             return false;
         }
         return true;

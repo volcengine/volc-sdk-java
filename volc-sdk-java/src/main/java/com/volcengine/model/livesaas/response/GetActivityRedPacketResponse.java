@@ -89,5 +89,11 @@ public class GetActivityRedPacketResponse {
 
         @JSONField(name = "Name")
         String Name;
+
+        @JSONField(name = "SendRedPacketType")
+        Integer SendRedPacketType;
+
+        @JSONField(name = "AutoSendTime")
+        Integer AutoSendTime;
     }
 }

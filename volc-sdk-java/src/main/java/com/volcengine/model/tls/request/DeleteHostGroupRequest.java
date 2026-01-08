@@ -34,7 +34,7 @@ public class DeleteHostGroupRequest {
     }
 
     public boolean CheckValidation() {
-        if (this.hostGroupId == null) {
+        if (this.hostGroupId == null || this.hostGroupId.isEmpty()) {
             return false;
         }
         return true;

@@ -35,10 +35,10 @@ public class RuleInfo {
     int inputType;
     @JSONField(name=CONTAINER_RULE)
     ContainerRule containerRule;
-    @JSONField(name=CREATE_TIME)
-    String createTime;
     @JSONField(name=PAUSE)
     Integer pause;
+    @JSONField(name=CREATE_TIME)
+    String createTime;
     @JSONField(name=MODIFY_TIME)
     String modifyTime;
 }

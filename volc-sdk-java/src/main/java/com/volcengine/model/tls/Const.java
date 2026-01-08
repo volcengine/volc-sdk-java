@@ -37,6 +37,9 @@ public class Const {
     public static final String APPLY_RULE_TO_HOES_GROUPS = "/ApplyRuleToHostGroups";
     public static final String DELETE_RULE_FROM_HOST_GROUPS = "/DeleteRuleFromHostGroups";
 
+    //interface-tag resources
+    public static final String TAG_RESOURCES = "/TagResources";
+
     //interface-host group
     public static final String CREATE_HOST_GROUP = "/CreateHostGroup";
     public static final String MODIFY_HOST_GROUP = "/ModifyHostGroup";
@@ -48,7 +51,6 @@ public class Const {
     public static final String DESCRIBE_HOST_GROUP_RULES = "/DescribeHostGroupRules";
     public static final String MODIFY_HOST_GROUPS_AUTO_UPDATE = "/ModifyHostGroupsAutoUpdate";
     public static final String DELETE_ABNORMAL_HOSTS = "/DeleteAbnormalHosts";
-
 
     //interface-logs
     public static final String PUT_LOGS = "/PutLogs";
@@ -66,7 +68,13 @@ public class Const {
     public static final String CREATE_ALARM_NOTIFY_GROUP = "/CreateAlarmNotifyGroup";
     public static final String MODIFY_ALARM_NOTIFY_GROUP = "/ModifyAlarmNotifyGroup";
     public static final String DELETE_ALARM_NOTIFY_GROUP = "/DeleteAlarmNotifyGroup";
+    public static final String DELETE_ALARM_WEBHOOK_INTEGRATION = "/DeleteAlarmWebhookIntegration";
     public static final String DESCRIBE_ALARM_NOTIFY_GROUPS = "/DescribeAlarmNotifyGroups";
+    public static final String CREATE_ALARM_WEBHOOK_INTEGRATION = "/CreateAlarmWebhookIntegration";
+    public static final String DELETE_ALARM_CONTENT_TEMPLATE = "/DeleteAlarmContentTemplate";
+    public static final String DESCRIBE_ALARM_CONTENT_TEMPLATES = "/DescribeAlarmContentTemplates";
+    public static final String DESCRIBE_ALARM_WEBHOOK_INTEGRATIONS = "/DescribeAlarmWebhookIntegrations";
+    public static final String MODIFY_ALARM_WEBHOOK_INTEGRATION = "/ModifyAlarmWebhookIntegration";
 
     // kafka consumer
     public static final String OPEN_KAFKA_CONSUMER = "/OpenKafkaConsumer";
@@ -80,31 +88,12 @@ public class Const {
     public static final String DESCRIBE_DOWNLOAD_URL = "/DescribeDownloadUrl";
 
     // import task
+    public static final String CREATE_IMPORT_TASK = "/CreateImportTask";
     public static final String DESCRIBE_IMPORT_TASKS = "/DescribeImportTasks";
     public static final String MODIFY_IMPORT_TASK = "/ModifyImportTask";
-    public static final String IMPORT_SOURCE_INFO = "ImportSourceInfo";
-    public static final String SOURCE_TYPE = "SourceType";
-    public static final String TARGET_INFO = "TargetInfo";
-    public static final String TOS_SOURCE_INFO = "TosSourceInfo";
-    public static final String ES_SOURCE_INFO = "EsSourceInfo";
-    public static final String KAFKA_SOURCE_INFO = "KafkaSourceInfo";
-    public static final String BUCKET = "bucket";
-    public static final String PREFIX = "prefix";
-    public static final String COMPRESS_TYPE = "compress_type";
-    public static final String HOST = "host";
-    public static final String GROUP = "group";
-    public static final String KAFKA_TOPIC = "topic";
-    public static final String ENCODE = "encode";
-    public static final String PASSWORD = "password";
-    public static final String PROTOCOL = "protocol";
-    public static final String USERNAME = "username";
-    public static final String MECHANISM = "mechanism";
-    public static final String INSTANCE_ID = "instance_id";
-    public static final String IS_NEED_AUTH = "is_need_auth";
-    public static final String INITIAL_OFFSET = "initial_offset";
-    public static final String TIME_SOURCE_DEFAULT = "time_source_default";
+    public static final String DELETE_IMPORT_TASK = "/DeleteImportTask";
+    public static final String DESCRIBE_IMPORT_TASK = "/DescribeImportTask";
 
-    // Consumer group
     public static final String CREATE_CONSUMER_GROUP = "/CreateConsumerGroup";
     public static final String DELETE_CONSUMER_GROUP = "/DeleteConsumerGroup";
     public static final String MODIFY_CONSUMER_GROUP = "/ModifyConsumerGroup";
@@ -112,6 +101,7 @@ public class Const {
     public static final String CONSUMER_HEARTBEAT = "/ConsumerHeartbeat";
     public static final String DESCRIBE_CHECKPOINT = "/DescribeCheckPoint";
     public static final String MODIFY_CHECKPOINT = "/ModifyCheckPoint";
+    public static final String RESET_CHECKPOINT = "/ResetCheckPoint";
     public static final String GET_ACCOUNT_STATUS = "/GetAccountStatus";
 
     // trace instance
@@ -121,8 +111,11 @@ public class Const {
     public static final String CREATE_TRACE_INSTANCE = "/CreateTraceInstance";
     public static final String DESCRIBE_TRACE_INSTANCE = "/DescribeTraceInstance";
     public static final String DESCRIBE_TRACE_INSTANCES = "/DescribeTraceInstances";
+    public static final String DESCRIBE_TRACE = "/DescribeTrace";
+    public static final String SEARCH_TRACES = "/SearchTraces";
 
     public static final String ACTIVE_TLS_ACCOUNT = "/ActiveTlsAccount";
+
     public static final String TLS = "TLS";
     public static final int CONNECTION_TIMEOUT_MS = 60000;
     public static final int SOCKET_TIMEOUT_MS = 60000;
@@ -206,6 +199,17 @@ public class Const {
     public static final String LOG_REDUCE_WHITE_LIST = "LogReduceWhiteList";
     public static final String ALLOW_EDIT = "AllowEdit";
     public static final String ALLOW_DELETE = "AllowDelete";
+
+    // Tags
+    public static final String LIST_TAGS_FOR_RESOURCES = "/ListTagsForResources";
+    public static final String ADD_TAGS_TO_RESOURCE = "/AddTagsToResource";
+    public static final String UNTAG_RESOURCES = "/UntagResources";
+    public static final String REMOVE_TAGS_FROM_RESOURCE = "/RemoveTagsFromResource";
+    public static final String RESOURCE_TYPE = "ResourceType";
+    public static final String RESOURCES_LIST = "ResourcesList";
+    public static final String RESOURCE_ID = "ResourceId";
+    public static final String TAG_KEYS = "TagKeyList";
+
     public static final String MAX_TEXT_LEN = "MaxTextLen";
     public static final String ENABLE_AUTO_INDEX = "EnableAutoIndex";
 
@@ -237,6 +241,9 @@ public class Const {
     public static final String EXCLUDE_CONTAINER_LABEL_REGEX = "ExcludeContainerLabelRegex";
     public static final String INCLUDE_CONTAINER_ENV_REGEX = "IncludeContainerEnvRegex";
     public static final String EXCLUDE_CONTAINER_ENV_REGEX = "ExcludeContainerEnvRegex";
+
+    // TagResources constants
+    public static final String RESOURCE_LIST = "ResourcesIds";
     public static final String KUBERNETES_RULE = "KubernetesRule";
     public static final String NAMESPACE_NAME_REGEX = "NamespaceNameRegex";
     public static final String WORKLOAD_TYPE = "WorkloadType";
@@ -345,6 +352,39 @@ public class Const {
     public static final String ALARM_PERIOD = "AlarmPeriod";
     public static final String ALARMS = "Alarms";
     public static final String ALARM_PERIOD_DETAIL = "AlarmPeriodDetail";
+    public static final String ALARM_CONTENT_TEMPLATES = "AlarmContentTemplates";
+    public static final String ALARM_CONTENT_TEMPLATE_ID = "AlarmContentTemplateId";
+    public static final String ALARM_CONTENT_TEMPLATE_NAME = "AlarmContentTemplateName";
+    public static final String CONTENT = "Content";
+    public static final String SMS_CONTENT = "SmsContent";
+    public static final String VMS_CONTENT = "VmsContent";
+    public static final String EMAIL_CONTENT = "EmailContent";
+    public static final String WEBHOOK_CONTENT = "WebhookContent";
+    public static final String DING_TALK_CONTENT = "DingTalkContent";
+    public static final String LARK_CONTENT = "LarkContent";
+    public static final String WE_CHAT_CONTENT = "WeChatContent";
+    public static final String JOIN_CONFIGURATIONS = "JoinConfigurations";
+    public static final String TRIGGER_CONDITIONS = "TriggerConditions";
+    public static final String SEND_RESOLVED = "SendResolved";
+    public static final String END_TIME_OFFSET_UNIT = "EndTimeOffsetUnit";
+    public static final String START_TIME_OFFSET_UNIT = "StartTimeOffsetUnit";
+    public static final String GENERAL_WEBHOOK_URL = "GeneralWebhookUrl";
+    public static final String NOTICE_RULES = "NoticeRules";
+    public static final String GENERAL_WEBHOOK_BODY = "GeneralWebhookBody";
+    public static final String ALARM_WEBHOOK_AT_USERS = "AlarmWebhookAtUsers";
+    public static final String ALARM_WEBHOOK_IS_AT_ALL = "AlarmWebhookIsAtAll";
+    public static final String ALARM_WEBHOOK_AT_GROUPS = "AlarmWebhookAtGroups";
+    public static final String GENERAL_WEBHOOK_METHOD = "GeneralWebhookMethod";
+    public static final String GENERAL_WEBHOOK_HEADERS = "GeneralWebhookHeaders";
+    public static final String ALARM_WEBHOOK_INTEGRATION_NAME = "AlarmWebhookIntegrationName";
+    public static final String HAS_NEXT = "HasNext";
+    public static final String RULE_NODE = "RuleNode";
+    public static final String HAS_END_NODE = "HasEndNode";
+    public static final String RECEIVER_INFOS = "ReceiverInfos";
+    public static final String CHILDREN = "Children";
+    public static final String COUNT_CONDITION = "CountCondition";
+    public static final String NO_DATA = "NoData";
+    public static final String SET_OPERATION_TYPE = "SetOperationType";
     public static final String SMS = "SMS";
     public static final String PHONE = "Phone";
     public static final String EMAIL = "Email";
@@ -356,6 +396,14 @@ public class Const {
     public static final String Earliest_Log_Time_Header = "earliest-log-time";
     public static final String Latest_Log_Time_Header = "latest-log-time";
     public static final String WEBHOOK = "Webhook";
+    public static final String WEBHOOK_NAME = "WebhookName";
+    public static final String WEBHOOK_TYPE = "WebhookType";
+    public static final String WEBHOOK_URL = "WebhookUrl";
+    public static final String WEBHOOK_METHOD = "WebhookMethod";
+    public static final String WEBHOOK_SECRET = "WebhookSecret";
+    public static final String WEBHOOK_HEADERS = "WebhookHeaders";
+    public static final String ALARM_WEBHOOK_INTEGRATION_ID = "AlarmWebhookIntegrationId";
+    public static final String WEBHOOK_ID = "WebhookID";
     public static final String CONSUME_TOPIC = "ConsumeTopic";
     public static final String INTERVAL = "Interval";
     public static final String TOTAL_COUNT = "TotalCount";
@@ -371,6 +419,7 @@ public class Const {
     public static final String X_TLS_CURSOR = "X-Tls-Cursor";
     public static final String X_TLS_COUNT = "X-Tls-Count";
     public static final String LIMIT = "Limit";
+    public static final String OFFSET = "Offset";
     public static final String CONTEXT = "Context";
     public static final String SORT = "Sort";
     public static final String RESULT_STATUS = "ResultStatus";
@@ -384,6 +433,7 @@ public class Const {
     public static final String DATA = "Data";
     public static final String HIGH_LIGHT = "HighLight";
     public static final String ACCURATE_QUERY = "AccurateQuery";
+    public static final String MUST_COMPLETE = "MustComplete";
     public static final String ELAPSED_MILLISECOND = "ElapsedMillisecond";
     public static final String LZ4 = "lz4";
     public static final String ZLIB = "zlib";
@@ -397,6 +447,7 @@ public class Const {
     public static final String PACKAGE_OFFSET = "PackageOffset";
     public static final String PREV_LOGS = "PrevLogs";
     public static final String NEXT_LOGS = "NextLogs";
+    public static final String REGION_TOPICS = "RegionTopics";
 
     //download task
     public static final String TASK_ID = "TaskId";
@@ -407,6 +458,7 @@ public class Const {
     public static final String LOG_COUNT = "LogCount";
     public static final String DOWNLOAD_URL = "DownloadUrl";
     public static final String TASKS = "Tasks";
+    public static final String ALLOW_INCOMPLETE = "AllowIncomplete";
 
     // 消费组消费
     public static final String PROJECT_ID_UPPERCASE = "ProjectID";
@@ -414,6 +466,7 @@ public class Const {
     public static final String SHARD_ID_UPPERCASE = "ShardID";
     public static final String TOPIC_ID_LIST = "TopicIDList";
     public static final String CONSUMER_GROUP_NAME = "ConsumerGroupName";
+    public static final String POSITION = "Position";
     public static final String CONSUMER_NAME = "ConsumerName";
     public static final String HEARTBEAT_TTL = "HeartbeatTTL";
     public static final String ORDERED_CONSUME = "OrderedConsume";
@@ -426,8 +479,6 @@ public class Const {
     public static final String HEARTBEAT_INTERVAL_IN_SECOND = "HeartbeatIntervalInSecond";
     public static final String DATA_FETCH_INTERVAL_IN_MILLISECOND = "DataFetchIntervalInMillisecond";
     public static final String FLUSH_CHECKPOINT_INTERVAL_IN_SECOND = "FlushCheckpointIntervalInSecond";
-    public static final String MAX_FETCH_LOG_GROUP_COUNT = "MaxFetchLogGroupCount";
-    public static final String STOP_TIMEOUT = "StopTimeout";
 
     // 公用常量
     public static final String ERROR_CODE = "ErrorCode";
@@ -442,4 +493,119 @@ public class Const {
     public static final String HEADER_API_VERSION = "x-tls-apiversion";
     public static final String API_VERSION_V_0_3_0 = "0.3.0";
     public static final String API_VERSION_V_0_2_0 = "0.2.0";
+
+    // import task
+    public static final String SOURCE_TYPE = "SourceType";
+    public static final String IMPORT_SOURCE_INFO = "ImportSourceInfo";
+    public static final String TARGET_INFO = "TargetInfo";
+    public static final String TOS_SOURCE_INFO = "TosSourceInfo";
+    public static final String KAFKA_SOURCE_INFO = "KafkaSourceInfo";
+    public static final String BUCKET = "bucket";
+    public static final String PREFIX = "prefix";
+    public static final String COMPRESS_TYPE = "compress_type";
+    public static final String HOST = "host";
+    public static final String GROUP = "group";
+    public static final String KAFKA_TOPIC = "topic";
+    public static final String ENCODE = "encode";
+    public static final String PASSWORD = "password";
+    public static final String PROTOCOL = "protocol";
+    public static final String USERNAME = "username";
+    public static final String MECHANISM = "mechanism";
+    public static final String INSTANCE_ID = "instance_id";
+    public static final String IS_NEED_AUTH = "is_need_auth";
+    public static final String INITIAL_OFFSET = "initial_offset";
+    public static final String TIME_SOURCE_DEFAULT = "time_source_default";
+
+    // ETL Task constants
+    public static final String DESCRIBE_ETL_TASK = "/DescribeETLTask";
+    public static final String DELETE_ETL_TASK = "/DeleteETLTask";
+    public static final String MODIFY_ETL_TASK = "/ModifyETLTask";
+    public static final String MODIFY_ETL_TASK_STATUS = "/ModifyETLTaskStatus";
+    public static final String DESCRIBE_ETL_TASKS = "/DescribeETLTasks";
+    public static final String CREATE_ETL_TASK = "/CreateETLTask";
+    public static final String MAX_FETCH_LOG_GROUP_COUNT = "MaxFetchLogGroupCount";
+    public static final String STOP_TIMEOUT = "StopTimeout";
+    public static final String DSL_TYPE = "DSLType";
+    public static final String ENABLE = "Enable";
+    public static final String FROM_TIME = "FromTime";
+    public static final String LAST_ENABLE_TIME = "LastEnableTime";
+    public static final String NAME = "Name";
+    public static final String SCRIPT = "Script";
+    public static final String SOURCE_TOPIC_ID = "SourceTopicId";
+    public static final String SOURCE_TOPIC_NAME = "SourceTopicName";
+    public static final String TARGET_RESOURCES = "TargetResources";
+    public static final String TASK_TYPE = "TaskType";
+    public static final String TO_TIME = "ToTime";
+    public static final String ALIAS = "Alias";
+    public static final String ROLE_TRN = "RoleTrn";
+    public static final String ETL_STATUS = "ETLStatus";
+
+    // shipper interface
+    public static final String CREATE_SHIPPER = "/CreateShipper";
+    public static final String DESCRIBE_SHIPPERS = "/DescribeShippers";
+    public static final String DELETE_SHIPPER = "/DeleteShipper";
+    public static final String MODIFY_SHIPPER = "/ModifyShipper";
+    public static final String DESCRIBE_SHIPPER = "/DescribeShipper";
+
+    // shipper constants
+    public static final String SHIPPERS = "Shippers";
+    public static final String SHIPPER_ID = "ShipperId";
+    public static final String SHIPPER_NAME = "ShipperName";
+    public static final String SHIPPER_TYPE = "ShipperType";
+    public static final String SHIPPER_START_TIME = "ShipperStartTime";
+    public static final String SHIPPER_END_TIME = "ShipperEndTime";
+    public static final String CONTENT_INFO = "ContentInfo";
+    public static final String DASHBOARD_ID = "DashboardId";
+    public static final String TOS_SHIPPER_INFO = "TosShipperInfo";
+    public static final String KAFKA_SHIPPER_INFO = "KafkaShipperInfo";
+    public static final String SHIPPER_BUCKET = "Bucket";
+    public static final String SHIPPER_PREFIX = "Prefix";
+    public static final String SHIPPER_MAX_SIZE = "MaxSize";
+    public static final String SHIPPER_COMPRESS = "Compress";
+    public static final String SHIPPER_INTERVAL = "Interval";
+    public static final String SHIPPER_PARTITION_FORMAT = "PartitionFormat";
+    public static final String KAFKA_INSTANCE = "Instance";
+    public static final String KAFKA_TOPIC_NAME = "KafkaTopic";
+
+    public static final String CSV_INFO = "CsvInfo";
+    public static final String JSON_INFO = "JsonInfo";
+    public static final String PRINT_HEADER = "PrintHeader";
+    public static final String NON_FIELD_CONTENT = "NonFieldContent";
+    public static final String ESCAPE_CHAR = "EscapeChar";
+    public static final String ESCAPE = "Escape";
+
+
+    // Schedule SQL Task
+    public static final String CREATE_SCHEDULE_SQL_TASK = "/CreateScheduleSqlTask";
+    public static final String DELETE_SCHEDULE_SQL_TASK = "/DeleteScheduleSqlTask";
+    public static final String DESCRIBE_SCHEDULE_SQL_TASK = "/DescribeScheduleSqlTask";
+    public static final String DESCRIBE_SCHEDULE_SQL_TASKS = "/DescribeScheduleSqlTasks";
+    public static final String MODIFY_SCHEDULE_SQL_TASK = "/ModifyScheduleSqlTask";
+    public static final String DEST_REGION = "DestRegion";
+    public static final String DEST_TOPIC_ID = "DestTopicID";
+    public static final String PROCESS_SQL_DELAY = "ProcessSqlDelay";
+    public static final String PROCESS_TIME_WINDOW = "ProcessTimeWindow";
+    public static final String CRON_TAB = "CronTab";
+    public static final String CRON_TIME_ZONE = "CronTimeZone";
+    public static final String SOURCE_PROJECT_ID = "SourceProjectID";
+    public static final String SOURCE_PROJECT_NAME = "SourceProjectName";
+    public static final String DEST_PROJECT_ID = "DestProjectID";
+    public static final String DEST_TOPIC_NAME = "DestTopicName";
+    public static final String PROCESS_START_TIME = "ProcessStartTime";
+    public static final String PROCESS_END_TIME = "ProcessEndTime";
+    public static final String CREATE_TIME_STAMP = "CreateTimeStamp";
+    public static final String MODIFY_TIME_STAMP = "ModifyTimeStamp";
+    public static final String SCHEDULE_SQL_TASK_ID = "ScheduleSqlTaskId";
+
+    // Alarm content template constants
+    public static final String CREATE_ALARM_CONTENT_TEMPLATE = "/CreateAlarmContentTemplate";
+    public static final String MODIFY_ALARM_CONTENT_TEMPLATE = "/ModifyAlarmContentTemplate";
+    public static final String NEED_VALID_CONTENT = "NeedValidContent";
+    public static final String DING_TALK = "DingTalk";
+    public static final String LARK = "Lark";
+    public static final String VMS = "Vms";
+    public static final String WE_CHAT = "WeChat";
+    public static final String TITLE = "Title";
+    public static final String SUBJECT = "Subject";
+    public static final String LOCALE = "Locale";
 }

@@ -3,6 +3,7 @@ package com.volcengine.model.tls.request;
 import java.util.List;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.tls.NoticeRule;
 import com.volcengine.model.tls.Receiver;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,8 @@ public class CreateAlarmNotifyGroupRequest {
     List<Receiver> receivers;
     @JSONField(name = IAM_PROJECT_NAME)
     String iamProjectName;
+    @JSONField(name = NOTICE_RULES)
+    List<NoticeRule> noticeRules;
 
     /**
      * @param alarmNotifyGroupName 告警通知组名称
@@ -43,6 +46,21 @@ public class CreateAlarmNotifyGroupRequest {
         this.notifyType = notifyType;
         this.receivers = receivers;
         this.iamProjectName = iamProjectName;
+    }
+
+    /**
+     * @param alarmNotifyGroupName 告警通知组名称
+     * @param notifyType           告警通知的类型Trigger告警触发、Recovery告警恢复
+     * @param receivers            接收告警的IAM用户列表
+     * @param iamProjectName       告警组所属的IAM项目名称
+     * @param noticeRules          告警通知组的相关配置
+     */
+    public CreateAlarmNotifyGroupRequest(String alarmNotifyGroupName, List<String> notifyType, List<Receiver> receivers, String iamProjectName, List<NoticeRule> noticeRules) {
+        this.alarmNotifyGroupName = alarmNotifyGroupName;
+        this.notifyType = notifyType;
+        this.receivers = receivers;
+        this.iamProjectName = iamProjectName;
+        this.noticeRules = noticeRules;
     }
 
     /**
@@ -102,11 +120,32 @@ public class CreateAlarmNotifyGroupRequest {
     }
 
     /**
+     * @return 告警通知组的相关配置
+     */
+    public List<NoticeRule> getNoticeRules() {
+        return noticeRules;
+    }
+
+    /**
+     * @param noticeRules 告警通知组的相关配置
+     */
+    public void setNoticeRules(List<NoticeRule> noticeRules) {
+        this.noticeRules = noticeRules;
+    }
+
+    /**
      * @return 检验必填参数，true合法false不合法
      */
     public boolean CheckValidation() {
-        if (this.alarmNotifyGroupName == null || this.notifyType == null || this.receivers == null) {
+        if (this.alarmNotifyGroupName == null || this.alarmNotifyGroupName.isEmpty()) {
             return false;
+        }
+        boolean hasNoticeRules = this.noticeRules != null && !this.noticeRules.isEmpty();
+        if (!hasNoticeRules) {
+            if (this.notifyType == null || this.notifyType.isEmpty()
+                    || this.receivers == null || this.receivers.isEmpty()) {
+                return false;
+            }
         }
         return true;
     }

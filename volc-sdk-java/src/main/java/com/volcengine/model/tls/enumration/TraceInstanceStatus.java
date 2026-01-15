@@ -21,6 +21,6 @@ public enum TraceInstanceStatus {
                 return status;
             }
         }
-        return null;
+        throw new IllegalArgumentException(value);
     }
 }

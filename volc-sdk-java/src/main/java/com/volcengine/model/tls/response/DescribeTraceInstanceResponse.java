@@ -1,14 +1,17 @@
 package com.volcengine.model.tls.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.tls.BackendConfig;
 import com.volcengine.model.tls.enumration.TraceInstanceStatus;
 import org.apache.http.Header;
 import com.volcengine.model.tls.exception.LogException;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Data
 @ToString(callSuper = true)
+@NoArgsConstructor
 public class DescribeTraceInstanceResponse extends CommonResponse {
     @JSONField(name = "CreateTime")
     private String createTime;
@@ -46,6 +49,12 @@ public class DescribeTraceInstanceResponse extends CommonResponse {
     @JSONField(name = "TraceTopicName")
     private String traceTopicName;
 
+    @JSONField(name = "BackendConfig")
+    private BackendConfig backendConfig;
+
+    @JSONField(name = "CsAccountChannel")
+    private String csAccountChannel;
+
     public DescribeTraceInstanceResponse(Header[] headers) {
         super(headers);
     }
@@ -65,6 +74,8 @@ public class DescribeTraceInstanceResponse extends CommonResponse {
         this.setTraceInstanceStatus(response.getTraceInstanceStatus());
         this.setTraceTopicId(response.getTraceTopicId());
         this.setTraceTopicName(response.getTraceTopicName());
+        this.setBackendConfig(response.getBackendConfig());
+        this.setCsAccountChannel(response.getCsAccountChannel());
         return this;
     }
 }

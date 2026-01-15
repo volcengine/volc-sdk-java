@@ -37,7 +37,7 @@ public class DeleteScheduleSqlTaskRequest {
      * @return 检验必填参数，true合法false不合法
      */
     public boolean CheckValidation() {
-        if (this.scheduleSqlTaskId == null) {
+        if (this.scheduleSqlTaskId == null || this.scheduleSqlTaskId.isEmpty()) {
             return false;
         }
         return true;

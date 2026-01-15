@@ -225,6 +225,20 @@ public class VmsConfig {
                     }
                 }
             ));
+            put("Click2CallLite", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, DEFAULT_PATH);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair(ACTION, "Click2CallLite"));
+                                    add(new BasicNameValuePair(VERSION, DEFAULT_VERSION));
+                                }
+                            });
+                        }
+                    }
+            ));
             put("BindAXNE", new ApiInfo(
                 new HashMap<String, Object>() {
                     {
@@ -893,6 +907,36 @@ public class VmsConfig {
                         });
                     }
                 }
+            ));
+
+            put("Click2CallCompanyAuth", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, DEFAULT_PATH);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair(ACTION, "Click2CallCompanyAuth"));
+                                    add(new BasicNameValuePair(VERSION, DEFAULT_VERSION));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            put("Click2CallNumberAuth", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, DEFAULT_PATH);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair(ACTION, "Click2CallNumberAuth"));
+                                    add(new BasicNameValuePair(VERSION, DEFAULT_VERSION));
+                                }
+                            });
+                        }
+                    }
             ));
         }
     };

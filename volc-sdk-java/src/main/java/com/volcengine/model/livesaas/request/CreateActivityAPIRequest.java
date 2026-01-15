@@ -54,4 +54,6 @@ public class CreateActivityAPIRequest {
     List<UpdateActivityLoopVideo> LoopVideos;
     @JSONField(name = "AutoStartConfig")
     AutoStartConfig AutoStartConfig;
+    @JSONField(name = "IsLiveAnalysisEnable")
+    Integer IsLiveAnalysisEnable;
 }

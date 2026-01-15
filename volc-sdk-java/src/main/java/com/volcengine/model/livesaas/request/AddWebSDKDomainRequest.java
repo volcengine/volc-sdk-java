@@ -7,4 +7,6 @@ import lombok.Data;
 public class AddWebSDKDomainRequest {
     @JSONField(name = "Domain")
     String Domain;
+    @JSONField(name = "WhitelistScenes")
+    Integer WhitelistScenes;
 }

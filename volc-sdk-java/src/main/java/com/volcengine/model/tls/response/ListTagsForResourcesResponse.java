@@ -27,6 +27,8 @@ public class ListTagsForResourcesResponse extends CommonResponse {
     @Override
     public ListTagsForResourcesResponse deSerialize(byte[] data, Class clazz) throws LogException {
         ListTagsForResourcesResponse response = (ListTagsForResourcesResponse) super.deSerialize(data, clazz);
-        return response;
+        this.setResourceTags(response.getResourceTags());
+        this.setNextToken(response.getNextToken());
+        return this;
     }
 }

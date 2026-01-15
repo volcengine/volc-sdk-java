@@ -1745,6 +1745,20 @@ public class LivesaasConfig {
                         }
                     }
             ));
+            put(Const.UpdateWebSDKDomain, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateWebSDKDomain));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.DeleteWebSDKDomain, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1851,6 +1865,48 @@ public class LivesaasConfig {
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.GetActivityEmbeddedUrls));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListWxMiniAppFiles, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListWxMiniAppFiles));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.AddWxMiniAppFile, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AddWxMiniAppFile));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DeleteWxMiniAppFile, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DeleteWxMiniAppFile));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
@@ -3013,6 +3069,34 @@ public class LivesaasConfig {
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.DeleteLiveChannelConfig));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ResumeLiveChannel, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ResumeLiveChannel));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ForbidLiveChannel, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ForbidLiveChannel));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
@@ -4266,6 +4350,104 @@ public class LivesaasConfig {
                         }
                     }
             ));
+            put(Const.CreateActivityBonusTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CreateActivityBonusTask));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateActivityBonusTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateActivityBonusTask));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetActivityBonusTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetActivityBonusTask));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListActivityBonusTasks, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListActivityBonusTasks));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.DeleteActivityBonusTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DeleteActivityBonusTask));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ChangeActivityBonusTaskStatus, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ChangeActivityBonusTaskStatus));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListActivityBonusTaskWinners, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListActivityBonusTaskWinners));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.CreateActivityRedPacket,new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -4652,6 +4834,20 @@ public class LivesaasConfig {
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.GetTask));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListLiveScreenshot, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListLiveScreenshot));
                                     add(new BasicNameValuePair("Version", "2024-08-01"));
                                 }
                             });

@@ -17,6 +17,6 @@ public class ActivationRiskListBasePackagePartResponse {
         @JSONField(name = "PartIds")
         private List<Integer> partIds;
         @JSONField(name = "TotalNum")
-        private Integer totalNum;
+        private Long totalNum;
     }
 }

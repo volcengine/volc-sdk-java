@@ -34,6 +34,15 @@ public interface VmsService extends IBaseService {
 
     OperationResponse cancelClick2Call(CancelClick2CallRequest request) throws Exception;
 
+    Click2CallResponse click2CallLite(Click2CallLiteRequest request) throws Exception;
+
+
+    Click2CallAuthResponse click2CallCompanyAuth(Click2CallCompanyAuthRequest request) throws Exception;
+
+    Click2CallAuthResponse click2CallNumberAuth(Click2CallNumberAuthRequest request) throws Exception;
+
+
+
     SecretBindResponse bindAXNE(BindAXNERequest request) throws Exception;
 
     OperationResponse unbindAXNE(SpecificSubIdRequest request) throws Exception;

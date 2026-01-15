@@ -19,7 +19,9 @@ public class UntagResourcesResponse extends CommonResponse {
     @Override
     public UntagResourcesResponse deSerialize(byte[] data, Class clazz) throws LogException {
         UntagResourcesResponse response = (UntagResourcesResponse) super.deSerialize(data, clazz);
-        this.setResult(response.getResult());
+        if (response != null) {
+            this.setResult(response.getResult());
+        }
         return this;
     }
 }

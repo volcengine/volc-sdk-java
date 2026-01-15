@@ -23,6 +23,6 @@ public class TosShipperInfo {
     @JSONField(name = SHIPPER_PARTITION_FORMAT)
     private String partitionFormat;
 
-    @JSONField(name = BUCKET)
+    @JSONField(name = SHIPPER_BUCKET)
     private String bucket;
 }

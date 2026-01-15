@@ -177,6 +177,8 @@ public class GetBasicConfigAPIResponse {
         String BindAccountLevelGroupName;
         @JSONField(name = "AutoStartConfig")
         AutoStartConfig AutoStartConfig;
+        @JSONField(name = "IsLiveAnalysisEnable")
+        Integer IsLiveAnalysisEnable;
     }
 
     @Data

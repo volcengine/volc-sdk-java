@@ -17,7 +17,7 @@ public final class ListTagsForResourcesRequest {
      * Maximum number of results to return.
      */
     @JSONField(name = "MaxResults")
-    private Integer maxResults;
+    private Integer maxResults = 100;
 
     /**
      * Pagination token from a previous response.

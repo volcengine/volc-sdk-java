@@ -556,7 +556,6 @@ public class TLSLogClientImpl implements TLSLogClient {
 
         // 2. check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_HISTOGRAM_V1, params, requestBody);
-        int a = 1;
         // 3. parse response
         return new DescribeHistogramV1Response(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeHistogramV1Response.class);
     }

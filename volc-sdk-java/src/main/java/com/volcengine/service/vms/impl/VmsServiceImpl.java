@@ -146,12 +146,31 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
     }
 
     @Override
+    public Click2CallAuthResponse click2CallCompanyAuth(Click2CallCompanyAuthRequest request) throws Exception {
+        return doJson("Click2CallCompanyAuth", request, new TypeReference<Click2CallAuthResponse>(){});
+    }
+
+    @Override
+    public Click2CallAuthResponse click2CallNumberAuth(Click2CallNumberAuthRequest request) throws Exception {
+        return doJson("Click2CallNumberAuth", request, new TypeReference<Click2CallAuthResponse>(){});
+    }
+
+    @Override
     public OperationResponse cancelClick2Call(CancelClick2CallRequest request) throws Exception {
         RawResponse response = formPost("CancelClick2Call", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         return JSON.parseObject(response.getData(), OperationResponse.class);
+    }
+
+    @Override
+    public Click2CallResponse click2CallLite(Click2CallLiteRequest request) throws Exception {
+        RawResponse response = formPost("Click2CallLite", Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), Click2CallResponse.class);
     }
 
     @Override

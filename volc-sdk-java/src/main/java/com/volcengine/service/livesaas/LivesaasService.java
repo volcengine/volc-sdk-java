@@ -301,6 +301,42 @@ public interface LivesaasService extends IBaseService {
     GetActivityLoginSecretResponse getActivityLoginSecret(GetActivityLoginSecretRequest getActivityLoginSecretRequest) throws Exception;
 
     /**
+     * ListWxMiniAppFiles
+     *
+     * @param listWxMiniAppFilesRequest ListWxMiniAppFilesRequest
+     * @return ListWxMiniAppFilesResponse
+     * @throws Exception the exception
+     */
+    ListWxMiniAppFilesResponse listWxMiniAppFiles(ListWxMiniAppFilesRequest listWxMiniAppFilesRequest) throws Exception;
+
+    /**
+     * AddWxMiniAppFile
+     *
+     * @param addWxMiniAppFileRequest AddWxMiniAppFileRequest
+     * @return AddWxMiniAppFileResponse
+     * @throws Exception the exception
+     */
+    AddWxMiniAppFileResponse addWxMiniAppFile(AddWxMiniAppFileRequest addWxMiniAppFileRequest) throws Exception;
+
+    /**
+     * DeleteWxMiniAppFile
+     *
+     * @param deleteWxMiniAppFileRequest DeleteWxMiniAppFileRequest
+     * @return DeleteWxMiniAppFileResponse
+     * @throws Exception the exception
+     */
+    DeleteWxMiniAppFileResponse deleteWxMiniAppFile(DeleteWxMiniAppFileRequest deleteWxMiniAppFileRequest) throws Exception;
+
+    /**
+     * UpdateWebSDKDomain
+     *
+     * @param updateWebSDKDomainRequest UpdateWebSDKDomainRequest
+     * @return UpdateWebSDKDomainResponse
+     * @throws Exception the exception
+     */
+    UpdateWebSDKDomainResponse updateWebSDKDomain(UpdateWebSDKDomainRequest updateWebSDKDomainRequest) throws Exception;
+
+    /**
      * ListAnActivityStartAndEndTimeAPI
      *
      * @param commonRequest CommonRequest
@@ -1923,6 +1959,10 @@ public interface LivesaasService extends IBaseService {
      */
     ListLiveChannelConfigResponse listLiveChannelConfig(CommonRequest listLiveChannelConfigRequest) throws Exception;
 
+    ResumeLiveChannelResponse resumeLiveChannel(ResumeLiveChannelRequest resumeLiveChannelRequest) throws Exception;
+
+    ForbidLiveChannelResponse forbidLiveChannel(ForbidLiveChannelRequest forbidLiveChannelRequest) throws Exception;
+
     /**
      * getLoginLivesaasSts
      *
@@ -2654,6 +2694,27 @@ public interface LivesaasService extends IBaseService {
     UpdateRobotNickNameResponse updateRobotNickName(UpdateRobotNickNameRequest updateRobotNickNameRequest) throws Exception;
 
     /**
+     * createActivityBonusTask
+     *
+     * @param createActivityBonusTaskRequest CreateActivityBonusTaskRequest
+     * @return CreateActivityBonusTaskResponse
+     * @throws Exception the exception
+     */
+    CreateActivityBonusTaskResponse createActivityBonusTask(CreateActivityBonusTaskRequest createActivityBonusTaskRequest) throws Exception;
+
+    UpdateActivityBonusTaskResponse updateActivityBonusTask(UpdateActivityBonusTaskRequest updateActivityBonusTaskRequest) throws Exception;
+
+    GetActivityBonusTaskResponse getActivityBonusTask(GetActivityBonusTaskRequest getActivityBonusTaskRequest) throws Exception;
+
+    ListActivityBonusTasksResponse listActivityBonusTasks(ListActivityBonusTasksRequest listActivityBonusTasksRequest) throws Exception;
+
+    DeleteActivityBonusTaskResponse deleteActivityBonusTask(DeleteActivityBonusTaskRequest deleteActivityBonusTaskRequest) throws Exception;
+
+    ChangeActivityBonusTaskStatusResponse changeActivityBonusTaskStatus(ChangeActivityBonusTaskStatusRequest changeActivityBonusTaskStatusRequest) throws Exception;
+
+    ListActivityBonusTaskWinnersResponse listActivityBonusTaskWinners(ListActivityBonusTaskWinnersRequest listActivityBonusTaskWinnersRequest) throws Exception;
+
+    /**
      * createActivityRedPacket
      * @param createActivityRedPacketRequest CreateActivityRedPacketRequest
      * @return CreateActivityRedPacketResponse
@@ -2881,4 +2942,11 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetTaskResponse getTask(GetTaskRequest getTaskRequest) throws Exception;
+    /**
+     * listLiveScreenshot
+     * @param listLiveScreenshotRequest ListLiveScreenshotRequest
+     * @return ListLiveScreenshotResponse
+     * @throws Exception the exception
+     */
+    ListLiveScreenshotResponse listLiveScreenshot(ListLiveScreenshotRequest listLiveScreenshotRequest) throws Exception;
 }

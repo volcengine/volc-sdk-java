@@ -18,7 +18,7 @@ public class CreateConsumerGroupRequest {
     @JSONField(name = CONSUMER_GROUP_NAME)
     String consumerGroupName;
     @JSONField(name = HEARTBEAT_TTL)
-    int heartbeatTTL;
+    int heartbeatTTL = 60;
     @JSONField(name = ORDERED_CONSUME)
     boolean orderedConsume;
 

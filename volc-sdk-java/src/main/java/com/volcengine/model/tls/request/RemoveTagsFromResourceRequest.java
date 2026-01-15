@@ -37,6 +37,7 @@ public class RemoveTagsFromResourceRequest {
     /**
      * 兼容单资源场景的便捷访问方法，沿用原有 ResourceId 命名。
      */
+    @JSONField(serialize = false, deserialize = false)
     public String getResourceId() {
         if (resourcesList == null || resourcesList.isEmpty()) {
             return null;
@@ -47,6 +48,7 @@ public class RemoveTagsFromResourceRequest {
     /**
      * 兼容原有 setResourceId 调用，将单个资源 ID 包装为列表。
      */
+    @JSONField(serialize = false, deserialize = false)
     public void setResourceId(String resourceId) {
         if (resourceId == null) {
             this.resourcesList = null;

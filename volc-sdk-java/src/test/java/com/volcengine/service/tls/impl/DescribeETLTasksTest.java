@@ -37,7 +37,7 @@ public class DescribeETLTasksTest extends BaseTest {
             DescribeETLTasksRequest filteredRequest = new DescribeETLTasksRequest();
             filteredRequest.setProjectId(projectId);
             filteredRequest.setTaskName("test-etl-task");
-            filteredRequest.setStatus("running");
+            filteredRequest.setStatus("RUNNING");
             
             DescribeETLTasksResponse filteredResponse = client.describeETLTasks(filteredRequest);
             assertNotNull(filteredResponse.getRequestId());

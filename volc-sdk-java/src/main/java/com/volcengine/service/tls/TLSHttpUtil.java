@@ -814,6 +814,16 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         }
                     }
             ));
+            put(com.volcengine.model.tls.Const.CREATE_SHIPPER, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, Const.POST);
+                            put(Const.Path, com.volcengine.model.tls.Const.CREATE_SHIPPER);
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                            });
+                        }
+                    }
+            ));
             put(com.volcengine.model.tls.Const.DESCRIBE_SHIPPERS, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

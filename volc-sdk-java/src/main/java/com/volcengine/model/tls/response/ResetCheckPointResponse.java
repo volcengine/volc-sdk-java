@@ -19,6 +19,6 @@ public class ResetCheckPointResponse extends CommonResponse {
     @Override
     public ResetCheckPointResponse deSerialize(byte[] data, Class clazz) throws LogException {
         ResetCheckPointResponse response = (ResetCheckPointResponse) super.deSerialize(data, clazz);
-        return response;
+        return this;
     }
 }

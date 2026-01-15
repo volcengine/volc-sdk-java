@@ -163,6 +163,8 @@ public class UpdateBasicConfigAPIRequest {
     Long BindAccountLevelGroupId;
     @JSONField(name = "AutoStartConfig")
     AutoStartConfig AutoStartConfig;
+    @JSONField(name = "IsLiveAnalysisEnable")
+    Integer IsLiveAnalysisEnable;
     @Data
     public static class RiskWarningSetting {
         @JSONField(name = "IsRiskWarningEnable")

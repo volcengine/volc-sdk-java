@@ -1,7 +1,9 @@
 package com.volcengine.service.tls.impl;
 
 import com.volcengine.model.tls.exception.LogException;
+import com.volcengine.model.tls.request.DescribeTraceInstancesRequest;
 import com.volcengine.model.tls.request.ModifyTraceInstanceRequest;
+import com.volcengine.model.tls.response.DescribeTraceInstancesResponse;
 import com.volcengine.model.tls.response.ModifyTraceInstanceResponse;
 import org.junit.Test;
 
@@ -11,9 +13,18 @@ public class TraceInstanceTest extends BaseTest {
 
     @Test
     public void testModifyTraceInstance() throws LogException {
+        DescribeTraceInstancesRequest describeRequest = new DescribeTraceInstancesRequest();
+        DescribeTraceInstancesResponse describeResponse = client.describeTraceInstances(describeRequest);
+        assertNotNull("DescribeTraceInstancesResponse should not be null", describeResponse);
+        if (describeResponse.getTraceInstances() == null || describeResponse.getTraceInstances().isEmpty()) {
+            System.out.println("no trace instances found, skip modifyTraceInstance positive case");
+            return;
+        }
+        String traceInstanceId = describeResponse.getTraceInstances().get(0).getTraceInstanceId();
+
         // 创建修改Trace实例请求
         ModifyTraceInstanceRequest request = new ModifyTraceInstanceRequest();
-        request.setTraceInstanceId("test-trace-instance-id");
+        request.setTraceInstanceId(traceInstanceId);
         request.setDescription("jest-modify");
 
         // 调用修改Trace实例接口

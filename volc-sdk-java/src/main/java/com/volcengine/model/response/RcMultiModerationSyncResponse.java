@@ -36,14 +36,26 @@ public class RcMultiModerationSyncResponse {
         @JSONField(name = "Decision")
         private String Decision;
 
+        @JSONField(name="DecisionReason")
+        private String DecisionReason;
+
         @JSONField(name = "DecisionLabel")
         private String DecisionLabel;
 
-        @JSONField(name = "DataId")
-        private String DataId;
+        @JSONField(name = "DecisionLabelName")
+        private String DecisionLabelName;
+
+        @JSONField(name ="DecisionRate")
+        private Double DecisionRate;
 
         @JSONField(name = "HitLabels")
         private List<String> HitLabels;
+
+        @JSONField(name = "DecisionDetail")
+        private List<RcMultiModerationAsyncResponse.MultiModerationDecision> DecisionDetail;
+
+        @JSONField(name = "DataId")
+        private String DataId;
 
         @JSONField(name = "PassThrough")
         private String PassThrough;

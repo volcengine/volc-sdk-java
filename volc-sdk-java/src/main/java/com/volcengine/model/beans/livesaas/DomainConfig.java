@@ -17,4 +17,6 @@ public class DomainConfig {
     Integer LiveDomainStatus;
     @JSONField(name = "VodDomainStatus")
     Integer VodDomainStatus;
+    @JSONField(name = "WhitelistScenes")
+    Integer WhitelistScenes;
 }

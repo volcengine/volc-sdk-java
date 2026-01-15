@@ -214,6 +214,20 @@ public class Const {
 
     public static final String CreateActivityAPIV2 = "CreateActivityAPIV2";
 
+    public static final String CreateActivityBonusTask = "CreateActivityBonusTask";
+
+    public static final String UpdateActivityBonusTask = "UpdateActivityBonusTask";
+
+    public static final String GetActivityBonusTask = "GetActivityBonusTask";
+
+    public static final String ListActivityBonusTasks = "ListActivityBonusTasks";
+
+    public static final String DeleteActivityBonusTask = "DeleteActivityBonusTask";
+
+    public static final String ChangeActivityBonusTaskStatus = "ChangeActivityBonusTaskStatus";
+
+    public static final String ListActivityBonusTaskWinners = "ListActivityBonusTaskWinners";
+
     public static final String DeleteActivityAPI = "DeleteActivityAPI";
 
     public static final String ListActivityAPI = "ListActivityAPI";
@@ -234,6 +248,14 @@ public class Const {
     public static final String GetActivityThumbUpNumber = "GetActivityThumbUpNumber";
 
     public static final String ListPlayUrlsAPI = "ListPlayUrlsAPI";
+
+    public static final String ListWxMiniAppFiles = "ListWxMiniAppFiles";
+
+    public static final String AddWxMiniAppFile = "AddWxMiniAppFile";
+
+    public static final String DeleteWxMiniAppFile = "DeleteWxMiniAppFile";
+
+    public static final String UpdateWebSDKDomain = "UpdateWebSDKDomain";
 
     public static final String GetStreamsAPI = "GetStreamsAPI";
 
@@ -599,6 +621,10 @@ public class Const {
 
     public static final String ListLiveChannelConfig = "ListLiveChannelConfig";
 
+    public static final String ResumeLiveChannel = "ResumeLiveChannel";
+
+    public static final String ForbidLiveChannel = "ForbidLiveChannel";
+
     public static final String GenerateActivityStreamSlice = "GenerateActivityStreamSlice";
     public static final String DeleteRobotNickNames = "DeleteRobotNickNames";
     public static final String AddRobotNickNames = "AddRobotNickNames";
@@ -719,6 +745,7 @@ public class Const {
     public static final String ListProjects = "ListProjects";
     public static final String GetBMReport = "GetBMReport";
     public static final String GetTask = "GetTask";
+    public static final String ListLiveScreenshot = "ListLiveScreenshot";
     public static final String CreateViewerLevelConfig = "CreateViewerLevelConfig";
     public static final String UpdateViewerLevelConfig = "UpdateViewerLevelConfig";
     public static final String ReorderViewerLevelConfig = "ReorderViewerLevelConfig";

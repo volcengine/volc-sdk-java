@@ -65,7 +65,17 @@ public class VisualCertQueryProResponse extends VisualBaseResponse {
                 @JSONField(name = "1e-6")
                 Float e6;
             }
-
+            @JSONField(name = "face_attributes")
+            FaceAttributes face_attributes;
+            @Data
+            public static class FaceAttributes {
+                @JSONField(name = "age")
+                Float age;
+                @JSONField(name = "gender")
+                String gender;
+                @JSONField(name = "gender_confidence")
+                Float gender_confidence;
+            }
             @JSONField(name = "image_face_detail")
             String imageFaceDetail;
 

@@ -105,6 +105,15 @@ public interface VmsService extends IBaseService {
     CreateNumberPoolResponse createNumberPool(CreateNumberPoolRequest request) throws Exception;
 
     /**
+     * 请求号码风控数据
+     *
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    QueryRiskDenyInfoResponse queryRiskDenyInfo(QueryRiskDenyInfoRequest request) throws Exception;
+
+    /**
      * 更新号码池
      *
      * @param request

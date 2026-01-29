@@ -15,6 +15,7 @@ import com.volcengine.service.vms.response.*;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -324,6 +325,11 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
             throw response.getException();
         }
         return JSON.parseObject(response.getData(), CreateNumberPoolResponse.class);
+    }
+
+    @Override
+    public QueryRiskDenyInfoResponse queryRiskDenyInfo(QueryRiskDenyInfoRequest request) throws Exception {
+        return doJson("QueryRiskDenyInfo", request, new TypeReference<QueryRiskDenyInfoResponse>(){});
     }
 
     @Override

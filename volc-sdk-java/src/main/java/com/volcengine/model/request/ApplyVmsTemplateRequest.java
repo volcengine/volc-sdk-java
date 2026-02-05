@@ -1,6 +1,8 @@
 package com.volcengine.model.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.beans.ShortUrlConfig;
+import com.volcengine.model.request.sms.ApplySmsTemplateV2Request;
 import lombok.Data;
 
 import java.util.List;
@@ -19,4 +21,7 @@ public class ApplyVmsTemplateRequest {
     String signature;
     @JSONField(name = "contents")
     List<VmsElement> contents;
+
+    @JSONField(name = "shortUrlConfig")
+    private ShortUrlConfig shortUrlConfig;
 }

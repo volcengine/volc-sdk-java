@@ -26,6 +26,7 @@ public class CDNConfig {
                         }
                     });
                     put(Const.Credentials, new Credentials(Const.REGION_CN_NORTH_1, "CDN"));
+                    put(Const.Scheme, "https");
                 }
             }
     );

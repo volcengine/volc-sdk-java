@@ -47,8 +47,6 @@ public class ListSmsTemplateV2Response {
         @JSONField(name = "createdAt")
         private Long createdAt;
 
-        @JSONField(name = "status")
-        private Integer status;
     }
 
     @Data

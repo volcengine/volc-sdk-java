@@ -19,5 +19,7 @@ public class CreateViewerLevelConfigResponse {
     public static class CreateViewerLevelConfigResponseBody {
         @JSONField(name = "ViewerLevelMetas")
         List<ViewerLevelMetas> ViewerLevelMetas;
+        @JSONField(name = "CreatedLevelIds")
+        List<Long> CreatedLevelIds;
     }
 }

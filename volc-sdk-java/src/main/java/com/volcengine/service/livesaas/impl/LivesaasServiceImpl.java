@@ -1089,6 +1089,21 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         return res;
     }
 
+    @Override
+    public UpdateActivityViewerLevelResponse updateActivityViewerLevel(UpdateActivityViewerLevelRequest updateActivityViewerLevelRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityViewerLevel, new ArrayList<>(), JSON.toJSONString(updateActivityViewerLevelRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateActivityViewerLevelResponse res = JSON.parseObject(response.getData(), UpdateActivityViewerLevelResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
 
     @Override
     public CommonStatusResponse deleteGraphicMessageAPI(DeleteGraphicMessageAPIRequest deleteGraphicMessageAPIRequest) throws Exception {
@@ -5263,6 +5278,36 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
             throw response.getException();
         }
         WithdrawAwardResponse res = JSON.parseObject(response.getData(), WithdrawAwardResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetScenarioResponse getScenario(GetScenarioRequest getScenarioRequest) throws Exception {
+        RawResponse response = query(Const.GetScenario, Utils.paramsToPair(getScenarioRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetScenarioResponse res = JSON.parseObject(response.getData(), GetScenarioResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public EndTaskResponse endTask(EndTaskRequest endTaskRequest) throws Exception {
+        RawResponse response = json(Const.EndTask, new ArrayList<>(), JSON.toJSONString(endTaskRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        EndTaskResponse res = JSON.parseObject(response.getData(), EndTaskResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());

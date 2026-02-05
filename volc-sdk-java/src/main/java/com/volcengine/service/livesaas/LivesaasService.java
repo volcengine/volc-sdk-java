@@ -534,6 +534,14 @@ public interface LivesaasService extends IBaseService {
      */
     CommonStatusResponse updateActivityProductAPI(UpdateActivityProductV2Request updateActivityProductV2Request) throws Exception;
 
+    /**
+     * UpdateActivityViewerLevel
+     *
+     * @param updateActivityViewerLevelRequest UpdateActivityViewerLevelRequest
+     * @return UpdateActivityViewerLevelResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityViewerLevelResponse updateActivityViewerLevel(UpdateActivityViewerLevelRequest updateActivityViewerLevelRequest) throws Exception;
 
     /**
      * DeleteGraphicMessageAPI
@@ -2949,4 +2957,20 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     ListLiveScreenshotResponse listLiveScreenshot(ListLiveScreenshotRequest listLiveScreenshotRequest) throws Exception;
+    /**
+     * GetScenario
+     *
+     * @param getScenarioRequest GetScenarioRequest
+     * @return GetScenarioResponse
+     * @throws Exception
+     */
+    GetScenarioResponse getScenario(GetScenarioRequest getScenarioRequest) throws Exception;
+
+    /**
+     * endTask
+     * @param endTaskRequest EndTaskRequest
+     * @return EndTaskResponse
+     * @throws Exception the exception
+     */
+    EndTaskResponse endTask(EndTaskRequest endTaskRequest) throws Exception;
 }

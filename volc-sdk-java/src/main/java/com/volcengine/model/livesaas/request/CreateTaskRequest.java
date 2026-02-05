@@ -1,6 +1,7 @@
 package com.volcengine.model.livesaas.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.beans.livesaas.SpecifiableRuleArg;
 import lombok.Data;
 
 import java.util.List;
@@ -27,4 +28,7 @@ public class CreateTaskRequest {
     Long TaskStartTime;
     @JSONField(name = "TagIds")
     List<Long> TagIds;
+    @JSONField(name = "SpecifiableRuleArgs")
+    List<SpecifiableRuleArg> SpecifiableRuleArgs;
+
 }

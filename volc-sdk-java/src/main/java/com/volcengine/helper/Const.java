@@ -329,6 +329,8 @@ public class Const {
 
     public static final String UpdateActivityProductAPI = "UpdateActivityProductAPI";
 
+    public static final String UpdateActivityViewerLevel = "UpdateActivityViewerLevel";
+
     public static final String DeleteGraphicMessageAPI = "DeleteGraphicMessageAPI";
 
     public static final String UpdatePresenterNameAPI = "UpdatePresenterNameAPI";
@@ -740,6 +742,7 @@ public class Const {
     public static final String GetMergedReport = "GetMergedReport";
     public static final String GetReport = "GetReport";
     public static final String ListScenarios = "ListScenarios";
+    public static final String GetScenario = "GetScenario";
     public static final String ListTasks = "ListTasks";
     public static final String CreateTask = "CreateTask";
     public static final String ListProjects = "ListProjects";
@@ -751,6 +754,7 @@ public class Const {
     public static final String ReorderViewerLevelConfig = "ReorderViewerLevelConfig";
     public static final String DeleteViewerLevelConfig = "DeleteViewerLevelConfig";
     public static final String GetViewerLevelConfig = "GetViewerLevelConfig";
+    public static final String EndTask = "EndTask";
 
 
     public static final String EnableActivityMultiProductExplain = "EnableActivityMultiProductExplain";

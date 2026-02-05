@@ -119,6 +119,50 @@ public class GetBMReportResponse {
         OnScreenPresenceMonitoringResult onScreenPresenceMonitoringResult;
         @JSONField(name = "VehicleSalesPitchResult")
         VehicleSalesPitchResult vehicleSalesPitchResult;
+        @JSONField(name = "GeneralTextResult")
+        GeneralTextResult generalTextResult;
+        @JSONField(name = "GeneralImageResult")
+        GeneralImageResult generalImageResult;
+    }
+
+    @Data
+    public static class GeneralTextDetail {
+        @JSONField(name = "StartTime")
+        Long startTime;
+        @JSONField(name = "EndTime")
+        Long endTime;
+        @JSONField(name = "TextFragment")
+        String textFragment;
+        @JSONField(name = "Reason")
+        String reason;
+    }
+
+    @Data
+    public static class GeneralTextResult {
+        @JSONField(name = "MachineDetails")
+        List<GeneralTextDetail> machineDetails;
+        @JSONField(name = "TotalCount")
+        Long totalCount;
+    }
+
+    @Data
+    public static class GeneralImageDetail {
+        @JSONField(name = "StartTime")
+        Long startTime;
+        @JSONField(name = "EndTime")
+        Long endTime;
+        @JSONField(name = "ScreenshotURLs")
+        List<String> screenshotURLs;
+        @JSONField(name = "Reason")
+        String reason;
+    }
+
+    @Data
+    public static class GeneralImageResult {
+        @JSONField(name = "MachineDetails")
+        List<GeneralImageDetail> machineDetails;
+        @JSONField(name = "TotalCount")
+        Long totalCount;
     }
 
     @Data

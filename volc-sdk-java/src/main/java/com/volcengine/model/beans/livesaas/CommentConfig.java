@@ -47,4 +47,6 @@ public class CommentConfig  {
     Integer IsViewOrderEnable;
     @JSONField(name = "IsCommentLLMAnalyzeEnable")
     Integer IsCommentLLMAnalyzeEnable;
+    @JSONField(name = "IsQuickCommentEnable")
+    Integer IsQuickCommentEnable;
 }

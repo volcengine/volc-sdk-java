@@ -755,6 +755,9 @@ public class Const {
     public static final String DeleteViewerLevelConfig = "DeleteViewerLevelConfig";
     public static final String GetViewerLevelConfig = "GetViewerLevelConfig";
     public static final String EndTask = "EndTask";
+    public static final String CreateImageTask = "CreateImageTask";
+    public static final String GetImageTask = "GetImageTask";
+    public static final String GetImageReport = "GetImageReport";
 
 
     public static final String EnableActivityMultiProductExplain = "EnableActivityMultiProductExplain";

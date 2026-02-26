@@ -5315,4 +5315,49 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public CreateImageTaskResponse createImageTask(CreateImageTaskRequest createImageTaskRequest) throws Exception {
+        RawResponse response = json(Const.CreateImageTask, new ArrayList<>(), JSON.toJSONString(createImageTaskRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CreateImageTaskResponse res = JSON.parseObject(response.getData(), CreateImageTaskResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetImageTaskResponse getImageTask(GetImageTaskRequest getImageTaskRequest) throws Exception {
+        RawResponse response = query(Const.GetImageTask, Utils.paramsToPair(getImageTaskRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImageTaskResponse res = JSON.parseObject(response.getData(), GetImageTaskResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetImageReportResponse getImageReport(GetImageReportRequest getImageReportRequest) throws Exception {
+        RawResponse response = query(Const.GetImageReport, Utils.paramsToPair(getImageReportRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetImageReportResponse res = JSON.parseObject(response.getData(), GetImageReportResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

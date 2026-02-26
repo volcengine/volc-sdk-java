@@ -2973,4 +2973,28 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     EndTaskResponse endTask(EndTaskRequest endTaskRequest) throws Exception;
+
+    /**
+     * createImageTask
+     * @param createImageTaskRequest CreateImageTaskRequest
+     * @return CreateImageTaskResponse
+     * @throws Exception the exception
+     */
+    CreateImageTaskResponse createImageTask(CreateImageTaskRequest createImageTaskRequest) throws Exception;
+    /**
+     * getImageTask
+     *
+     * @param getImageTaskRequest GetImageTaskRequest
+     * @return GetImageTaskResponse
+     * @throws Exception the exception
+     */
+    GetImageTaskResponse getImageTask(GetImageTaskRequest getImageTaskRequest) throws Exception;
+
+    /**
+     * getImageReport
+     * @param getImageReportRequest GetImageReportRequest
+     * @return GetImageReportResponse
+     * @throws Exception the exception
+     */
+    GetImageReportResponse getImageReport(GetImageReportRequest getImageReportRequest) throws Exception;
 }

@@ -4896,6 +4896,48 @@ public class LivesaasConfig {
                         }
                     }
             ));
+            put(Const.CreateImageTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CreateImageTask));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetImageTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetImageTask));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetImageReport, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetImageReport));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

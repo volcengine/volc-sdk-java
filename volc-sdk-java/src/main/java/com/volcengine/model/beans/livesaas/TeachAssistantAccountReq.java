@@ -21,4 +21,6 @@ public class TeachAssistantAccountReq {
     List<Integer> TeachAssistantFeatures;
     @JSONField(name = "AudienceGroupIds")
     List<Long> AudienceGroupIds;
+    @JSONField(name = "LoginType")
+    Integer LoginType;
 }

@@ -19,6 +19,8 @@ public class ClientConfig {
     String securityToken;
     String region;
     String apiVersion;
+    RetryPolicy retryPolicy;
+    RetryDecider retryDecider;
     boolean localValidationOnly;
 
     public ClientConfig(String endPoint, String region, String accessKeyId, String accessKeySecret,

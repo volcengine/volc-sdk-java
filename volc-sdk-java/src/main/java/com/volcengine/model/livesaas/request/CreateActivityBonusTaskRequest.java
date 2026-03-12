@@ -25,5 +25,8 @@ public class CreateActivityBonusTaskRequest {
 
     @JSONField(name = "BonusList")
     List<BonusObject> BonusList;
+
+    @JSONField(name = "Icon")
+    String Icon;
 }
 

@@ -57,23 +57,23 @@ public class BatchLog implements Delayed {
     }
 
     public boolean tryAdd(PutLogRequest.LogGroup logGroup, int batchSize, CallBack callBack) {
-        // over threshold
         int currentBatchCount = getCurrentBatchCount();
         int currentBatchSize = getCurrentBatchSize();
         if (logGroup.getLogsList().size() + currentBatchCount > ProducerConfig.MAX_BATCH_COUNT
                 || batchSize + currentBatchSize > ProducerConfig.MAX_BATCH_SIZE) {
             return false;
         }
-        // add log group
-        PutLogRequest.LogGroupList.Builder builder = PutLogRequest.LogGroupList.newBuilder().addLogGroups(logGroup);
+
+        PutLogRequest.LogGroupList.Builder builder = PutLogRequest.LogGroupList.newBuilder();
         if (this.logGroupList.getLogGroupsList().size() > 0) {
             builder.addAllLogGroups(this.logGroupList.getLogGroupsList());
         }
+        builder.addLogGroups(logGroup);
         this.logGroupList = builder.build();
+
         if (callBack != null) {
             getCallBackList().add(callBack);
         }
-        // update current
         setCurrentBatchCount(currentBatchCount + logGroup.getLogsList().size());
         setCurrentBatchSize(currentBatchSize + batchSize);
         return true;
@@ -196,7 +196,7 @@ public class BatchLog implements Delayed {
                 ", createMs=" + createMs +
                 ", nextRetryMs=" + nextRetryMs +
                 ", retryBackoffMs=" + retryBackoffMs +
-                ", maxRetryBackoffMs=" + nextRetryMs +
+                ", maxRetryBackoffMs=" + maxRetryBackoffMs +
                 ", baseRetryBackoffMs=" + baseRetryBackoffMs +
                 ", baseIncreaseBackoffMs=" + baseIncreaseBackoffMs +
                 '}';

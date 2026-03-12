@@ -15,4 +15,6 @@ public class EncryptUserCmkConf {
     private String trn;
     @JSONField(name = KMS_ENCRYPT_USER_CMK_CONF_REGION_ID)
     private String regionId;
+    @JSONField(name = KMS_ENCRYPT_USER_CMK_CONF_FROM_TLS)
+    private Boolean fromTls;
 }

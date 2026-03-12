@@ -106,5 +106,25 @@ public class UpdateProductCardResponse {
         String RedirectImage;
         @JSONField(name = "ExplainTime")
         Long ExplainTime;
+        @JSONField(name = "SellingPointTag")
+        String SellingPointTag;
+        @JSONField(name = "ReminderType")
+        Integer ReminderType;
+        @JSONField(name = "HotSale")
+        String HotSale;
+        @JSONField(name = "Stock")
+        String Stock;
+        @JSONField(name = "PromotionTagUrl")
+        String PromotionTagUrl;
+        @JSONField(name = "PromotionTagType")
+        Integer PromotionTagType;
+        @JSONField(name = "IsOrderMsgEnable")
+        Integer IsOrderMsgEnable;
+        @JSONField(name = "OutOfStock")
+        Integer OutOfStock;
+        @JSONField(name = "PriceHidden")
+        Integer PriceHidden;
+        @JSONField(name = "MemberPrice")
+        String MemberPrice;
     }
 }

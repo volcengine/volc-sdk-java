@@ -33,5 +33,8 @@ public class ActivityBonusTask {
 
     @JSONField(name = "ActualEndTime")
     Long ActualEndTime;
+
+    @JSONField(name = "Icon")
+    String Icon;
 }
 

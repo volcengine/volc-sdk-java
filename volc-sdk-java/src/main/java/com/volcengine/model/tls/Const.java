@@ -172,6 +172,15 @@ public class Const {
     public static final String KMS_ENCRYPT_USER_CMK_CONF_USER_CMK_ID = "user_cmk_id";
     public static final String KMS_ENCRYPT_USER_CMK_CONF_TRN = "trn";
     public static final String KMS_ENCRYPT_USER_CMK_CONF_REGION_ID = "region_id";
+    public static final String KMS_ENCRYPT_USER_CMK_CONF_FROM_TLS = "from_tls";
+    public static final String METERING_MODE = "MeteringMode";
+    public static final String TLS_VERSION = "TLSVersion";
+    public static final String BIND_PROCESSOR = "BindProcessor";
+    public static final String PROCESSOR_ID = "ProcessorID";
+    public static final String PROCESSOR_NAME = "ProcessorName";
+    public static final String FUZZY_SEARCH_KEY = "FuzzySearchKey";
+    public static final String ORDER_BY_PROJECT = "OrderByProject";
+    public static final String REGIONS = "Regions";
 
     //shard
     public static final String SHARDS = "Shards";

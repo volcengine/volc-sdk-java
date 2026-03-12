@@ -38,6 +38,8 @@ public class VideoRiskResultResponse {
         private String finalLabel;
         @JSONField(name = "DecisionLabel")
         private String decisionLabel;
+        @JSONField(name = "Decision")
+        private String decision;
     }
 
     @Data

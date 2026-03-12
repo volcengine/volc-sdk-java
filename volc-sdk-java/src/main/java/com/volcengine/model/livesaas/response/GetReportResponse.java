@@ -160,6 +160,8 @@ public class GetReportResponse {
         Long AbsoluteStartTime;
         @JSONField(name = "AbsoluteEndTime")
         Long AbsoluteEndTime;
+        @JSONField(name = "Description")
+        String Description;
     }
 
     @Data
@@ -174,6 +176,8 @@ public class GetReportResponse {
         Long AbsoluteStartTime;
         @JSONField(name = "AbsoluteEndTime")
         Long AbsoluteEndTime;
+        @JSONField(name = "Description")
+        String Description;
     }
 
     @Data

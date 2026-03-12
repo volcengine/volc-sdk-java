@@ -28,5 +28,8 @@ public class UpdateActivityBonusTaskRequest {
 
     @JSONField(name = "BonusList")
     List<BonusObject> BonusList;
+
+    @JSONField(name = "Icon")
+    String Icon;
 }
 

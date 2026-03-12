@@ -143,6 +143,11 @@ public class PutLogsRequest {
         if (this.topicId == null || this.logGroupList == null) {
             return false;
         }
+        for (PutLogRequest.LogGroup logGroup : this.logGroupList.getLogGroupsList()) {
+            if (logGroup.getLogsCount() > 10000) {
+                return false;
+            }
+        }
         return true;
     }
 }

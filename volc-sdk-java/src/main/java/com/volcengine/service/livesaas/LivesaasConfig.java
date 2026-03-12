@@ -20,7 +20,7 @@ public class LivesaasConfig {
                     new HashMap<String, Object>() {
                         {
                             put(Const.CONNECTION_TIMEOUT, 5000);
-                            put(Const.SOCKET_TIMEOUT, 10000);
+                            put(Const.SOCKET_TIMEOUT, 30000);
                             put(Const.Scheme, "https");
                             put(Const.Host, "livesaas.volcengineapi.com");
                             put(Const.Header, new ArrayList<Header>() {
@@ -4669,6 +4669,7 @@ public class LivesaasConfig {
                                     add(new BasicNameValuePair("Version", "2024-08-01"));
                                 }
                             });
+                            put(Const.SOCKET_TIMEOUT, 20000);
                         }
                     }
             ));

@@ -13,10 +13,20 @@ import static com.volcengine.model.tls.Const.*;
 @ToString(callSuper = true)
 @NoArgsConstructor
 public class TopicInfo {
+    @JSONField(name = BIND_PROCESSOR)
+    BindProcessor bindProcessor;
+    @JSONField(name = METERING_MODE)
+    String meteringMode;
     @JSONField(name = TOPIC_NAME)
     String topicName;
     @JSONField(name = PROJECT_ID)
     String projectId;
+    @JSONField(name = PROJECT_NAME)
+    String projectName;
+    @JSONField(name = REGION)
+    String region;
+    @JSONField(name = TLS_VERSION)
+    String tlsVersion;
     @JSONField(name = TOPIC_ID)
     String topicId;
     @JSONField(name = TTL)

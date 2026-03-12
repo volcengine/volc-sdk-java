@@ -71,19 +71,10 @@ public class ProducerImpl implements Producer {
     @Override
     public void sendLogGroup(String hashKey, String topicId, String source, String filename, PutLogRequest.LogGroup logGroup, CallBack callBack)
             throws InterruptedException, LogException {
-        // 1 check params
         if (topicId == null || logGroup == null || logGroup.getLogsList() == null || logGroup.getLogsList().size() == 0) {
             throw new LogException("InvalidArgument", String.format("topic id: %s, log group is empty", topicId), null);
         }
-
-        // check batch count
-        if (logGroup.getLogsList().size() > ProducerConfig.MAX_LOG_GROUP_COUNT) {
-            throw new LogException("InvalidArgument", String.format("log list size %d is greater than threshold %d",
-                    logGroup.getLogsList().size(), ProducerConfig.MAX_LOG_GROUP_COUNT), null);
-        }
-
-        // 2 create batch log and add to dispatcher
-        dispatcher.addBatch(hashKey, topicId, source, filename, logGroup, callBack);
+        dispatchLogGroup(hashKey, topicId, source, filename, logGroup, callBack);
     }
 
     @Override
@@ -100,19 +91,101 @@ public class ProducerImpl implements Producer {
     @Override
     public void sendLogsV2(String hashKey, String topicId, String source, String filename, List<LogItem> logs, CallBack callBack)
             throws InterruptedException, LogException {
-        // 1 check params
         if (topicId == null || logs == null || logs.size() == 0) {
             throw new LogException("InvalidArgument", String.format("topic id: %s, log group: %s", topicId, logs), null);
         }
+        dispatchLogItems(hashKey, topicId, source, filename, logs, callBack);
+    }
 
-        // check batch count
-        if (logs.size() > ProducerConfig.MAX_LOG_GROUP_COUNT) {
-            throw new LogException("InvalidArgument", String.format("log list size %d is greater than threshold %d",
-                    logs.size(), ProducerConfig.MAX_LOG_GROUP_COUNT), null);
+    private void dispatchLogGroup(String hashKey, String topicId, String source, String filename, PutLogRequest.LogGroup logGroup, CallBack callBack)
+            throws InterruptedException, LogException {
+        PutLogRequest.LogGroup.Builder builder = PutLogRequest.LogGroup.newBuilder(logGroup);
+        builder.clearLogs();
+        int count = 0;
+        for (PutLogRequest.Log log : logGroup.getLogsList()) {
+            builder.addLogs(log);
+            count++;
+            int size = builder.build().getSerializedSize();
+            if (size > ProducerConfig.MAX_BATCH_SIZE) {
+                if (count == 1) {
+                    throw new LogException("InvalidArgument", String.format("log size %d is larger than MAX_LOG_SIZE %d",
+                            size, ProducerConfig.MAX_BATCH_SIZE), null);
+                }
+                builder.removeLogs(count - 1);
+                count--;
+                dispatcher.addBatch(hashKey, topicId, source, filename, builder.build(), callBack);
+                builder.clearLogs();
+                builder.addLogs(log);
+                count = 1;
+                size = builder.build().getSerializedSize();
+                if (size > ProducerConfig.MAX_BATCH_SIZE) {
+                    throw new LogException("InvalidArgument", String.format("log size %d is larger than MAX_LOG_SIZE %d",
+                            size, ProducerConfig.MAX_BATCH_SIZE), null);
+                }
+            }
+            if (count >= ProducerConfig.MAX_LOG_GROUP_COUNT) {
+                dispatcher.addBatch(hashKey, topicId, source, filename, builder.build(), callBack);
+                builder.clearLogs();
+                count = 0;
+            }
         }
+        if (count > 0) {
+            dispatcher.addBatch(hashKey, topicId, source, filename, builder.build(), callBack);
+        }
+    }
 
-        // 2 create batch log and add to dispatcher
-        dispatcher.addBatch(hashKey, topicId, source, filename, AdaptorUtil.logItems2PbGroup(filename, source, logs), callBack);
+    private void dispatchLogItems(String hashKey, String topicId, String source, String filename, List<LogItem> logs, CallBack callBack)
+            throws InterruptedException, LogException {
+        PutLogRequest.LogGroup.Builder builder = PutLogRequest.LogGroup.newBuilder();
+        if (filename != null) {
+            builder.setFileName(filename);
+        }
+        if (source != null) {
+            builder.setSource(source);
+        }
+        int count = 0;
+        for (LogItem item : logs) {
+            builder.addLogs(AdaptorUtil.logItem2PbLog(item));
+            count++;
+            int size = builder.build().getSerializedSize();
+            if (size > ProducerConfig.MAX_BATCH_SIZE) {
+                if (count == 1) {
+                    throw new LogException("InvalidArgument", String.format("log size %d is larger than MAX_LOG_SIZE %d",
+                            size, ProducerConfig.MAX_BATCH_SIZE), null);
+                }
+                builder.removeLogs(count - 1);
+                count--;
+                dispatcher.addBatch(hashKey, topicId, source, filename, builder.build(), callBack);
+                builder.clearLogs();
+                if (filename != null) {
+                    builder.setFileName(filename);
+                }
+                if (source != null) {
+                    builder.setSource(source);
+                }
+                builder.addLogs(AdaptorUtil.logItem2PbLog(item));
+                count = 1;
+                size = builder.build().getSerializedSize();
+                if (size > ProducerConfig.MAX_BATCH_SIZE) {
+                    throw new LogException("InvalidArgument", String.format("log size %d is larger than MAX_LOG_SIZE %d",
+                            size, ProducerConfig.MAX_BATCH_SIZE), null);
+                }
+            }
+            if (count >= ProducerConfig.MAX_LOG_GROUP_COUNT) {
+                dispatcher.addBatch(hashKey, topicId, source, filename, builder.build(), callBack);
+                builder.clearLogs();
+                if (filename != null) {
+                    builder.setFileName(filename);
+                }
+                if (source != null) {
+                    builder.setSource(source);
+                }
+                count = 0;
+            }
+        }
+        if (count > 0) {
+            dispatcher.addBatch(hashKey, topicId, source, filename, builder.build(), callBack);
+        }
     }
 
     @Override

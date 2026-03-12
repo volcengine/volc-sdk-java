@@ -19,6 +19,10 @@ import static com.volcengine.model.tls.Const.TOTAL;
 public class DescribeTopicsResponse extends CommonResponse {
     @JSONField(name = TOTAL)
     int total;
+    @JSONField(name = Const.CURSOR)
+    String cursor;
+    @JSONField(name = Const.REGIONS)
+    List<String> regions;
     @JSONField(name = Const.TOPICS_LIST_KEY)
     List<TopicInfo> topic;
 

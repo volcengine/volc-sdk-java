@@ -269,6 +269,16 @@ public class GetBMReportResponse {
         List<String> screenshotURLs;
         @JSONField(name = "Reason")
         String reason;
+        @JSONField(name = "ViolationDetails")
+        List<ViolationDetail> ViolationDetails;
+    }
+
+    @Data
+    public static class ViolationDetail {
+        @JSONField(name = "ReasonType")
+        String ReasonType;
+        @JSONField(name = "Message")
+        String Message;
     }
 
     @Data

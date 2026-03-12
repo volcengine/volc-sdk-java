@@ -13,6 +13,11 @@ public class DescribeTopicsRequest {
     String projectName;
     Integer pageNumber;
     Integer pageSize;
+    String cursor;
+    String region;
+    String fuzzySearchKey;
+    String description;
+    Boolean orderByProject;
     Boolean IsFullName;
     String topicName;
     String topicId;
@@ -120,9 +125,6 @@ public class DescribeTopicsRequest {
      * @return 检验必填参数，true合法false不合法
      */
     public boolean CheckValidation() {
-        if (this.projectId == null) {
-            return false;
-        }
         return true;
     }
 }

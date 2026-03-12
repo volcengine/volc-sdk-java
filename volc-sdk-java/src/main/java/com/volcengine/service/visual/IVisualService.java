@@ -751,4 +751,13 @@ public interface IVisualService extends IBaseService {
      * @throws Exception
      */
     Object cvProcess(Object request) throws Exception;
+
+    /**
+     * 通用取消接口
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    Object cvCancelTask(Object request) throws Exception;
+
 }

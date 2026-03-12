@@ -7,17 +7,29 @@ import com.volcengine.model.tls.pb.PutLogRequest;
 import java.util.List;
 
 public class AdaptorUtil {
+    private static final int MAX_LOGS_PER_LOG_GROUP = 10000;
+
     private AdaptorUtil() {
     }
 
-    // log item 转为 pb
     public static PutLogRequest.LogGroupList logItems2PbGroupList(String path, String source, List<LogItem> logs) {
         PutLogRequest.LogGroupList.Builder builder = PutLogRequest.LogGroupList.newBuilder();
         if (logs == null || logs.size() == 0) {
             return builder.build();
         }
-        PutLogRequest.LogGroup group = logItems2PbGroup(path, source, logs);
-        return builder.addLogGroups(group).build();
+
+        if (logs.size() <= MAX_LOGS_PER_LOG_GROUP) {
+            PutLogRequest.LogGroup group = logItems2PbGroup(path, source, logs);
+            return builder.addLogGroups(group).build();
+        }
+
+        for (int i = 0; i < logs.size(); i += MAX_LOGS_PER_LOG_GROUP) {
+            int endIndex = Math.min(i + MAX_LOGS_PER_LOG_GROUP, logs.size());
+            List<LogItem> subLogs = logs.subList(i, endIndex);
+            PutLogRequest.LogGroup group = logItems2PbGroup(path, source, subLogs);
+            builder.addLogGroups(group);
+        }
+        return builder.build();
     }
 
     public static PutLogRequest.LogGroup logItems2PbGroup(String path, String source, List<LogItem> logs) {

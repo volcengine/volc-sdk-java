@@ -33,6 +33,8 @@ public class CreateTopicRequest {
     String timeKey;
     @JSONField(name = TIME_FORMAT)
     String timeFormat;
+    @JSONField(name = METERING_MODE)
+    String meteringMode;
     @JSONField(name = TAGS)
     List<TagInfo> tags;
     @JSONField(name = LOG_PUBLIC_IP)

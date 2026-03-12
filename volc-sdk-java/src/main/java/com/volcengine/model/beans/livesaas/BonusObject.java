@@ -16,5 +16,8 @@ public class BonusObject {
 
     @JSONField(name = "SubBonus")
     SubBonus SubBonus;
+
+    @JSONField(name = "SubTask")
+    SubTask SubTask;
 }
 

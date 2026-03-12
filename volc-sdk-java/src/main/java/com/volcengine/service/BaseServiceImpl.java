@@ -125,8 +125,7 @@ public abstract class BaseServiceImpl implements IBaseService {
                         this.credentials.setSecretAccessKey(credentials.getSecretAccessKey());
                     }
                 } catch (Exception e) {
-                    e.printStackTrace();
-                    LOG.error("Read file " + file.getName() + " fail.");
+                    LOG.error("Read file " + file.getName() + " fail.", e);
                     this.VERSION = "";
                 }
             }
@@ -206,7 +205,7 @@ public abstract class BaseServiceImpl implements IBaseService {
             }
             return client.execute(httpPut);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOG.error("Put data with response failed", e);
         } finally {
             if (response != null) {
                 EntityUtils.consumeQuietly(response.getEntity());
@@ -239,7 +238,7 @@ public abstract class BaseServiceImpl implements IBaseService {
             }
             return client.execute(httpPost);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOG.error("Post data with response failed", e);
         } finally {
             if (response != null) {
                 EntityUtils.consumeQuietly(response.getEntity());
@@ -267,7 +266,7 @@ public abstract class BaseServiceImpl implements IBaseService {
             }
             return client.execute(httpPut);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOG.error("Put data with response failed", e);
         } finally {
             if (response != null) {
                 EntityUtils.consumeQuietly(response.getEntity());
@@ -297,7 +296,7 @@ public abstract class BaseServiceImpl implements IBaseService {
                 return true;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            LOG.error("Do put failed", e);
         } finally {
             if (response != null) {
                 EntityUtils.consumeQuietly(response.getEntity());
@@ -334,7 +333,7 @@ public abstract class BaseServiceImpl implements IBaseService {
             Collections.sort(mergedForm, NameValueComparator.INSTANCE);
             request.setEntity(new UrlEncodedFormEntity(mergedForm, Consts.UTF_8));
         } catch (Exception e) {
-            e.printStackTrace();
+            LOG.error("Encoding form failed", e);
             return new RawResponse(null, SdkError.EENCODING.getNumber(), e);
         }
         return makeRequest(api, request);
@@ -363,7 +362,7 @@ public abstract class BaseServiceImpl implements IBaseService {
         try {
             ISigner.sign(request, this.credentials);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOG.error("Sign request failed", e);
             return new RawResponse(null, SdkError.ESIGN.getNumber(), e);
         }
 
@@ -389,7 +388,7 @@ public abstract class BaseServiceImpl implements IBaseService {
             byte[] bytes = EntityUtils.toByteArray(response.getEntity());
             return new RawResponse(bytes, SdkError.SUCCESS.getNumber(), null, responseHeaders);
         } catch (Exception e) {
-            e.printStackTrace();
+            LOG.error("Execute request failed", e);
             if (response != null) {
                 EntityUtils.consumeQuietly(response.getEntity());
             }

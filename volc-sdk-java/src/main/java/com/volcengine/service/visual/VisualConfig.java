@@ -1454,6 +1454,20 @@ public class VisualConfig {
                         }
                     }
             ));
+            put(Const.CVCancelTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CVCancelTask));
+                                    add(new BasicNameValuePair("Version", "2024-06-06"));
+                                }
+                            });
+                        }
+                    }
+            ));
         }
     };
 }

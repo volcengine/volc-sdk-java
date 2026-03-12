@@ -29,7 +29,7 @@ producer.close()
 | 参数                  | 类型   | 示例值               | 描述                                                                                                   |
 |:--------------------|:-----|:------------------|:-----------------------------------------------------------------------------------------------------|
 | totalSizeInBytes    | int  | 100 * 1024 * 1024 | 单个Producer实例能缓存的日志大小上限，单位为B，默认为100MB。                                                                |
-| maxThreadCount      | int  | 50                | 单个Producer实例并发线程的最大数量，默认为50，您可根据实际情况配置。                                                              |
+| maxThreadCount      | int  | 50                | 单个Producer实例并发线程的最大数量，取值范围为1~50；不配置时默认取min(availableProcessors, 50)。                               |
 | maxBlockMs          | long | 60 * 1000         | 当Producer可用缓存空间（totalSizeInBytes）不足时，调用者在send方法上的最长阻塞时间，单位为毫秒，默认为60秒。                                |
 | maxBatchSizeBytes   | int  | 512 * 1024        | 当一个BatchLog中缓存的日志大小大于等于maxBatchSizeBytes时，该batch将被发送，单位为B，默认为512KB，最大可设置为10MB。                       |
 | maxBatchCount       | int  | 4096              | 当一个BatchLog中缓存的日志条数大于等于maxBatchCount时，该batch将被发送，默认为4096，最大可设置为40960。                                |

@@ -13,9 +13,10 @@ import com.volcengine.model.tls.exception.LogException;
 import com.volcengine.model.tls.pb.PutLogRequest;
 import com.volcengine.model.tls.request.*;
 import com.volcengine.model.tls.response.*;
+import com.volcengine.model.tls.RetryDecider;
+import com.volcengine.model.tls.RetryPolicy;
 import com.volcengine.model.tls.util.AdaptorUtil;
 import com.volcengine.model.tls.util.MessageUtil;
-import com.volcengine.model.tls.util.TimeUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Header;
 import org.apache.http.NameValuePair;
@@ -27,7 +28,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Supplier;
 
 import static com.volcengine.model.tls.Const.*;
 import static com.volcengine.model.tls.producer.ProducerConfig.EXTERNAL_ERROR;
@@ -38,11 +39,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         JSON.DEFAULT_GENERATE_FEATURE |= SerializerFeature.DisableCircularReferenceDetect.getMask();
     }
 
-    public static int DEFAULT_RETRY_INTERVAL_MS = 100;
     public static int DEFAULT_REQUEST_TIMEOUT_MS = 90 * 1000;
-    public static int DEFAULT_RETRY_COUNTER_MAXIMUM = 50;
-
-    private static AtomicInteger DEFAULT_RETRY_COUNTER = new AtomicInteger(0);
     private ClientConfig config;
     private final TLSHttpUtil httpRequest;
     private boolean localValidationOnly;
@@ -54,32 +51,6 @@ public class TLSLogClientImpl implements TLSLogClient {
 
         this.httpRequest.setSocketTimeout(60000);
         this.httpRequest.setConnectionTimeout(60000);
-    }
-
-    private static void increaseCounterByOne() {
-        while (true) {
-            int v = DEFAULT_RETRY_COUNTER.get();
-            if (v >= DEFAULT_RETRY_COUNTER_MAXIMUM) {
-                break;
-            }
-            boolean cas = DEFAULT_RETRY_COUNTER.compareAndSet(v, v + 1);
-            if (cas) {
-                break;
-            }
-        }
-    }
-
-    private static void decreaseCounterByOne() {
-        while (true) {
-            int v = DEFAULT_RETRY_COUNTER.get();
-            if (v <= 0) {
-                break;
-            }
-            boolean cas = DEFAULT_RETRY_COUNTER.compareAndSet(v, v - 1);
-            if (cas) {
-                break;
-            }
-        }
     }
 
     @Override
@@ -628,40 +599,74 @@ public class TLSLogClientImpl implements TLSLogClient {
         apiInfo.setHeader(apiHeader);
     }
 
-    private RawResponse doRetryRequest(String path, ArrayList<NameValuePair> params, String requestBody, Map<String, String> headers) throws LogException {
-        RawResponse rawResponse = null;
-        long expectedQuitTimestamp = System.currentTimeMillis() + DEFAULT_REQUEST_TIMEOUT_MS;
-        int tryCount = 0;
-        // retry
+    private RetryPolicy getRetryPolicy() {
+        RetryPolicy p = this.config == null ? null : this.config.getRetryPolicy();
+        boolean fromDefault = false;
+        if (p == null) {
+            p = RetryPolicy.defaultPolicy();
+            fromDefault = true;
+        }
+        if (fromDefault || p.getTotalTimeoutMs() <= 0) {
+            p.setTotalTimeoutMs(DEFAULT_REQUEST_TIMEOUT_MS);
+        }
+        return p.normalize();
+    }
+
+    private RetryDecider getRetryDecider() {
+        RetryDecider decider = this.config == null ? null : this.config.getRetryDecider();
+        if (decider == null) {
+            decider = new DefaultRetryDecider();
+        }
+        return decider;
+    }
+
+    private RawResponse executeWithRetry(Supplier<RawResponse> op) throws LogException {
+        RetryPolicy policy = getRetryPolicy();
+        RetryDecider decider = getRetryDecider();
+        RetryPolicy.Backoff backoff = policy.newBackoff();
+        long deadlineMs = System.currentTimeMillis() + policy.getTotalTimeoutMs();
+        int attempts = 0;
+        RawResponse last = null;
         while (true) {
-            rawResponse = httpRequest.json(path, params, requestBody, headers);
-            tryCount += 1;
-            // return if request succeed or tryCount >= 5
-            if (tryCount >= 5 || rawResponse.getCode() == SdkError.SUCCESS.getNumber() || !needRetryStatus(rawResponse.getHttpCode())) {
-                decreaseCounterByOne();
+            attempts++;
+            last = op.get();
+            if (last != null && last.getCode() == SdkError.SUCCESS.getNumber()) {
+                return last;
+            }
+            if (!decider.shouldRetry(last)) {
                 break;
             }
-            increaseCounterByOne();
+            if (policy.getMaxAttempts() > 0 && attempts >= policy.getMaxAttempts()) {
+                break;
+            }
+            long remainingMs = deadlineMs - System.currentTimeMillis();
+            if (remainingMs <= 0) {
+                break;
+            }
+            long sleepMs = backoff.nextDelayMs();
+            if (sleepMs > remainingMs) {
+                sleepMs = remainingMs;
+            }
+            if (sleepMs <= 0) {
+                continue;
+            }
             try {
-                long sleepMs = TimeUtil.calcDefaultBackOffMs(DEFAULT_RETRY_COUNTER.get(), DEFAULT_RETRY_INTERVAL_MS, expectedQuitTimestamp);
-                if (sleepMs > 0) {
-                    Thread.sleep(sleepMs);
-                }
+                Thread.sleep(sleepMs);
             } catch (InterruptedException e) {
                 throw new LogException("sdk error", "retry thread interrupt exception", null);
             }
         }
+        return last;
+    }
+
+    private RawResponse doRetryRequest(String path, ArrayList<NameValuePair> params, String requestBody, Map<String, String> headers) throws LogException {
+        RawResponse rawResponse = executeWithRetry(() -> httpRequest.json(path, params, requestBody, headers));
         //throw exception
         if (rawResponse.getCode() != SdkError.SUCCESS.getNumber()) {
             String[] error = getError(rawResponse);
             throw new LogException(rawResponse.getHttpCode(), error[0], error[1], rawResponse.getFirstHeader(X_TLS_REQUESTID));
         }
         return rawResponse;
-    }
-
-    //429 or 5xx error retry
-    private boolean needRetryStatus(int httpCode) {
-        return httpCode == TOO_MANY_REQUEST_ERROR || httpCode >= EXTERNAL_ERROR || httpCode == 0;
     }
 
     /**
@@ -847,9 +852,17 @@ public class TLSLogClientImpl implements TLSLogClient {
 
         // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();
-        params.add(new BasicNameValuePair(PROJECT_ID, request.getProjectId()));
+        if (StringUtils.isNotEmpty(request.getProjectId())) {
+            params.add(new BasicNameValuePair(PROJECT_ID, request.getProjectId()));
+        }
         if (request.getProjectName() != null) {
             params.add(new BasicNameValuePair(PROJECT_NAME, request.getProjectName()));
+        }
+        if (StringUtils.isNotEmpty(request.getCursor())) {
+            params.add(new BasicNameValuePair(CURSOR, request.getCursor()));
+        }
+        if (StringUtils.isNotEmpty(request.getRegion())) {
+            params.add(new BasicNameValuePair(REGION, request.getRegion()));
         }
         if (request.getIsFullName() != null)
             params.add(new BasicNameValuePair(IS_FULL_NAME, String.valueOf(request.getIsFullName())));
@@ -865,8 +878,17 @@ public class TLSLogClientImpl implements TLSLogClient {
         if (StringUtils.isNotEmpty(request.getTopicName())) {
             params.add(new BasicNameValuePair(TOPIC_NAME, request.getTopicName()));
         }
+        if (StringUtils.isNotEmpty(request.getFuzzySearchKey())) {
+            params.add(new BasicNameValuePair(FUZZY_SEARCH_KEY, request.getFuzzySearchKey()));
+        }
+        if (StringUtils.isNotEmpty(request.getDescription())) {
+            params.add(new BasicNameValuePair(DESCRIPTION, request.getDescription()));
+        }
         if (request.getTags() != null) {
             params.add(new BasicNameValuePair(TAGS, JSONObject.toJSONString(request.getTags())));
+        }
+        if (request.getOrderByProject() != null) {
+            params.add(new BasicNameValuePair(ORDER_BY_PROJECT, String.valueOf(request.getOrderByProject())));
         }
 
         // 2、check sum and sendRequest
@@ -2451,28 +2473,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         if (!headers.containsKey(HEADER_API_VERSION)) {
             headers.put(HEADER_API_VERSION, this.config.getApiVersion());
         }
-        RawResponse rawResponse = null;
-        long expectedQuitTimestamp = System.currentTimeMillis() + DEFAULT_REQUEST_TIMEOUT_MS;
-        int tryCount = 0;
-        // retry
-        while (true) {
-            rawResponse = httpRequest.proto(api, params, headers, body, compressType);
-            tryCount += 1;
-            // return if request succeed
-            if (tryCount >= 5 || rawResponse.getCode() == SdkError.SUCCESS.getNumber() || !needRetryStatus(rawResponse.getHttpCode())) {
-                decreaseCounterByOne();
-                break;
-            }
-            increaseCounterByOne();
-            try {
-                long sleepMs = TimeUtil.calcDefaultBackOffMs(DEFAULT_RETRY_COUNTER.get(), DEFAULT_RETRY_INTERVAL_MS, expectedQuitTimestamp);
-                if (sleepMs > 0) {
-                    Thread.sleep(sleepMs);
-                }
-            } catch (InterruptedException e) {
-                throw new LogException("sdk error", "retry thread interrupt exception", null);
-            }
-        }
+        RawResponse rawResponse = executeWithRetry(() -> httpRequest.proto(api, params, headers, body, compressType));
         //throw exception
         if (rawResponse.getCode() != SdkError.SUCCESS.getNumber()) {
             String[] error = getError(rawResponse);

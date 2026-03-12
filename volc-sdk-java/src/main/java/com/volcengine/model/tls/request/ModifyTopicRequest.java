@@ -28,6 +28,8 @@ public class ModifyTopicRequest {
     String timeKey;
     @JSONField(name = TIME_FORMAT)
     String timeFormat;
+    @JSONField(name = METERING_MODE)
+    String meteringMode;
     @JSONField(name = LOG_PUBLIC_IP)
     Boolean logPublicIP;
     @JSONField(name = ENABLE_HOT_TTL)

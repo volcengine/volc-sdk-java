@@ -182,4 +182,13 @@ public class SecuritySourceServiceImpl extends BaseServiceImpl implements Securi
         return JSON.parseObject(response.getData(), RcCustomRiskAsyncResponse.class);
     }
 
+    @Override
+    public RcImageTextLiteModerationSyncResponse imageTextLiteModeration(RcLlmRequest rcLlmRequest) throws Exception {
+        RawResponse response = json(Const.ImageTextLiteModeration, new ArrayList<>(), JSON.toJSONString(rcLlmRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), RcImageTextLiteModerationSyncResponse.class);
+    }
+
 }

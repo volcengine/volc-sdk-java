@@ -99,4 +99,12 @@ public interface SecuritySourceService extends IBaseService {
      * @throws Exception the exception
      */
     RcCustomRiskAsyncResponse customRiskResult(RcLlmResultRequest rcLlmResultRequest) throws Exception;
+
+    /**
+     *
+     * @param rcLlmRequest
+     * @return
+     * @throws Exception
+     */
+    RcImageTextLiteModerationSyncResponse imageTextLiteModeration(RcLlmRequest rcLlmRequest) throws Exception;
 }

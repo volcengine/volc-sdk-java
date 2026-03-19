@@ -1236,6 +1236,7 @@ public class Const {
     public static final String CustomRisk = "CustomRisk";
     public static final String AsyncCustomRisk = "AsyncCustomRisk";
     public static final String CustomRiskResult = "CustomRiskResult";
+    public static final String ImageTextLiteModeration = "ImageTextLiteModeration";
 
 
     // report
@@ -1255,4 +1256,9 @@ public class Const {
     public static final String DeleteViewerLevelGroup = "DeleteViewerLevelGroup";
     public static final String ListAccountViewerLevelGroup = "ListAccountViewerLevelGroup";
     public static final String UpdateViewerLevelGroupConfig = "UpdateViewerLevelGroupConfig";
+    public static final String UpdateCheckInConfig = "UpdateCheckInConfig";
+    public static final String DeleteCheckIn = "DeleteCheckIn";
+    public static final String StopCheckIn = "StopCheckIn";
+    public static final String SendCheckIn = "SendCheckIn";
+    public static final String WithdrawCheckIn = "WithdrawCheckIn";
 }

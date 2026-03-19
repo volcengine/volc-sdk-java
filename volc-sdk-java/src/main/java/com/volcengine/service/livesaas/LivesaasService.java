@@ -2997,4 +2997,49 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetImageReportResponse getImageReport(GetImageReportRequest getImageReportRequest) throws Exception;
+
+    /**
+     * UpdateCheckInConfig
+     *
+     * @param updateCheckInConfigRequest UpdateCheckInConfigRequest
+     * @return UpdateCheckInConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateCheckInConfigResponse updateCheckInConfig(UpdateCheckInConfigRequest updateCheckInConfigRequest) throws Exception;
+
+    /**
+     * DeleteCheckIn
+     *
+     * @param deleteCheckInRequest DeleteCheckInRequest
+     * @return DeleteCheckInResponse
+     * @throws Exception the exception
+     */
+    DeleteCheckInResponse deleteCheckIn(DeleteCheckInRequest deleteCheckInRequest) throws Exception;
+
+    /**
+     * StopCheckIn
+     *
+     * @param stopCheckInRequest StopCheckInRequest
+     * @return StopCheckInResponse
+     * @throws Exception the exception
+     */
+    StopCheckInResponse stopCheckIn(StopCheckInRequest stopCheckInRequest) throws Exception;
+
+    /**
+     * SendCheckIn
+     *
+     * @param sendCheckInRequest SendCheckInRequest
+     * @return SendCheckInResponse
+     * @throws Exception the exception
+     */
+    SendCheckInResponse sendCheckIn(SendCheckInRequest sendCheckInRequest) throws Exception;
+
+    /**
+     * WithdrawCheckIn
+     *
+     * @param withdrawCheckInRequest WithdrawCheckInRequest
+     * @return WithdrawCheckInResponse
+     * @throws Exception the exception
+     */
+    WithdrawCheckInResponse withdrawCheckIn(WithdrawCheckInRequest withdrawCheckInRequest) throws Exception;
 }

@@ -56,4 +56,6 @@ public class CreateActivityAPIRequest {
     AutoStartConfig AutoStartConfig;
     @JSONField(name = "IsLiveAnalysisEnable")
     Integer IsLiveAnalysisEnable;
+    @JSONField(name = "IsLinkMicEnable")
+    Integer IsLinkMicEnable;
 }

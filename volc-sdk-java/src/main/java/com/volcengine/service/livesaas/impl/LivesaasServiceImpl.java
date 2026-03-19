@@ -5302,12 +5302,42 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public UpdateCheckInConfigResponse updateCheckInConfig(UpdateCheckInConfigRequest updateCheckInConfigRequest) throws Exception {
+        RawResponse response = json(Const.UpdateCheckInConfig, new ArrayList<>(), JSON.toJSONString(updateCheckInConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateCheckInConfigResponse res = JSON.parseObject(response.getData(), UpdateCheckInConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public EndTaskResponse endTask(EndTaskRequest endTaskRequest) throws Exception {
         RawResponse response = json(Const.EndTask, new ArrayList<>(), JSON.toJSONString(endTaskRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         EndTaskResponse res = JSON.parseObject(response.getData(), EndTaskResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteCheckInResponse deleteCheckIn(DeleteCheckInRequest deleteCheckInRequest) throws Exception {
+        RawResponse response = json(Const.DeleteCheckIn, new ArrayList<>(), JSON.toJSONString(deleteCheckInRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteCheckInResponse res = JSON.parseObject(response.getData(), DeleteCheckInResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
@@ -5332,6 +5362,21 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public StopCheckInResponse stopCheckIn(StopCheckInRequest stopCheckInRequest) throws Exception {
+        RawResponse response = json(Const.StopCheckIn, new ArrayList<>(), JSON.toJSONString(stopCheckInRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        StopCheckInResponse res = JSON.parseObject(response.getData(), StopCheckInResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public GetImageTaskResponse getImageTask(GetImageTaskRequest getImageTaskRequest) throws Exception {
         RawResponse response = query(Const.GetImageTask, Utils.paramsToPair(getImageTaskRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -5347,12 +5392,42 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public SendCheckInResponse sendCheckIn(SendCheckInRequest sendCheckInRequest) throws Exception {
+        RawResponse response = json(Const.SendCheckIn, new ArrayList<>(), JSON.toJSONString(sendCheckInRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        SendCheckInResponse res = JSON.parseObject(response.getData(), SendCheckInResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public GetImageReportResponse getImageReport(GetImageReportRequest getImageReportRequest) throws Exception {
         RawResponse response = query(Const.GetImageReport, Utils.paramsToPair(getImageReportRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         GetImageReportResponse res = JSON.parseObject(response.getData(), GetImageReportResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public WithdrawCheckInResponse withdrawCheckIn(WithdrawCheckInRequest withdrawCheckInRequest) throws Exception {
+        RawResponse response = json(Const.WithdrawCheckIn, new ArrayList<>(), JSON.toJSONString(withdrawCheckInRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        WithdrawCheckInResponse res = JSON.parseObject(response.getData(), WithdrawCheckInResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());

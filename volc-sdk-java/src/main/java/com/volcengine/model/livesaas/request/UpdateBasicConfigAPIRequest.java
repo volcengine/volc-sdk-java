@@ -165,6 +165,8 @@ public class UpdateBasicConfigAPIRequest {
     AutoStartConfig AutoStartConfig;
     @JSONField(name = "IsLiveAnalysisEnable")
     Integer IsLiveAnalysisEnable;
+    @JSONField(name = "IsLinkMicEnable")
+    Integer IsLinkMicEnable;
     @Data
     public static class RiskWarningSetting {
         @JSONField(name = "IsRiskWarningEnable")

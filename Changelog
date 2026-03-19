@@ -1,5 +1,8 @@
 Change log
 
+2026-03-19 Bumped to version v1.0.263
+- Updated apis for contentSecurity/livesaas
+
 2026-03-12 Bumped to version v1.0.262
 - Updated apis for livesaas/tls/visual/vms
 

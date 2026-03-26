@@ -2,6 +2,7 @@ package com.volcengine.model.livesaas.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
+import com.volcengine.model.beans.livesaas.BehaviorVideoViewDuration;
 import com.volcengine.model.response.ResponseMetadata;
 
 import java.util.List;
@@ -93,5 +94,7 @@ public class GetUserBehaviorListResponseAPIV2 {
         Long ViewerLevelOrder;
         @JSONField(name = "LevelName")
         String LevelName;
+        @JSONField(name = "VideoViewDuration")
+        BehaviorVideoViewDuration VideoViewDuration;
     }
 }

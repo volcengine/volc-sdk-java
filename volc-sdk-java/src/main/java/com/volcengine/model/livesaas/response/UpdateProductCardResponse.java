@@ -106,6 +106,8 @@ public class UpdateProductCardResponse {
         String RedirectImage;
         @JSONField(name = "ExplainTime")
         Long ExplainTime;
+        @JSONField(name = "CustomContent")
+        String CustomContent;
         @JSONField(name = "SellingPointTag")
         String SellingPointTag;
         @JSONField(name = "ReminderType")

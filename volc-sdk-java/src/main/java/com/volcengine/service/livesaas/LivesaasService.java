@@ -49,6 +49,15 @@ public interface LivesaasService extends IBaseService {
     GetUserBehaviorListResponse listUserBehaviorDataAPI(GetUserBehaviorListRequest getUserBehaviorListRequest) throws Exception;
 
     /**
+     * ListUserChatAPI
+     *
+     * @param listUserChatAPIRequest ListUserChatAPIRequest
+     * @return ListUserChatAPIResponse
+     * @throws Exception the exception
+     */
+    ListUserChatAPIResponse listUserChatAPI(ListUserChatAPIRequest listUserChatAPIRequest) throws Exception;
+
+    /**
      * CreateActivityAPIV2
      *
      * @param createActivityAPIRequest CreateActivityAPIRequest

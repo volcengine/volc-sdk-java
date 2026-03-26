@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Delayed;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -25,6 +26,8 @@ public class BatchLog implements Delayed {
     BatchKey batchKey;
     int currentBatchSize;
     int currentBatchCount;
+    Long earliestLogTime;
+    Long latestLogTime;
     List<CallBack> callBackList = new ArrayList<>();
     PutLogRequest.LogGroupList logGroupList = PutLogRequest.LogGroupList.newBuilder().build();
     ProducerConfig producerConfig;
@@ -56,10 +59,11 @@ public class BatchLog implements Delayed {
         this.baseIncreaseBackoffMs = 1000;
     }
 
-    public boolean tryAdd(PutLogRequest.LogGroup logGroup, int batchSize, CallBack callBack) {
+    public boolean tryAdd(PutLogRequest.LogGroup logGroup, int batchSize, CallBack callBack,
+                          int logCount, long earliestLogTime, long latestLogTime) {
         int currentBatchCount = getCurrentBatchCount();
         int currentBatchSize = getCurrentBatchSize();
-        if (logGroup.getLogsList().size() + currentBatchCount > ProducerConfig.MAX_BATCH_COUNT
+        if (logCount + currentBatchCount > ProducerConfig.MAX_BATCH_COUNT
                 || batchSize + currentBatchSize > ProducerConfig.MAX_BATCH_SIZE) {
             return false;
         }
@@ -74,8 +78,16 @@ public class BatchLog implements Delayed {
         if (callBack != null) {
             getCallBackList().add(callBack);
         }
-        setCurrentBatchCount(currentBatchCount + logGroup.getLogsList().size());
+        setCurrentBatchCount(currentBatchCount + logCount);
         setCurrentBatchSize(currentBatchSize + batchSize);
+        if (logCount > 0) {
+            if (this.earliestLogTime == null || earliestLogTime < this.earliestLogTime) {
+                this.earliestLogTime = earliestLogTime;
+            }
+            if (this.latestLogTime == null || latestLogTime > this.latestLogTime) {
+                this.latestLogTime = latestLogTime;
+            }
+        }
         return true;
     }
 
@@ -169,10 +181,10 @@ public class BatchLog implements Delayed {
 
         public void addNow(ProducerConfig config, ExecutorService executorService, TLSLogClient client,
                            BlockingQueue<BatchLog> successQueue, BlockingQueue<BatchLog> failureQueue,
-                           AtomicInteger batchCount, RetryManager retryManager) {
+                           AtomicInteger batchCount, RetryManager retryManager, Semaphore memoryLock) {
             if (batchLog != null) {
                 executorService.submit(
-                        new SendBatchTask(batchLog, config, successQueue, failureQueue, client, retryManager));
+                        new SendBatchTask(batchLog, config, successQueue, failureQueue, client, retryManager, memoryLock));
                 batchLog = null;
             }
         }

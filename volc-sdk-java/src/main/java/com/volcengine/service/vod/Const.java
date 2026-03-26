@@ -58,6 +58,9 @@ public class Const {
     // vod-media
     public static final String UpdateMediaInfo = "UpdateMediaInfo";
     public static final String GetMediaInfos20230701 = "GetMediaInfos";
+    public static final String GetMediaEntityList = "GetMediaEntityList";
+    public static final String GetMediaEntity = "GetMediaEntity";
+    public static final String DeleteMediaEntity = "DeleteMediaEntity";
 
     public static final String UpdateMediaPublishStatus = "UpdateMediaPublishStatus";
     public static final String UpdateMediaStorageClass = "UpdateMediaStorageClass";

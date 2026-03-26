@@ -15,6 +15,8 @@ public class AwardConfigStatistic {
     Long DeadLine;
     @JSONField(name = "BarragePwd")
     String BarragePwd;
+    @JSONField(name = "IsManualSendBarragePwd")
+    Integer IsManualSendBarragePwd;
     @JSONField(name = "ActivityId")
     Long ActivityId;
     @JSONField(name = "RangeStatus")
@@ -55,4 +57,8 @@ public class AwardConfigStatistic {
     Long DeadLineSecond;
     @JSONField(name = "AwardFloatingIcon")
     String AwardFloatingIcon;
+    @JSONField(name = "IsOnlineUser")
+    Integer IsOnlineUser;
+    @JSONField(name = "RepeatedAwardLimit")
+    Integer RepeatedAwardLimit;
 }

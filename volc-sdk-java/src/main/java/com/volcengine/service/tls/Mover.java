@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Semaphore;
 
 public class Mover extends Thread {
     private volatile boolean closed;
@@ -22,10 +23,11 @@ public class Mover extends Thread {
     private final ExecutorService executorService;
     private final TLSLogClient client;
     private final ConcurrentHashMap<BatchLog.BatchKey, BatchLog.BatchManager> batches;
+    private final Semaphore memoryLock;
     private static final Log LOG = LogFactory.getLog(Mover.class);
 
     public Mover(String name, ProducerConfig producerConfig, LogDispatcher dispatcher, RetryManager retryManager,
-                 BlockingQueue<BatchLog> successQueue, BlockingQueue<BatchLog> failureQueue) {
+                 BlockingQueue<BatchLog> successQueue, BlockingQueue<BatchLog> failureQueue, Semaphore memoryLock) {
         setDaemon(true);
         this.name = name;
         this.producerConfig = producerConfig;
@@ -35,6 +37,7 @@ public class Mover extends Thread {
         this.executorService = dispatcher.getExecutorService();
         this.client = dispatcher.getClient();
         this.batches = dispatcher.getBatches();
+        this.memoryLock = memoryLock;
         this.closed = false;
     }
 
@@ -45,7 +48,7 @@ public class Mover extends Thread {
         handleRemainingBatch();
         List<BatchLog> remainingRetryBatches = retryManager.handleRemainingBatches();
         for (BatchLog log : remainingRetryBatches) {
-            executorService.submit(new SendBatchTask(log, producerConfig, successQueue, failureQueue, client, retryManager));
+            executorService.submit(new SendBatchTask(log, producerConfig, successQueue, failureQueue, client, retryManager, memoryLock));
         }
     }
 
@@ -60,7 +63,7 @@ public class Mover extends Thread {
         List<BatchLog> batchLogs = retryManager.handleTimeoutBatch(remains);
         for (BatchLog log : batchLogs) {
             executorService.submit(
-                    new SendBatchTask(log, producerConfig, successQueue, failureQueue, client, retryManager));
+                    new SendBatchTask(log, producerConfig, successQueue, failureQueue, client, retryManager, memoryLock));
         }
     }
 
@@ -86,7 +89,7 @@ public class Mover extends Thread {
         }
         for (BatchLog log : batchLogs) {
             executorService.submit(
-                    new SendBatchTask(log, producerConfig, successQueue, failureQueue, client, retryManager));
+                    new SendBatchTask(log, producerConfig, successQueue, failureQueue, client, retryManager, memoryLock));
         }
         return remains;
     }
@@ -105,7 +108,7 @@ public class Mover extends Thread {
             }
         }
         for (BatchLog log : batchLogs) {
-            executorService.submit(new SendBatchTask(log, producerConfig, successQueue, failureQueue, client, retryManager));
+            executorService.submit(new SendBatchTask(log, producerConfig, successQueue, failureQueue, client, retryManager, memoryLock));
         }
     }
 

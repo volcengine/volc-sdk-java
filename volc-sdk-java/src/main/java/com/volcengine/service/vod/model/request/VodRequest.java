@@ -814,6 +814,21 @@ public final class VodRequest {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Request_VodQueryDramaScriptTaskRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Request_VodGetMediaEntityListRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Request_VodGetMediaEntityListRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Request_VodGetMediaEntityRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Request_VodGetMediaEntityRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Request_VodDeleteMediaEntityRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Request_VodDeleteMediaEntityRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1389,12 +1404,20 @@ public final class VodRequest {
       "eryDramaRecapTaskRequest\022\021\n\tSpaceName\030\001 " +
       "\001(\t\022\016\n\006TaskId\030\002 \001(\t\"C\n\036VodQueryDramaScri" +
       "ptTaskRequest\022\021\n\tSpaceName\030\001 \001(\t\022\016\n\006Task" +
-      "Id\030\002 \001(\tB\310\001\n(com.volcengine.service.vod." +
-      "model.requestB\nVodRequestP\001Z@github.com/" +
-      "volcengine/volc-sdk-golang/service/vod/m" +
-      "odels/request\240\001\001\330\001\001\312\002\037Volc\\Service\\Vod\\M" +
-      "odels\\Request\342\002#Volc\\Service\\Vod\\Models\\" +
-      "GPBMetadatab\006proto3"
+      "Id\030\002 \001(\t\"\217\001\n\034VodGetMediaEntityListReques" +
+      "t\022\013\n\003Vid\030\001 \001(\t\022\023\n\013EntityTypes\030\002 \001(\t\022\026\n\016E" +
+      "ntityVersions\030\003 \001(\t\022\017\n\007Sources\030\004 \001(\t\022\022\n\n" +
+      "PageNumber\030\005 \001(\005\022\020\n\010PageSize\030\006 \001(\005\"i\n\030Vo" +
+      "dGetMediaEntityRequest\022\013\n\003Vid\030\001 \001(\t\022\022\n\nE" +
+      "ntityType\030\002 \001(\t\022\025\n\rEntityVersion\030\003 \001(\t\022\025" +
+      "\n\rNeedPublicUrl\030\004 \001(\010\"U\n\033VodDeleteMediaE" +
+      "ntityRequest\022\013\n\003Vid\030\001 \001(\t\022\022\n\nEntityType\030" +
+      "\002 \001(\t\022\025\n\rEntityVersion\030\003 \001(\tB\310\001\n(com.vol" +
+      "cengine.service.vod.model.requestB\nVodRe" +
+      "questP\001Z@github.com/volcengine/volc-sdk-" +
+      "golang/service/vod/models/request\240\001\001\330\001\001\312" +
+      "\002\037Volc\\Service\\Vod\\Models\\Request\342\002#Volc" +
+      "\\Service\\Vod\\Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2368,6 +2391,24 @@ public final class VodRequest {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Request_VodQueryDramaScriptTaskRequest_descriptor,
         new java.lang.String[] { "SpaceName", "TaskId", });
+    internal_static_Volcengine_Vod_Models_Request_VodGetMediaEntityListRequest_descriptor =
+      getDescriptor().getMessageTypes().get(160);
+    internal_static_Volcengine_Vod_Models_Request_VodGetMediaEntityListRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Request_VodGetMediaEntityListRequest_descriptor,
+        new java.lang.String[] { "Vid", "EntityTypes", "EntityVersions", "Sources", "PageNumber", "PageSize", });
+    internal_static_Volcengine_Vod_Models_Request_VodGetMediaEntityRequest_descriptor =
+      getDescriptor().getMessageTypes().get(161);
+    internal_static_Volcengine_Vod_Models_Request_VodGetMediaEntityRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Request_VodGetMediaEntityRequest_descriptor,
+        new java.lang.String[] { "Vid", "EntityType", "EntityVersion", "NeedPublicUrl", });
+    internal_static_Volcengine_Vod_Models_Request_VodDeleteMediaEntityRequest_descriptor =
+      getDescriptor().getMessageTypes().get(162);
+    internal_static_Volcengine_Vod_Models_Request_VodDeleteMediaEntityRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Request_VodDeleteMediaEntityRequest_descriptor,
+        new java.lang.String[] { "Vid", "EntityType", "EntityVersion", });
     com.google.protobuf.WrappersProto.getDescriptor();
     com.volcengine.service.vod.model.business.VodWorkflow.getDescriptor();
     com.volcengine.service.vod.model.business.VodUpload.getDescriptor();

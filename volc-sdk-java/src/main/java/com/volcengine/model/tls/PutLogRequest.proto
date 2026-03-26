@@ -1,6 +1,8 @@
 syntax = "proto3";
 package pb;
 option go_package = "./;pb";
+option java_package = "com.volcengine.model.tls.pb";
+option java_outer_classname="PutLogRequest";
 message LogContent
 {
   string Key = 1;
@@ -11,6 +13,9 @@ message Log
 {
   int64 Time = 1;// UNIX Time Format
   repeated LogContent Contents = 2;
+  oneof OptionalTimeNs {
+    fixed32 TimeNs = 3;
+  }
 }
 
 message LogTag

@@ -583,6 +583,33 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodExtractMediaMetaTaskResponse extractMediaMetaTask(com.volcengine.service.vod.model.request.VodExtractMediaMetaTaskRequest input) throws Exception;
 	
 	/**
+     * getMediaEntityList.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetMediaEntityListRequest
+     * @return com.volcengine.service.vod.model.response.VodGetMediaEntityListResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodGetMediaEntityListResponse getMediaEntityList(com.volcengine.service.vod.model.request.VodGetMediaEntityListRequest input) throws Exception;
+	
+	/**
+     * getMediaEntity.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetMediaEntityRequest
+     * @return com.volcengine.service.vod.model.response.VodGetMediaEntityResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodGetMediaEntityResponse getMediaEntity(com.volcengine.service.vod.model.request.VodGetMediaEntityRequest input) throws Exception;
+	
+	/**
+     * deleteMediaEntity.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodDeleteMediaEntityRequest
+     * @return com.volcengine.service.vod.model.response.VodDeleteMediaEntityResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodDeleteMediaEntityResponse deleteMediaEntity(com.volcengine.service.vod.model.request.VodDeleteMediaEntityRequest input) throws Exception;
+	
+	/**
      * startWorkflow.
      *
      * @param input com.volcengine.service.vod.model.request.VodStartWorkflowRequest

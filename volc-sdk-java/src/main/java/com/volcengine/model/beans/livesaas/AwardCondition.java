@@ -16,4 +16,6 @@ public class AwardCondition {
     String Quiz;
     @JSONField(name = "Questionnaire")
     String Questionnaire;
+    @JSONField(name = "WatchLiveTime")
+    String WatchLiveTime;
 }

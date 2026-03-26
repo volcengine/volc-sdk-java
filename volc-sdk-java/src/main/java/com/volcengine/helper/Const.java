@@ -205,6 +205,7 @@ public class Const {
     public static final String GetVideoStatisticsOpen = "GetVideoStatisticsOpen";
     // livesaas
     public static final String ListSiteTagAPIV2 = "ListSiteTagAPIV2";
+    public static final String ListUserChatAPI = "ListUserChatAPI";
 
     public static final String UpdateSiteTagAPIV2 = "UpdateSiteTagAPIV2";
 

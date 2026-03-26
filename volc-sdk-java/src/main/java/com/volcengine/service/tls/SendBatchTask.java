@@ -11,6 +11,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
 
 import static com.volcengine.model.tls.Const.HTTP_STATUS_OK;
 
@@ -22,15 +24,17 @@ public class SendBatchTask implements Runnable {
     private final TLSLogClient client;
     private final RetryManager retryManager;
     private final BatchLog batchLog;
+    private final Semaphore memoryLock;
 
     public SendBatchTask(BatchLog batchLog, ProducerConfig producerConfig, BlockingQueue<BatchLog> successQueue,
-                         BlockingQueue<BatchLog> failureQueue, TLSLogClient client, RetryManager retryManager) {
+                         BlockingQueue<BatchLog> failureQueue, TLSLogClient client, RetryManager retryManager, Semaphore memoryLock) {
         this.producerConfig = producerConfig;
         this.successQueue = successQueue;
         this.failureQueue = failureQueue;
         this.client = client;
         this.retryManager = retryManager;
         this.batchLog = batchLog;
+        this.memoryLock = memoryLock;
     }
 
     @Override
@@ -40,6 +44,15 @@ public class SendBatchTask implements Runnable {
 
     private void sendRequest() {
         PutLogsRequest putLogsRequest = RequestBuilder.buildFromBatch(batchLog);
+        try {
+            calibrateBatchSize(putLogsRequest);
+        } catch (LogException e) {
+            handleLogException(e);
+            return;
+        } catch (InterruptedException e) {
+            handleException(e);
+            return;
+        }
         PutLogsResponse putLogsResponse;
         try {
             putLogsResponse = client.putLogs(putLogsRequest);
@@ -51,6 +64,31 @@ public class SendBatchTask implements Runnable {
             return;
         }
         handleSuccess(putLogsResponse);
+    }
+
+    private void calibrateBatchSize(PutLogsRequest putLogsRequest) throws LogException, InterruptedException {
+        int estimated = batchLog.getCurrentBatchSize();
+        int actual = putLogsRequest.getLogGroupList().getSerializedSize();
+        int delta = actual - estimated;
+        if (delta > 0) {
+            long maxBlockMs = producerConfig.getMaxBlockMs();
+            if (maxBlockMs == 0) {
+                memoryLock.acquire(delta);
+            } else {
+                boolean acquired = memoryLock.tryAcquire(delta, maxBlockMs, TimeUnit.MILLISECONDS);
+                if (!acquired) {
+                    throw new LogException("BufferFull", "failed to acquire memory for calibrated batch size", null);
+                }
+            }
+        } else if (delta < 0) {
+            memoryLock.release(-delta);
+        }
+        if (delta != 0) {
+            batchLog.setCurrentBatchSize(actual);
+        } else {
+            batchLog.setCurrentBatchSize(actual);
+        }
+        putLogsRequest.setBodyRawSize(String.valueOf(actual));
     }
 
     private void putBatchLogToFailureQueue() {

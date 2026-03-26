@@ -32,5 +32,7 @@ public class GetImageTaskResponse {
         String callbackURL;
         @JSONField(name = "Extra")
         String extra;
+        @JSONField(name = "Rules")
+        List<String> rules;
     }
 }

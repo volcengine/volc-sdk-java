@@ -789,6 +789,26 @@ public final class VodResponse {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Response_VodQueryDramaScriptTaskResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Response_VodGetMediaEntityListResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Response_VodGetMediaEntityListResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Response_VodGetMediaEntityResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Response_VodGetMediaEntityResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Response_VodDeleteMediaEntityResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Response_VodDeleteMediaEntityResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Response_VodGetMediaEntityConfigListResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Response_VodGetMediaEntityConfigListResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1465,12 +1485,28 @@ public final class VodResponse {
       "Volcengine.Base.Models.Base.ResponseMeta" +
       "data\022M\n\006Result\030\002 \001(\0132=.Volcengine.Vod.Mo" +
       "dels.Business.VodQueryDramaScriptTaskRes" +
-      "ultB\314\001\n)com.volcengine.service.vod.model" +
-      ".responseB\013VodResponseP\001ZAgithub.com/vol" +
-      "cengine/volc-sdk-golang/service/vod/mode" +
-      "ls/response\240\001\001\330\001\001\312\002 Volc\\Service\\Vod\\Mod" +
-      "els\\Response\342\002#Volc\\Service\\Vod\\Models\\G" +
-      "PBMetadatab\006proto3"
+      "ult\"\265\001\n\035VodGetMediaEntityListResponse\022G\n" +
+      "\020ResponseMetadata\030\001 \001(\0132-.Volcengine.Bas" +
+      "e.Models.Base.ResponseMetadata\022K\n\006Result" +
+      "\030\002 \001(\0132;.Volcengine.Vod.Models.Business." +
+      "VodGetMediaEntityListResult\"\255\001\n\031VodGetMe" +
+      "diaEntityResponse\022G\n\020ResponseMetadata\030\001 " +
+      "\001(\0132-.Volcengine.Base.Models.Base.Respon" +
+      "seMetadata\022G\n\006Result\030\002 \001(\01327.Volcengine." +
+      "Vod.Models.Business.VodGetMediaEntityRes" +
+      "ult\"g\n\034VodDeleteMediaEntityResponse\022G\n\020R" +
+      "esponseMetadata\030\001 \001(\0132-.Volcengine.Base." +
+      "Models.Base.ResponseMetadata\"\264\001\n#VodGetM" +
+      "ediaEntityConfigListResponse\022G\n\020Response" +
+      "Metadata\030\001 \001(\0132-.Volcengine.Base.Models." +
+      "Base.ResponseMetadata\022D\n\006Result\030\002 \003(\01324." +
+      "Volcengine.Vod.Models.Business.VodMediaE" +
+      "ntityConfigB\314\001\n)com.volcengine.service.v" +
+      "od.model.responseB\013VodResponseP\001ZAgithub" +
+      ".com/volcengine/volc-sdk-golang/service/" +
+      "vod/models/response\240\001\001\330\001\001\312\002 Volc\\Service" +
+      "\\Vod\\Models\\Response\342\002#Volc\\Service\\Vod\\" +
+      "Models\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2424,6 +2460,30 @@ public final class VodResponse {
     internal_static_Volcengine_Vod_Models_Response_VodQueryDramaScriptTaskResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Response_VodQueryDramaScriptTaskResponse_descriptor,
+        new java.lang.String[] { "ResponseMetadata", "Result", });
+    internal_static_Volcengine_Vod_Models_Response_VodGetMediaEntityListResponse_descriptor =
+      getDescriptor().getMessageTypes().get(155);
+    internal_static_Volcengine_Vod_Models_Response_VodGetMediaEntityListResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Response_VodGetMediaEntityListResponse_descriptor,
+        new java.lang.String[] { "ResponseMetadata", "Result", });
+    internal_static_Volcengine_Vod_Models_Response_VodGetMediaEntityResponse_descriptor =
+      getDescriptor().getMessageTypes().get(156);
+    internal_static_Volcengine_Vod_Models_Response_VodGetMediaEntityResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Response_VodGetMediaEntityResponse_descriptor,
+        new java.lang.String[] { "ResponseMetadata", "Result", });
+    internal_static_Volcengine_Vod_Models_Response_VodDeleteMediaEntityResponse_descriptor =
+      getDescriptor().getMessageTypes().get(157);
+    internal_static_Volcengine_Vod_Models_Response_VodDeleteMediaEntityResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Response_VodDeleteMediaEntityResponse_descriptor,
+        new java.lang.String[] { "ResponseMetadata", });
+    internal_static_Volcengine_Vod_Models_Response_VodGetMediaEntityConfigListResponse_descriptor =
+      getDescriptor().getMessageTypes().get(158);
+    internal_static_Volcengine_Vod_Models_Response_VodGetMediaEntityConfigListResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Response_VodGetMediaEntityConfigListResponse_descriptor,
         new java.lang.String[] { "ResponseMetadata", "Result", });
     com.volcengine.service.base.model.base.Base.getDescriptor();
     com.volcengine.service.vod.model.business.VodPlay.getDescriptor();

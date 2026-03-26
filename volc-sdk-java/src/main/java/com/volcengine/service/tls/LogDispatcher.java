@@ -1,6 +1,8 @@
 package com.volcengine.service.tls;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import com.google.protobuf.CodedOutputStream;
+import com.google.protobuf.UnknownFieldSet;
 import com.volcengine.model.tls.ClientBuilder;
 import com.volcengine.model.tls.ClientConfig;
 import com.volcengine.model.tls.exception.LogException;
@@ -12,6 +14,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.http.impl.client.HttpClients;
 
+import java.time.Instant;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -110,6 +113,43 @@ public class LogDispatcher {
         if (closed) {
             throw new LogException("Producer Error", "closed LogDispatcher cannot receive logs anymore", null);
         }
+        int logCount = 0;
+        long earliestLogTime = Long.MAX_VALUE;
+        long latestLogTime = Long.MIN_VALUE;
+        PutLogRequest.LogGroup.Builder groupBuilder = logGroup.toBuilder();
+        for (int i = 0; i < groupBuilder.getLogsCount(); i++) {
+            PutLogRequest.Log log = groupBuilder.getLogs(i);
+            long time = log.getTime();
+            if (time <= 0) {
+                Instant now = Instant.now();
+                time = now.toEpochMilli();
+                PutLogRequest.Log.Builder logBuilder = log.toBuilder().setTime(time);
+                if (producerConfig.isEnableNanosecond()) {
+                    int timeNs = now.getNano() % 1_000_000;
+                    UnknownFieldSet.Field field = UnknownFieldSet.Field.newBuilder().addFixed32(timeNs).build();
+                    UnknownFieldSet unknownFieldSet = UnknownFieldSet.newBuilder().addField(3, field).build();
+                    logBuilder.mergeUnknownFields(unknownFieldSet);
+                }
+                PutLogRequest.Log newLog = logBuilder.build();
+                groupBuilder.setLogs(i, newLog);
+            }
+            logCount++;
+            long normalizedTime;
+            if (time < 1e10) { // s
+                normalizedTime = time * 1000;
+            } else if (time < 1e15) { // ms
+                normalizedTime = time;
+            } else { // ns
+                normalizedTime = time / 1_000_000;
+            }
+            earliestLogTime = Math.min(earliestLogTime, normalizedTime);
+            latestLogTime = Math.max(latestLogTime, normalizedTime);
+        }
+        if (logCount == 0) {
+            earliestLogTime = 0;
+            latestLogTime = 0;
+        }
+        logGroup = groupBuilder.build();
         int batchSize = calculateSize(logGroup);
         producerConfig.checkBatchSize(batchSize);
         // wait add lock
@@ -117,7 +157,7 @@ public class LogDispatcher {
         LOG.debug(String.format("dispatcher %s try acquire memory lock ", producerName));
 
         if (maxBlockMs == 0) {
-            memoryLock.acquire();
+            memoryLock.acquire(batchSize);
         } else {
             boolean acquired = memoryLock.tryAcquire(batchSize, maxBlockMs, TimeUnit.MILLISECONDS);
             if (!acquired) {
@@ -131,7 +171,7 @@ public class LogDispatcher {
             BatchLog.BatchKey batchKey = new BatchLog.BatchKey(hashKey, topicId, source, filename);
             BatchLog.BatchManager batchManager = getOrCreateBatchManager(batchKey);
             synchronized (batchManager) {
-                addToBatchManager(batchKey, logGroup, callBack, batchSize, batchManager);
+                addToBatchManager(batchKey, logGroup, callBack, batchSize, batchManager, logCount, earliestLogTime, latestLogTime);
             }
         } catch (Exception e) {
             memoryLock.release(batchSize);
@@ -143,35 +183,38 @@ public class LogDispatcher {
         if (logGroup == null) {
             return 0;
         }
-        return logGroup.getSerializedSize();
+        int groupSize = logGroup.getSerializedSize();
+        int tagSize = CodedOutputStream.computeTagSize(PutLogRequest.LogGroupList.LOGGROUPS_FIELD_NUMBER);
+        return tagSize + CodedOutputStream.computeUInt32SizeNoTag(groupSize) + groupSize;
     }
 
     private void addToBatchManager(BatchLog.BatchKey batchKey, PutLogRequest.LogGroup logGroup, CallBack callBack,
-                                   int batchSize, BatchLog.BatchManager batchManager) throws LogException {
+                                   int batchSize, BatchLog.BatchManager batchManager,
+                                   int logCount, long earliestLogTime, long latestLogTime) throws LogException {
         // add to exist batch
         BatchLog batchLog = batchManager.getBatchLog();
         if (batchLog != null) {
-            boolean success = batchLog.tryAdd(logGroup, batchSize, callBack);
+            boolean success = batchLog.tryAdd(logGroup, batchSize, callBack, logCount, earliestLogTime, latestLogTime);
             if (success) {
                 if (batchManager.fullAndSendBatchRequest()) {
-                    batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue, batchCount, retryManager);
+                    batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue, batchCount, retryManager, memoryLock);
                 }
                 return;
             } else {
-                batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue, batchCount, retryManager);
+                batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue, batchCount, retryManager, memoryLock);
             }
         }
         // no batch create new and try send
         batchLog = new BatchLog(batchKey, producerConfig);
         batchManager.setBatchLog(batchLog);
-        boolean success = batchLog.tryAdd(logGroup, batchSize, callBack);
+        boolean success = batchLog.tryAdd(logGroup, batchSize, callBack, logCount, earliestLogTime, latestLogTime);
         if (!success) {
             LOG.error(String.format("tryAdd batchLog failed, batchKey = %s, batchSize = %d, batchCount = %d",
                     batchKey.toString(), batchSize, logGroup.getLogsCount()));
             throw new LogException("Producer Error", "tryAdd batchLog failed", null);
         }
         if (batchManager.fullAndSendBatchRequest()) {
-            batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue, batchCount, retryManager);
+            batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue, batchCount, retryManager, memoryLock);
         }
     }
 }

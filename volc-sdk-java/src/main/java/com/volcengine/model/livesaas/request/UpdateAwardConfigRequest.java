@@ -17,6 +17,8 @@ public class UpdateAwardConfigRequest {
     Integer AwardType;
     @JSONField(name = "BarragePwd")
     String BarragePwd;
+    @JSONField(name = "IsManualSendBarragePwd")
+    Integer IsManualSendBarragePwd;
     @JSONField(name = "ActivityId")
     Long ActivityId;
     @JSONField(name = "RangeStatus")
@@ -43,4 +45,8 @@ public class UpdateAwardConfigRequest {
     Long BlackUserInfoId;
     @JSONField(name = "VipUserInfoId")
     Long VipUserInfoId;
+    @JSONField(name = "IsOnlineUser")
+    Integer IsOnlineUser;
+    @JSONField(name = "RepeatedAwardLimit")
+    Integer RepeatedAwardLimit;
 }

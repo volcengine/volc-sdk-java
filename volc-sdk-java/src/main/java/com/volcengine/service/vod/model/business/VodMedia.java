@@ -269,6 +269,36 @@ public final class VodMedia {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_MediaBlockStatus_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodGetMediaEntityListResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodGetMediaEntityListResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodGetMediaEntityResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodGetMediaEntityResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodMediaPublicUrlInfo_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodMediaPublicUrlInfo_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodBaseMediaEntity_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodBaseMediaEntity_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodMediaEntityConfig_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodMediaEntityConfig_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodMediaEntityVersionConfig_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodMediaEntityVersionConfig_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -451,21 +481,44 @@ public final class VodMedia {
       "\003(\t\022L\n\022MediaBlockStatuses\030\002 \003(\01320.Volcen" +
       "gine.Vod.Models.Business.MediaBlockStatu" +
       "s\"/\n\020MediaBlockStatus\022\013\n\003Vid\030\001 \001(\t\022\016\n\006St" +
-      "atus\030\002 \001(\t*\320\002\n VodFrameExtractingOptionF" +
-      "orAudit\022-\n)UndefinedVodFrameExtractingOp" +
-      "tionForAudit\020\000\022\'\n#FpsVodFrameExtractingO" +
-      "ptionForAudit\020\001\0222\n.NumberOfFramesVodFram" +
-      "eExtractingOptionForAudit\020\002\022,\n(CutTimesV" +
-      "odFrameExtractingOptionForAudit\020\003\022:\n6Fps" +
-      "LimitNumberOfFramesVodFrameExtractingOpt" +
-      "ionForAudit\020\004\0226\n2OnlyFirstLastFrameVodFr" +
-      "ameExtractingOptionForAudit\020\005B\314\001\n)com.vo" +
-      "lcengine.service.vod.model.businessB\010Vod" +
-      "MediaP\001ZAgithub.com/volcengine/volc-sdk-" +
-      "golang/service/vod/models/business\240\001\001\330\001\001" +
-      "\302\002\000\312\002 Volc\\Service\\Vod\\Models\\Business\342\002" +
-      "#Volc\\Service\\Vod\\Models\\GPBMetadatab\006pr" +
-      "oto3"
+      "atus\030\002 \001(\t\"\244\001\n\033VodGetMediaEntityListResu" +
+      "lt\022\022\n\nTotalCount\030\001 \001(\005\022\022\n\nPageNumber\030\002 \001" +
+      "(\005\022\020\n\010PageSize\030\003 \001(\005\022K\n\017BaseEntityInfos\030" +
+      "\004 \003(\01322.Volcengine.Vod.Models.Business.V" +
+      "odBaseMediaEntity\"\317\001\n\027VodGetMediaEntityR" +
+      "esult\022J\n\016BaseEntityInfo\030\001 \001(\01322.Volcengi" +
+      "ne.Vod.Models.Business.VodBaseMediaEntit" +
+      "y\022\032\n\022EntityExtraRawInfo\030\002 \001(\t\022L\n\rPublicU" +
+      "rlInfo\030\003 \001(\01325.Volcengine.Vod.Models.Bus" +
+      "iness.VodMediaPublicUrlInfo\":\n\025VodMediaP" +
+      "ublicUrlInfo\022\016\n\006CdnUrl\030\001 \001(\t\022\021\n\tOriginUr" +
+      "l\030\002 \001(\t\"\340\001\n\022VodBaseMediaEntity\022\n\n\002Id\030\001 \001" +
+      "(\t\022\013\n\003Vid\030\002 \001(\t\022\022\n\nEntityType\030\003 \001(\t\022\025\n\rE" +
+      "ntityVersion\030\004 \001(\t\022\021\n\tSpaceName\030\005 \001(\t\022\020\n" +
+      "\010StoreUri\030\006 \001(\t\022\020\n\010FileName\030\007 \001(\t\022\016\n\006Sou" +
+      "rce\030\010 \001(\t\022\021\n\tCreatedAt\030\t \001(\t\022\021\n\tUpdatedA" +
+      "t\030\n \001(\t\022\031\n\021EntityBaseRawInfo\030\013 \001(\t\"\270\001\n\024V" +
+      "odMediaEntityConfig\022\026\n\016EntityTypeName\030\001 " +
+      "\001(\t\022\031\n\021EntityTypeDisplay\030\002 \001(\t\022\022\n\nIsText" +
+      "File\030\003 \001(\010\022Y\n\024EntityVersionConfigs\030\004 \003(\013" +
+      "2;.Volcengine.Vod.Models.Business.VodMed" +
+      "iaEntityVersionConfig\"V\n\033VodMediaEntityV" +
+      "ersionConfig\022\031\n\021EntityVersionName\030\001 \001(\t\022" +
+      "\034\n\024EntityVersionDisplay\030\002 \001(\t*\320\002\n VodFra" +
+      "meExtractingOptionForAudit\022-\n)UndefinedV" +
+      "odFrameExtractingOptionForAudit\020\000\022\'\n#Fps" +
+      "VodFrameExtractingOptionForAudit\020\001\0222\n.Nu" +
+      "mberOfFramesVodFrameExtractingOptionForA" +
+      "udit\020\002\022,\n(CutTimesVodFrameExtractingOpti" +
+      "onForAudit\020\003\022:\n6FpsLimitNumberOfFramesVo" +
+      "dFrameExtractingOptionForAudit\020\004\0226\n2Only" +
+      "FirstLastFrameVodFrameExtractingOptionFo" +
+      "rAudit\020\005B\314\001\n)com.volcengine.service.vod." +
+      "model.businessB\010VodMediaP\001ZAgithub.com/v" +
+      "olcengine/volc-sdk-golang/service/vod/mo" +
+      "dels/business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vo" +
+      "d\\Models\\Business\342\002#Volc\\Service\\Vod\\Mod" +
+      "els\\GPBMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -778,6 +831,42 @@ public final class VodMedia {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_MediaBlockStatus_descriptor,
         new java.lang.String[] { "Vid", "Status", });
+    internal_static_Volcengine_Vod_Models_Business_VodGetMediaEntityListResult_descriptor =
+      getDescriptor().getMessageTypes().get(51);
+    internal_static_Volcengine_Vod_Models_Business_VodGetMediaEntityListResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodGetMediaEntityListResult_descriptor,
+        new java.lang.String[] { "TotalCount", "PageNumber", "PageSize", "BaseEntityInfos", });
+    internal_static_Volcengine_Vod_Models_Business_VodGetMediaEntityResult_descriptor =
+      getDescriptor().getMessageTypes().get(52);
+    internal_static_Volcengine_Vod_Models_Business_VodGetMediaEntityResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodGetMediaEntityResult_descriptor,
+        new java.lang.String[] { "BaseEntityInfo", "EntityExtraRawInfo", "PublicUrlInfo", });
+    internal_static_Volcengine_Vod_Models_Business_VodMediaPublicUrlInfo_descriptor =
+      getDescriptor().getMessageTypes().get(53);
+    internal_static_Volcengine_Vod_Models_Business_VodMediaPublicUrlInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodMediaPublicUrlInfo_descriptor,
+        new java.lang.String[] { "CdnUrl", "OriginUrl", });
+    internal_static_Volcengine_Vod_Models_Business_VodBaseMediaEntity_descriptor =
+      getDescriptor().getMessageTypes().get(54);
+    internal_static_Volcengine_Vod_Models_Business_VodBaseMediaEntity_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodBaseMediaEntity_descriptor,
+        new java.lang.String[] { "Id", "Vid", "EntityType", "EntityVersion", "SpaceName", "StoreUri", "FileName", "Source", "CreatedAt", "UpdatedAt", "EntityBaseRawInfo", });
+    internal_static_Volcengine_Vod_Models_Business_VodMediaEntityConfig_descriptor =
+      getDescriptor().getMessageTypes().get(55);
+    internal_static_Volcengine_Vod_Models_Business_VodMediaEntityConfig_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodMediaEntityConfig_descriptor,
+        new java.lang.String[] { "EntityTypeName", "EntityTypeDisplay", "IsTextFile", "EntityVersionConfigs", });
+    internal_static_Volcengine_Vod_Models_Business_VodMediaEntityVersionConfig_descriptor =
+      getDescriptor().getMessageTypes().get(56);
+    internal_static_Volcengine_Vod_Models_Business_VodMediaEntityVersionConfig_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodMediaEntityVersionConfig_descriptor,
+        new java.lang.String[] { "EntityVersionName", "EntityVersionDisplay", });
     com.volcengine.service.vod.model.business.VodCommon.getDescriptor();
   }
 

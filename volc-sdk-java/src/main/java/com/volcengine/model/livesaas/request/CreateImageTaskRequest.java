@@ -16,4 +16,6 @@ public class CreateImageTaskRequest {
     String callbackURL;
     @JSONField(name = "Extra")
     String extra;
+    @JSONField(name = "Rules")
+    List<String> rules;
 }

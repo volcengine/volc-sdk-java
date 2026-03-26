@@ -280,6 +280,21 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public ListUserChatAPIResponse listUserChatAPI(ListUserChatAPIRequest listUserChatAPIRequest) throws Exception {
+        RawResponse response = query(Const.ListUserChatAPI, Utils.paramsToPair(listUserChatAPIRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListUserChatAPIResponse res = JSON.parseObject(response.getData(), ListUserChatAPIResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public GetAccountRealTimeOnlineNumberResponse getAccountRealTimeOnlineNumber(GetAccountRealTimeOnlineNumberRequest getAccountRealTimeOnlineNumberRequest) throws Exception {
         RawResponse response = query(Const.GetAccountRealTimeOnlineNumber, Utils.paramsToPair(getAccountRealTimeOnlineNumberRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

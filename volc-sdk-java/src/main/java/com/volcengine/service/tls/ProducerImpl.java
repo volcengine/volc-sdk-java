@@ -1,5 +1,6 @@
 package com.volcengine.service.tls;
 
+import com.google.protobuf.CodedOutputStream;
 import com.volcengine.model.tls.Const;
 import com.volcengine.model.tls.LogItem;
 import com.volcengine.model.tls.exception.LogException;
@@ -43,7 +44,7 @@ public class ProducerImpl implements Producer {
         this.dispatcher = new LogDispatcher(producerConfig, name, successQueue, failureQueue, memoryLock, batchCount, retryManager);
         this.successHandler = new BatchHandler("success batch handler-" + name, memoryLock, successQueue, batchCount);
         this.failHandler = new BatchHandler("fail batch handler-" + name, memoryLock, failureQueue, batchCount);
-        this.mover = new Mover(name + "-mover", producerConfig, dispatcher, retryManager, successQueue, failureQueue);
+        this.mover = new Mover(name + "-mover", producerConfig, dispatcher, retryManager, successQueue, failureQueue, memoryLock);
     }
 
     public static Producer defaultProducer(String endpoint, String region, String accessKey, String accessSecret, String token) throws LogException {
@@ -101,32 +102,40 @@ public class ProducerImpl implements Producer {
             throws InterruptedException, LogException {
         PutLogRequest.LogGroup.Builder builder = PutLogRequest.LogGroup.newBuilder(logGroup);
         builder.clearLogs();
+        int baseSizeNoLogs = builder.build().getSerializedSize();
+        int size = baseSizeNoLogs;
         int count = 0;
         for (PutLogRequest.Log log : logGroup.getLogsList()) {
+            int logSize = log.getSerializedSize();
+            int entrySize = logEntrySize(logSize);
             builder.addLogs(log);
             count++;
-            int size = builder.build().getSerializedSize();
+            size += entrySize;
             if (size > ProducerConfig.MAX_BATCH_SIZE) {
                 if (count == 1) {
+                    int actual = builder.build().getSerializedSize();
                     throw new LogException("InvalidArgument", String.format("log size %d is larger than MAX_LOG_SIZE %d",
-                            size, ProducerConfig.MAX_BATCH_SIZE), null);
+                            actual, ProducerConfig.MAX_BATCH_SIZE), null);
                 }
                 builder.removeLogs(count - 1);
                 count--;
+                size -= entrySize;
                 dispatcher.addBatch(hashKey, topicId, source, filename, builder.build(), callBack);
                 builder.clearLogs();
                 builder.addLogs(log);
                 count = 1;
-                size = builder.build().getSerializedSize();
+                size = baseSizeNoLogs + entrySize;
                 if (size > ProducerConfig.MAX_BATCH_SIZE) {
+                    int actual = builder.build().getSerializedSize();
                     throw new LogException("InvalidArgument", String.format("log size %d is larger than MAX_LOG_SIZE %d",
-                            size, ProducerConfig.MAX_BATCH_SIZE), null);
+                            actual, ProducerConfig.MAX_BATCH_SIZE), null);
                 }
             }
             if (count >= ProducerConfig.MAX_LOG_GROUP_COUNT) {
                 dispatcher.addBatch(hashKey, topicId, source, filename, builder.build(), callBack);
                 builder.clearLogs();
                 count = 0;
+                size = baseSizeNoLogs;
             }
         }
         if (count > 0) {
@@ -143,18 +152,25 @@ public class ProducerImpl implements Producer {
         if (source != null) {
             builder.setSource(source);
         }
+        int baseSizeNoLogs = builder.build().getSerializedSize();
+        int size = baseSizeNoLogs;
         int count = 0;
         for (LogItem item : logs) {
-            builder.addLogs(AdaptorUtil.logItem2PbLog(item));
+            PutLogRequest.Log log = AdaptorUtil.logItem2PbLog(item);
+            int logSize = log.getSerializedSize();
+            int entrySize = logEntrySize(logSize);
+            builder.addLogs(log);
             count++;
-            int size = builder.build().getSerializedSize();
+            size += entrySize;
             if (size > ProducerConfig.MAX_BATCH_SIZE) {
                 if (count == 1) {
+                    int actual = builder.build().getSerializedSize();
                     throw new LogException("InvalidArgument", String.format("log size %d is larger than MAX_LOG_SIZE %d",
-                            size, ProducerConfig.MAX_BATCH_SIZE), null);
+                            actual, ProducerConfig.MAX_BATCH_SIZE), null);
                 }
                 builder.removeLogs(count - 1);
                 count--;
+                size -= entrySize;
                 dispatcher.addBatch(hashKey, topicId, source, filename, builder.build(), callBack);
                 builder.clearLogs();
                 if (filename != null) {
@@ -163,12 +179,14 @@ public class ProducerImpl implements Producer {
                 if (source != null) {
                     builder.setSource(source);
                 }
-                builder.addLogs(AdaptorUtil.logItem2PbLog(item));
+                baseSizeNoLogs = builder.build().getSerializedSize();
+                size = baseSizeNoLogs + entrySize;
+                builder.addLogs(log);
                 count = 1;
-                size = builder.build().getSerializedSize();
                 if (size > ProducerConfig.MAX_BATCH_SIZE) {
+                    int actual = builder.build().getSerializedSize();
                     throw new LogException("InvalidArgument", String.format("log size %d is larger than MAX_LOG_SIZE %d",
-                            size, ProducerConfig.MAX_BATCH_SIZE), null);
+                            actual, ProducerConfig.MAX_BATCH_SIZE), null);
                 }
             }
             if (count >= ProducerConfig.MAX_LOG_GROUP_COUNT) {
@@ -181,11 +199,18 @@ public class ProducerImpl implements Producer {
                     builder.setSource(source);
                 }
                 count = 0;
+                baseSizeNoLogs = builder.build().getSerializedSize();
+                size = baseSizeNoLogs;
             }
         }
         if (count > 0) {
             dispatcher.addBatch(hashKey, topicId, source, filename, builder.build(), callBack);
         }
+    }
+
+    private int logEntrySize(int logSize) {
+        int tagSize = CodedOutputStream.computeTagSize(PutLogRequest.LogGroup.LOGS_FIELD_NUMBER);
+        return tagSize + CodedOutputStream.computeUInt32SizeNoTag(logSize) + logSize;
     }
 
     @Override

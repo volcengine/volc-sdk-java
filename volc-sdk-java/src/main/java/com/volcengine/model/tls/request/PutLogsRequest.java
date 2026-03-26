@@ -15,6 +15,9 @@ public class PutLogsRequest {
     private String compressType = LZ4;
     private String bodyRawSize;
     private String contentMd5;
+    private Integer logCount;
+    private Long earliestLogTime;
+    private Long latestLogTime;
 
     /**
      * @param logGroupList 日志列表

@@ -41,6 +41,7 @@ public class ProducerConfig {
     private int maxReservedAttempts = DEFAULT_RESERVED_ATTEMPTS;
     private ClientConfig clientConfig;
     private int shardCount = DEFAULT_SHARD_COUNT;
+    private boolean enableNanosecond = false;
     private final static Log log = LogFactory.getLog(ProducerConfig.class);
 
     public ProducerConfig(String endpoint, String region, String accessKey, String accessSecret, String token) {
@@ -148,6 +149,10 @@ public class ProducerConfig {
             throw new LogException("InvalidArgument", "maxBlockMs must be greater than zero,actual:" + maxBlockMs, null);
         }
         this.maxBlockMs = maxBlockMs;
+    }
+
+    public void setEnableNanosecond(boolean enableNanosecond) {
+        this.enableNanosecond = enableNanosecond;
     }
 
     public void checkBatchSize(int batchSize) throws LogException {

@@ -49,6 +49,8 @@ public class ProductCardMsg {
     Integer OutOfStock;
     @JSONField(name = "PriceHidden")
     Integer PriceHidden;
+    @JSONField(name = "CustomContent")
+    String CustomContent;
     @JSONField(name = "MemberPrice")
     String MemberPrice;
 }

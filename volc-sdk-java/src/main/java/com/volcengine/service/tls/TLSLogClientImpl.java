@@ -98,28 +98,37 @@ public class TLSLogClientImpl implements TLSLogClient {
         int logCnt = 0;
         long maxLogTime = Long.MIN_VALUE;
         long minLogTime = Long.MAX_VALUE;
+        boolean useProvidedStats = request.getLogCount() != null
+                && request.getEarliestLogTime() != null
+                && request.getLatestLogTime() != null;
 
-        for (PutLogRequest.LogGroup logGroup : request.getLogGroupList().getLogGroupsList()) {
-            List<PutLogRequest.Log> logs = logGroup.getLogsList();
-            for (int i = 0; i < logs.size(); i++) {
-                PutLogRequest.Log log = logs.get(i);
-                long time = log.getTime();
-                long normalizedTime;
-                if (time <= 0) {
-                    time = System.currentTimeMillis();
-                    PutLogRequest.Log newLog = log.toBuilder().setTime(time).build();
-                    logs.set(i, newLog);
-                    normalizedTime = time;
-                } else if (time < 1e10) { // s
-                    normalizedTime = time * 1000;
-                } else if (time < 1e15) { // ms
-                    normalizedTime = time;
-                } else { // ns
-                    normalizedTime = time / 1_000_000;
+        if (useProvidedStats) {
+            logCnt = request.getLogCount();
+            minLogTime = request.getEarliestLogTime();
+            maxLogTime = request.getLatestLogTime();
+        } else {
+            for (PutLogRequest.LogGroup logGroup : request.getLogGroupList().getLogGroupsList()) {
+                List<PutLogRequest.Log> logs = logGroup.getLogsList();
+                for (int i = 0; i < logs.size(); i++) {
+                    PutLogRequest.Log log = logs.get(i);
+                    long time = log.getTime();
+                    if (time <= 0) {
+                        time = System.currentTimeMillis();
+                        PutLogRequest.Log newLog = log.toBuilder().setTime(time).build();
+                        logs.set(i, newLog);
+                    }
+                    long normalizedTime;
+                    if (time < 1e10) { // s
+                        normalizedTime = time * 1000;
+                    } else if (time < 1e15) { // ms
+                        normalizedTime = time;
+                    } else { // ns
+                        normalizedTime = time / 1_000_000;
+                    }
+                    maxLogTime = Math.max(maxLogTime, normalizedTime);
+                    minLogTime = Math.min(minLogTime, normalizedTime);
+                    logCnt++;
                 }
-                maxLogTime = Math.max(maxLogTime, normalizedTime);
-                minLogTime = Math.min(minLogTime, normalizedTime);
-                logCnt++;
             }
         }
 

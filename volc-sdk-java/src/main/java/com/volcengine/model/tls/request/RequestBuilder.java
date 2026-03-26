@@ -13,6 +13,10 @@ public class RequestBuilder {
         PutLogRequest.LogGroupList logGroupList = PutLogRequest.LogGroupList.newBuilder().
                 mergeFrom(batchLog.getLogGroupList()).build();
         BatchLog.BatchKey batchKey = batchLog.getBatchKey();
-        return new PutLogsRequest(logGroupList, batchKey.getTopicId(), batchKey.getShardHash(), LZ4);
+        PutLogsRequest request = new PutLogsRequest(logGroupList, batchKey.getTopicId(), batchKey.getShardHash(), LZ4);
+        request.setLogCount(batchLog.getCurrentBatchCount());
+        request.setEarliestLogTime(batchLog.getEarliestLogTime());
+        request.setLatestLogTime(batchLog.getLatestLogTime());
+        return request;
     }
 }

@@ -55,6 +55,36 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public DrawActivityRedPacketResponse drawActivityRedPacket(DrawActivityRedPacketRequest drawActivityRedPacketRequest) throws Exception {
+        RawResponse response = json(Const.DrawActivityRedPacket, new ArrayList<>(), JSON.toJSONString(drawActivityRedPacketRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DrawActivityRedPacketResponse res = JSON.parseObject(response.getData(), DrawActivityRedPacketResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public SendActivityRedPacketResponse sendActivityRedPacket(SendActivityRedPacketRequest sendActivityRedPacketRequest) throws Exception {
+        RawResponse response = json(Const.SendActivityRedPacket, new ArrayList<>(), JSON.toJSONString(sendActivityRedPacketRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        SendActivityRedPacketResponse res = JSON.parseObject(response.getData(), SendActivityRedPacketResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public ListSiteTagAPIV2Response listSiteTagAPIV2(DefaultRequest defaultRequest) throws Exception {
         RawResponse response = query(Const.ListSiteTagAPIV2, Utils.paramsToPair(defaultRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

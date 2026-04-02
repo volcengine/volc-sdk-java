@@ -64,7 +64,7 @@ public final class CreateCarouselTaskBodyRule  {
      * <p>- 如果设置具体时间，则必须为晚于当前时间的值。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "PlayTime")
-    private Integer playTime;
+    private Long playTime;
 
     /**
      * <p>轮播素材列表，用于指定在轮播过程中播放的素材资源。</p>
@@ -84,7 +84,7 @@ public final class CreateCarouselTaskBodyRule  {
      * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "StopTime")
-    private Integer stopTime;
+    private Long stopTime;
 
     @Override
     public String toString() {

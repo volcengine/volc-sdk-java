@@ -24,10 +24,10 @@ public class BatchLogLimitTest {
         PutLogRequest.LogGroup g3 = buildGroup(10000);
         PutLogRequest.LogGroup g4 = buildGroup(10000);
 
-        Assert.assertTrue(batch.tryAdd(g1, g1.getSerializedSize(), null));
-        Assert.assertTrue(batch.tryAdd(g2, g2.getSerializedSize(), null));
-        Assert.assertTrue(batch.tryAdd(g3, g3.getSerializedSize(), null));
-        Assert.assertFalse(batch.tryAdd(g4, g4.getSerializedSize(), null));
+        Assert.assertTrue(batch.tryAdd(g1, g1.getSerializedSize(), null, g1.getLogsCount(), 0, 0));
+        Assert.assertTrue(batch.tryAdd(g2, g2.getSerializedSize(), null, g2.getLogsCount(), 0, 0));
+        Assert.assertTrue(batch.tryAdd(g3, g3.getSerializedSize(), null, g3.getLogsCount(), 0, 0));
+        Assert.assertFalse(batch.tryAdd(g4, g4.getSerializedSize(), null, g4.getLogsCount(), 0, 0));
         Assert.assertTrue(batch.getCurrentBatchCount() <= ProducerConfig.MAX_BATCH_COUNT);
     }
 }

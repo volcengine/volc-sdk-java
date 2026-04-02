@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class CreateCarouselTaskBodyRuleOutputVideo  {
 
     /**
-     * <p>视频的码率，单位为 `bit`，取值必须小于或等于 `20`。如果指定了 `Video` 对象，则该字段为必填项。</p>
+     * <p>视频的码率，单位为 `bit`，取值必须小于或等于 `20000`。如果指定了 `Video` 对象，则该字段为必填项。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "BitRate")
     private Integer bitRate;

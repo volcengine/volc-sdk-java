@@ -13,6 +13,24 @@ import java.util.ArrayList;
 public interface LivesaasService extends IBaseService {
 
     /**
+     * DrawActivityRedPacket
+     *
+     * @param drawActivityRedPacketRequest DrawActivityRedPacketRequest
+     * @return DrawActivityRedPacketResponse
+     * @throws Exception the exception
+     */
+    DrawActivityRedPacketResponse drawActivityRedPacket(DrawActivityRedPacketRequest drawActivityRedPacketRequest) throws Exception;
+
+    /**
+     * SendActivityRedPacket
+     *
+     * @param sendActivityRedPacketRequest SendActivityRedPacketRequest
+     * @return SendActivityRedPacketResponse
+     * @throws Exception the exception
+     */
+    SendActivityRedPacketResponse sendActivityRedPacket(SendActivityRedPacketRequest sendActivityRedPacketRequest) throws Exception;
+
+    /**
      * ListSiteTagAPIV2
      *
      * @param defaultRequest DefaultRequest

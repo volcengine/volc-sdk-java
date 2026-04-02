@@ -424,6 +424,9 @@ public class Const {
 
     public static final String ListRedPacketRecordAPI = "ListRedPacketRecordAPI";
 
+    public static final String DrawActivityRedPacket = "DrawActivityRedPacket";
+    public static final String SendActivityRedPacket = "SendActivityRedPacket";
+
     public static final String GetAwardConfigListAPI = "GetAwardConfigListAPI";
 
     public static final String GetVoteListAPI = "GetVoteListAPI";

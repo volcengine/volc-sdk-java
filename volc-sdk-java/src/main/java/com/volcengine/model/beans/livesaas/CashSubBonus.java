@@ -10,5 +10,8 @@ public class CashSubBonus {
 
     @JSONField(name = "LimitCount")
     Long LimitCount;
+
+    @JSONField(name = "WithdrawConfig")
+    CashWithdrawConfig WithdrawConfig;
 }
 

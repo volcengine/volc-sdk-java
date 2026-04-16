@@ -77,6 +77,12 @@ public final class ListVhostRecordPresetV2ResResultPresetListItemSlicePresetV2Re
     @com.alibaba.fastjson.annotation.JSONField(name = "ExactObject")
     private String exactObject;
 
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "VodRegion")
+    private String vodRegion;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

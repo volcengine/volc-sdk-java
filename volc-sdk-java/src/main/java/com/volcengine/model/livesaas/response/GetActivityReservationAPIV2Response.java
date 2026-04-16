@@ -35,6 +35,8 @@ public class GetActivityReservationAPIV2Response {
         Long SubmitTime;
         @JSONField(name = "UserDevice")
         String UserDevice;
+        @JSONField(name = "ClientType")
+        String ClientType;
         @JSONField(name = "Ip")
         String Ip;
         @JSONField(name = "IpAddress")

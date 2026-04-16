@@ -40,6 +40,12 @@ public final class DescribeLiveBatchPushStreamMetricsResResultStreamMetricListIt
     @com.alibaba.fastjson.annotation.JSONField(name = "SessionID")
     private String sessionID;
 
+    /**
+     * <p>流优先级标识</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StreamPriority")
+    private String streamPriority;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

@@ -30,7 +30,7 @@ public final class CreateHighLightTaskBodySourcesItem  {
     private String path;
 
     /**
-     * <p>视频源类型。目前仅支持 `0`，表示在线流媒体源，即直接使用 HTTP/HTTPS/FLV/HLS/RTMP 等协议的视频流地址作为数据源。</p>
+     * <p>视频源类型。支持取值 `0`，表示在线流媒体源，即直接使用 HTTP/HTTPS/FLV/HLS/RTMP 等协议的视频流地址作为数据源。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "SourceType")
     private Integer sourceType;

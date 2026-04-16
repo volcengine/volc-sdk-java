@@ -44,4 +44,6 @@ public class GetUserBehaviorListRequestAPIV2 {
     Long InviterId;
     @JSONField(name = "InviterExternalId")
     String InviterExternalId;
+    @JSONField(name = "UserIds")
+    List<Long> UserIds;
 }

@@ -77,6 +77,12 @@ public final class CreateRecordPresetV2BodyRecordPresetConfigMp4ParamVODParam  {
     @com.alibaba.fastjson.annotation.JSONField(name = "ExactObject")
     private String exactObject;
 
+    /**
+     * <p>If Byteplus VOD storage is used, the VodRegion param must be filled in</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "VodRegion")
+    private String vodRegion;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

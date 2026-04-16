@@ -2027,7 +2027,7 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
 
     @Override
     public GetUserBehaviorListResponseAPIV2 ListUserBehaviorDataAPIV2(GetUserBehaviorListRequestAPIV2 getUserBehaviorListAPIV2Request) throws Exception {
-        RawResponse response = query(Const.ListUserBehaviorDataAPIV2, Utils.paramsToPair(getUserBehaviorListAPIV2Request));
+        RawResponse response = json(Const.ListUserBehaviorDataAPIV2, new ArrayList<>(), JSON.toJSONString(getUserBehaviorListAPIV2Request));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }

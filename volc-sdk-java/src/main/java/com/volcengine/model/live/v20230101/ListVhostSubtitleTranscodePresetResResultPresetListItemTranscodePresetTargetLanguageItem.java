@@ -99,6 +99,16 @@ public final class ListVhostSubtitleTranscodePresetResResultPresetListItemTransc
     @com.alibaba.fastjson.annotation.JSONField(name = "Language")
     private String language;
 
+    /**
+     * <p>是否隐藏译文字幕。取值如下：</p>
+     *
+     * <p>- `true`：隐藏。</p>
+     *
+     * <p>- `false`：显示。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Hidden")
+    private Boolean hidden;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

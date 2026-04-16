@@ -136,6 +136,12 @@ public final class CreateSubtitleTranscodePresetBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "GlossaryWordList")
     private List<String> glossaryWordList;
 
+    /**
+     * <p>声影同传模式配置。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "SIConfig")
+    private CreateSubtitleTranscodePresetBodySIConfig sIConfig;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

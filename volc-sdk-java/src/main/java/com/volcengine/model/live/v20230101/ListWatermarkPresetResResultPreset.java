@@ -65,7 +65,7 @@ public final class ListWatermarkPresetResResultPreset  {
      * <p>水印配置的 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ID")
-    private Long iD;
+    private Integer iD;
 
     /**
      * <p>域名空间。</p>

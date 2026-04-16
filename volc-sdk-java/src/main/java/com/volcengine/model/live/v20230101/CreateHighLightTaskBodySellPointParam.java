@@ -14,13 +14,13 @@ public final class CreateHighLightTaskBodySellPointParam  {
      *
      * <p>- Key：输入视频的链接或索引</p>
      *
-     * <p>- Value：对应视频的商家卖点信息 `ProductInfo`</p>
+     * <p>- Value：对应视频的商品简述，用于辅助生成卖点信息 `ProductInfo`</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ECommerceInfo")
     private CreateHighLightTaskBodySellPointParamECommerceInfo eCommerceInfo;
 
     /**
-     * <p>使用的卖点效果模版，当前仅支持 `default`。</p>
+     * <p>使用的卖点效果模版，支持的取值为 `default`。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "EffectType")
     private String effectType;

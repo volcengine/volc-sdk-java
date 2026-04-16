@@ -56,6 +56,12 @@ public final class DescribeLivePushStreamMetricsResResult  {
     @com.alibaba.fastjson.annotation.JSONField(name = "MetricList")
     private List<DescribeLivePushStreamMetricsResResultMetricListItem> metricList;
 
+    /**
+     * <p>流优先级标识</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StreamPriority")
+    private List<String> streamPriority;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

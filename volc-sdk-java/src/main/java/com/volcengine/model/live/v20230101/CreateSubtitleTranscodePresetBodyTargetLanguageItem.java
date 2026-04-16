@@ -99,6 +99,16 @@ public final class CreateSubtitleTranscodePresetBodyTargetLanguageItem  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Border")
     private CreateSubtitleTranscodePresetBodyTargetLanguageItemBorder border;
 
+    /**
+     * <p>是否隐藏译文字幕。默认值为 `false`。取值如下：</p>
+     *
+     * <p>- `true`：隐藏。</p>
+     *
+     * <p>- `false`：显示。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Hidden")
+    private Boolean hidden;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

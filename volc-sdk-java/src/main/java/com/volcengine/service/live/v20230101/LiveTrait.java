@@ -1189,6 +1189,36 @@ public class LiveTrait extends BaseServiceImpl {
     }
 
     /**
+     * <p>describeLiveStreamGroupByPage</p>
+     * <p>主备流分组查询在线流列表</p>
+     *
+     * <p>调用 `DescribeLiveStreamGroupByPage` 接口，查询在线流的 ID、名称、类型等信息。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeLiveStreamGroupByPageRes describeLiveStreamGroupByPage(DescribeLiveStreamGroupByPageBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeLiveStreamGroupByPage", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeLiveStreamGroupByPageRes.class);
+    }
+
+    /**
+     * <p>describeForbiddenStreamGroupByPage</p>
+     * <p>按流分组查询禁推流列表</p>
+     *
+     * <p>调用 `DescribeForbiddenStreamGroupByPage` 接口，查询禁推流的域名、应用名称、流名称等信息。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DescribeForbiddenStreamGroupByPageRes describeForbiddenStreamGroupByPage(DescribeForbiddenStreamGroupByPageBody body) throws Exception {
+        RawResponse rawResponse = json("DescribeForbiddenStreamGroupByPage", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DescribeForbiddenStreamGroupByPageRes.class);
+    }
+
+    /**
      * <p>killStream</p>
      * <p>断开直播流</p>
      *
@@ -1222,7 +1252,13 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>describeLiveStreamInfoByPage</p>
      * <p>查询在线流列表</p>
      *
-     * <p>调用 `DescribeLiveStreamInfoByPage` 接口，分页查询在线流信息。</p>
+     * <p>调用 `DescribeLiveStreamInfoByPage` 接口，分页查询在线流信息。   </p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>该接口属于历史版本 API，我们计划于 2026 年 01 月 19 日停止对其进行维护，并于 2026 年 04 月 19 日下线文档，建议您使用 [DescribeLiveStreamGroupByPage](https://www.volcengine.com/docs/6469/2168034) 接口，查询在线流信息。</p>
+     *
+     * <p>:::</p>
      *
      * @param query query arguments
      * @return response data
@@ -1253,6 +1289,12 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>查询禁推流列表</p>
      *
      * <p>调用 `DescribeForbiddenStreamInfoByPage` 接口，分页查询禁推流信息。</p>
+     *
+     * <p>:::tip</p>
+     *
+     * <p>该接口属于历史版本 API，我们计划于 2026 年 01 月 19 日停止对其进行维护，并于 2026 年 04 月 19 日下线文档，建议您使用 [DescribeForbiddenStreamGroupByPage](https://www.volcengine.com/docs/6469/2168035) 接口，查询禁推流信息。</p>
+     *
+     * <p>:::</p>
      *
      * @param query query arguments
      * @return response data
@@ -2636,7 +2678,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>createHighLightTask</p>
      * <p>创建高光剪辑任务</p>
      *
-     * <p>调用 `CreateHighLightTask` 接口，创建高光剪辑任务，对公网可访问的点播视频或直播流进行高光片段提取和混剪，并上传至指定空间，可根据不同的算法模型（如足球体育、文娱短剧、电商）自动生成高光片段或高光混剪视频。接口提供丰富的配置选项，包括输出格式、冗余时间、字幕设置等，适用于体育赛事、文娱内容、电商直播等场景的内容智能剪辑需求。</p>
+     * <p>调用 `CreateHighLightTask` 接口，创建高光智能剪辑任务，对公网可访问的点播视频或直播流进行高光片段提取和混剪，并上传至指定空间，可根据不同的算法模型（如体育足球、电商）自动生成高光片段或高光混剪视频。接口提供丰富的配置选项，包括输出格式、冗余时间、字幕设置等，适用于体育赛事、节目剧集、电商直播等场景的内容智能剪辑需求。</p>
      *
      * @param body body payload
      * @return response data
@@ -2690,6 +2732,110 @@ public class LiveTrait extends BaseServiceImpl {
     public ListHighLightTaskRes listHighLightTask(ListHighLightTaskBody body) throws Exception {
         RawResponse rawResponse = json("ListHighLightTask", null, JSON.toJSONString(body));
         return parseRawResponse(rawResponse, ListHighLightTaskRes.class);
+    }
+
+    /**
+     * <p>createSpeechTask</p>
+     * <p>创建声影同传任务</p>
+     *
+     * <p>调用 `CreateSpeechTask` 接口，创建声影同传任务。从任务开始到任务结束，当直播源开始推流时，同传任务会自动拉取该直播流进行同传处理，并将经过同传处理的新直播流推送到指定的转推地址，从而实现在转推地址上直播同传处理后的内容。例如，您可以使用 OBS 开播，创建同传任务后，在抖音上直播同传处理后的内容。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public CreateSpeechTaskRes createSpeechTask(CreateSpeechTaskBody body) throws Exception {
+        RawResponse rawResponse = json("CreateSpeechTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, CreateSpeechTaskRes.class);
+    }
+
+    /**
+     * <p>deleteSpeechTask</p>
+     * <p>删除声影同传任务</p>
+     *
+     * <p>调用 `DeleteSpeechTask` 接口，删除不再需要的声影同传任务。如果任务在运行中，会先停止任务再删除任务。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public DeleteSpeechTaskRes deleteSpeechTask(DeleteSpeechTaskBody body) throws Exception {
+        RawResponse rawResponse = json("DeleteSpeechTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, DeleteSpeechTaskRes.class);
+    }
+
+    /**
+     * <p>searchSpeechTask</p>
+     * <p>搜索声影同传任务</p>
+     *
+     * <p>调用 `SearchSpeechTask` 接口，搜索符合条件的声影同传任务。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public SearchSpeechTaskRes searchSpeechTask(SearchSpeechTaskBody body) throws Exception {
+        RawResponse rawResponse = json("SearchSpeechTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, SearchSpeechTaskRes.class);
+    }
+
+    /**
+     * <p>updateSpeechTask</p>
+     * <p>更新声影同传任务</p>
+     *
+     * <p>调用 `UpdateSpeechTask` 接口，更新声影同传任务的功能开启状态。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public UpdateSpeechTaskRes updateSpeechTask(UpdateSpeechTaskBody body) throws Exception {
+        RawResponse rawResponse = json("UpdateSpeechTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, UpdateSpeechTaskRes.class);
+    }
+
+    /**
+     * <p>getSpeechTask</p>
+     * <p>查询声影同传任务</p>
+     *
+     * <p>调用 `GetSpeechTask` 接口，查询指定声影同传任务的信息。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetSpeechTaskRes getSpeechTask(GetSpeechTaskBody body) throws Exception {
+        RawResponse rawResponse = json("GetSpeechTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, GetSpeechTaskRes.class);
+    }
+
+    /**
+     * <p>getSpeechConfig</p>
+     * <p>查询声影同传配置</p>
+     *
+     * <p>调用 `GetSpeechConfig`，获取当前账号下可使用的声影同传配置，包括支持的字体和语种。</p>
+     *
+     * @return response data
+     * @throws Exception error during request
+     */
+    public GetSpeechConfigRes getSpeechConfig() throws Exception {
+        RawResponse rawResponse = json("GetSpeechConfig", null, "");
+        return parseRawResponse(rawResponse, GetSpeechConfigRes.class);
+    }
+
+    /**
+     * <p>restartSpeechTask</p>
+     * <p>重启声影同传任务</p>
+     *
+     * <p>调用 `RestartSpeechTask` 接口，重启运行中或启动中的声影同传任务。</p>
+     *
+     * @param body body payload
+     * @return response data
+     * @throws Exception error during request
+     */
+    public RestartSpeechTaskRes restartSpeechTask(RestartSpeechTaskBody body) throws Exception {
+        RawResponse rawResponse = json("RestartSpeechTask", null, JSON.toJSONString(body));
+        return parseRawResponse(rawResponse, RestartSpeechTaskRes.class);
     }
 
 }

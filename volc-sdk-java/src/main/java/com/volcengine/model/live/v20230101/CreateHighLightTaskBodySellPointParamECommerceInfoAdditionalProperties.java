@@ -11,7 +11,7 @@ import java.util.List;
 public final class CreateHighLightTaskBodySellPointParamECommerceInfoAdditionalProperties  {
 
     /**
-     * <p>商家卖点信息，用于电商场景下标识商品的卖点描述。</p>
+     * <p>商品简述，用于辅助生成卖点信息。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ProductInfo")
     private List<CreateHighLightTaskBodySellPointParamECommerceInfoAdditionalPropertiesProductInfoItem> productInfo;

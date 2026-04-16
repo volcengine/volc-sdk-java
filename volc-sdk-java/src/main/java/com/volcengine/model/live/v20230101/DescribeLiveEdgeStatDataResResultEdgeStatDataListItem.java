@@ -28,13 +28,13 @@ public final class DescribeLiveEdgeStatDataResResultEdgeStatDataListItem  {
     private Float downTraffic;
 
     /**
-     * <p>上行峰值带宽，单位为 Mbps。</p>
+     * <p>当前数据聚合时间粒度内产生的上行峰值带宽，单位为 Mbps。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "UpBandwidth")
     private Float upBandwidth;
 
     /**
-     * <p>下行峰值带宽，单位为 Mbps。</p>
+     * <p>当前数据聚合时间粒度内产生的下行峰值带宽，单位为 Mbps。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "DownBandwidth")
     private Float downBandwidth;

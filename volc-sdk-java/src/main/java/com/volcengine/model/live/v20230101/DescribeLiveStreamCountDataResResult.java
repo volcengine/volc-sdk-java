@@ -49,7 +49,7 @@ public final class DescribeLiveStreamCountDataResResult  {
     /**
      * <p>流类型，流类型说明如下。</p>
      *
-     * <p>- `push`：拉流；</p>
+     * <p>- `push`：推流；</p>
      *
      * <p>- `relay-source`：回源流；</p>
      *

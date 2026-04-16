@@ -64,6 +64,12 @@ public final class DescribeLivePushStreamInfoDataBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "PageSize")
     private Integer pageSize;
 
+    /**
+     * <p>流优先级。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StreamPriority")
+    private List<String> streamPriority;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

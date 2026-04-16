@@ -172,6 +172,12 @@ public final class DescribeLiveMetricBandwidthDataBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "DetailField")
     private List<String> detailField;
 
+    /**
+     * <p>流优先级。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StreamPriority")
+    private List<String> streamPriority;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

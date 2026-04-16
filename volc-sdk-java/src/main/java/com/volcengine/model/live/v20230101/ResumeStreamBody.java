@@ -45,6 +45,12 @@ public final class ResumeStreamBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "Stream")
     private String stream;
 
+    /**
+     * <p>指定解禁流的优先级。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Priority")
+    private Integer priority;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

@@ -39,7 +39,7 @@ public final class UpdateRefererBody  {
      *
      * <p>:::tip</p>
      *
-     * <p>- 同一个 Vhost 下，默认支持配置不超过 100 个 Referer 规则，如需提升限额请[创建工单](https://console.volcengine.com/workorder/create?step=2&SubProductID=P00000076)获取技术支持；</p>
+     * <p>- 同一个 Domain 下，默认支持配置不超过 100 个 Referer 规则，如需提升限额请[创建工单](https://console.volcengine.com/workorder/create?step=2&SubProductID=P00000076)获取技术支持；</p>
      *
      * <p>- 单次请求最多支持配置 100 个 Referer 规则。</p>
      *

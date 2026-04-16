@@ -118,6 +118,12 @@ public final class ListVhostSubtitleTranscodePresetResResultPresetListItemTransc
     @com.alibaba.fastjson.annotation.JSONField(name = "TargetLanguage")
     private List<ListVhostSubtitleTranscodePresetResResultPresetListItemTranscodePresetTargetLanguageItem> targetLanguage;
 
+    /**
+     * <p>声影同传模式配置。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "SIConfig")
+    private ListVhostSubtitleTranscodePresetResResultPresetListItemTranscodePresetSIConfig sIConfig;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

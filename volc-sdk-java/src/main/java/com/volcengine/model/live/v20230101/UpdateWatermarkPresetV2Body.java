@@ -109,7 +109,7 @@ public final class UpdateWatermarkPresetV2Body  {
      * <p>:::</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "ID")
-    private Long iD;
+    private Integer iD;
 
     @Override
     public String toString() {

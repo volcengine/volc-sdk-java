@@ -2,6 +2,7 @@ package com.volcengine.model.live.v20230101;
 
 
 import com.alibaba.fastjson.JSON;
+import java.util.List;
 
 /**
  * DescribeLiveBatchPushStreamMetricsBody
@@ -80,6 +81,12 @@ public final class DescribeLiveBatchPushStreamMetricsBody  {
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "AggType")
     private String aggType;
+
+    /**
+     * <p>流优先级标识</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StreamPriority")
+    private List<String> streamPriority;
 
     @Override
     public String toString() {

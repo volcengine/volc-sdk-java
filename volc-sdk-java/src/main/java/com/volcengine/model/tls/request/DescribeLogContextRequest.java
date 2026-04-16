@@ -16,7 +16,7 @@ public class DescribeLogContextRequest {
     String contextFlow;
 
     @JSONField(name = PACKAGE_OFFSET)
-    Integer packageOffset;
+    Long packageOffset;
 
     @JSONField(name = SOURCE)
     String source;
@@ -58,14 +58,14 @@ public class DescribeLogContextRequest {
     /**
      * @return 日志在 LogGroup 的序号
      */
-    public Integer getPackageOffset() {
+    public Long getPackageOffset() {
         return packageOffset;
     }
 
     /**
      * @param packageOffset 日志在 LogGroup 的序号
      */
-    public void setPackageOffset(Integer packageOffset) {
+    public void setPackageOffset(Long packageOffset) {
         this.packageOffset = packageOffset;
     }
 

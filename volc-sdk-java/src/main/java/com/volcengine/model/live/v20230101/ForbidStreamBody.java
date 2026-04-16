@@ -51,6 +51,12 @@ public final class ForbidStreamBody  {
     @com.alibaba.fastjson.annotation.JSONField(name = "EndTime")
     private String endTime;
 
+    /**
+     * <p>TODO</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "Priority")
+    private Integer priority;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

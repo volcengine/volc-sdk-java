@@ -51,6 +51,12 @@ public final class DescribeLivePushStreamInfoDataResResultPushStreamInfoDataList
     @com.alibaba.fastjson.annotation.JSONField(name = "StreamBreakReason")
     private String streamBreakReason;
 
+    /**
+     * <p>流优先级。</p>
+     */
+    @com.alibaba.fastjson.annotation.JSONField(name = "StreamPriority")
+    private String streamPriority;
+
     @Override
     public String toString() {
         return JSON.toJSONString(this);

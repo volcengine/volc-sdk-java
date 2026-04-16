@@ -96,5 +96,7 @@ public class GetUserBehaviorListResponseAPIV2 {
         String LevelName;
         @JSONField(name = "VideoViewDuration")
         BehaviorVideoViewDuration VideoViewDuration;
+        @JSONField(name = "ClientType")
+        String ClientType;
     }
 }

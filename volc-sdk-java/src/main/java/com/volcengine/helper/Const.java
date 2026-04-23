@@ -708,6 +708,15 @@ public class Const {
     public static final String GetActivityBanUsers = "GetActivityBanUsers";
     public static final String UpdateActivityIpBanStatus = "UpdateActivityIpBanStatus";
     public static final String GetActivityBanIps = "GetActivityBanIps";
+
+    public static final String CreateActivityQuestionnaire = "CreateActivityQuestionnaire";
+    public static final String UpdateActivityQuestionnaire = "UpdateActivityQuestionnaire";
+    public static final String DeleteActivityQuestionnaire = "DeleteActivityQuestionnaire";
+    public static final String GetActivityQuestionnaire = "GetActivityQuestionnaire";
+    public static final String ListActivityQuestionnaire = "ListActivityQuestionnaire";
+    public static final String CopyActivityQuestionnaire = "CopyActivityQuestionnaire";
+    public static final String PublishActivityQuestionnaire = "PublishActivityQuestionnaire";
+    public static final String OfflineActivityQuestionnaire = "OfflineActivityQuestionnaire";
     public static final String ListAreaConfig = "ListAreaConfig";
     public static final String CreateAreaConfig = "CreateAreaConfig";
     public static final String UpdateAreaConfig = "UpdateAreaConfig";

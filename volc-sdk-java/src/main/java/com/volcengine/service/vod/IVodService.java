@@ -304,6 +304,15 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodCommitUploadInfoResponse commitUploadInfo(com.volcengine.service.vod.model.request.VodCommitUploadInfoRequest input) throws Exception;
 	
 	/**
+     * parseUploadManifest.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodParseUploadManifestRequest
+     * @return com.volcengine.service.vod.model.response.VodParseUploadManifestResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodParseUploadManifestResponse parseUploadManifest(com.volcengine.service.vod.model.request.VodParseUploadManifestRequest input) throws Exception;
+	
+	/**
      * listFileMetaInfosByFileNames.
      *
      * @param input com.volcengine.service.vod.model.request.VodListFileMetaInfosByFileNamesRequest

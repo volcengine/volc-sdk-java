@@ -216,6 +216,20 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.ParseUploadManifest, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "POST");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ParseUploadManifest));
+                                    add(new BasicNameValuePair("Version", "2022-01-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
 
             // **********************************************************************
             // 媒资

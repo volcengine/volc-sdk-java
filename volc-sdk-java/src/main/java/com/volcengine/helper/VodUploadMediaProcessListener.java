@@ -19,6 +19,7 @@ public class VodUploadMediaProcessListener implements VodUploadProgressListener 
             // 文件总大小通知
             case FILE_SIZE_EVENT:
                 this.fileSize = bytes;
+                this.bytesUploaded = 0;
                 // business logic ....
                 System.out.println("file size is " + this.fileSize);
                 break;

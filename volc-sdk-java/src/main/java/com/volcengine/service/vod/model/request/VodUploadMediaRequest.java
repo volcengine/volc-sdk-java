@@ -145,6 +145,11 @@ private static final long serialVersionUID = 0L;
             chunkSize_ = input.readInt64();
             break;
           }
+          case 128: {
+
+            supportParseManifest_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -749,6 +754,21 @@ private static final long serialVersionUID = 0L;
     return chunkSize_;
   }
 
+  public static final int SUPPORTPARSEMANIFEST_FIELD_NUMBER = 16;
+  private boolean supportParseManifest_;
+  /**
+   * <pre>
+   * 支持解析hls Manifest 
+   * </pre>
+   *
+   * <code>bool SupportParseManifest = 16;</code>
+   * @return The supportParseManifest.
+   */
+  @java.lang.Override
+  public boolean getSupportParseManifest() {
+    return supportParseManifest_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -808,6 +828,9 @@ private static final long serialVersionUID = 0L;
     if (chunkSize_ != 0L) {
       output.writeInt64(15, chunkSize_);
     }
+    if (supportParseManifest_ != false) {
+      output.writeBool(16, supportParseManifest_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -866,6 +889,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(15, chunkSize_);
     }
+    if (supportParseManifest_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(16, supportParseManifest_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -911,6 +938,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getUploadHostPrefer())) return false;
     if (getChunkSize()
         != other.getChunkSize()) return false;
+    if (getSupportParseManifest()
+        != other.getSupportParseManifest()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -953,6 +982,9 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + CHUNKSIZE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getChunkSize());
+    hash = (37 * hash) + SUPPORTPARSEMANIFEST_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getSupportParseManifest());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1116,6 +1148,8 @@ private static final long serialVersionUID = 0L;
 
       chunkSize_ = 0L;
 
+      supportParseManifest_ = false;
+
       return this;
     }
 
@@ -1157,6 +1191,7 @@ private static final long serialVersionUID = 0L;
       result.expireTime_ = expireTime_;
       result.uploadHostPrefer_ = uploadHostPrefer_;
       result.chunkSize_ = chunkSize_;
+      result.supportParseManifest_ = supportParseManifest_;
       onBuilt();
       return result;
     }
@@ -1260,6 +1295,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getChunkSize() != 0L) {
         setChunkSize(other.getChunkSize());
+      }
+      if (other.getSupportParseManifest() != false) {
+        setSupportParseManifest(other.getSupportParseManifest());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2529,6 +2567,49 @@ private static final long serialVersionUID = 0L;
     public Builder clearChunkSize() {
       
       chunkSize_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private boolean supportParseManifest_ ;
+    /**
+     * <pre>
+     * 支持解析hls Manifest 
+     * </pre>
+     *
+     * <code>bool SupportParseManifest = 16;</code>
+     * @return The supportParseManifest.
+     */
+    @java.lang.Override
+    public boolean getSupportParseManifest() {
+      return supportParseManifest_;
+    }
+    /**
+     * <pre>
+     * 支持解析hls Manifest 
+     * </pre>
+     *
+     * <code>bool SupportParseManifest = 16;</code>
+     * @param value The supportParseManifest to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSupportParseManifest(boolean value) {
+      
+      supportParseManifest_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 支持解析hls Manifest 
+     * </pre>
+     *
+     * <code>bool SupportParseManifest = 16;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSupportParseManifest() {
+      
+      supportParseManifest_ = false;
       onChanged();
       return this;
     }

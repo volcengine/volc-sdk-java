@@ -98,3 +98,7 @@ iamService.destroy()
 ##其它资源
 示例参见[example](./example)
 
+## Security and privacy
+This project takes security seriously. 
+For vulnerability reporting and supported versions, see [SECURITY.md](SECURITY.md)
+

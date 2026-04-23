@@ -119,3 +119,7 @@ iamService.destroy()
 ## Other resources
 
 Examples are available under [example](./example)
+
+## Security and privacy
+This project takes security seriously. 
+For vulnerability reporting and supported versions, see [SECURITY.md](SECURITY.md)

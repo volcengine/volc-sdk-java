@@ -3069,4 +3069,76 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     WithdrawCheckInResponse withdrawCheckIn(WithdrawCheckInRequest withdrawCheckInRequest) throws Exception;
+
+    /**
+     * createActivityQuestionnaire
+     *
+     * @param CreateActivityQuestionnaireRequest CreateActivityQuestionnaireRequest
+     * @return CreateActivityQuestionnaireResponse
+     * @throws Exception the exception
+     */
+    CreateActivityQuestionnaireResponse createActivityQuestionnaire(CreateActivityQuestionnaireRequest CreateActivityQuestionnaireRequest) throws Exception;
+
+    /**
+     * updateActivityQuestionnaire
+     *
+     * @param UpdateActivityQuestionnaireRequest UpdateActivityQuestionnaireRequest
+     * @return UpdateActivityQuestionnaireResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityQuestionnaireResponse updateActivityQuestionnaire(UpdateActivityQuestionnaireRequest UpdateActivityQuestionnaireRequest) throws Exception;
+
+    /**
+     * deleteActivityQuestionnaire
+     *
+     * @param DeleteActivityQuestionnaireRequest DeleteActivityQuestionnaireRequest
+     * @return DeleteActivityQuestionnaireResponse
+     * @throws Exception the exception
+     */
+    DeleteActivityQuestionnaireResponse deleteActivityQuestionnaire(DeleteActivityQuestionnaireRequest DeleteActivityQuestionnaireRequest) throws Exception;
+
+    /**
+     * getActivityQuestionnaire
+     *
+     * @param GetActivityQuestionnaireRequest GetActivityQuestionnaireRequest
+     * @return GetActivityQuestionnaireResponse
+     * @throws Exception the exception
+     */
+    GetActivityQuestionnaireResponse getActivityQuestionnaire(GetActivityQuestionnaireRequest GetActivityQuestionnaireRequest) throws Exception;
+
+    /**
+     * listActivityQuestionnaire
+     *
+     * @param ListActivityQuestionnaireRequest ListActivityQuestionnaireRequest
+     * @return ListActivityQuestionnaireResponse
+     * @throws Exception the exception
+     */
+    ListActivityQuestionnaireResponse listActivityQuestionnaire(ListActivityQuestionnaireRequest ListActivityQuestionnaireRequest) throws Exception;
+
+    /**
+     * copyActivityQuestionnaire
+     *
+     * @param CopyActivityQuestionnaireRequest CopyActivityQuestionnaireRequest
+     * @return CopyActivityQuestionnaireResponse
+     * @throws Exception the exception
+     */
+    CopyActivityQuestionnaireResponse copyActivityQuestionnaire(CopyActivityQuestionnaireRequest CopyActivityQuestionnaireRequest) throws Exception;
+
+    /**
+     * publishActivityQuestionnaire
+     *
+     * @param PublishActivityQuestionnaireRequest PublishActivityQuestionnaireRequest
+     * @return PublishActivityQuestionnaireResponse
+     * @throws Exception the exception
+     */
+    PublishActivityQuestionnaireResponse publishActivityQuestionnaire(PublishActivityQuestionnaireRequest PublishActivityQuestionnaireRequest) throws Exception;
+
+    /**
+     * offlineActivityQuestionnaire
+     *
+     * @param OfflineActivityQuestionnaireRequest OfflineActivityQuestionnaireRequest
+     * @return OfflineActivityQuestionnaireResponse
+     * @throws Exception the exception
+     */
+    OfflineActivityQuestionnaireResponse offlineActivityQuestionnaire(OfflineActivityQuestionnaireRequest OfflineActivityQuestionnaireRequest) throws Exception;
 }

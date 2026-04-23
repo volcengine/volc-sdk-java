@@ -81,4 +81,7 @@ public class CreateActivityRedPacketRequest {
 
     @JSONField(name = "AutoSendTime")
     Integer AutoSendTime;
+
+    @JSONField(name = "Animation")
+    Integer Animation;
 }

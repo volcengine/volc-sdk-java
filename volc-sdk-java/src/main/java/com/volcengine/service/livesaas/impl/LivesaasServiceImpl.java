@@ -5480,4 +5480,124 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public CreateActivityQuestionnaireResponse createActivityQuestionnaire(CreateActivityQuestionnaireRequest CreateActivityQuestionnaireRequest) throws Exception {
+        RawResponse response = json(Const.CreateActivityQuestionnaire, new ArrayList<>(), JSON.toJSONString(CreateActivityQuestionnaireRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CreateActivityQuestionnaireResponse res = JSON.parseObject(response.getData(), CreateActivityQuestionnaireResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateActivityQuestionnaireResponse updateActivityQuestionnaire(UpdateActivityQuestionnaireRequest UpdateActivityQuestionnaireRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityQuestionnaire, new ArrayList<>(), JSON.toJSONString(UpdateActivityQuestionnaireRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateActivityQuestionnaireResponse res = JSON.parseObject(response.getData(), UpdateActivityQuestionnaireResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteActivityQuestionnaireResponse deleteActivityQuestionnaire(DeleteActivityQuestionnaireRequest DeleteActivityQuestionnaireRequest) throws Exception {
+        RawResponse response = json(Const.DeleteActivityQuestionnaire, new ArrayList<>(), JSON.toJSONString(DeleteActivityQuestionnaireRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteActivityQuestionnaireResponse res = JSON.parseObject(response.getData(), DeleteActivityQuestionnaireResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetActivityQuestionnaireResponse getActivityQuestionnaire(GetActivityQuestionnaireRequest GetActivityQuestionnaireRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityQuestionnaire, Utils.paramsToPair(GetActivityQuestionnaireRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityQuestionnaireResponse res = JSON.parseObject(response.getData(), GetActivityQuestionnaireResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListActivityQuestionnaireResponse listActivityQuestionnaire(ListActivityQuestionnaireRequest ListActivityQuestionnaireRequest) throws Exception {
+        RawResponse response = query(Const.ListActivityQuestionnaire, Utils.paramsToPair(ListActivityQuestionnaireRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListActivityQuestionnaireResponse res = JSON.parseObject(response.getData(), ListActivityQuestionnaireResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public CopyActivityQuestionnaireResponse copyActivityQuestionnaire(CopyActivityQuestionnaireRequest CopyActivityQuestionnaireRequest) throws Exception {
+        RawResponse response = json(Const.CopyActivityQuestionnaire, new ArrayList<>(), JSON.toJSONString(CopyActivityQuestionnaireRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CopyActivityQuestionnaireResponse res = JSON.parseObject(response.getData(), CopyActivityQuestionnaireResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public PublishActivityQuestionnaireResponse publishActivityQuestionnaire(PublishActivityQuestionnaireRequest PublishActivityQuestionnaireRequest) throws Exception {
+        RawResponse response = json(Const.PublishActivityQuestionnaire, new ArrayList<>(), JSON.toJSONString(PublishActivityQuestionnaireRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        PublishActivityQuestionnaireResponse res = JSON.parseObject(response.getData(), PublishActivityQuestionnaireResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public OfflineActivityQuestionnaireResponse offlineActivityQuestionnaire(OfflineActivityQuestionnaireRequest OfflineActivityQuestionnaireRequest) throws Exception {
+        RawResponse response = json(Const.OfflineActivityQuestionnaire, new ArrayList<>(), JSON.toJSONString(OfflineActivityQuestionnaireRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        OfflineActivityQuestionnaireResponse res = JSON.parseObject(response.getData(), OfflineActivityQuestionnaireResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

@@ -230,6 +230,16 @@ public final class VodUpload {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_Volcengine_Vod_Models_Business_ApplyResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodParseUploadManifestData_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodParseUploadManifestData_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Volcengine_Vod_Models_Business_VodParseUploadManifestResult_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Volcengine_Vod_Models_Business_VodParseUploadManifestResult_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Volcengine_Vod_Models_Business_SubmitMoveObjectTaskParam_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -439,32 +449,36 @@ public final class VodUpload {
       "cengine.Vod.Models.Business.FlushUploadR" +
       "esult\022\020\n\010SDKParam\030\003 \001(\t\022P\n\023VpcTosUploadA" +
       "ddress\030\005 \001(\01323.Volcengine.Vod.Models.Bus" +
-      "iness.VpcTosUploadAddress\"\247\001\n\031SubmitMove" +
-      "ObjectTaskParam\022\023\n\013SourceSpace\030\001 \001(\t\022\026\n\016" +
-      "SourceFileName\030\002 \001(\t\022\023\n\013TargetSpace\030\003 \001(" +
-      "\t\022\026\n\016TargetFileName\030\004 \001(\t\022\030\n\020SaveSourceO" +
-      "bject\030\005 \001(\010\022\026\n\016ForceOverwrite\030\006 \001(\010\"m\n\037V" +
-      "odSubmitMoveObjectTaskRespData\022J\n\004Data\030\001" +
-      " \001(\0132<.Volcengine.Vod.Models.Business.Su" +
-      "bmitMoveObjectTaskRespData\"X\n\034SubmitMove" +
-      "ObjectTaskRespData\022\016\n\006TaskId\030\001 \001(\t\022\023\n\013So" +
-      "urceSpace\030\002 \001(\t\022\023\n\013TargetSpace\030\003 \001(\t\"X\n\034" +
-      "QueryMoveObjectTaskInfoParam\022\016\n\006TaskId\030\001" +
-      " \001(\t\022\023\n\013SourceSpace\030\002 \001(\t\022\023\n\013TargetSpace" +
-      "\030\003 \001(\t\"r\n!VodQueryMoveObjectTaskInfoResD" +
-      "ata\022M\n\004Data\030\001 \001(\0132?.Volcengine.Vod.Model" +
-      "s.Business.QueryMoveObjectTaskInfoRespDa" +
-      "ta\"\201\001\n\037QueryMoveObjectTaskInfoRespData\022\016" +
-      "\n\006TaskId\030\001 \001(\t\022\023\n\013SourceSpace\030\002 \001(\t\022\023\n\013T" +
-      "argetSpace\030\003 \001(\t\022\r\n\005State\030\004 \001(\t\022\025\n\rTaskR" +
-      "unResult\030\005 \001(\t*B\n\020StorageClassType\022\013\n\007De" +
-      "fault\020\000\022\014\n\010Standard\020\001\022\013\n\007Archive\020\002\022\006\n\002IA" +
-      "\020\003B\315\001\n)com.volcengine.service.vod.model." +
-      "businessB\tVodUploadP\001ZAgithub.com/volcen" +
-      "gine/volc-sdk-golang/service/vod/models/" +
-      "business\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Mod" +
-      "els\\Business\342\002#Volc\\Service\\Vod\\Models\\G" +
-      "PBMetadatab\006proto3"
+      "iness.VpcTosUploadAddress\"3\n\032VodParseUpl" +
+      "oadManifestData\022\025\n\rMediaSegments\030\001 \003(\t\"h" +
+      "\n\034VodParseUploadManifestResult\022H\n\004Data\030\001" +
+      " \001(\0132:.Volcengine.Vod.Models.Business.Vo" +
+      "dParseUploadManifestData\"\247\001\n\031SubmitMoveO" +
+      "bjectTaskParam\022\023\n\013SourceSpace\030\001 \001(\t\022\026\n\016S" +
+      "ourceFileName\030\002 \001(\t\022\023\n\013TargetSpace\030\003 \001(\t" +
+      "\022\026\n\016TargetFileName\030\004 \001(\t\022\030\n\020SaveSourceOb" +
+      "ject\030\005 \001(\010\022\026\n\016ForceOverwrite\030\006 \001(\010\"m\n\037Vo" +
+      "dSubmitMoveObjectTaskRespData\022J\n\004Data\030\001 " +
+      "\001(\0132<.Volcengine.Vod.Models.Business.Sub" +
+      "mitMoveObjectTaskRespData\"X\n\034SubmitMoveO" +
+      "bjectTaskRespData\022\016\n\006TaskId\030\001 \001(\t\022\023\n\013Sou" +
+      "rceSpace\030\002 \001(\t\022\023\n\013TargetSpace\030\003 \001(\t\"X\n\034Q" +
+      "ueryMoveObjectTaskInfoParam\022\016\n\006TaskId\030\001 " +
+      "\001(\t\022\023\n\013SourceSpace\030\002 \001(\t\022\023\n\013TargetSpace\030" +
+      "\003 \001(\t\"r\n!VodQueryMoveObjectTaskInfoResDa" +
+      "ta\022M\n\004Data\030\001 \001(\0132?.Volcengine.Vod.Models" +
+      ".Business.QueryMoveObjectTaskInfoRespDat" +
+      "a\"\201\001\n\037QueryMoveObjectTaskInfoRespData\022\016\n" +
+      "\006TaskId\030\001 \001(\t\022\023\n\013SourceSpace\030\002 \001(\t\022\023\n\013Ta" +
+      "rgetSpace\030\003 \001(\t\022\r\n\005State\030\004 \001(\t\022\025\n\rTaskRu" +
+      "nResult\030\005 \001(\t*B\n\020StorageClassType\022\013\n\007Def" +
+      "ault\020\000\022\014\n\010Standard\020\001\022\013\n\007Archive\020\002\022\006\n\002IA\020" +
+      "\003B\315\001\n)com.volcengine.service.vod.model.b" +
+      "usinessB\tVodUploadP\001ZAgithub.com/volceng" +
+      "ine/volc-sdk-golang/service/vod/models/b" +
+      "usiness\240\001\001\330\001\001\302\002\000\312\002 Volc\\Service\\Vod\\Mode" +
+      "ls\\Business\342\002#Volc\\Service\\Vod\\Models\\GP" +
+      "BMetadatab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -729,38 +743,50 @@ public final class VodUpload {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_ApplyResponse_descriptor,
         new java.lang.String[] { "UploadAddress", "FlushUploadResult", "SDKParam", "VpcTosUploadAddress", });
-    internal_static_Volcengine_Vod_Models_Business_SubmitMoveObjectTaskParam_descriptor =
+    internal_static_Volcengine_Vod_Models_Business_VodParseUploadManifestData_descriptor =
       getDescriptor().getMessageTypes().get(40);
+    internal_static_Volcengine_Vod_Models_Business_VodParseUploadManifestData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodParseUploadManifestData_descriptor,
+        new java.lang.String[] { "MediaSegments", });
+    internal_static_Volcengine_Vod_Models_Business_VodParseUploadManifestResult_descriptor =
+      getDescriptor().getMessageTypes().get(41);
+    internal_static_Volcengine_Vod_Models_Business_VodParseUploadManifestResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Volcengine_Vod_Models_Business_VodParseUploadManifestResult_descriptor,
+        new java.lang.String[] { "Data", });
+    internal_static_Volcengine_Vod_Models_Business_SubmitMoveObjectTaskParam_descriptor =
+      getDescriptor().getMessageTypes().get(42);
     internal_static_Volcengine_Vod_Models_Business_SubmitMoveObjectTaskParam_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_SubmitMoveObjectTaskParam_descriptor,
         new java.lang.String[] { "SourceSpace", "SourceFileName", "TargetSpace", "TargetFileName", "SaveSourceObject", "ForceOverwrite", });
     internal_static_Volcengine_Vod_Models_Business_VodSubmitMoveObjectTaskRespData_descriptor =
-      getDescriptor().getMessageTypes().get(41);
+      getDescriptor().getMessageTypes().get(43);
     internal_static_Volcengine_Vod_Models_Business_VodSubmitMoveObjectTaskRespData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodSubmitMoveObjectTaskRespData_descriptor,
         new java.lang.String[] { "Data", });
     internal_static_Volcengine_Vod_Models_Business_SubmitMoveObjectTaskRespData_descriptor =
-      getDescriptor().getMessageTypes().get(42);
+      getDescriptor().getMessageTypes().get(44);
     internal_static_Volcengine_Vod_Models_Business_SubmitMoveObjectTaskRespData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_SubmitMoveObjectTaskRespData_descriptor,
         new java.lang.String[] { "TaskId", "SourceSpace", "TargetSpace", });
     internal_static_Volcengine_Vod_Models_Business_QueryMoveObjectTaskInfoParam_descriptor =
-      getDescriptor().getMessageTypes().get(43);
+      getDescriptor().getMessageTypes().get(45);
     internal_static_Volcengine_Vod_Models_Business_QueryMoveObjectTaskInfoParam_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_QueryMoveObjectTaskInfoParam_descriptor,
         new java.lang.String[] { "TaskId", "SourceSpace", "TargetSpace", });
     internal_static_Volcengine_Vod_Models_Business_VodQueryMoveObjectTaskInfoResData_descriptor =
-      getDescriptor().getMessageTypes().get(44);
+      getDescriptor().getMessageTypes().get(46);
     internal_static_Volcengine_Vod_Models_Business_VodQueryMoveObjectTaskInfoResData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_VodQueryMoveObjectTaskInfoResData_descriptor,
         new java.lang.String[] { "Data", });
     internal_static_Volcengine_Vod_Models_Business_QueryMoveObjectTaskInfoRespData_descriptor =
-      getDescriptor().getMessageTypes().get(45);
+      getDescriptor().getMessageTypes().get(47);
     internal_static_Volcengine_Vod_Models_Business_QueryMoveObjectTaskInfoRespData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Volcengine_Vod_Models_Business_QueryMoveObjectTaskInfoRespData_descriptor,

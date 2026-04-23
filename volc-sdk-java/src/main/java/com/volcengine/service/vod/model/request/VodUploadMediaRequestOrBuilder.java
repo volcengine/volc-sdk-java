@@ -272,4 +272,14 @@ public interface VodUploadMediaRequestOrBuilder extends
    * @return The chunkSize.
    */
   long getChunkSize();
+
+  /**
+   * <pre>
+   * 支持解析hls Manifest 
+   * </pre>
+   *
+   * <code>bool SupportParseManifest = 16;</code>
+   * @return The supportParseManifest.
+   */
+  boolean getSupportParseManifest();
 }

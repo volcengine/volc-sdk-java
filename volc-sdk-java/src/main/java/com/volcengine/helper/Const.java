@@ -314,6 +314,10 @@ public class Const {
 
     public static final String EmptyChatAPI = "EmptyChatAPI";
 
+    // 快速评论相关接口
+    public static final String ListQuickCommentContent = "ListQuickCommentContent";
+    public static final String UpdateQuickCommentContent = "UpdateQuickCommentContent";
+
     public static final String UpdateChatReviewStatusAPI = "UpdateChatReviewStatusAPI";
 
     public static final String ConfirmReviewChatAPI = "ConfirmReviewChatAPI";
@@ -1250,7 +1254,11 @@ public class Const {
     public static final String AsyncCustomRisk = "AsyncCustomRisk";
     public static final String CustomRiskResult = "CustomRiskResult";
     public static final String ImageTextLiteModeration = "ImageTextLiteModeration";
-
+    public static final String AudioLiteModeration = "AudioLiteModeration";
+    public static final String AsyncAudioLiteModeration = "AsyncAudioLiteModeration";
+    public static final String AudioLiteModerationResult = "AudioLiteModerationResult";
+    public static final String AsyncVideoLiteModeration = "AsyncVideoLiteModeration";
+    public static final String VideoLiteModerationResult = "VideoLiteModerationResult";
 
     // report
     public static final String ExportReports = "ExportReports";

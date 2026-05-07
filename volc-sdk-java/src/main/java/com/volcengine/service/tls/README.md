@@ -16,6 +16,35 @@ ClientConfig clientConfig = new ClientConfig(System.getenv("VOLCENGINE_ENDPOINT"
 TLSLogClient client = ClientBuilder.newClient(clientConfig);
 ```
 
+如需使用 API Key 匿名鉴权写入日志，请使用显式 API Key 初始化入口。当前匿名鉴权仅支持最终请求为 `/PutLogs` 的接口，例如 `putLogs`、`putLogsV2` 和 Producer 写入；其他接口仍需要完整 AK/SK。
+
+```java
+TLSLogClient client = ClientBuilder.newClientWithApiKey(
+        System.getenv("VOLCENGINE_ENDPOINT"),
+        System.getenv("VOLCENGINE_REGION"),
+        System.getenv("VOLCENGINE_TLS_API_KEY"));
+```
+
+如果同时配置 API Key 与 AK/SK，`putLogs`/`putLogsV2` 会优先使用 API Key 匿名鉴权，其他接口继续使用 AK/SK 签名：
+
+```java
+TLSLogClient client = ClientBuilder.newClientWithApiKey(
+        System.getenv("VOLCENGINE_ENDPOINT"),
+        System.getenv("VOLCENGINE_REGION"),
+        System.getenv("VOLCENGINE_TLS_API_KEY"),
+        System.getenv("VOLCENGINE_ACCESS_KEY_ID"),
+        System.getenv("VOLCENGINE_ACCESS_KEY_SECRET"),
+        System.getenv("VOLCENGINE_TOKEN"));
+```
+
+API Key 可在运行时更新：
+
+```java
+client.setApiKey(System.getenv("VOLCENGINE_TLS_API_KEY_NEW"));
+```
+
+请勿在日志或错误信息中打印 API Key 原文。
+
 ### 示例代码
 
 本文档以日志服务的基本日志采集和检索流程为例，介绍如何使用日志服务 Java SDK 管理日志服务基础资源。本示例中，创建一个 Demo.java 文件，并调用接口分别完成创建项目、创建主题、创建索引、写入日志数据、消费日志和查询日志数据。
@@ -152,9 +181,15 @@ public class Demo {
         // 使用 STS 时，ak 和 sk 均使用临时密钥，且设置 VOLCENGINE_TOKEN；不使用 STS 时，VOLCENGINE_TOKEN 部分传空
         ProducerConfig producerConfig = new ProducerConfig(System.getenv("VOLCENGINE_ENDPOINT"), System.getenv("VOLCENGINE_REGION"),
             System.getenv("VOLCENGINE_ACCESS_KEY_ID"), System.getenv("VOLCENGINE_ACCESS_KEY_SECRET"), System.getenv("VOLCENGINE_TOKEN"));
+        // 如需使用 API Key 匿名鉴权写入日志，可改为：
+        // ProducerConfig producerConfig = new ProducerConfig(System.getenv("VOLCENGINE_ENDPOINT"),
+        //         System.getenv("VOLCENGINE_REGION"), System.getenv("VOLCENGINE_TLS_API_KEY"));
+        // 当前 API Key 匿名鉴权仅支持 Producer 最终发送的 /PutLogs 请求。
         // 实例化并启动Producer
         Producer producer = new ProducerImpl(producerConfig);
         producer.start();
+        // 如需轮换 API Key，可在运行时更新：
+        // producer.setApiKey(System.getenv("VOLCENGINE_TLS_API_KEY_NEW"));
 
         // 请根据您的需要，填写topicId、source、filename
         String topicID = "your-topic-id";

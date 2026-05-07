@@ -57,6 +57,8 @@ public interface Producer {
      */
     void resetAccessKeyToken(String accessKey, String secretKey, String securityToken) throws LogException;
 
+    void setApiKey(String apiKey) throws LogException;
+
     /**
      * 启动Producer
      *

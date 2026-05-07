@@ -269,6 +269,106 @@ public class SecuritySourceConfig {
                         }
                     }
             ));
+            put(Const.AudioLiteModeration, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/openapi/v1/rc_llm/audio_lite_moderation");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AudioLiteModeration));
+                                    add(new BasicNameValuePair("Version", "2022-08-26"));
+                                }
+                            });
+                            put(Const.Header, new ArrayList<Header>() {
+                                {
+                                    add(new BasicHeader("Accept", "application/json"));
+                                }
+                            });
+                            put(Const.SOCKET_TIMEOUT, 10 * 1000);
+                        }
+                    }
+            ));
+            put(Const.AsyncAudioLiteModeration, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/openapi/v1/rc_llm/async_audio_lite_moderation");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AsyncAudioLiteModeration));
+                                    add(new BasicNameValuePair("Version", "2022-08-26"));
+                                }
+                            });
+                            put(Const.Header, new ArrayList<Header>() {
+                                {
+                                    add(new BasicHeader("Accept", "application/json"));
+                                }
+                            });
+                            put(Const.SOCKET_TIMEOUT, 10 * 1000);
+                        }
+                    }
+            ));
+            put(Const.AudioLiteModerationResult, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/openapi/v1/rc_llm/audio_lite_moderation_result");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AudioLiteModerationResult));
+                                    add(new BasicNameValuePair("Version", "2022-08-26"));
+                                }
+                            });
+                            put(Const.Header, new ArrayList<Header>() {
+                                {
+                                    add(new BasicHeader("Accept", "application/json"));
+                                }
+                            });
+                            put(Const.SOCKET_TIMEOUT, 10 * 1000);
+                        }
+                    }
+            ));
+            put(Const.AsyncVideoLiteModeration, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/openapi/v1/rc_llm/async_video_lite_moderation");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.AsyncVideoLiteModeration));
+                                    add(new BasicNameValuePair("Version", "2022-08-26"));
+                                }
+                            });
+                            put(Const.Header, new ArrayList<Header>() {
+                                {
+                                    add(new BasicHeader("Accept", "application/json"));
+                                }
+                            });
+                            put(Const.SOCKET_TIMEOUT, 10 * 1000);
+                        }
+                    }
+            ));
+            put(Const.VideoLiteModerationResult, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/openapi/v1/rc_llm/video_lite_moderation_result");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.VideoLiteModerationResult));
+                                    add(new BasicNameValuePair("Version", "2022-08-26"));
+                                }
+                            });
+                            put(Const.Header, new ArrayList<Header>() {
+                                {
+                                    add(new BasicHeader("Accept", "application/json"));
+                                }
+                            });
+                            put(Const.SOCKET_TIMEOUT, 10 * 1000);
+                        }
+                    }
+            ));
         }
     };
 

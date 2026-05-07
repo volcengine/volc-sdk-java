@@ -19,11 +19,11 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     public static CDNService getInstance() {
         return new CDNServiceImpl();
     }
-    
+
     public static String useGet() {return "GET";}
 
     public static String usePost() {return "POST";}
-    
+
     public RawResponse requestProxy(String api, Object body, String... args) {
         RawResponse response;
         boolean isUseGet = false;
@@ -440,6 +440,24 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
     }
 
     @Override
+    public CDN.DescribeDomainSharedResponse describeDomainShared(CDN.DescribeDomainSharedRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeDomainShared", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeDomainSharedResponse.class);
+    }
+
+    @Override
+    public CDN.DescribeCdnIPResponse describeCdnIP(CDN.DescribeCdnIPRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeCdnIP", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeCdnIPResponse.class);
+    }
+
+    @Override
     public CDN.DescribeDistrictDataResponse describeDistrictData(CDN.DescribeDistrictDataRequest request) throws Exception {
         RawResponse response = requestProxy("DescribeDistrictData", request);
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -662,5 +680,68 @@ public class CDNServiceImpl extends BaseServiceImpl implements CDNService {
             throw response.getException();
         }
         return JSON.parseObject(response.getData(), CDN.DescribeRetrieveInfoResponse.class);
+    }
+
+    @Override
+    public CDN.ListDomainVersionsResponse listDomainVersions(CDN.ListDomainVersionsRequest request) throws Exception {
+        RawResponse response = requestProxy("ListDomainVersions", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.ListDomainVersionsResponse.class);
+    }
+
+    @Override
+    public CDN.DescribeDomainEnvVersionResponse describeDomainEnvVersion(CDN.DescribeDomainEnvVersionRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeDomainEnvVersion", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeDomainEnvVersionResponse.class);
+    }
+
+    @Override
+    public CDN.CreateDomainVersionResponse createDomainVersion(CDN.CreateDomainVersionRequest request) throws Exception {
+        RawResponse response = requestProxy("CreateDomainVersion", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.CreateDomainVersionResponse.class);
+    }
+
+    @Override
+    public CDN.DeleteDomainVersionResponse deleteDomainVersion(CDN.DeleteDomainVersionRequest request) throws Exception {
+        RawResponse response = requestProxy("DeleteDomainVersion", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DeleteDomainVersionResponse.class);
+    }
+
+    @Override
+    public CDN.DescribeDomainVersionResponse describeDomainVersion(CDN.DescribeDomainVersionRequest request) throws Exception {
+        RawResponse response = requestProxy("DescribeDomainVersion", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.DescribeDomainVersionResponse.class);
+    }
+
+    @Override
+    public CDN.UpdateDomainVersionResponse updateDomainVersion(CDN.UpdateDomainVersionRequest request) throws Exception {
+        RawResponse response = requestProxy("UpdateDomainVersion", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.UpdateDomainVersionResponse.class);
+    }
+
+    @Override
+    public CDN.ReleaseDomainVersionResponse releaseDomainVersion(CDN.ReleaseDomainVersionRequest request) throws Exception {
+        RawResponse response = requestProxy("ReleaseDomainVersion", request);
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), CDN.ReleaseDomainVersionResponse.class);
     }
 }

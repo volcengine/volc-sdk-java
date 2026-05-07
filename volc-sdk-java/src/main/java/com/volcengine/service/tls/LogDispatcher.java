@@ -102,6 +102,13 @@ public class LogDispatcher {
         LOG.info(String.format("log dispatcher %s update client config %s success", producerName, clientConfig));
     }
 
+    public void setApiKey(String apiKey) {
+        ClientConfig clientConfig = producerConfig.getClientConfig();
+        clientConfig.setApiKey(apiKey);
+        client.setApiKey(apiKey);
+        LOG.info(String.format("log dispatcher %s update client config %s success", producerName, clientConfig));
+    }
+
     public void addBatch(String hashKey, String topicId, String source, String filename,
                          PutLogRequest.LogGroup logGroup, CallBack callBack) throws InterruptedException, LogException {
         doAdd(hashKey, topicId, source, filename, logGroup, callBack);

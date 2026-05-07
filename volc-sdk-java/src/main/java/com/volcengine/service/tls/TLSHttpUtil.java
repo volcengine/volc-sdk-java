@@ -25,6 +25,17 @@ public class TLSHttpUtil extends BaseServiceImpl {
 
     public static ServiceInfo serviceInfo;
 
+    private static ApiInfo jsonApiInfo(String method, String path) {
+        return new ApiInfo(new HashMap<String, Object>() {
+            {
+                put(Const.Method, method);
+                put(Const.Path, path);
+                put(Const.Query, new ArrayList<NameValuePair>() {
+                });
+            }
+        });
+    }
+
     public RawResponse json(String api, List<NameValuePair> params, String body, Map<String, String> headers) {
         ApiInfo apiInfo = apiInfoList.get(api);
         if (apiInfo == null) {
@@ -198,6 +209,36 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         }
                     }
             ));
+
+            //config for processor create modify describe bind operate
+            put(com.volcengine.model.tls.Const.CREATE_PROCESSOR,
+                    jsonApiInfo(Const.POST, com.volcengine.model.tls.Const.CREATE_PROCESSOR));
+            put(com.volcengine.model.tls.Const.DELETE_PROCESSOR,
+                    jsonApiInfo(Const.DELETE, com.volcengine.model.tls.Const.DELETE_PROCESSOR));
+            put(com.volcengine.model.tls.Const.MODIFY_PROCESSOR,
+                    jsonApiInfo(Const.PUT, com.volcengine.model.tls.Const.MODIFY_PROCESSOR));
+            put(com.volcengine.model.tls.Const.DESCRIBE_PROCESSOR,
+                    jsonApiInfo(Const.GET, com.volcengine.model.tls.Const.DESCRIBE_PROCESSOR));
+            put(com.volcengine.model.tls.Const.DESCRIBE_PROCESSORS,
+                    jsonApiInfo(Const.GET, com.volcengine.model.tls.Const.DESCRIBE_PROCESSORS));
+            put(com.volcengine.model.tls.Const.EXEC_PROCESSOR,
+                    jsonApiInfo(Const.POST, com.volcengine.model.tls.Const.EXEC_PROCESSOR));
+            put(com.volcengine.model.tls.Const.OPERATE_PROCESSOR,
+                    jsonApiInfo(Const.PUT, com.volcengine.model.tls.Const.OPERATE_PROCESSOR));
+            put(com.volcengine.model.tls.Const.DESCRIBE_TOPICS_BY_PROCESSOR,
+                    jsonApiInfo(Const.GET, com.volcengine.model.tls.Const.DESCRIBE_TOPICS_BY_PROCESSOR));
+            put(com.volcengine.model.tls.Const.BIND_TOPIC_PROCESSOR,
+                    jsonApiInfo(Const.PUT, com.volcengine.model.tls.Const.BIND_TOPIC_PROCESSOR));
+            put(com.volcengine.model.tls.Const.BATCH_BIND_TOPICS,
+                    jsonApiInfo(Const.PUT, com.volcengine.model.tls.Const.BATCH_BIND_TOPICS));
+            put(com.volcengine.model.tls.Const.UNBIND_TOPIC_PROCESSOR,
+                    jsonApiInfo(Const.DELETE, com.volcengine.model.tls.Const.UNBIND_TOPIC_PROCESSOR));
+            put(com.volcengine.model.tls.Const.DESCRIBE_PROCESSOR_BY_TOPIC,
+                    jsonApiInfo(Const.GET, com.volcengine.model.tls.Const.DESCRIBE_PROCESSOR_BY_TOPIC));
+            put(com.volcengine.model.tls.Const.DESCRIBE_PROCESSOR_BINDINGS,
+                    jsonApiInfo(Const.GET, com.volcengine.model.tls.Const.DESCRIBE_PROCESSOR_BINDINGS));
+            put(com.volcengine.model.tls.Const.DESCRIBE_PROCESSOR_FUNCTIONS,
+                    jsonApiInfo(Const.GET, com.volcengine.model.tls.Const.DESCRIBE_PROCESSOR_FUNCTIONS));
 
             //config for rule create modify describe search delete apply unapply
             put(com.volcengine.model.tls.Const.CREATE_RULE, new ApiInfo(

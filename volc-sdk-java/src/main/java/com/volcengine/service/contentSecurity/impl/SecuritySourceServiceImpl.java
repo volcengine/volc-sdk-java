@@ -3,9 +3,8 @@ package com.volcengine.service.contentSecurity.impl;
 import com.alibaba.fastjson.JSON;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
-import com.volcengine.model.request.RcLlmRequest;
-import com.volcengine.model.request.RcLlmResultRequest;
-import com.volcengine.model.request.SecuritySourceRequest;
+import com.volcengine.helper.Utils;
+import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
 import com.volcengine.service.SignableRequest;
 import com.volcengine.service.contentSecurity.SecuritySourceConfig;
@@ -189,6 +188,56 @@ public class SecuritySourceServiceImpl extends BaseServiceImpl implements Securi
             throw response.getException();
         }
         return JSON.parseObject(response.getData(), RcImageTextLiteModerationSyncResponse.class);
+    }
+
+    @Override
+    public GetAudioRiskResponse AudioLiteModeration(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.AudioLiteModeration, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), GetAudioRiskResponse.class);
+    }
+
+    @Override
+    public AsyncRiskDetectionResponse AsyncAudioLiteModeration(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.AsyncAudioLiteModeration, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
+    }
+
+    @Override
+    public GetAudioRiskResponse AudioLiteModerationResult(ImageRiskResultRequest audioRiskResultRequest) throws Exception {
+        RawResponse response = query(Const.AudioLiteModerationResult, Utils.mapToPairList(Utils.paramsToMap(audioRiskResultRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), GetAudioRiskResponse.class);
+    }
+
+    @Override
+    public AsyncRiskDetectionResponse AsyncVideoLiteModeration(RiskDetectionRequest riskDetectionRequest) throws Exception {
+        RawResponse response = json(Const.AsyncVideoLiteModeration, new ArrayList<>(), JSON.toJSONString(riskDetectionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), AsyncRiskDetectionResponse.class);
+    }
+
+    @Override
+    public VideoRiskResultResponse VideoLiteModerationResult(ImageRiskResultRequest videoRiskResultRequest) throws Exception {
+        RawResponse response = query(Const.VideoLiteModerationResult, Utils.mapToPairList(Utils.paramsToMap(videoRiskResultRequest)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+
+        return JSON.parseObject(response.getData(), VideoRiskResultResponse.class);
     }
 
 }

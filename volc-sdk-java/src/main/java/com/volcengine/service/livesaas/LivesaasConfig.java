@@ -3425,19 +3425,19 @@ public class LivesaasConfig {
                         }
                     }
             ));
-            put(Const.GetViewingRestrictionInfo,new ApiInfo(
-               new HashMap<String, Object>() {
-                   {
-                       put(Const.Method, "GET");
-                       put(Const.Path, "/");
-                       put(Const.Query, new ArrayList<NameValuePair>() {
-                           {
-                               add(new BasicNameValuePair("Action",Const.GetViewingRestrictionInfo));
-                               add(new BasicNameValuePair("Version", "2023-08-01"));
-                           }
-                       });
-                   }
-               }
+            put(Const.GetViewingRestrictionInfo, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetViewingRestrictionInfo));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
             ));
             put(Const.UpdateViewingRestriction, new ApiInfo(
                     new HashMap<String, Object>() {
@@ -3467,14 +3467,14 @@ public class LivesaasConfig {
                         }
                     }
             ));
-            put(Const.GetWhiteList,new ApiInfo(
+            put(Const.GetWhiteList, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.GetWhiteList));
+                                    add(new BasicNameValuePair("Action", Const.GetWhiteList));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
@@ -3509,14 +3509,14 @@ public class LivesaasConfig {
                         }
                     }
             ));
-            put(Const.GetPhoneList,new ApiInfo(
+            put(Const.GetPhoneList, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.GetPhoneList));
+                                    add(new BasicNameValuePair("Action", Const.GetPhoneList));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
@@ -3549,7 +3549,7 @@ public class LivesaasConfig {
                                 }
                             });
                         }
-                }
+                    }
             ));
             put(Const.CreateLLMTask, new ApiInfo(
                     new HashMap<String, Object>() {
@@ -3607,7 +3607,7 @@ public class LivesaasConfig {
                         }
                     }
             ));
-            put(Const.UpdateAnswerRepetition,new ApiInfo(
+            put(Const.UpdateAnswerRepetition, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
@@ -3663,77 +3663,77 @@ public class LivesaasConfig {
                         }
                     }
             ));
-            put(Const.CreateCoupons,new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", Const.CreateCoupons));
-                                add(new BasicNameValuePair("Version", "2023-08-01"));
-                            }
-                        });
+            put(Const.CreateCoupons, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CreateCoupons));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
                     }
-                }
             ));
-            put(Const.UpdateCoupon,new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", Const.UpdateCoupon));
-                                add(new BasicNameValuePair("Version", "2023-08-01"));
-                            }
-                        });
+            put(Const.UpdateCoupon, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateCoupon));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
                     }
-                }
             ));
-            put(Const.DeleteCoupons,new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", Const.DeleteCoupons));
-                                add(new BasicNameValuePair("Version", "2023-08-01"));
-                            }
-                        });
+            put(Const.DeleteCoupons, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DeleteCoupons));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
                     }
-                }
             ));
-            put(Const.ListCoupons,new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "GET");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", Const.ListCoupons));
-                                add(new BasicNameValuePair("Version", "2023-08-01"));
-                            }
-                        });
+            put(Const.ListCoupons, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListCoupons));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
                     }
-                }
             ));
-            put(Const.GetCoupon,new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "GET");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", Const.GetCoupon));
-                                add(new BasicNameValuePair("Version", "2023-08-01"));
-                            }
-                        });
+            put(Const.GetCoupon, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetCoupon));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
                     }
-                }
             ));
-            put(Const.CreateActivityCoupons,new ApiInfo(
+            put(Const.CreateActivityCoupons, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
@@ -3747,7 +3747,7 @@ public class LivesaasConfig {
                         }
                     }
             ));
-            put(Const.UpdateActivityCoupon,new ApiInfo(
+            put(Const.UpdateActivityCoupon, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
@@ -3761,7 +3761,7 @@ public class LivesaasConfig {
                         }
                     }
             ));
-            put(Const.DeleteActivityCoupons,new ApiInfo(
+            put(Const.DeleteActivityCoupons, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
@@ -3775,7 +3775,7 @@ public class LivesaasConfig {
                         }
                     }
             ));
-            put(Const.ListActivityCoupons,new ApiInfo(
+            put(Const.ListActivityCoupons, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
@@ -3789,7 +3789,7 @@ public class LivesaasConfig {
                         }
                     }
             ));
-            put(Const.SendActivityCoupon,new ApiInfo(
+            put(Const.SendActivityCoupon, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
@@ -3803,7 +3803,7 @@ public class LivesaasConfig {
                         }
                     }
             ));
-            put(Const.StopActivityCoupon,new ApiInfo(
+            put(Const.StopActivityCoupon, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
@@ -3817,7 +3817,7 @@ public class LivesaasConfig {
                         }
                     }
             ));
-            put(Const.GetActivityCouponPickData,new ApiInfo(
+            put(Const.GetActivityCouponPickData, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
@@ -3831,7 +3831,7 @@ public class LivesaasConfig {
                         }
                     }
             ));
-            put(Const.GetActivityAllCouponsPickData,new ApiInfo(
+            put(Const.GetActivityAllCouponsPickData, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
@@ -3887,56 +3887,56 @@ public class LivesaasConfig {
                         }
                     }
             ));
-            put(Const.ListSubAccounts,new ApiInfo(
+            put(Const.ListSubAccounts, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.ListSubAccounts));
+                                    add(new BasicNameValuePair("Action", Const.ListSubAccounts));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.GetSubAccount,new ApiInfo(
+            put(Const.GetSubAccount, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.GetSubAccount));
+                                    add(new BasicNameValuePair("Action", Const.GetSubAccount));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.ListSubAccountRoles,new ApiInfo(
+            put(Const.ListSubAccountRoles, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.ListSubAccountRoles));
+                                    add(new BasicNameValuePair("Action", Const.ListSubAccountRoles));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.ListSubAccountOrganizations,new ApiInfo(
+            put(Const.ListSubAccountOrganizations, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.ListSubAccountOrganizations));
+                                    add(new BasicNameValuePair("Action", Const.ListSubAccountOrganizations));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
@@ -3957,14 +3957,14 @@ public class LivesaasConfig {
                         }
                     }
             ));
-            put(Const.GetActivityExportFile,new ApiInfo(
+            put(Const.GetActivityExportFile, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.GetActivityExportFile));
+                                    add(new BasicNameValuePair("Action", Const.GetActivityExportFile));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
@@ -3972,140 +3972,140 @@ public class LivesaasConfig {
                     }
             ));
 
-            put(Const.ListAreaConfig,new ApiInfo(
+            put(Const.ListAreaConfig, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.ListAreaConfig));
+                                    add(new BasicNameValuePair("Action", Const.ListAreaConfig));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.CreateAreaConfig,new ApiInfo(
+            put(Const.CreateAreaConfig, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.CreateAreaConfig));
+                                    add(new BasicNameValuePair("Action", Const.CreateAreaConfig));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.UpdateAreaConfig,new ApiInfo(
+            put(Const.UpdateAreaConfig, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.UpdateAreaConfig));
+                                    add(new BasicNameValuePair("Action", Const.UpdateAreaConfig));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.DeleteAreaConfig,new ApiInfo(
+            put(Const.DeleteAreaConfig, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.DeleteAreaConfig));
+                                    add(new BasicNameValuePair("Action", Const.DeleteAreaConfig));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.ListOfficeConfig,new ApiInfo(
+            put(Const.ListOfficeConfig, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.ListOfficeConfig));
+                                    add(new BasicNameValuePair("Action", Const.ListOfficeConfig));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.CreateOfficeConfig,new ApiInfo(
+            put(Const.CreateOfficeConfig, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.CreateOfficeConfig));
+                                    add(new BasicNameValuePair("Action", Const.CreateOfficeConfig));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.UpdateOfficeConfig,new ApiInfo(
+            put(Const.UpdateOfficeConfig, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.UpdateOfficeConfig));
+                                    add(new BasicNameValuePair("Action", Const.UpdateOfficeConfig));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.DeleteOfficeConfig,new ApiInfo(
+            put(Const.DeleteOfficeConfig, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.DeleteOfficeConfig));
+                                    add(new BasicNameValuePair("Action", Const.DeleteOfficeConfig));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.GetActivityPoster,new ApiInfo(
+            put(Const.GetActivityPoster, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.GetActivityPoster));
+                                    add(new BasicNameValuePair("Action", Const.GetActivityPoster));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.UpdateActivityPoster,new ApiInfo(
+            put(Const.UpdateActivityPoster, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.UpdateActivityPoster));
+                                    add(new BasicNameValuePair("Action", Const.UpdateActivityPoster));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
@@ -4154,56 +4154,56 @@ public class LivesaasConfig {
                         }
                     }
             ));
-            put(Const.SendActivityRobotComment,new ApiInfo(
+            put(Const.SendActivityRobotComment, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.SendActivityRobotComment));
+                                    add(new BasicNameValuePair("Action", Const.SendActivityRobotComment));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.BatchSendActivityRobotComment,new ApiInfo(
+            put(Const.BatchSendActivityRobotComment, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.BatchSendActivityRobotComment));
+                                    add(new BasicNameValuePair("Action", Const.BatchSendActivityRobotComment));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.UpdateProductReminderInfo,new ApiInfo(
+            put(Const.UpdateProductReminderInfo, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.UpdateProductReminderInfo));
+                                    add(new BasicNameValuePair("Action", Const.UpdateProductReminderInfo));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.SendProductOrderMessage,new ApiInfo(
+            put(Const.SendProductOrderMessage, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.SendProductOrderMessage));
+                                    add(new BasicNameValuePair("Action", Const.SendProductOrderMessage));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
@@ -4252,224 +4252,224 @@ public class LivesaasConfig {
                         }
                     }
             ));
-            put(Const.UpdateActivityReplayPlayerConfig,new ApiInfo(
+            put(Const.UpdateActivityReplayPlayerConfig, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.UpdateActivityReplayPlayerConfig));
+                                    add(new BasicNameValuePair("Action", Const.UpdateActivityReplayPlayerConfig));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.UpdateActivityUserBanStatus,new ApiInfo(
+            put(Const.UpdateActivityUserBanStatus, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.UpdateActivityUserBanStatus));
+                                    add(new BasicNameValuePair("Action", Const.UpdateActivityUserBanStatus));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.GetActivityBanUsers,new ApiInfo(
+            put(Const.GetActivityBanUsers, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.GetActivityBanUsers));
+                                    add(new BasicNameValuePair("Action", Const.GetActivityBanUsers));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.UpdateActivityIpBanStatus,new ApiInfo(
+            put(Const.UpdateActivityIpBanStatus, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.UpdateActivityIpBanStatus));
+                                    add(new BasicNameValuePair("Action", Const.UpdateActivityIpBanStatus));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.GetActivityBanIps,new ApiInfo(
+            put(Const.GetActivityBanIps, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.GetActivityBanIps));
+                                    add(new BasicNameValuePair("Action", Const.GetActivityBanIps));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.ListInteractionScriptComments,new ApiInfo(
+            put(Const.ListInteractionScriptComments, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.ListInteractionScriptComments));
+                                    add(new BasicNameValuePair("Action", Const.ListInteractionScriptComments));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.CreateInteractionScript,new ApiInfo(
+            put(Const.CreateInteractionScript, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.CreateInteractionScript));
+                                    add(new BasicNameValuePair("Action", Const.CreateInteractionScript));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.AddInteractionScriptComments,new ApiInfo(
+            put(Const.AddInteractionScriptComments, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.AddInteractionScriptComments));
+                                    add(new BasicNameValuePair("Action", Const.AddInteractionScriptComments));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.EditInteractionScriptComment,new ApiInfo(
+            put(Const.EditInteractionScriptComment, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.EditInteractionScriptComment));
+                                    add(new BasicNameValuePair("Action", Const.EditInteractionScriptComment));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.DeleteInteractionScriptComment,new ApiInfo(
+            put(Const.DeleteInteractionScriptComment, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.DeleteInteractionScriptComment));
+                                    add(new BasicNameValuePair("Action", Const.DeleteInteractionScriptComment));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.UpdateActivityMediaInfo,new ApiInfo(
+            put(Const.UpdateActivityMediaInfo, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.UpdateActivityMediaInfo));
+                                    add(new BasicNameValuePair("Action", Const.UpdateActivityMediaInfo));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.ListActivityRobotCommentRepository,new ApiInfo(
+            put(Const.ListActivityRobotCommentRepository, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.ListActivityRobotCommentRepository));
+                                    add(new BasicNameValuePair("Action", Const.ListActivityRobotCommentRepository));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.AddActivityRobotCommentRepository,new ApiInfo(
+            put(Const.AddActivityRobotCommentRepository, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.AddActivityRobotCommentRepository));
+                                    add(new BasicNameValuePair("Action", Const.AddActivityRobotCommentRepository));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.DeleteActivityRobotCommentRepository,new ApiInfo(
+            put(Const.DeleteActivityRobotCommentRepository, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.DeleteActivityRobotCommentRepository));
+                                    add(new BasicNameValuePair("Action", Const.DeleteActivityRobotCommentRepository));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.UpdateRobotComment,new ApiInfo(
+            put(Const.UpdateRobotComment, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.UpdateRobotComment));
+                                    add(new BasicNameValuePair("Action", Const.UpdateRobotComment));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.UpdateRobotNickName,new ApiInfo(
+            put(Const.UpdateRobotNickName, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.UpdateRobotNickName));
+                                    add(new BasicNameValuePair("Action", Const.UpdateRobotNickName));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
@@ -4574,70 +4574,70 @@ public class LivesaasConfig {
                         }
                     }
             ));
-            put(Const.CreateActivityRedPacket,new ApiInfo(
+            put(Const.CreateActivityRedPacket, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.CreateActivityRedPacket));
+                                    add(new BasicNameValuePair("Action", Const.CreateActivityRedPacket));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.UpdateActivityRedPacket,new ApiInfo(
+            put(Const.UpdateActivityRedPacket, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.UpdateActivityRedPacket));
+                                    add(new BasicNameValuePair("Action", Const.UpdateActivityRedPacket));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.DeleteActivityRedPacket,new ApiInfo(
+            put(Const.DeleteActivityRedPacket, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "POST");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.DeleteActivityRedPacket));
+                                    add(new BasicNameValuePair("Action", Const.DeleteActivityRedPacket));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.ListActivityRedPacket,new ApiInfo(
+            put(Const.ListActivityRedPacket, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.ListActivityRedPacket));
+                                    add(new BasicNameValuePair("Action", Const.ListActivityRedPacket));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
                         }
                     }
             ));
-            put(Const.GetActivityRedPacket,new ApiInfo(
+            put(Const.GetActivityRedPacket, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
                             put(Const.Method, "GET");
                             put(Const.Path, "/");
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
-                                    add(new BasicNameValuePair("Action",Const.GetActivityRedPacket));
+                                    add(new BasicNameValuePair("Action", Const.GetActivityRedPacket));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });
@@ -4645,46 +4645,46 @@ public class LivesaasConfig {
                     }
             ));
             put(Const.CreateVipOrBlackListUserInfo, new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", Const.CreateVipOrBlackListUserInfo));
-                                add(new BasicNameValuePair("Version", "2023-08-01"));
-                            }
-                        });
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CreateVipOrBlackListUserInfo));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
                     }
-                }
             ));
             put(Const.GetVipOrBlackListUserInfo, new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "GET");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", Const.GetVipOrBlackListUserInfo));
-                                add(new BasicNameValuePair("Version", "2023-08-01"));
-                            }
-                        });
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetVipOrBlackListUserInfo));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
                     }
-                }
             ));
             put(Const.DeleteVipOrBlackListUserInfo, new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", Const.DeleteVipOrBlackListUserInfo));
-                                add(new BasicNameValuePair("Version", "2023-08-01"));
-                            }
-                        });
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.DeleteVipOrBlackListUserInfo));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
                     }
-                }
             ));
             put(Const.ResendActivityCoupon, new ApiInfo(
                     new HashMap<String, Object>() {
@@ -4701,32 +4701,32 @@ public class LivesaasConfig {
                     }
             ));
             put(Const.GetInteractionScriptRecordConfig, new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "GET");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", Const.GetInteractionScriptRecordConfig));
-                                add(new BasicNameValuePair("Version", "2023-08-01"));
-                            }
-                        });
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetInteractionScriptRecordConfig));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
                     }
-                }
             ));
             put(Const.UpdateInteractionScriptRecordConfig, new ApiInfo(
-                new HashMap<String, Object>() {
-                    {
-                        put(Const.Method, "POST");
-                        put(Const.Path, "/");
-                        put(Const.Query, new ArrayList<NameValuePair>() {
-                            {
-                                add(new BasicNameValuePair("Action", Const.UpdateInteractionScriptRecordConfig));
-                                add(new BasicNameValuePair("Version", "2023-08-01"));
-                            }
-                        });
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateInteractionScriptRecordConfig));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
                     }
-                }
             ));
             put(Const.EnableActivityMultiProductExplain, new ApiInfo(
                     new HashMap<String, Object>() {
@@ -5157,6 +5157,34 @@ public class LivesaasConfig {
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", Const.OfflineActivityQuestionnaire));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListQuickCommentContent, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListQuickCommentContent));
+                                    add(new BasicNameValuePair("Version", "2023-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.UpdateQuickCommentContent, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.UpdateQuickCommentContent));
                                     add(new BasicNameValuePair("Version", "2023-08-01"));
                                 }
                             });

@@ -23,6 +23,8 @@ public interface TLSLogClient {
 
     void resetAccessKeyToken(String accessKeyID, String accessKeySecret, String securityToken);
 
+    void setApiKey(String apiKey);
+
     void setTimeout(int socketTimeout, int connectionTimeout);
 
     /**
@@ -98,6 +100,34 @@ public interface TLSLogClient {
     ModifyIndexResponse modifyIndex(ModifyIndexRequest request) throws LogException;
 
     DescribeIndexResponse describeIndex(DescribeIndexRequest request) throws LogException;
+
+    CreateProcessorResponse createProcessor(CreateProcessorRequest request) throws LogException;
+
+    DeleteProcessorResponse deleteProcessor(DeleteProcessorRequest request) throws LogException;
+
+    ModifyProcessorResponse modifyProcessor(ModifyProcessorRequest request) throws LogException;
+
+    DescribeProcessorResponse describeProcessor(DescribeProcessorRequest request) throws LogException;
+
+    DescribeProcessorsResponse describeProcessors(DescribeProcessorsRequest request) throws LogException;
+
+    ExecProcessorResponse execProcessor(ExecProcessorRequest request) throws LogException;
+
+    OperateProcessorResponse operateProcessor(OperateProcessorRequest request) throws LogException;
+
+    DescribeTopicsByProcessorResponse describeTopicsByProcessor(DescribeTopicsByProcessorRequest request) throws LogException;
+
+    BindTopicProcessorResponse bindTopicProcessor(BindTopicProcessorRequest request) throws LogException;
+
+    BatchBindTopicsResponse batchBindTopics(BatchBindTopicsRequest request) throws LogException;
+
+    UnbindTopicProcessorResponse unbindTopicProcessor(UnbindTopicProcessorRequest request) throws LogException;
+
+    DescribeProcessorResponse describeProcessorByTopic(DescribeProcessorByTopicRequest request) throws LogException;
+
+    DescribeProcessorBindingsResponse describeProcessorBindings(DescribeProcessorBindingsRequest request) throws LogException;
+
+    DescribeProcessorFunctionsResponse describeProcessorFunctions(DescribeProcessorFunctionsRequest request) throws LogException;
 
     /**
      * 采集配置

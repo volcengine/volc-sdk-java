@@ -14,4 +14,6 @@ public class TopChatAPIRequest {
     Long ActivityId;
     @JSONField(name = "ChatId")
     Long ChatId;
+    @JSONField(name = "TopStatusV2")
+    Integer TopStatusV2;
 }

@@ -3141,4 +3141,22 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     OfflineActivityQuestionnaireResponse offlineActivityQuestionnaire(OfflineActivityQuestionnaireRequest OfflineActivityQuestionnaireRequest) throws Exception;
+
+    /**
+     * ListQuickCommentContent
+     *
+     * @param listQuickCommentContentRequest ListQuickCommentContentRequest
+     * @return ListQuickCommentContentResponse
+     * @throws Exception the exception
+     */
+    ListQuickCommentContentResponse listQuickCommentContent(ListQuickCommentContentRequest listQuickCommentContentRequest) throws Exception;
+
+    /**
+     * UpdateQuickCommentContent
+     *
+     * @param updateQuickCommentContentRequest UpdateQuickCommentContentRequest
+     * @return UpdateQuickCommentContentResponse
+     * @throws Exception the exception
+     */
+    UpdateQuickCommentContentResponse updateQuickCommentContent(UpdateQuickCommentContentRequest updateQuickCommentContentRequest) throws Exception;
 }

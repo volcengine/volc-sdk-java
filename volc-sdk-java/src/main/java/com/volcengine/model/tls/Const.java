@@ -27,6 +27,22 @@ public class Const {
     public static final String DESCRIBE_INDEX = "/DescribeIndex";
     public static final String DELETE_INDEX = "/DeleteIndex";
 
+    //interface-processor
+    public static final String CREATE_PROCESSOR = "/CreateProcessor";
+    public static final String DELETE_PROCESSOR = "/DeleteProcessor";
+    public static final String MODIFY_PROCESSOR = "/ModifyProcessor";
+    public static final String DESCRIBE_PROCESSOR = "/DescribeProcessor";
+    public static final String DESCRIBE_PROCESSORS = "/DescribeProcessors";
+    public static final String EXEC_PROCESSOR = "/ExecProcessor";
+    public static final String OPERATE_PROCESSOR = "/OperateProcessor";
+    public static final String DESCRIBE_TOPICS_BY_PROCESSOR = "/DescribeTopicsByProcessor";
+    public static final String BIND_TOPIC_PROCESSOR = "/BindTopicProcessor";
+    public static final String BATCH_BIND_TOPICS = "/BatchBindTopics";
+    public static final String UNBIND_TOPIC_PROCESSOR = "/UnbindTopicProcessor";
+    public static final String DESCRIBE_PROCESSOR_BY_TOPIC = "/DescribeProcessorByTopic";
+    public static final String DESCRIBE_PROCESSOR_BINDINGS = "/DescribeProcessorBindings";
+    public static final String DESCRIBE_PROCESSOR_FUNCTIONS = "/DescribeProcessorFunctions";
+
 
     //interface-rule
     public static final String CREATE_RULE = "/CreateRule";
@@ -58,6 +74,7 @@ public class Const {
     public static final String CONSUME_LOGS = "/ConsumeLogs";
     public static final String CONSUME_ORIGIN_LOGS = "/ConsumeOriginalLogs";
     public static final String TLS_ORIGINAL_HEADER = "x-tls-original";
+    public static final String ANONYMOUS_IDENTITY_HEADER = "x-tls-anonymous-identity";
     public static final String SEARCH_LOGS = "/SearchLogs";
     public static final String MANUAL_SHARD_SPLIT = "/ManualShardSplit";
     //alarm and group
@@ -177,7 +194,22 @@ public class Const {
     public static final String TLS_VERSION = "TLSVersion";
     public static final String BIND_PROCESSOR = "BindProcessor";
     public static final String PROCESSOR_ID = "ProcessorID";
+    public static final String PROCESSOR_ID_HUMP = "ProcessorId";
     public static final String PROCESSOR_NAME = "ProcessorName";
+    public static final String PROCESSOR_TYPE = "ProcessorType";
+    public static final String PROCESSOR_DSL_TYPE = "ProcessorDSLType";
+    public static final String PROCESSOR_STATUS = "ProcessorStatus";
+    public static final String DSL_CONTENT = "DSLContent";
+    public static final String FAIL_STRATEGY = "FailStrategy";
+    public static final String TIMEOUT_MS = "TimeoutMs";
+    public static final String MAX_QPS = "MaxQps";
+    public static final String EXEC_ACTION = "ExecAction";
+    public static final String EXEC_STATUS = "ExecStatus";
+    public static final String OPERATE_ACTION = "OperateAction";
+    public static final String PROCESSED_LOG = "ProcessedLog";
+    public static final String TOPIC_IDS = "TopicIds";
+    public static final String ITEMS = "Items";
+    public static final String FUNCTIONS = "Functions";
     public static final String FUZZY_SEARCH_KEY = "FuzzySearchKey";
     public static final String ORDER_BY_PROJECT = "OrderByProject";
     public static final String REGIONS = "Regions";
@@ -221,6 +253,7 @@ public class Const {
 
     public static final String MAX_TEXT_LEN = "MaxTextLen";
     public static final String ENABLE_AUTO_INDEX = "EnableAutoIndex";
+    public static final String ENABLE_PHRASE_INDEX = "EnablePhraseIndex";
 
     // ruleInfo
     public static final String RULE_ID = "RuleId";

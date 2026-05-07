@@ -42,6 +42,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static com.volcengine.model.tls.Const.LZ4;
+import static com.volcengine.model.tls.Const.ANONYMOUS_IDENTITY_HEADER;
 import static com.volcengine.model.tls.Const.PUT_LOGS;
 
 public abstract class BaseServiceImpl implements IBaseService {
@@ -56,6 +57,7 @@ public abstract class BaseServiceImpl implements IBaseService {
     protected ISignerV4 ISigner;
     private int socketTimeout;
     private int connectionTimeout;
+    private String apiKey;
 
     private IdleConnectionMonitorThread monitorThread;
 
@@ -359,11 +361,21 @@ public abstract class BaseServiceImpl implements IBaseService {
     }
 
     protected RawResponse makeRequest(String api, SignableRequest request) {
-        try {
-            ISigner.sign(request, this.credentials);
-        } catch (Exception e) {
-            LOG.error("Sign request failed", e);
-            return new RawResponse(null, SdkError.ESIGN.getNumber(), e);
+        if (shouldUseAnonymousIdentity(api)) {
+            request.setHeader(ANONYMOUS_IDENTITY_HEADER, apiKey);
+            try {
+                request.setURI(request.getUriBuilder().build());
+            } catch (Exception e) {
+                LOG.error("Build anonymous request uri failed", e);
+                return new RawResponse(null, SdkError.ESIGN.getNumber(), e);
+            }
+        } else {
+            try {
+                ISigner.sign(request, this.credentials);
+            } catch (Exception e) {
+                LOG.error("Sign request failed", e);
+                return new RawResponse(null, SdkError.ESIGN.getNumber(), e);
+            }
         }
 
         HttpClient client;
@@ -516,6 +528,14 @@ public abstract class BaseServiceImpl implements IBaseService {
         this.credentials.setSessionToken(sessionToken);
     }
 
+    public String getApiKey() {
+        return apiKey;
+    }
+
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
+    }
+
     @Override
     public void setRegion(String region) {
         this.credentials.setRegion(region);
@@ -561,6 +581,10 @@ public abstract class BaseServiceImpl implements IBaseService {
 
     public ISignerV4 getISigner() {
         return ISigner;
+    }
+
+    private boolean shouldUseAnonymousIdentity(String api) {
+        return PUT_LOGS.equals(api) && apiKey != null && !apiKey.isEmpty();
     }
 
     @Override

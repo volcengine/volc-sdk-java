@@ -31,6 +31,8 @@ public class DescribeIndexResponse extends CommonResponse {
     String createTime;
     @JSONField(name = MODIFY_TIME)
     String modifyTime;
+    @JSONField(name = ENABLE_PHRASE_INDEX)
+    Boolean enablePhraseIndex;
 
     public DescribeIndexResponse(Header[] headers) {
         super(headers);
@@ -60,6 +62,7 @@ public class DescribeIndexResponse extends CommonResponse {
         this.setKeyValue(keyValue);
         this.setCreateTime(response.getCreateTime());
         this.setModifyTime(response.getModifyTime());
+        this.setEnablePhraseIndex(response.getEnablePhraseIndex());
         return this;
     }
 }

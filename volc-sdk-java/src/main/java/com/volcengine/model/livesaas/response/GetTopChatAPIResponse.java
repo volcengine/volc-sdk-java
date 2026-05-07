@@ -18,6 +18,8 @@ public class GetTopChatAPIResponse {
     public static class GetTopChatAPIResponseBody {
         @JSONField(name = "Data")
         List<PollingChatAPIData> Data;
+        @JSONField(name = "DataV2")
+        List<PollingChatAPIData> DataV2;
     }
 
     @Data

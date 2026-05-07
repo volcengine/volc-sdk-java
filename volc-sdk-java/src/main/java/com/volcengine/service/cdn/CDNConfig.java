@@ -737,6 +737,38 @@ public class CDNConfig {
                     }
             ));
 
+            // 查询全局配置关联域名: 
+            put("DescribeDomainShared", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeDomainShared"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 批量查询节点信息: 
+            put("DescribeCdnIP", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeCdnIP"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
             // 获取访问统计的细分数据: 
             put("DescribeDistrictData", new ApiInfo(
                     new HashMap<String, Object>() {
@@ -1130,6 +1162,118 @@ public class CDNConfig {
                             put(Const.Query, new ArrayList<NameValuePair>() {
                                 {
                                     add(new BasicNameValuePair("Action", "DescribeRetrieveInfo"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 查询域名版本列表: 
+            put("ListDomainVersions", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ListDomainVersions"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 查询域名环境版本: 
+            put("DescribeDomainEnvVersion", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeDomainEnvVersion"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 创建域名版本: 
+            put("CreateDomainVersion", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "CreateDomainVersion"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 删除域名版本: 
+            put("DeleteDomainVersion", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DeleteDomainVersion"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 查询域名版本: 
+            put("DescribeDomainVersion", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "DescribeDomainVersion"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 修改域名版本: 
+            put("UpdateDomainVersion", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "UpdateDomainVersion"));
+                                    add(new BasicNameValuePair("Version", "2021-03-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+
+            // 发布域名版本: 
+            put("ReleaseDomainVersion", new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", "ReleaseDomainVersion"));
                                     add(new BasicNameValuePair("Version", "2021-03-01"));
                                 }
                             });

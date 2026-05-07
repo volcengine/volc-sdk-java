@@ -16,4 +16,6 @@ public class PresenterChatRequest {
     Long AudienceGroupId;
     @JSONField(name = "TopStatus")
     Integer TopStatus;
+    @JSONField(name = "TopStatusV2")
+    Integer TopStatusV2;
 }

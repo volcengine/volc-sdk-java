@@ -51,6 +51,12 @@ public class RcImageTextLiteModerationSyncResponse {
         @JSONField(name = "PassThrough")
         private String PassThrough;
 
+        @JSONField(name = "TextModerationDetail")
+        private TextSliceRiskResponse.DecisionData TextModerationDetail;
+
+        @JSONField(name = "ImageModerationDetail")
+        private ImageRiskDetectionResponse.ImageDetectionData ImageModerationDetail;
+
     }
 
 }

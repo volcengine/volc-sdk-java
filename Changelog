@@ -1,5 +1,8 @@
 Change log
 
+2026-05-07 Bumped to version v1.0.269
+- Updated apis for cdn/contentSecurity/livesaas/tls
+
 2026-04-23 Bumped to version v1.0.268
 - Updated apis for livesaas/vod
 

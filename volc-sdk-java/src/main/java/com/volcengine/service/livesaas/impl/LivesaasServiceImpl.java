@@ -5600,4 +5600,34 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public ListQuickCommentContentResponse listQuickCommentContent(ListQuickCommentContentRequest listQuickCommentContentRequest) throws Exception {
+        RawResponse response = query(Const.ListQuickCommentContent, Utils.paramsToPair(listQuickCommentContentRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListQuickCommentContentResponse res = JSON.parseObject(response.getData(), ListQuickCommentContentResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateQuickCommentContentResponse updateQuickCommentContent(UpdateQuickCommentContentRequest updateQuickCommentContentRequest) throws Exception {
+        RawResponse response = json(Const.UpdateQuickCommentContent, new ArrayList<>(), JSON.toJSONString(updateQuickCommentContentRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateQuickCommentContentResponse res = JSON.parseObject(response.getData(), UpdateQuickCommentContentResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

@@ -3,6 +3,7 @@ package com.volcengine.model.tls;
 import com.volcengine.model.Credentials;
 import com.volcengine.model.ServiceInfo;
 import lombok.Data;
+import lombok.ToString;
 import org.apache.http.Header;
 import org.apache.http.message.BasicHeader;
 
@@ -12,11 +13,13 @@ import java.util.HashMap;
 import static com.volcengine.model.tls.Const.*;
 
 @Data
+@ToString(exclude = "apiKey")
 public class ClientConfig {
     String endpoint;
     String accessKeyId;
     String accessKeySecret;
     String securityToken;
+    String apiKey;
     String region;
     String apiVersion;
     RetryPolicy retryPolicy;

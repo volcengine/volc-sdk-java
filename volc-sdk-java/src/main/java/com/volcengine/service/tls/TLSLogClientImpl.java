@@ -48,6 +48,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         this.httpRequest = util;
         this.config = config;
         this.localValidationOnly = config.isLocalValidationOnly();
+        this.httpRequest.setApiKey(config.getApiKey());
 
         this.httpRequest.setSocketTimeout(60000);
         this.httpRequest.setConnectionTimeout(60000);
@@ -58,6 +59,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         this.config = config;
         this.localValidationOnly = config.isLocalValidationOnly();
         httpRequest.setServiceInfo(ClientConfig.initServiceInfo(config));
+        httpRequest.setApiKey(config.getApiKey());
     }
 
     @Override
@@ -76,6 +78,12 @@ public class TLSLogClientImpl implements TLSLogClient {
         httpRequest.setAccessKey(accessKeyID);
         httpRequest.setSecretKey(accessKeySecret);
         httpRequest.setSessionToken(securityToken);
+    }
+
+    @Override
+    public void setApiKey(String apiKey) {
+        config.setApiKey(apiKey);
+        httpRequest.setApiKey(apiKey);
     }
 
     /**
@@ -565,6 +573,12 @@ public class TLSLogClientImpl implements TLSLogClient {
         return sendJsonRequest(path, query, requestBody, new HashMap<>());
     }
 
+    private void addParam(ArrayList<NameValuePair> params, String name, Object value) {
+        if (value != null) {
+            params.add(new BasicNameValuePair(name, String.valueOf(value)));
+        }
+    }
+
     private RawResponse sendJsonRequest(String path, ArrayList<NameValuePair> query, String requestBody, Map<String, String> headers) throws LogException {
         if (requestBody != null) {
             checkMd5(path, requestBody.getBytes(), headers);
@@ -577,6 +591,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         if (!headers.containsKey(HEADER_API_VERSION)) {
             headers.put(HEADER_API_VERSION, this.config.getApiVersion());
         }
+        ensureCredentialForRequest(path);
 
         if (localValidationOnly) {
             return new RawResponse(EMPTY_JSON.getBytes(java.nio.charset.StandardCharsets.UTF_8),
@@ -970,6 +985,181 @@ public class TLSLogClientImpl implements TLSLogClient {
 
         // 3、parse response
         return new DescribeIndexResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeIndexResponse.class);
+    }
+
+    @Override
+    public CreateProcessorResponse createProcessor(CreateProcessorRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        String requestBody = JSONObject.toJSONString(request);
+        RawResponse rawResponse = sendJsonRequest(CREATE_PROCESSOR, new ArrayList<>(), requestBody);
+        return new CreateProcessorResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), CreateProcessorResponse.class);
+    }
+
+    @Override
+    public DeleteProcessorResponse deleteProcessor(DeleteProcessorRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        String requestBody = JSONObject.toJSONString(request);
+        RawResponse rawResponse = sendJsonRequest(DELETE_PROCESSOR, new ArrayList<>(), requestBody);
+        return new DeleteProcessorResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public ModifyProcessorResponse modifyProcessor(ModifyProcessorRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        String requestBody = JSONObject.toJSONString(request);
+        RawResponse rawResponse = sendJsonRequest(MODIFY_PROCESSOR, new ArrayList<>(), requestBody);
+        return new ModifyProcessorResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public DescribeProcessorResponse describeProcessor(DescribeProcessorRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        addParam(params, PROCESSOR_ID_HUMP, request.getProcessorId());
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_PROCESSOR, params, Const.EMPTY_JSON);
+        return new DescribeProcessorResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeProcessorResponse.class);
+    }
+
+    @Override
+    public DescribeProcessorsResponse describeProcessors(DescribeProcessorsRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        addParam(params, IAM_PROJECT_NAME, request.getIamProjectName());
+        addParam(params, PROJECT_ID, request.getProjectId());
+        addParam(params, PROJECT_NAME, request.getProjectName());
+        addParam(params, PROCESSOR_ID_HUMP, request.getProcessorId());
+        addParam(params, PROCESSOR_NAME, request.getProcessorName());
+        addParam(params, PROCESSOR_TYPE, request.getProcessorType());
+        addParam(params, PROCESSOR_STATUS, request.getProcessorStatus());
+        addParam(params, PROCESSOR_DSL_TYPE, request.getProcessorDSLType());
+        addParam(params, ORDER_BY_PROJECT, request.getOrderByProject());
+        addParam(params, PAGE_NUMBER, request.getPageNumber());
+        addParam(params, PAGE_SIZE, request.getPageSize());
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_PROCESSORS, params, Const.EMPTY_JSON);
+        return new DescribeProcessorsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeProcessorsResponse.class);
+    }
+
+    @Override
+    public ExecProcessorResponse execProcessor(ExecProcessorRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        String requestBody = JSONObject.toJSONString(request);
+        RawResponse rawResponse = sendJsonRequest(EXEC_PROCESSOR, new ArrayList<>(), requestBody);
+        return new ExecProcessorResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), ExecProcessorResponse.class);
+    }
+
+    @Override
+    public OperateProcessorResponse operateProcessor(OperateProcessorRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        String requestBody = JSONObject.toJSONString(request);
+        RawResponse rawResponse = sendJsonRequest(OPERATE_PROCESSOR, new ArrayList<>(), requestBody);
+        return new OperateProcessorResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public DescribeTopicsByProcessorResponse describeTopicsByProcessor(DescribeTopicsByProcessorRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        addParam(params, PROCESSOR_ID_HUMP, request.getProcessorId());
+        addParam(params, PAGE_NUMBER, request.getPageNumber());
+        addParam(params, PAGE_SIZE, request.getPageSize());
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_TOPICS_BY_PROCESSOR, params, Const.EMPTY_JSON);
+        return new DescribeTopicsByProcessorResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeTopicsByProcessorResponse.class);
+    }
+
+    @Override
+    public BindTopicProcessorResponse bindTopicProcessor(BindTopicProcessorRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        String requestBody = JSONObject.toJSONString(request);
+        RawResponse rawResponse = sendJsonRequest(BIND_TOPIC_PROCESSOR, new ArrayList<>(), requestBody);
+        return new BindTopicProcessorResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public BatchBindTopicsResponse batchBindTopics(BatchBindTopicsRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        String requestBody = JSONObject.toJSONString(request);
+        RawResponse rawResponse = sendJsonRequest(BATCH_BIND_TOPICS, new ArrayList<>(), requestBody);
+        return new BatchBindTopicsResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public UnbindTopicProcessorResponse unbindTopicProcessor(UnbindTopicProcessorRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        String requestBody = JSONObject.toJSONString(request);
+        RawResponse rawResponse = sendJsonRequest(UNBIND_TOPIC_PROCESSOR, new ArrayList<>(), requestBody);
+        return new UnbindTopicProcessorResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public DescribeProcessorResponse describeProcessorByTopic(DescribeProcessorByTopicRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        addParam(params, TOPIC_ID, request.getTopicId());
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_PROCESSOR_BY_TOPIC, params, Const.EMPTY_JSON);
+        return new DescribeProcessorResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeProcessorResponse.class);
+    }
+
+    @Override
+    public DescribeProcessorBindingsResponse describeProcessorBindings(DescribeProcessorBindingsRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        addParam(params, PROJECT_ID, request.getProjectId());
+        addParam(params, PAGE_NUMBER, request.getPageNumber());
+        addParam(params, PAGE_SIZE, request.getPageSize());
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_PROCESSOR_BINDINGS, params, Const.EMPTY_JSON);
+        return new DescribeProcessorBindingsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeProcessorBindingsResponse.class);
+    }
+
+    @Override
+    public DescribeProcessorFunctionsResponse describeProcessorFunctions(DescribeProcessorFunctionsRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        addParam(params, PROCESSOR_TYPE, request.getProcessorType());
+        addParam(params, PROCESSOR_DSL_TYPE, request.getProcessorDSLType());
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_PROCESSOR_FUNCTIONS, params, Const.EMPTY_JSON);
+        return new DescribeProcessorFunctionsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeProcessorFunctionsResponse.class);
     }
 
     @Override
@@ -2482,6 +2672,7 @@ public class TLSLogClientImpl implements TLSLogClient {
         if (!headers.containsKey(HEADER_API_VERSION)) {
             headers.put(HEADER_API_VERSION, this.config.getApiVersion());
         }
+        ensureCredentialForRequest(api);
         RawResponse rawResponse = executeWithRetry(() -> httpRequest.proto(api, params, headers, body, compressType));
         //throw exception
         if (rawResponse.getCode() != SdkError.SUCCESS.getNumber()) {
@@ -2512,5 +2703,13 @@ public class TLSLogClientImpl implements TLSLogClient {
             }
         }
         return new String[]{code, message};
+    }
+
+    private void ensureCredentialForRequest(String path) throws LogException {
+        if (StringUtils.isNotEmpty(config.getApiKey()) && !PUT_LOGS.equals(path)
+                && (StringUtils.isEmpty(config.getAccessKeyId()) || StringUtils.isEmpty(config.getAccessKeySecret()))) {
+            throw new LogException("InvalidArgument",
+                    "accessKeyId and accessKeySecret are required for " + path, null);
+        }
     }
 }

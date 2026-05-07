@@ -50,6 +50,15 @@ public class ProducerConfig {
     public ProducerConfig(String endpoint, String region, String accessKey, String accessSecret) {
         this(endpoint, region, accessKey, accessSecret, null);
     }
+    public ProducerConfig(String endpoint, String region, String apiKey) {
+        clientConfig = new ClientConfig(endpoint, region, null, null);
+        clientConfig.setApiKey(apiKey);
+    }
+    public ProducerConfig(String endpoint, String region, String apiKey,
+                          String accessKey, String accessSecret, String token) {
+        clientConfig = new ClientConfig(endpoint, region, accessKey, accessSecret, token);
+        clientConfig.setApiKey(apiKey);
+    }
     public static boolean needRetry(int httpCode) {
         return httpCode == TOO_MANY_REQUEST_ERROR || httpCode >= EXTERNAL_ERROR || httpCode == 0;
     }
@@ -64,9 +73,18 @@ public class ProducerConfig {
         retryCount = (int) validNumber(retryCount, 1, MAX_RETRY_COUNT, DEFAULT_RETRY_COUNT);
         maxReservedAttempts = (int) validNumber(maxReservedAttempts, 2, MAX_RESERVED_ATTEMPTS, DEFAULT_RESERVED_ATTEMPTS);
         shardCount = (int) validNumber(shardCount, 1, Integer.MAX_VALUE, DEFAULT_SHARD_COUNT);
-        if (clientConfig == null || StringUtils.isEmpty(clientConfig.getEndpoint()) || StringUtils.isEmpty(clientConfig.getAccessKeyId()) || StringUtils.isEmpty(clientConfig.getAccessKeySecret()) || StringUtils.isEmpty(clientConfig.getRegion())) {
+        if (!isValidClientConfig(clientConfig)) {
             throw new LogException("InvalidArgument", String.valueOf(clientConfig), null);
         }
+    }
+
+    private boolean isValidClientConfig(ClientConfig clientConfig) {
+        if (clientConfig == null || StringUtils.isEmpty(clientConfig.getEndpoint()) || StringUtils.isEmpty(clientConfig.getRegion())) {
+            return false;
+        }
+        boolean hasApiKey = StringUtils.isNotEmpty(clientConfig.getApiKey());
+        boolean hasAkSk = StringUtils.isNotEmpty(clientConfig.getAccessKeyId()) && StringUtils.isNotEmpty(clientConfig.getAccessKeySecret());
+        return hasApiKey || hasAkSk;
     }
 
     private long validNumber(Number field, Number min, Number max, Number originDefault) {
@@ -131,7 +149,7 @@ public class ProducerConfig {
 
 
     public void setClientConfig(ClientConfig clientConfig) throws LogException {
-        if (clientConfig == null || StringUtils.isEmpty(clientConfig.getEndpoint()) || StringUtils.isEmpty(clientConfig.getAccessKeyId()) || StringUtils.isEmpty(clientConfig.getAccessKeySecret()) || StringUtils.isEmpty(clientConfig.getRegion())) {
+        if (!isValidClientConfig(clientConfig)) {
             throw new LogException("InvalidArgument", String.valueOf(clientConfig), null);
         }
         this.clientConfig = clientConfig;

@@ -136,6 +136,12 @@ package com.volcengine.service.cdn;
         // 查询计费结果数据: 
         CDN.DescribeAccountingSummaryResponse describeAccountingSummary(CDN.DescribeAccountingSummaryRequest request) throws Exception;
 
+        // 查询全局配置关联域名: 
+        CDN.DescribeDomainSharedResponse describeDomainShared(CDN.DescribeDomainSharedRequest request) throws Exception;
+
+        // 批量查询节点信息: 
+        CDN.DescribeCdnIPResponse describeCdnIP(CDN.DescribeCdnIPRequest request) throws Exception;
+
         // 获取访问统计的细分数据: 
         CDN.DescribeDistrictDataResponse describeDistrictData(CDN.DescribeDistrictDataRequest request) throws Exception;
 
@@ -210,5 +216,26 @@ package com.volcengine.service.cdn;
 
         // DNS校验信息生成: 
         CDN.DescribeRetrieveInfoResponse describeRetrieveInfo(CDN.DescribeRetrieveInfoRequest request) throws Exception;
+
+        // 查询域名版本列表: 
+        CDN.ListDomainVersionsResponse listDomainVersions(CDN.ListDomainVersionsRequest request) throws Exception;
+
+        // 查询域名环境版本: 
+        CDN.DescribeDomainEnvVersionResponse describeDomainEnvVersion(CDN.DescribeDomainEnvVersionRequest request) throws Exception;
+
+        // 创建域名版本: 
+        CDN.CreateDomainVersionResponse createDomainVersion(CDN.CreateDomainVersionRequest request) throws Exception;
+
+        // 删除域名版本: 
+        CDN.DeleteDomainVersionResponse deleteDomainVersion(CDN.DeleteDomainVersionRequest request) throws Exception;
+
+        // 查询域名版本: 
+        CDN.DescribeDomainVersionResponse describeDomainVersion(CDN.DescribeDomainVersionRequest request) throws Exception;
+
+        // 修改域名版本: 
+        CDN.UpdateDomainVersionResponse updateDomainVersion(CDN.UpdateDomainVersionRequest request) throws Exception;
+
+        // 发布域名版本: 
+        CDN.ReleaseDomainVersionResponse releaseDomainVersion(CDN.ReleaseDomainVersionRequest request) throws Exception;
 
 }

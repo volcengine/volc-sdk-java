@@ -1,8 +1,6 @@
 package com.volcengine.service.contentSecurity;
 
-import com.volcengine.model.request.RcLlmRequest;
-import com.volcengine.model.request.RcLlmResultRequest;
-import com.volcengine.model.request.SecuritySourceRequest;
+import com.volcengine.model.request.*;
 import com.volcengine.model.response.*;
 import com.volcengine.service.IBaseService;
 
@@ -107,4 +105,49 @@ public interface SecuritySourceService extends IBaseService {
      * @throws Exception
      */
     RcImageTextLiteModerationSyncResponse imageTextLiteModeration(RcLlmRequest rcLlmRequest) throws Exception;
+
+    /**
+     * Async Audio Risk Detection.
+     *
+     * @param riskDetectionRequest audip risk detection request
+     * @return async audio risk detection response
+     * @throws Exception the exception
+     */
+    AsyncRiskDetectionResponse AsyncAudioLiteModeration(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+    /**
+     * Audio Risk Result.
+     *
+     * @param audioRiskResultRequest video risk detection request
+     * @return async video risk detection response
+     * @throws Exception the exception
+     */
+    GetAudioRiskResponse AudioLiteModerationResult(ImageRiskResultRequest audioRiskResultRequest) throws Exception;
+
+    /**
+     * Async Video Risk Detection.
+     *
+     * @param riskDetectionRequest video risk detection request
+     * @return async video risk detection response
+     * @throws Exception the exception
+     */
+    AsyncRiskDetectionResponse AsyncVideoLiteModeration(RiskDetectionRequest riskDetectionRequest) throws Exception;
+
+    /**
+     * Video Risk Result.
+     *
+     * @param videoRiskResultRequest video risk detection request
+     * @return async video risk detection response
+     * @throws Exception the exception
+     */
+    VideoRiskResultResponse VideoLiteModerationResult(ImageRiskResultRequest videoRiskResultRequest) throws Exception;
+
+    /**
+     * Sync Audio Risk Detection.
+     *
+     * @param riskDetectionRequest audip risk detection request
+     * @return async audio risk detection response
+     * @throws Exception the exception
+     */
+    GetAudioRiskResponse AudioLiteModeration(RiskDetectionRequest riskDetectionRequest) throws Exception;
 }

@@ -51,6 +51,16 @@ public class ProducerImpl implements Producer {
         return new ProducerImpl(new ProducerConfig(endpoint, region, accessKey, accessSecret, token));
     }
 
+    public static Producer defaultProducerWithApiKey(String endpoint, String region, String apiKey) throws LogException {
+        return new ProducerImpl(new ProducerConfig(endpoint, region, apiKey));
+    }
+
+    public static Producer defaultProducerWithApiKey(String endpoint, String region, String apiKey,
+                                                     String accessKey, String accessSecret,
+                                                     String token) throws LogException {
+        return new ProducerImpl(new ProducerConfig(endpoint, region, apiKey, accessKey, accessSecret, token));
+    }
+
     @Deprecated
     /*
      * Please use sendLogV2 instead.
@@ -221,6 +231,11 @@ public class ProducerImpl implements Producer {
                             name, accessKey, secretKey, securityToken), null);
         }
         dispatcher.resetAccessKeyToken(accessKey, secretKey, securityToken);
+    }
+
+    @Override
+    public void setApiKey(String apiKey) throws LogException {
+        dispatcher.setApiKey(apiKey);
     }
 
     @Override

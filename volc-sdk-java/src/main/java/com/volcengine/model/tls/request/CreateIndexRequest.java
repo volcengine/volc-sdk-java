@@ -25,6 +25,8 @@ public class CreateIndexRequest {
     Integer maxTextLen;
     @JSONField(name = "EnableAutoIndex")
     Boolean enableAutoIndex;
+    @JSONField(name = "EnablePhraseIndex")
+    Boolean enablePhraseIndex;
 
     /**
      * @param topicId      日志主题 ID
@@ -47,12 +49,28 @@ public class CreateIndexRequest {
      */
     public CreateIndexRequest(String topicId, FullTextInfo fullTextInfo, List<KeyValueInfo> keyValue,
                               List<KeyValueInfo> userInnerKeyValue, Integer maxTextLen, Boolean enableAutoIndex) {
+        this(topicId, fullTextInfo, keyValue, userInnerKeyValue, maxTextLen, enableAutoIndex, null);
+    }
+
+    /**
+     * @param topicId           日志主题 ID
+     * @param fullTextInfo      全文索引配置
+     * @param keyValue          键值索引配置
+     * @param userInnerKeyValue 预留字段索引配置
+     * @param maxTextLen        统计字段值最大长度
+     * @param enableAutoIndex   是否开启索引自动更新
+     * @param enablePhraseIndex 是否开启索引版短语查询
+     */
+    public CreateIndexRequest(String topicId, FullTextInfo fullTextInfo, List<KeyValueInfo> keyValue,
+                              List<KeyValueInfo> userInnerKeyValue, Integer maxTextLen, Boolean enableAutoIndex,
+                              Boolean enablePhraseIndex) {
         this.topicId = topicId;
         this.fullTextInfo = fullTextInfo;
         this.keyValue = keyValue;
         this.userInnerKeyValue = userInnerKeyValue;
         this.maxTextLen = maxTextLen;
         this.enableAutoIndex = enableAutoIndex;
+        this.enablePhraseIndex = enablePhraseIndex;
     }
 
     /**
@@ -137,6 +155,20 @@ public class CreateIndexRequest {
      */
     public void setEnableAutoIndex(Boolean enableAutoIndex) {
         this.enableAutoIndex = enableAutoIndex;
+    }
+
+    /**
+     * @return 是否开启索引版短语查询
+     */
+    public Boolean getEnablePhraseIndex() {
+        return enablePhraseIndex;
+    }
+
+    /**
+     * @param enablePhraseIndex 是否开启索引版短语查询
+     */
+    public void setEnablePhraseIndex(Boolean enablePhraseIndex) {
+        this.enablePhraseIndex = enablePhraseIndex;
     }
 
     /**

@@ -3026,6 +3026,14 @@ public interface LivesaasService extends IBaseService {
     GetImageReportResponse getImageReport(GetImageReportRequest getImageReportRequest) throws Exception;
 
     /**
+     * submitAudit
+     * @param submitAuditRequest SubmitAuditRequest
+     * @return SubmitAuditResponse
+     * @throws Exception the exception
+     */
+    SubmitAuditResponse submitAudit(SubmitAuditRequest submitAuditRequest) throws Exception;
+
+    /**
      * UpdateCheckInConfig
      *
      * @param updateCheckInConfigRequest UpdateCheckInConfigRequest

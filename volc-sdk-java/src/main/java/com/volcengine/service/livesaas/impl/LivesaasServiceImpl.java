@@ -5467,6 +5467,21 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public SubmitAuditResponse submitAudit(SubmitAuditRequest submitAuditRequest) throws Exception {
+        RawResponse response = json(Const.SubmitAudit, new ArrayList<>(), JSON.toJSONString(submitAuditRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        SubmitAuditResponse res = JSON.parseObject(response.getData(), SubmitAuditResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public WithdrawCheckInResponse withdrawCheckIn(WithdrawCheckInRequest withdrawCheckInRequest) throws Exception {
         RawResponse response = json(Const.WithdrawCheckIn, new ArrayList<>(), JSON.toJSONString(withdrawCheckInRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

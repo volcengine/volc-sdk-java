@@ -775,6 +775,7 @@ public class Const {
     public static final String CreateImageTask = "CreateImageTask";
     public static final String GetImageTask = "GetImageTask";
     public static final String GetImageReport = "GetImageReport";
+    public static final String SubmitAudit = "SubmitAudit";
 
 
     public static final String EnableActivityMultiProductExplain = "EnableActivityMultiProductExplain";

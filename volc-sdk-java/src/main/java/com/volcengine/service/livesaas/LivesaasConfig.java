@@ -5051,6 +5051,20 @@ public class LivesaasConfig {
                         }
                     }
             ));
+            put(Const.SubmitAudit, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.SubmitAudit));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.CreateActivityQuestionnaire, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

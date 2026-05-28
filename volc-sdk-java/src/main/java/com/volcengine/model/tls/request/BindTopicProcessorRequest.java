@@ -19,4 +19,3 @@ public class BindTopicProcessorRequest {
                 && topicId != null && !topicId.isEmpty();
     }
 }
-

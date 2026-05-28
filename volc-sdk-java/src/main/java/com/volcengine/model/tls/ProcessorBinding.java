@@ -14,4 +14,3 @@ public class ProcessorBinding {
     @JSONField(name = PROCESSOR_ID_HUMP)
     String processorId;
 }
-

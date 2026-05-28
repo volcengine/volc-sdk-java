@@ -4,12 +4,14 @@ import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import static com.volcengine.model.tls.Const.FROM;
+import static com.volcengine.model.tls.Const.SHARD_ID;
+import static com.volcengine.model.tls.Const.TOPIC_ID;
 
 @Data
 public class DescribeCursorRequest {
-    @JSONField(serialize = false)
+    @JSONField(name = TOPIC_ID, serialize = false)
     private String topicId;
-    @JSONField(serialize = false)
+    @JSONField(name = SHARD_ID, serialize = false)
     private Integer shardId;
     @JSONField(name = FROM)
     private String from;

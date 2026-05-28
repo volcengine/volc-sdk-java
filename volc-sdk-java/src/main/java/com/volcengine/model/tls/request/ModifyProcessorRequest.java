@@ -28,4 +28,3 @@ public class ModifyProcessorRequest {
         return processorId != null && !processorId.isEmpty();
     }
 }
-

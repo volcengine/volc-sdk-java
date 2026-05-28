@@ -11,7 +11,7 @@ import static com.volcengine.model.tls.Const.*;
 public class CreateScheduleSqlTaskRequest {
     @JSONField(name = TASK_NAME)
     private String taskName;
-    @JSONField(name = TOPIC_ID)
+    @JSONField(name = TOPIC_ID_UPPERCASE)
     private String topicId;
     @JSONField(name = DEST_REGION)
     private String destRegion;
@@ -33,6 +33,8 @@ public class CreateScheduleSqlTaskRequest {
     private Integer processSqlDelay;
     @JSONField(name = DESCRIPTION)
     private String description;
+    @JSONField(name = TASK_TYPE)
+    private Integer taskType = 0;
 
     /**
      * @param taskName 定时 SQL 分析任务名称
@@ -225,12 +227,21 @@ public class CreateScheduleSqlTaskRequest {
         this.description = description;
     }
 
+    public Integer getTaskType() {
+        return taskType;
+    }
+
+    public void setTaskType(Integer taskType) {
+        this.taskType = taskType;
+    }
+
     /**
      * @return 检验必填参数，true合法false不合法
      */
     public boolean CheckValidation() {
         return this.taskName != null && this.topicId != null && this.destTopicId != null 
                 && this.processStartTime != null && this.processTimeWindow != null 
-                && this.query != null && this.requestCycle != null && this.status != null;
+                && this.query != null && this.requestCycle != null && this.status != null
+                && this.taskType != null;
     }
 }

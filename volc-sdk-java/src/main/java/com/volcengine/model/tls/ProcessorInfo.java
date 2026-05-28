@@ -40,4 +40,3 @@ public class ProcessorInfo {
     @JSONField(name = "UpdateTime")
     String updateTime;
 }
-

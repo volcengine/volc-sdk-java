@@ -19,6 +19,10 @@ public class DescribeAlarmContentTemplatesRequest {
     private Integer pageNumber;
     @JSONField(name = PAGE_SIZE)
     private Integer pageSize;
+    @JSONField(name = ORDER_FIELD)
+    private String orderField;
+    @JSONField(name = "ASC")
+    private Boolean asc;
 
     /**
      * @return 日志项目 ID
@@ -88,6 +92,22 @@ public class DescribeAlarmContentTemplatesRequest {
      */
     public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
+    }
+
+    public String getOrderField() {
+        return orderField;
+    }
+
+    public void setOrderField(String orderField) {
+        this.orderField = orderField;
+    }
+
+    public Boolean getASC() {
+        return asc;
+    }
+
+    public void setASC(Boolean asc) {
+        this.asc = asc;
     }
 
     /**

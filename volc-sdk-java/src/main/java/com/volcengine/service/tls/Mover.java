@@ -1,6 +1,8 @@
 package com.volcengine.service.tls;
 
 import com.volcengine.model.tls.producer.BatchLog;
+import com.volcengine.model.tls.producer.CircuitBreaker;
+import com.volcengine.model.tls.producer.MemoryLimiter;
 import com.volcengine.model.tls.producer.ProducerConfig;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -11,7 +13,6 @@ import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Semaphore;
 
 public class Mover extends Thread {
     private volatile boolean closed;
@@ -23,11 +24,13 @@ public class Mover extends Thread {
     private final ExecutorService executorService;
     private final TLSLogClient client;
     private final ConcurrentHashMap<BatchLog.BatchKey, BatchLog.BatchManager> batches;
-    private final Semaphore memoryLock;
+    private final MemoryLimiter memoryLimiter;
+    private final CircuitBreaker circuitBreaker;
     private static final Log LOG = LogFactory.getLog(Mover.class);
 
     public Mover(String name, ProducerConfig producerConfig, LogDispatcher dispatcher, RetryManager retryManager,
-                 BlockingQueue<BatchLog> successQueue, BlockingQueue<BatchLog> failureQueue, Semaphore memoryLock) {
+                 BlockingQueue<BatchLog> successQueue, BlockingQueue<BatchLog> failureQueue,
+                 MemoryLimiter memoryLimiter, CircuitBreaker circuitBreaker) {
         setDaemon(true);
         this.name = name;
         this.producerConfig = producerConfig;
@@ -37,7 +40,8 @@ public class Mover extends Thread {
         this.executorService = dispatcher.getExecutorService();
         this.client = dispatcher.getClient();
         this.batches = dispatcher.getBatches();
-        this.memoryLock = memoryLock;
+        this.memoryLimiter = memoryLimiter;
+        this.circuitBreaker = circuitBreaker;
         this.closed = false;
     }
 
@@ -48,7 +52,7 @@ public class Mover extends Thread {
         handleRemainingBatch();
         List<BatchLog> remainingRetryBatches = retryManager.handleRemainingBatches();
         for (BatchLog log : remainingRetryBatches) {
-            executorService.submit(new SendBatchTask(log, producerConfig, successQueue, failureQueue, client, retryManager, memoryLock));
+            executorService.submit(new SendBatchTask(log, producerConfig, successQueue, failureQueue, client, retryManager, memoryLimiter, circuitBreaker));
         }
     }
 
@@ -63,7 +67,7 @@ public class Mover extends Thread {
         List<BatchLog> batchLogs = retryManager.handleTimeoutBatch(remains);
         for (BatchLog log : batchLogs) {
             executorService.submit(
-                    new SendBatchTask(log, producerConfig, successQueue, failureQueue, client, retryManager, memoryLock));
+                    new SendBatchTask(log, producerConfig, successQueue, failureQueue, client, retryManager, memoryLimiter, circuitBreaker));
         }
     }
 
@@ -89,7 +93,7 @@ public class Mover extends Thread {
         }
         for (BatchLog log : batchLogs) {
             executorService.submit(
-                    new SendBatchTask(log, producerConfig, successQueue, failureQueue, client, retryManager, memoryLock));
+                    new SendBatchTask(log, producerConfig, successQueue, failureQueue, client, retryManager, memoryLimiter, circuitBreaker));
         }
         return remains;
     }
@@ -108,7 +112,7 @@ public class Mover extends Thread {
             }
         }
         for (BatchLog log : batchLogs) {
-            executorService.submit(new SendBatchTask(log, producerConfig, successQueue, failureQueue, client, retryManager, memoryLock));
+            executorService.submit(new SendBatchTask(log, producerConfig, successQueue, failureQueue, client, retryManager, memoryLimiter, circuitBreaker));
         }
     }
 

@@ -17,6 +17,13 @@ public class DefaultRetryDeciderTest {
     }
 
     @Test
+    public void shouldNotRetryOnHttp501() {
+        DefaultRetryDecider decider = new DefaultRetryDecider();
+        RawResponse response = new RawResponse(null, SdkError.ERESP.getNumber(), null, null, 501);
+        Assert.assertFalse(decider.shouldRetry(response));
+    }
+
+    @Test
     public void shouldRetryOnRetryableException() {
         DefaultRetryDecider decider = new DefaultRetryDecider();
         RawResponse response = new RawResponse(null, SdkError.EHTTP.getNumber(), new SocketTimeoutException("timeout"), null, 400);

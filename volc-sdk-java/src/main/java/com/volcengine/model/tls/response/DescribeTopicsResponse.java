@@ -24,7 +24,7 @@ public class DescribeTopicsResponse extends CommonResponse {
     @JSONField(name = Const.REGIONS)
     List<String> regions;
     @JSONField(name = Const.TOPICS_LIST_KEY)
-    List<TopicInfo> topic;
+    List<TopicInfo> topics;
 
     public DescribeTopicsResponse(Header[] headers) {
         super(headers);
@@ -34,7 +34,15 @@ public class DescribeTopicsResponse extends CommonResponse {
     public DescribeTopicsResponse deSerialize(byte[] data, Class clazz) throws LogException {
         DescribeTopicsResponse response = (DescribeTopicsResponse) super.deSerialize(data, clazz);
         this.setTotal(response.getTotal());
-        this.setTopic(response.getTopic());
+        this.setTopics(response.getTopics());
         return this;
+    }
+
+    public List<TopicInfo> getTopic() {
+        return topics;
+    }
+
+    public void setTopic(List<TopicInfo> topic) {
+        this.topics = topic;
     }
 }

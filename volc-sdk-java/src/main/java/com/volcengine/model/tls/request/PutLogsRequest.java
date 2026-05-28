@@ -18,6 +18,7 @@ public class PutLogsRequest {
     private Integer logCount;
     private Long earliestLogTime;
     private Long latestLogTime;
+    private Boolean enableNanosecond;
 
     /**
      * @param logGroupList 日志列表
@@ -137,6 +138,14 @@ public class PutLogsRequest {
      */
     public void setContentMd5(String contentMd5) {
         this.contentMd5 = contentMd5;
+    }
+
+    public Boolean getEnableNanosecond() {
+        return enableNanosecond;
+    }
+
+    public void setEnableNanosecond(Boolean enableNanosecond) {
+        this.enableNanosecond = enableNanosecond;
     }
 
     /**

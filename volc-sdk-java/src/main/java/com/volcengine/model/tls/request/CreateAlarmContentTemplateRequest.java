@@ -24,7 +24,7 @@ public class CreateAlarmContentTemplateRequest {
     @JSONField(name = NEED_VALID_CONTENT)
     private Boolean needValidContent;
     
-    @JSONField(name = SMS)
+    @JSONField(name = "Sms")
     private SmsContentTemplateInfo sms;
     
     @JSONField(name = VMS)

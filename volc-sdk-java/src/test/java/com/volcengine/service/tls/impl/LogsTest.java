@@ -271,7 +271,7 @@ public class LogsTest extends BaseTest {
                         request.setSource("test-source");
                         request.setPrevLogs(10);
                         request.setNextLogs(10);
-                        request.setPackageOffset(0);
+                        request.setPackageOffset(0L);
                         request.setContextFlow("test-flow");
                     }
                     DescribeLogContextResponse response = client.describeLogContext(request);

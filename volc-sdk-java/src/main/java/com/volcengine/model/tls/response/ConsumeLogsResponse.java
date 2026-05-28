@@ -1,5 +1,6 @@
 package com.volcengine.model.tls.response;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.volcengine.model.tls.exception.LogException;
 import com.volcengine.model.tls.pb.PutLogRequest;
@@ -22,8 +23,14 @@ public class ConsumeLogsResponse extends CommonResponse {
     private static final Log LOG = LogFactory.getLog(ConsumeLogsResponse.class);
 
     PutLogRequest.LogGroupList logGroupList;
+    @JSONField(name = LOGS)
+    PutLogRequest.LogGroupList logs;
     String xTlsCursor;
+    @JSONField(name = CURSOR)
+    String cursor;
     int xTlsCount;
+    @JSONField(name = COUNT)
+    int count;
     String decompress;
     boolean origin;
 
@@ -84,8 +91,23 @@ public class ConsumeLogsResponse extends CommonResponse {
                 }
             }
         }
+        this.setLogs(this.getLogGroupList());
         this.setXTlsCursor(this.getFirstHeader(X_TLS_CURSOR));
         this.setXTlsCount(Integer.valueOf(this.getFirstHeader(X_TLS_COUNT)));
+        this.setCursor(this.getXTlsCursor());
+        this.setCount(this.getXTlsCount());
         return this;
+    }
+
+    public PutLogRequest.LogGroupList getLogs() {
+        return logs != null ? logs : logGroupList;
+    }
+
+    public String getCursor() {
+        return cursor != null ? cursor : xTlsCursor;
+    }
+
+    public int getCount() {
+        return count != 0 ? count : xTlsCount;
     }
 }

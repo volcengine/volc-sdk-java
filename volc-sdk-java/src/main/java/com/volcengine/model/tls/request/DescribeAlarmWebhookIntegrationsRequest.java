@@ -1,9 +1,13 @@
 package com.volcengine.model.tls.request;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
+
+import static com.volcengine.model.tls.Const.WEBHOOK_ID;
 
 @Data
 public class DescribeAlarmWebhookIntegrationsRequest {
+    @JSONField(name = WEBHOOK_ID)
     String webhookId;
     String webhookName;
     String webhookType;
@@ -22,6 +26,14 @@ public class DescribeAlarmWebhookIntegrationsRequest {
      */
     public void setWebhookId(String webhookId) {
         this.webhookId = webhookId;
+    }
+
+    public String getWebhookID() {
+        return webhookId;
+    }
+
+    public void setWebhookID(String webhookID) {
+        this.webhookId = webhookID;
     }
 
     /**

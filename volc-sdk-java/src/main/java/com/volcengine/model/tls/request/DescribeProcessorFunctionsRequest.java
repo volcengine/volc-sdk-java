@@ -13,4 +13,3 @@ public class DescribeProcessorFunctionsRequest {
         return processorType != null && !processorType.isEmpty();
     }
 }
-

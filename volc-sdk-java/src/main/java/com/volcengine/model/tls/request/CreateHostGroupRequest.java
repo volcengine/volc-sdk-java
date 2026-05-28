@@ -27,6 +27,22 @@ public class CreateHostGroupRequest {
     String updateStartTime;
     @JSONField(name = UPDATE_END_TIME)
     String updateEndTime;
+    @JSONField(name = SERVICE_LOGGING)
+    Boolean serviceLogging;
+    @JSONField(name = IAM_PROJECT_NAME)
+    String iamProjectName;
+
+    public CreateHostGroupRequest(String hostGroupName, String hostGroupType, List<String> hostIpList,
+                                  String hostIdentifier, Boolean autoUpdate, String updateStartTime,
+                                  String updateEndTime) {
+        this.hostGroupName = hostGroupName;
+        this.hostGroupType = hostGroupType;
+        this.hostIpList = hostIpList;
+        this.hostIdentifier = hostIdentifier;
+        this.autoUpdate = autoUpdate;
+        this.updateStartTime = updateStartTime;
+        this.updateEndTime = updateEndTime;
+    }
 
     /**
      * @return 机器组的名称
@@ -124,6 +140,22 @@ public class CreateHostGroupRequest {
      */
     public void setUpdateEndTime(String updateEndTime) {
         this.updateEndTime = updateEndTime;
+    }
+
+    public Boolean getServiceLogging() {
+        return serviceLogging;
+    }
+
+    public void setServiceLogging(Boolean serviceLogging) {
+        this.serviceLogging = serviceLogging;
+    }
+
+    public String getIamProjectName() {
+        return iamProjectName;
+    }
+
+    public void setIamProjectName(String iamProjectName) {
+        this.iamProjectName = iamProjectName;
     }
 
     /**

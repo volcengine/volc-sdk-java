@@ -28,6 +28,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.conn.HttpClientConnectionManager;
 import org.apache.http.entity.*;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.impl.client.HttpClients;
@@ -435,6 +436,10 @@ public abstract class BaseServiceImpl implements IBaseService {
         RequestConfig requestConfig = RequestConfig.custom()
                 .setSocketTimeout(socketTimeout)
                 .setConnectTimeout(connectionTimeout)
+                // L4-D6：Apache HttpClient 默认 connectionRequestTimeout=-1（无限等待连接池），
+                // 高并发耗尽 PoolingHttpClientConnectionManager 时会无限阻塞。
+                // 这里复用 connectionTimeout 作为获取连接的等待上限，避免线程被卡死。
+                .setConnectionRequestTimeout(connectionTimeout)
                 .setExpectContinueEnabled(expectContinueEnabled)
                 .build();
         request.setConfig(requestConfig);
@@ -566,6 +571,21 @@ public abstract class BaseServiceImpl implements IBaseService {
         this.httpClient = httpClient;
     }
 
+    public void setHttpClientConnectionManager(HttpClientConnectionManager connectionManager) {
+        setHttpClientConnectionManager(connectionManager, false);
+    }
+
+    public void setHttpClientConnectionManager(HttpClientConnectionManager connectionManager,
+                                               boolean disableContentCompression) {
+        if (monitorThread != null) {
+            monitorThread.shutdown();
+        }
+        HttpClientFactory.ClientInstance clientInstance = HttpClientFactory.create(
+                new ClientConfiguration(), null, connectionManager, disableContentCompression);
+        this.httpClient = clientInstance.getHttpClient();
+        this.monitorThread = clientInstance.getDaemonThread();
+    }
+
     public ServiceInfo getServiceInfo() {
         return serviceInfo;
     }
@@ -595,6 +615,16 @@ public abstract class BaseServiceImpl implements IBaseService {
     @Override
     public void setConnectionTimeout(int connectionTimeout) {
         this.connectionTimeout = connectionTimeout;
+    }
+
+    /** L4-D5：暴露实例域 socketTimeout（毫秒），避免上层依赖会被 setTimeout 改写的静态字段。 */
+    public int getSocketTimeoutMs() {
+        return this.socketTimeout;
+    }
+
+    /** L4-D5：暴露实例域 connectionTimeout（毫秒），与 socketTimeout 配套。 */
+    public int getConnectionTimeoutMs() {
+        return this.connectionTimeout;
     }
 
     @Override

@@ -7,6 +7,8 @@ import com.volcengine.model.tls.exception.LogException;
 import com.volcengine.model.tls.pb.PutLogRequest;
 import com.volcengine.model.tls.producer.BatchLog;
 import com.volcengine.model.tls.producer.CallBack;
+import com.volcengine.model.tls.producer.CircuitBreaker;
+import com.volcengine.model.tls.producer.MemoryLimiter;
 import com.volcengine.model.tls.producer.ProducerConfig;
 import com.volcengine.model.tls.util.AdaptorUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -26,7 +28,8 @@ public class ProducerImpl implements Producer {
     private final LogDispatcher dispatcher;
     private static final AtomicInteger INSTANCE_ID = new AtomicInteger(0);
     private final String name;
-    private final Semaphore memoryLock;
+    private final MemoryLimiter memoryLimiter;
+    private final CircuitBreaker circuitBreaker;
     private final BatchHandler successHandler;
     private final BatchHandler failHandler;
     private final RetryManager retryManager;
@@ -39,12 +42,13 @@ public class ProducerImpl implements Producer {
         this.name = TLS + Const.SEPARATOR + INSTANCE_ID.incrementAndGet();
         BlockingQueue<BatchLog> successQueue = new LinkedBlockingQueue<BatchLog>();
         BlockingQueue<BatchLog> failureQueue = new LinkedBlockingQueue<BatchLog>();
-        this.memoryLock = new Semaphore(producerConfig.getTotalSizeInBytes());
+        this.memoryLimiter = new MemoryLimiter(producerConfig.getMaxProducerMemoryBytes(), producerConfig.getTotalSizeInBytes());
+        this.circuitBreaker = new CircuitBreaker(producerConfig.getCircuitBreakerConfig());
         this.retryManager = new RetryManager();
-        this.dispatcher = new LogDispatcher(producerConfig, name, successQueue, failureQueue, memoryLock, batchCount, retryManager);
-        this.successHandler = new BatchHandler("success batch handler-" + name, memoryLock, successQueue, batchCount);
-        this.failHandler = new BatchHandler("fail batch handler-" + name, memoryLock, failureQueue, batchCount);
-        this.mover = new Mover(name + "-mover", producerConfig, dispatcher, retryManager, successQueue, failureQueue, memoryLock);
+        this.dispatcher = new LogDispatcher(producerConfig, name, successQueue, failureQueue, memoryLimiter, batchCount, retryManager, circuitBreaker);
+        this.successHandler = new BatchHandler("success batch handler-" + name, memoryLimiter, successQueue, batchCount);
+        this.failHandler = new BatchHandler("fail batch handler-" + name, memoryLimiter, failureQueue, batchCount);
+        this.mover = new Mover(name + "-mover", producerConfig, dispatcher, retryManager, successQueue, failureQueue, memoryLimiter, circuitBreaker);
     }
 
     public static Producer defaultProducer(String endpoint, String region, String accessKey, String accessSecret, String token) throws LogException {
@@ -283,10 +287,14 @@ public class ProducerImpl implements Producer {
             }
         }
 
-        if (feedbackException != null) {
-            throw feedbackException;
+        try {
+            memoryLimiter.close();
+            dispatcher.getClient().close();
+        } finally {
+            if (feedbackException != null) {
+                throw feedbackException;
+            }
         }
-        dispatcher.getClient().close();
         LOG.info(String.format("producer %s closed", name));
     }
 
@@ -366,6 +374,7 @@ public class ProducerImpl implements Producer {
     @Override
     public void closeNow() throws InterruptedException, LogException {
         dispatcher.closeNow();
+        memoryLimiter.close();
         retryManager.close();
         mover.close();
         successHandler.close();

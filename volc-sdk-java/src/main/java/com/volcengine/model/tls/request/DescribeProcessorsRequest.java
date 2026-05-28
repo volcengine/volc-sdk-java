@@ -22,4 +22,3 @@ public class DescribeProcessorsRequest {
         return true;
     }
 }
-

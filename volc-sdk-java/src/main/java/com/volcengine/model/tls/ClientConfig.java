@@ -25,6 +25,16 @@ public class ClientConfig {
     RetryPolicy retryPolicy;
     RetryDecider retryDecider;
     boolean localValidationOnly;
+    /**
+     * HTTPS 证书校验开关，默认 {@code false}（保持 Producer/Consumer 自定义连接池的 trust-all 兼容入口）。
+     *
+     * <p><b>安全提示</b>：Producer/Consumer 会将该开关传给 {@code TLSUtil}；公网 / 生产环境必须显式
+     * {@code setVerifySsl(true)}，启用 JDK 默认安全栈进行证书与主机名校验，防御中间人攻击。
+     *
+     * <p>L4-D2：TLSUtil 原默认行为接受任意证书 / 跳过主机名校验，违反 CWE-295 / CWE-297；
+     * 收紧默认会影响存量自签 / 私有 CA 用户，故本次修复仅暴露开关，由调用方显式 opt-in。
+     */
+    private boolean verifySsl = false;
 
     public ClientConfig(String endPoint, String region, String accessKeyId, String accessKeySecret,
                         String securityToken) {

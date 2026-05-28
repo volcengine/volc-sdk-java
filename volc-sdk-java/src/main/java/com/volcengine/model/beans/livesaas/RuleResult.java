@@ -13,4 +13,7 @@ public class RuleResult {
 
     @JSONField(name = "Reason")
     String reason;
+
+    @JSONField(name = "ViolationAnnotatedURL")
+    String ViolationAnnotatedURL;
 }

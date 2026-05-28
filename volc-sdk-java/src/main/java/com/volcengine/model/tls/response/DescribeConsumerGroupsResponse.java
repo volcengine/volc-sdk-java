@@ -11,6 +11,7 @@ import lombok.ToString;
 import org.apache.http.Header;
 
 import static com.volcengine.model.tls.Const.CONSUMER_GROUPS;
+import static com.volcengine.model.tls.Const.DASHBOARD_ID;
 import static com.volcengine.model.tls.Const.TOTAL;
 
 @Data
@@ -21,6 +22,8 @@ public class DescribeConsumerGroupsResponse extends CommonResponse {
     List<ConsumerGroup> consumerGroups;
     @JSONField(name = TOTAL)
     Integer total;
+    @JSONField(name = DASHBOARD_ID)
+    String dashboardId;
 
     public DescribeConsumerGroupsResponse(Header[] headers) {
         super(headers);
@@ -31,6 +34,7 @@ public class DescribeConsumerGroupsResponse extends CommonResponse {
         DescribeConsumerGroupsResponse response = (DescribeConsumerGroupsResponse) super.deSerialize(data, clazz);
         this.setConsumerGroups(response.getConsumerGroups());
         this.setTotal(response.getTotal());
+        this.setDashboardId(response.getDashboardId());
         return this;
     }
 }

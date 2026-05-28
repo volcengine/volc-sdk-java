@@ -14,4 +14,3 @@ public class DescribeTopicsByProcessorRequest {
         return processorId != null && !processorId.isEmpty();
     }
 }
-

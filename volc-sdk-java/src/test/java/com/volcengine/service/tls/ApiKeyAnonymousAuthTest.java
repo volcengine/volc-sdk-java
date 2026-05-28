@@ -7,6 +7,8 @@ import com.volcengine.model.tls.LogItem;
 import com.volcengine.model.tls.exception.LogException;
 import com.volcengine.model.tls.pb.PutLogRequest;
 import com.volcengine.model.tls.producer.BatchLog;
+import com.volcengine.model.tls.producer.CircuitBreaker;
+import com.volcengine.model.tls.producer.MemoryLimiter;
 import com.volcengine.model.tls.producer.ProducerConfig;
 import com.volcengine.model.tls.request.DeleteProjectRequest;
 import com.volcengine.model.tls.request.PutLogsRequest;
@@ -32,7 +34,6 @@ import java.util.Collections;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.junit.Assert.*;
@@ -128,7 +129,8 @@ public class ApiKeyAnonymousAuthTest {
         BlockingQueue<BatchLog> successQueue = new LinkedBlockingQueue<>();
         BlockingQueue<BatchLog> failureQueue = new LinkedBlockingQueue<>();
         LogDispatcher dispatcher = new LogDispatcher(producerConfig, "producer", successQueue, failureQueue,
-                new Semaphore(producerConfig.getTotalSizeInBytes()), new AtomicInteger(0), new RetryManager());
+                new MemoryLimiter(producerConfig.getMaxProducerMemoryBytes(), producerConfig.getTotalSizeInBytes()),
+                new AtomicInteger(0), new RetryManager(), new CircuitBreaker(producerConfig.getCircuitBreakerConfig()));
         RecordingHttpClient httpClient = new RecordingHttpClient();
         try {
             dispatcher.getClient().setHttpClient(httpClient);

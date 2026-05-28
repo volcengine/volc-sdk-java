@@ -26,4 +26,6 @@ public class ListActivityLibAPIRequest {
     Long FolderId;
     @JSONField(name = "IncludeSubFolder")
     Boolean IncludeSubFolder;
+    @JSONField(name = "IsCloseDated")
+    Boolean IsCloseDated;
 }

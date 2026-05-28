@@ -14,4 +14,3 @@ public class ProcessorTopicInfo {
     @JSONField(name = TOPIC_NAME)
     String topicName;
 }
-

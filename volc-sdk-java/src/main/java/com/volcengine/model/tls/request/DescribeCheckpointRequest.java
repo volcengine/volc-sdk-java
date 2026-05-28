@@ -9,11 +9,11 @@ import static com.volcengine.model.tls.Const.*;
 @Data
 @NoArgsConstructor
 public class DescribeCheckpointRequest {
-    @JSONField(serialize = false)
+    @JSONField(name = PROJECT_ID, serialize = false)
     String projectID;
-    @JSONField(serialize = false)
+    @JSONField(name = TOPIC_ID, serialize = false)
     String topicID;
-    @JSONField(serialize = false)
+    @JSONField(name = SHARD_ID, serialize = false)
     int shardID;
     @JSONField(name = CONSUMER_GROUP_NAME)
     String consumerGroupName;

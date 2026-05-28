@@ -21,6 +21,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Header;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
+import org.apache.http.conn.HttpClientConnectionManager;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
 
@@ -39,10 +40,24 @@ public class TLSLogClientImpl implements TLSLogClient {
         JSON.DEFAULT_GENERATE_FEATURE |= SerializerFeature.DisableCircularReferenceDetect.getMask();
     }
 
-    public static int DEFAULT_REQUEST_TIMEOUT_MS = 90 * 1000;
+    /**
+     * L4-D5：改为 static final，杜绝 setTimeout 改写静态字段造成的跨实例污染。
+     * 重试总预算的兜底优先使用 httpRequest.getSocketTimeoutMs() 实例域。
+     */
+    public static final int DEFAULT_REQUEST_TIMEOUT_MS = 90 * 1000;
     private ClientConfig config;
     private final TLSHttpUtil httpRequest;
     private boolean localValidationOnly;
+
+    /**
+     * L4-D10：用户自定义 HTTP header 容器，与 Go SDK CommonRequest.Headers 对齐。
+     * 合并语义：user-first → SDK overrides——用户 header 先写入，SDK 内部 header
+     * （API 版本、Content-Type、SourceType、Authorization 等）后写覆盖，
+     * 用户无法借此绕过 SDK 必要协议字段。
+     * 多线程可见性：使用 volatile 引用 + 不可变快照（每次 setter 整体替换），
+     * 中途读到旧/新快照都自洽。
+     */
+    private volatile Map<String, String> customHeaders = java.util.Collections.emptyMap();
 
     public TLSLogClientImpl(TLSHttpUtil util, ClientConfig config) {
         this.httpRequest = util;
@@ -65,6 +80,12 @@ public class TLSLogClientImpl implements TLSLogClient {
     @Override
     public void setHttpClient(HttpClient httpClient) {
         httpRequest.setHttpClient(httpClient);
+    }
+
+    @Override
+    public void setHttpClientConnectionManager(HttpClientConnectionManager connectionManager,
+                                               boolean disableContentCompression) {
+        httpRequest.setHttpClientConnectionManager(connectionManager, disableContentCompression);
     }
 
     @Override
@@ -94,7 +115,7 @@ public class TLSLogClientImpl implements TLSLogClient {
     public void setTimeout(int socketTimeout, int connectionTimeout) {
         httpRequest.setSocketTimeout(socketTimeout);
         httpRequest.setConnectionTimeout(connectionTimeout);
-        DEFAULT_REQUEST_TIMEOUT_MS = socketTimeout;
+        // L4-D5：不再改写 DEFAULT_REQUEST_TIMEOUT_MS，避免污染其他实例。
     }
 
     @Override
@@ -115,15 +136,15 @@ public class TLSLogClientImpl implements TLSLogClient {
             minLogTime = request.getEarliestLogTime();
             maxLogTime = request.getLatestLogTime();
         } else {
-            for (PutLogRequest.LogGroup logGroup : request.getLogGroupList().getLogGroupsList()) {
-                List<PutLogRequest.Log> logs = logGroup.getLogsList();
-                for (int i = 0; i < logs.size(); i++) {
-                    PutLogRequest.Log log = logs.get(i);
+            PutLogRequest.LogGroupList.Builder listBuilder = request.getLogGroupList().toBuilder();
+            for (int groupIndex = 0; groupIndex < listBuilder.getLogGroupsCount(); groupIndex++) {
+                PutLogRequest.LogGroup.Builder groupBuilder = listBuilder.getLogGroupsBuilder(groupIndex);
+                for (int logIndex = 0; logIndex < groupBuilder.getLogsCount(); logIndex++) {
+                    PutLogRequest.Log log = groupBuilder.getLogs(logIndex);
                     long time = log.getTime();
                     if (time <= 0) {
                         time = System.currentTimeMillis();
-                        PutLogRequest.Log newLog = log.toBuilder().setTime(time).build();
-                        logs.set(i, newLog);
+                        groupBuilder.setLogs(logIndex, log.toBuilder().setTime(time).build());
                     }
                     long normalizedTime;
                     if (time < 1e10) { // s
@@ -138,6 +159,7 @@ public class TLSLogClientImpl implements TLSLogClient {
                     logCnt++;
                 }
             }
+            request.setLogGroupList(listBuilder.build());
         }
 
         if (logCnt == 0) {
@@ -374,6 +396,21 @@ public class TLSLogClientImpl implements TLSLogClient {
     }
 
     @Override
+    public DescribeCursorTimeResponse describeCursorTime(DescribeCursorTimeRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair(TOPIC_ID, request.getTopicId()));
+        params.add(new BasicNameValuePair(SHARD_ID, String.valueOf(request.getShardId())));
+        params.add(new BasicNameValuePair(CURSOR, request.getCursor()));
+
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_CURSOR_TIME, params, Const.EMPTY_JSON);
+        return new DescribeCursorTimeResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeCursorTimeResponse.class);
+    }
+
+    @Override
     public ConsumeLogsResponse consumeLogs(ConsumeLogsRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
@@ -393,20 +430,16 @@ public class TLSLogClientImpl implements TLSLogClient {
             headers.put(CONSUMER_NAME, request.getConsumerName());
         }
 
-        if (request.isOrigin() == null) {
-            request.setOrigin(Boolean.TRUE);
-        }
-
         // 2、check sum and sendRequest
         String path = CONSUME_LOGS;
-        if (request.isOrigin()) {
+        if (Boolean.TRUE.equals(request.isOrigin())) {
             path = CONSUME_ORIGIN_LOGS;
         }
 
         RawResponse rawResponse = sendJsonRequest(path, params, requestBody, headers);
 
         // 3、parse response
-        return new ConsumeLogsResponse(rawResponse.getHeaders(), request.getCompression(), request.isOrigin()).deSerialize(rawResponse.getData(), ConsumeLogsResponse.class);
+        return new ConsumeLogsResponse(rawResponse.getHeaders(), request.getCompression(), Boolean.TRUE.equals(request.isOrigin())).deSerialize(rawResponse.getData(), ConsumeLogsResponse.class);
     }
 
     @Override
@@ -420,6 +453,10 @@ public class TLSLogClientImpl implements TLSLogClient {
         String requestBody = JSONObject.toJSONString(request);
         Map<String, String> headers = new HashMap<>();
         headers.put(HEADER_API_VERSION, API_VERSION_V_0_2_0);
+        // L4-D9：与 Go SDK 对齐，highLight=true 时注入 SourceType=front 头
+        if (Boolean.TRUE.equals(request.getHighLight())) {
+            headers.put(SOURCE_TYPE, "front");
+        }
         // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(SEARCH_LOGS, params, requestBody, headers);
         // 3、parse response
@@ -437,6 +474,10 @@ public class TLSLogClientImpl implements TLSLogClient {
         String requestBody = JSONObject.toJSONString(request);
         Map<String, String> headers = new HashMap<>();
         headers.put(HEADER_API_VERSION, API_VERSION_V_0_3_0);
+        // L4-D9：与 Go SDK 对齐，highLight=true 时注入 SourceType=front 头
+        if (Boolean.TRUE.equals(request.getHighLight())) {
+            headers.put(SOURCE_TYPE, "front");
+        }
         // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(SEARCH_LOGS, params, requestBody, headers);
         // 3、parse response
@@ -587,6 +628,15 @@ public class TLSLogClientImpl implements TLSLogClient {
         if (headers == null) {
             headers = new HashMap<>();
         }
+        // L4-D10：与 Go SDK assembleHeader 对齐：user-first → SDK overrides。
+        // 用户自定义 header 先写入，SDK 内部 header（HEADER_API_VERSION、SourceType、Content-Type 等）
+        // 后写覆盖，确保协议字段不被业务覆盖。
+        Map<String, String> userHeaders = this.customHeaders;
+        if (!userHeaders.isEmpty()) {
+            Map<String, String> merged = new HashMap<>(userHeaders);
+            merged.putAll(headers);
+            headers = merged;
+        }
         // 默认api版本0.3.0，如果用户有header使用用户自定义的
         if (!headers.containsKey(HEADER_API_VERSION)) {
             headers.put(HEADER_API_VERSION, this.config.getApiVersion());
@@ -630,10 +680,15 @@ public class TLSLogClientImpl implements TLSLogClient {
             p = RetryPolicy.defaultPolicy();
             fromDefault = true;
         }
+        RetryPolicy normalized = p.normalize();
         if (fromDefault || p.getTotalTimeoutMs() <= 0) {
-            p.setTotalTimeoutMs(DEFAULT_REQUEST_TIMEOUT_MS);
+            // L4-D5：优先使用本实例的 socketTimeout 作为重试总预算兜底，
+            // 仅当实例值非正时回退到 final 默认，避免静态字段污染跨实例语义。
+            int instanceSocket = httpRequest == null ? 0 : httpRequest.getSocketTimeoutMs();
+            normalized.setTotalTimeoutMs(instanceSocket > 0 ? instanceSocket : DEFAULT_REQUEST_TIMEOUT_MS);
+            normalized = normalized.normalize();
         }
-        return p.normalize();
+        return normalized;
     }
 
     private RetryDecider getRetryDecider() {
@@ -642,6 +697,50 @@ public class TLSLogClientImpl implements TLSLogClient {
             decider = new DefaultRetryDecider();
         }
         return decider;
+    }
+
+    /**
+     * L4-D10：设置/替换用户自定义 HTTP header，与 Go SDK CommonRequest.Headers 对齐。
+     *
+     * 语义（与 Go SDK assembleHeader 一致）：
+     *   - 客户端实例级生效，覆盖所有 API 调用。
+     *   - 合并顺序为 user-first → SDK overrides：用户 header 先写入，
+     *     SDK 内部 header（HEADER_API_VERSION、SourceType、Content-Type、Authorization 等）后写覆盖；
+     *     用户无法借此绕过 SDK 必要协议字段。
+     *   - 传入 null 视为清空。
+     */
+    public void setCustomHeaders(Map<String, String> headers) {
+        if (headers == null || headers.isEmpty()) {
+            this.customHeaders = java.util.Collections.emptyMap();
+            return;
+        }
+        Map<String, String> snapshot = new HashMap<>(headers.size());
+        for (Map.Entry<String, String> e : headers.entrySet()) {
+            if (e.getKey() == null || e.getKey().isEmpty()) {
+                throw new IllegalArgumentException("custom header key must be non-empty");
+            }
+            snapshot.put(e.getKey(), e.getValue());
+        }
+        this.customHeaders = java.util.Collections.unmodifiableMap(snapshot);
+    }
+
+    /**
+     * L4-D10：单条追加自定义 header。线程语义：copy-on-write，最后一次写入获胜。
+     */
+    public void addCustomHeader(String key, String value) {
+        if (key == null || key.isEmpty()) {
+            throw new IllegalArgumentException("custom header key must be non-empty");
+        }
+        Map<String, String> snapshot = new HashMap<>(this.customHeaders);
+        snapshot.put(key, value);
+        this.customHeaders = java.util.Collections.unmodifiableMap(snapshot);
+    }
+
+    /**
+     * L4-D10：返回当前自定义 header 的只读视图。
+     */
+    public Map<String, String> getCustomHeaders() {
+        return this.customHeaders;
     }
 
     private RawResponse executeWithRetry(Supplier<RawResponse> op) throws LogException {
@@ -1309,6 +1408,38 @@ public class TLSLogClientImpl implements TLSLogClient {
     }
 
     @Override
+    public DescribeRuleResponseV2 describeRuleV2(DescribeRuleRequestV2 request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair(RULE_ID, request.getRuleId()));
+
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_RULE_V2, params, Const.EMPTY_JSON);
+        return new DescribeRuleResponseV2(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeRuleResponseV2.class);
+    }
+
+    @Override
+    public DescribeBoundHostGroupsResponse describeBoundHostGroups(DescribeBoundHostGroupsRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair(RULE_ID, request.getRuleId()));
+        if (request.getPageNumber() != null) {
+            params.add(new BasicNameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
+        }
+        if (request.getPageSize() != null) {
+            params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
+        }
+
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_BOUND_HOST_GROUPS, params, Const.EMPTY_JSON);
+        return new DescribeBoundHostGroupsResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeBoundHostGroupsResponse.class);
+    }
+
+    @Override
     public DescribeRulesResponse describeRules(DescribeRulesRequest request) throws LogException {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
@@ -1496,6 +1627,58 @@ public class TLSLogClientImpl implements TLSLogClient {
 
     }
 
+    @Override
+    public DescribeHostGroupResponseV2 describeHostGroupV2(DescribeHostGroupRequestV2 request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair(HOST_GROUP_ID, request.getHostGroupId()));
+
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_HOST_GROUP_V2, params, Const.EMPTY_JSON);
+        return new DescribeHostGroupResponseV2(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeHostGroupResponseV2.class);
+    }
+
+    @Override
+    public DescribeHostGroupsResponseV2 describeHostGroupsV2(DescribeHostGroupsRequestV2 request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        if (request.getPageNumber() != null) {
+            params.add(new BasicNameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
+        }
+        if (request.getPageSize() != null) {
+            params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
+        }
+        if (StringUtils.isNotEmpty(request.getHostGroupId())) {
+            params.add(new BasicNameValuePair(HOST_GROUP_ID, request.getHostGroupId()));
+        }
+        if (StringUtils.isNotEmpty(request.getHostGroupName())) {
+            params.add(new BasicNameValuePair(HOST_GROUP_NAME, request.getHostGroupName()));
+        }
+        if (StringUtils.isNotEmpty(request.getHostIdentifier())) {
+            params.add(new BasicNameValuePair(HOST_IDENTIFIER, request.getHostIdentifier()));
+        }
+        if (request.getAutoUpdate() != null) {
+            params.add(new BasicNameValuePair(AUTO_UPDATE, String.valueOf(request.getAutoUpdate())));
+        }
+        if (StringUtils.isNotEmpty(request.getIamProjectName())) {
+            params.add(new BasicNameValuePair(IAM_PROJECT_NAME, request.getIamProjectName()));
+        }
+        if (request.getServiceLogging() != null) {
+            params.add(new BasicNameValuePair(SERVICE_LOGGING, String.valueOf(request.getServiceLogging())));
+        }
+        if (request.getHidden() != null) {
+            params.add(new BasicNameValuePair(HIDDEN, String.valueOf(request.getHidden())));
+        }
+
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_HOST_GROUPS_V2, params, Const.EMPTY_JSON);
+        return new DescribeHostGroupsResponseV2(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeHostGroupsResponseV2.class);
+    }
+
 
     @Override
     public DescribeHostsResponse describeHosts(DescribeHostsRequest request) throws LogException {
@@ -1662,6 +1845,9 @@ public class TLSLogClientImpl implements TLSLogClient {
             params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
         }
         params.add(new BasicNameValuePair(PROJECT_ID, String.valueOf(request.getProjectId())));
+        if (StringUtils.isNotEmpty(request.getProjectName())) {
+            params.add(new BasicNameValuePair(PROJECT_NAME, request.getProjectName()));
+        }
         if (StringUtils.isNotEmpty(request.getAlarmName())) {
             params.add(new BasicNameValuePair(ALARM_NAME, String.valueOf(request.getAlarmName())));
         }
@@ -1676,6 +1862,15 @@ public class TLSLogClientImpl implements TLSLogClient {
         }
         if (request.getStatus() != null) {
             params.add(new BasicNameValuePair(STATUS, String.valueOf(request.getStatus())));
+        }
+        if (request.getAlarmDisabled() != null) {
+            params.add(new BasicNameValuePair(ALARM_DISABLED, String.valueOf(request.getAlarmDisabled())));
+        }
+        if (StringUtils.isNotEmpty(request.getSeverity())) {
+            params.add(new BasicNameValuePair(SEVERITY, request.getSeverity()));
+        }
+        if (StringUtils.isNotEmpty(request.getIamProjectName())) {
+            params.add(new BasicNameValuePair(IAM_PROJECT_NAME, request.getIamProjectName()));
         }
 
         // 2、check sum and sendRequest
@@ -1878,6 +2073,12 @@ public class TLSLogClientImpl implements TLSLogClient {
         }
         if (StringUtils.isNotEmpty(request.getAlarmContentTemplateName())) {
             params.add(new BasicNameValuePair(ALARM_CONTENT_TEMPLATE_NAME, request.getAlarmContentTemplateName()));
+        }
+        if (StringUtils.isNotEmpty(request.getOrderField())) {
+            params.add(new BasicNameValuePair(ORDER_FIELD, request.getOrderField()));
+        }
+        if (request.getASC() != null) {
+            params.add(new BasicNameValuePair("ASC", String.valueOf(request.getASC())));
         }
 
         // 2、check sum and sendRequest
@@ -2088,6 +2289,79 @@ public class TLSLogClientImpl implements TLSLogClient {
 
         // 4. parse response
         return new DescribeDownloadUrlResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeDownloadUrlResponse.class);
+    }
+
+    @Override
+    public CreateLogBackFlowTaskResponse createLogBackFlowTask(CreateLogBackFlowTaskRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        String requestBody = JSONObject.toJSONString(request);
+        RawResponse rawResponse = sendJsonRequest(CREATE_LOG_BACK_FLOW_TASK, new ArrayList<>(), requestBody);
+        return new CreateLogBackFlowTaskResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), CreateLogBackFlowTaskResponse.class);
+    }
+
+    @Override
+    public DeleteLogBackFlowTaskResponse deleteLogBackFlowTask(DeleteLogBackFlowTaskRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        String requestBody = JSONObject.toJSONString(request);
+        RawResponse rawResponse = sendJsonRequest(DELETE_LOG_BACK_FLOW_TASK, new ArrayList<>(), requestBody);
+        return new DeleteLogBackFlowTaskResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public DescribeLogBackFlowTasksResponse describeLogBackFlowTasks(DescribeLogBackFlowTasksRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        if (request.getPageNumber() != null) {
+            params.add(new BasicNameValuePair(PAGE_NUMBER, String.valueOf(request.getPageNumber())));
+        }
+        if (request.getPageSize() != null) {
+            params.add(new BasicNameValuePair(PAGE_SIZE, String.valueOf(request.getPageSize())));
+        }
+        if (request.getTopicIDList() != null) {
+            for (String topicId : request.getTopicIDList()) {
+                if (StringUtils.isNotEmpty(topicId)) {
+                    params.add(new BasicNameValuePair(TOPIC_ID_LIST, topicId));
+                }
+            }
+        }
+        if (StringUtils.isNotEmpty(request.getTaskId())) {
+            params.add(new BasicNameValuePair(TASK_ID, request.getTaskId()));
+        }
+        if (StringUtils.isNotEmpty(request.getTaskName())) {
+            params.add(new BasicNameValuePair(TASK_NAME, request.getTaskName()));
+        }
+        if (request.getStatus() != null) {
+            params.add(new BasicNameValuePair(STATUS, String.valueOf(request.getStatus())));
+        }
+        if (StringUtils.isNotEmpty(request.getScheduleSQLTaskId())) {
+            params.add(new BasicNameValuePair(SCHEDULE_SQL_TASK_ID_UPPER, request.getScheduleSQLTaskId()));
+        }
+        if (StringUtils.isNotEmpty(request.getShipperId())) {
+            params.add(new BasicNameValuePair(SHIPPER_ID, request.getShipperId()));
+        }
+
+        RawResponse rawResponse = sendJsonRequest(DESCRIBE_LOG_BACK_FLOW_TASKS, params, Const.EMPTY_JSON);
+        return new DescribeLogBackFlowTasksResponse(rawResponse.getHeaders()).deSerialize(rawResponse.getData(), DescribeLogBackFlowTasksResponse.class);
+    }
+
+    @Override
+    public ModifyLogBackFlowTaskResponse modifyLogBackFlowTask(ModifyLogBackFlowTaskRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+
+        String requestBody = JSONObject.toJSONString(request);
+        RawResponse rawResponse = sendJsonRequest(MODIFY_LOG_BACK_FLOW_TASK, new ArrayList<>(), requestBody);
+        return new ModifyLogBackFlowTaskResponse(rawResponse.getHeaders());
     }
 
     @Override
@@ -2523,6 +2797,9 @@ public class TLSLogClientImpl implements TLSLogClient {
         if (request.getIamProjectName() != null) {
             params.add(new BasicNameValuePair("IamProjectName", request.getIamProjectName()));
         }
+        if (request.getCsAccountChannel() != null) {
+            params.add(new BasicNameValuePair("CsAccountChannel", request.getCsAccountChannel()));
+        }
 
         // 2、check sum and sendRequest
         RawResponse rawResponse = sendJsonRequest(DESCRIBE_TRACE_INSTANCES, params, Const.EMPTY_JSON);
@@ -2711,5 +2988,160 @@ public class TLSLogClientImpl implements TLSLogClient {
             throw new LogException("InvalidArgument",
                     "accessKeyId and accessKeySecret are required for " + path, null);
         }
+    }
+
+    // ============================================================
+    // text_analysis: AppInstance / AppSceneMeta / SessionAnswer
+    // ============================================================
+
+    @Override
+    public CreateAppInstanceResponse createAppInstance(CreateAppInstanceRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+        String requestBody = JSONObject.toJSONString(request);
+        RawResponse rawResponse = sendJsonRequest(Const.CREATE_APP_INSTANCE, new ArrayList<>(), requestBody);
+        return new CreateAppInstanceResponse(rawResponse.getHeaders())
+                .deSerialize(rawResponse.getData(), CreateAppInstanceResponse.class);
+    }
+
+    @Override
+    public ModifyAppInstanceResponse modifyAppInstance(ModifyAppInstanceRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+        String requestBody = JSONObject.toJSONString(request);
+        RawResponse rawResponse = sendJsonRequest(Const.MODIFY_APP_INSTANCE, new ArrayList<>(), requestBody);
+        return new ModifyAppInstanceResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public DeleteAppInstanceResponse deleteAppInstance(DeleteAppInstanceRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+        String requestBody = JSONObject.toJSONString(request);
+        RawResponse rawResponse = sendJsonRequest(Const.DELETE_APP_INSTANCE, new ArrayList<>(), requestBody);
+        return new DeleteAppInstanceResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public DescribeAppInstancesResponse describeAppInstances(DescribeAppInstancesRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        addParam(params, PAGE_NUMBER, request.getPageNumber());
+        addParam(params, PAGE_SIZE, request.getPageSize());
+        if (StringUtils.isNotEmpty(request.getInstanceId())) {
+            params.add(new BasicNameValuePair(APP_INSTANCE_ID, request.getInstanceId()));
+        }
+        if (StringUtils.isNotEmpty(request.getInstanceName())) {
+            params.add(new BasicNameValuePair(APP_INSTANCE_NAME, request.getInstanceName()));
+        }
+        if (StringUtils.isNotEmpty(request.getInstanceType())) {
+            params.add(new BasicNameValuePair(APP_INSTANCE_TYPE, request.getInstanceType()));
+        }
+        if (StringUtils.isNotEmpty(request.getDescription())) {
+            params.add(new BasicNameValuePair(DESCRIPTION, request.getDescription()));
+        }
+        RawResponse rawResponse = sendJsonRequest(Const.DESCRIBE_APP_INSTANCES, params, Const.EMPTY_JSON);
+        return new DescribeAppInstancesResponse(rawResponse.getHeaders())
+                .deSerialize(rawResponse.getData(), DescribeAppInstancesResponse.class);
+    }
+
+    @Override
+    public CreateAppSceneMetaResponse createAppSceneMeta(CreateAppSceneMetaRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+        String requestBody = JSONObject.toJSONString(request);
+        RawResponse rawResponse = sendJsonRequest(Const.CREATE_APP_SCENE_META, new ArrayList<>(), requestBody);
+        return new CreateAppSceneMetaResponse(rawResponse.getHeaders())
+                .deSerialize(rawResponse.getData(), CreateAppSceneMetaResponse.class);
+    }
+
+    @Override
+    public ModifyAppSceneMetaResponse modifyAppSceneMeta(ModifyAppSceneMetaRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+        String requestBody = JSONObject.toJSONString(request);
+        RawResponse rawResponse = sendJsonRequest(Const.MODIFY_APP_SCENE_META, new ArrayList<>(), requestBody);
+        return new ModifyAppSceneMetaResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public DeleteAppSceneMetaResponse deleteAppSceneMeta(DeleteAppSceneMetaRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+        String requestBody = JSONObject.toJSONString(request);
+        RawResponse rawResponse = sendJsonRequest(Const.DELETE_APP_SCENE_META, new ArrayList<>(), requestBody);
+        return new DeleteAppSceneMetaResponse(rawResponse.getHeaders());
+    }
+
+    @Override
+    public DescribeAppSceneMetasResponse describeAppSceneMetas(DescribeAppSceneMetasRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        addParam(params, PAGE_NUMBER, request.getPageNumber());
+        addParam(params, PAGE_SIZE, request.getPageSize());
+        if (StringUtils.isNotEmpty(request.getInstanceId())) {
+            params.add(new BasicNameValuePair(APP_INSTANCE_ID, request.getInstanceId()));
+        }
+        if (StringUtils.isNotEmpty(request.getId())) {
+            params.add(new BasicNameValuePair(META_ID_KEY, request.getId()));
+        }
+        if (StringUtils.isNotEmpty(request.getMetaName())) {
+            params.add(new BasicNameValuePair(META_NAME, request.getMetaName()));
+        }
+        if (StringUtils.isNotEmpty(request.getAppMetaType())) {
+            params.add(new BasicNameValuePair(DESCRIBE_APP_META_TYPE, request.getAppMetaType()));
+        }
+        if (StringUtils.isNotEmpty(request.getPageContext())) {
+            params.add(new BasicNameValuePair(PAGE_CONTEXT, request.getPageContext()));
+        }
+        RawResponse rawResponse = sendJsonRequest(Const.DESCRIBE_APP_SCENE_METAS, params, Const.EMPTY_JSON);
+        return new DescribeAppSceneMetasResponse(rawResponse.getHeaders())
+                .deSerialize(rawResponse.getData(), DescribeAppSceneMetasResponse.class);
+    }
+
+    @Override
+    public DescribeAppSceneMetaResponse describeAppSceneMeta(DescribeAppSceneMetaRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+        ArrayList<NameValuePair> params = new ArrayList<>();
+        if (StringUtils.isNotEmpty(request.getInstanceId())) {
+            params.add(new BasicNameValuePair(APP_INSTANCE_ID, request.getInstanceId()));
+        }
+        if (StringUtils.isNotEmpty(request.getId())) {
+            params.add(new BasicNameValuePair(META_ID_KEY, request.getId()));
+        }
+        if (StringUtils.isNotEmpty(request.getMetaName())) {
+            params.add(new BasicNameValuePair(META_NAME, request.getMetaName()));
+        }
+        if (StringUtils.isNotEmpty(request.getAppMetaType())) {
+            params.add(new BasicNameValuePair(APP_META_TYPE, request.getAppMetaType()));
+        }
+        RawResponse rawResponse = sendJsonRequest(Const.DESCRIBE_APP_SCENE_META, params, Const.EMPTY_JSON);
+        return new DescribeAppSceneMetaResponse(rawResponse.getHeaders())
+                .deSerialize(rawResponse.getData(), DescribeAppSceneMetaResponse.class);
+    }
+
+    /**
+     * DescribeSessionAnswer 是 SSE 流式接口。当前 SDK 不通过阻塞 JSON 请求路径暴露该流。
+     */
+    @Override
+    public DescribeSessionAnswerResponse describeSessionAnswer(DescribeSessionAnswerRequest request) throws LogException {
+        if (request == null || !request.CheckValidation()) {
+            throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
+        }
+        throw new LogException("UnsupportedOperation",
+                "DescribeSessionAnswer is an SSE streaming API and is not supported by the blocking JSON request path",
+                null);
     }
 }

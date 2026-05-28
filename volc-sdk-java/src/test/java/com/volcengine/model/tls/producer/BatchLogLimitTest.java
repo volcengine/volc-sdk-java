@@ -15,7 +15,7 @@ public class BatchLogLimitTest {
 
     @Test
     public void testMaxBatchCount32768() {
-        ProducerConfig config = new ProducerConfig("endpoint", "region", "ak", "sk", null);
+        ProducerConfig config = new ProducerConfig("http://endpoint", "region", "ak", "sk", null);
         BatchLog.BatchKey key = new BatchLog.BatchKey("", "topic", "source", "file");
         BatchLog batch = new BatchLog(key, config);
 

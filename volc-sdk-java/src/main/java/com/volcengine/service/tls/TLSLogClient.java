@@ -10,8 +10,15 @@ import com.volcengine.model.tls.response.DeleteShipperResponse;
 import com.volcengine.model.tls.request.TagResourcesRequest;
 import com.volcengine.model.tls.response.TagResourcesResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.conn.HttpClientConnectionManager;
+
+import java.util.Map;
 
 public interface TLSLogClient {
+    static UnsupportedOperationException unsupportedOperation(String method) {
+        return new UnsupportedOperationException(method + " is not supported by this TLSLogClient implementation");
+    }
+
     /**
      * client配置，key和超时
      */
@@ -21,11 +28,32 @@ public interface TLSLogClient {
 
     void setHttpClient(HttpClient httpClient);
 
+    default void setHttpClientConnectionManager(HttpClientConnectionManager connectionManager,
+                                                boolean disableContentCompression) {
+        throw unsupportedOperation("setHttpClientConnectionManager");
+    }
+
     void resetAccessKeyToken(String accessKeyID, String accessKeySecret, String securityToken);
 
     void setApiKey(String apiKey);
 
     void setTimeout(int socketTimeout, int connectionTimeout);
+
+    /**
+     * L4-D10：与 Go SDK CommonRequest.Headers 对齐的实例级自定义 header。
+     * 合并语义：user-first → SDK overrides（SDK 内部 header 后写优先）。
+     */
+    default void setCustomHeaders(Map<String, String> headers) {
+        throw unsupportedOperation("setCustomHeaders");
+    }
+
+    default void addCustomHeader(String key, String value) {
+        throw unsupportedOperation("addCustomHeader");
+    }
+
+    default Map<String, String> getCustomHeaders() {
+        return java.util.Collections.emptyMap();
+    }
 
     /**
      * 日志管理
@@ -42,6 +70,10 @@ public interface TLSLogClient {
     PutLogsResponse putLogsV2(PutLogsRequestV2 request) throws LogException;
 
     DescribeCursorResponse describeCursor(DescribeCursorRequest request) throws LogException;
+
+    default DescribeCursorTimeResponse describeCursorTime(DescribeCursorTimeRequest request) throws LogException {
+        throw unsupportedOperation("describeCursorTime");
+    }
 
     ConsumeLogsResponse consumeLogs(ConsumeLogsRequest request) throws LogException;
 
@@ -141,6 +173,14 @@ public interface TLSLogClient {
 
     DescribeRuleResponse describeRule(DescribeRuleRequest request) throws LogException;
 
+    default DescribeRuleResponseV2 describeRuleV2(DescribeRuleRequestV2 request) throws LogException {
+        throw unsupportedOperation("describeRuleV2");
+    }
+
+    default DescribeBoundHostGroupsResponse describeBoundHostGroups(DescribeBoundHostGroupsRequest request) throws LogException {
+        throw unsupportedOperation("describeBoundHostGroups");
+    }
+
     DescribeRulesResponse describeRules(DescribeRulesRequest request) throws LogException;
 
     ApplyRuleToHostGroupsResponse applyRuleToHostGroups(ApplyRuleToHostGroupsRequest request) throws LogException;
@@ -161,6 +201,14 @@ public interface TLSLogClient {
     DescribeHostGroupResponse describeHostGroup(DescribeHostGroupRequest request) throws LogException;
 
     DescribeHostGroupsResponse describeHostGroups(DescribeHostGroupsRequest request) throws LogException;
+
+    default DescribeHostGroupResponseV2 describeHostGroupV2(DescribeHostGroupRequestV2 request) throws LogException {
+        throw unsupportedOperation("describeHostGroupV2");
+    }
+
+    default DescribeHostGroupsResponseV2 describeHostGroupsV2(DescribeHostGroupsRequestV2 request) throws LogException {
+        throw unsupportedOperation("describeHostGroupsV2");
+    }
 
     DescribeHostsResponse describeHosts(DescribeHostsRequest request) throws LogException;
 
@@ -230,6 +278,22 @@ public interface TLSLogClient {
     DescribeDownloadTasksResponse describeDownloadTasks(DescribeDownloadTasksRequest request) throws LogException;
 
     DescribeDownloadUrlResponse describeDownloadUrl(DescribeDownloadUrlRequest request) throws LogException;
+
+    default CreateLogBackFlowTaskResponse createLogBackFlowTask(CreateLogBackFlowTaskRequest request) throws LogException {
+        throw unsupportedOperation("createLogBackFlowTask");
+    }
+
+    default DeleteLogBackFlowTaskResponse deleteLogBackFlowTask(DeleteLogBackFlowTaskRequest request) throws LogException {
+        throw unsupportedOperation("deleteLogBackFlowTask");
+    }
+
+    default DescribeLogBackFlowTasksResponse describeLogBackFlowTasks(DescribeLogBackFlowTasksRequest request) throws LogException {
+        throw unsupportedOperation("describeLogBackFlowTasks");
+    }
+
+    default ModifyLogBackFlowTaskResponse modifyLogBackFlowTask(ModifyLogBackFlowTaskRequest request) throws LogException {
+        throw unsupportedOperation("modifyLogBackFlowTask");
+    }
 
     /**
      * 数据导入任务
@@ -329,4 +393,50 @@ public interface TLSLogClient {
     DescribeScheduleSqlTaskResponse describeScheduleSqlTask(DescribeScheduleSqlTaskRequest request) throws LogException;
 
     DescribeScheduleSqlTasksResponse describeScheduleSqlTasks(DescribeScheduleSqlTasksRequest request) throws LogException;
+
+    /**
+     * 文本分析（智能分析）应用实例 / 场景元数据 / 会话问答
+     */
+    default CreateAppInstanceResponse createAppInstance(CreateAppInstanceRequest request) throws LogException {
+        throw unsupportedOperation("createAppInstance");
+    }
+
+    default ModifyAppInstanceResponse modifyAppInstance(ModifyAppInstanceRequest request) throws LogException {
+        throw unsupportedOperation("modifyAppInstance");
+    }
+
+    default DeleteAppInstanceResponse deleteAppInstance(DeleteAppInstanceRequest request) throws LogException {
+        throw unsupportedOperation("deleteAppInstance");
+    }
+
+    default DescribeAppInstancesResponse describeAppInstances(DescribeAppInstancesRequest request) throws LogException {
+        throw unsupportedOperation("describeAppInstances");
+    }
+
+    default CreateAppSceneMetaResponse createAppSceneMeta(CreateAppSceneMetaRequest request) throws LogException {
+        throw unsupportedOperation("createAppSceneMeta");
+    }
+
+    default ModifyAppSceneMetaResponse modifyAppSceneMeta(ModifyAppSceneMetaRequest request) throws LogException {
+        throw unsupportedOperation("modifyAppSceneMeta");
+    }
+
+    default DeleteAppSceneMetaResponse deleteAppSceneMeta(DeleteAppSceneMetaRequest request) throws LogException {
+        throw unsupportedOperation("deleteAppSceneMeta");
+    }
+
+    default DescribeAppSceneMetasResponse describeAppSceneMetas(DescribeAppSceneMetasRequest request) throws LogException {
+        throw unsupportedOperation("describeAppSceneMetas");
+    }
+
+    default DescribeAppSceneMetaResponse describeAppSceneMeta(DescribeAppSceneMetaRequest request) throws LogException {
+        throw unsupportedOperation("describeAppSceneMeta");
+    }
+
+    /**
+     * DescribeSessionAnswer 是 SSE 流式接口，当前 SDK 不通过阻塞 JSON 请求路径暴露该流。
+     */
+    default DescribeSessionAnswerResponse describeSessionAnswer(DescribeSessionAnswerRequest request) throws LogException {
+        throw unsupportedOperation("describeSessionAnswer");
+    }
 }

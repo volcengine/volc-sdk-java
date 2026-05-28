@@ -1,6 +1,7 @@
 package com.volcengine.model.tls.producer;
 
 import com.volcengine.model.tls.ClientConfig;
+import com.volcengine.model.tls.RetryPolicy;
 import com.volcengine.model.tls.exception.LogException;
 import lombok.Getter;
 import lombok.ToString;
@@ -31,7 +32,10 @@ public class ProducerConfig {
     public static final int DEFAULT_THREAD_COUNT = Math.min(AVAILABLE_PROCESSORS, DEFAULT_MAX_THREAD_COUNT);
     public static final int DEFAULT_SHARD_COUNT = 2;
     public static final long DEFAULT_BLOCK_MS = 60 * 1000L;
+    public static final long DEFAULT_MAX_PRODUCER_MEMORY_BYTES = 2L * DEFAULT_TOTAL_SIZE_IN_BYTES;
     private int totalSizeInBytes = DEFAULT_TOTAL_SIZE_IN_BYTES;
+    private long maxProducerMemoryBytes = DEFAULT_MAX_PRODUCER_MEMORY_BYTES;
+    private boolean maxProducerMemoryBytesExplicit;
     private int maxThreadCount = DEFAULT_THREAD_COUNT;
     private int maxBatchSizeBytes = DEFAULT_MAX_BATCH_SIZE;
     private int maxBatchCount = DEFAULT_MAX_BATCH_COUNT;
@@ -42,6 +46,9 @@ public class ProducerConfig {
     private ClientConfig clientConfig;
     private int shardCount = DEFAULT_SHARD_COUNT;
     private boolean enableNanosecond = false;
+    private RetryMode retryMode = RetryMode.LEGACY_DOUBLE_RETRY;
+    private FailurePolicy failurePolicy = FailurePolicy.RETRY_THEN_CALLBACK;
+    private CircuitBreakerConfig circuitBreakerConfig = new CircuitBreakerConfig();
     private final static Log log = LogFactory.getLog(ProducerConfig.class);
 
     public ProducerConfig(String endpoint, String region, String accessKey, String accessSecret, String token) {
@@ -65,6 +72,11 @@ public class ProducerConfig {
 
     public void validConfig() throws LogException {
         totalSizeInBytes = (int) validNumber(totalSizeInBytes, 1, Integer.MAX_VALUE, DEFAULT_TOTAL_SIZE_IN_BYTES);
+        if (!maxProducerMemoryBytesExplicit) {
+            maxProducerMemoryBytes = 2L * totalSizeInBytes;
+        } else {
+            maxProducerMemoryBytes = validNumber(maxProducerMemoryBytes, totalSizeInBytes, Long.MAX_VALUE, 2L * totalSizeInBytes);
+        }
         maxThreadCount = (int) validNumber(maxThreadCount, 1, MAX_THREAD_COUNT, DEFAULT_THREAD_COUNT);
         maxBatchSizeBytes = (int) validNumber(maxBatchSizeBytes, 1, MAX_BATCH_SIZE, DEFAULT_MAX_BATCH_SIZE);
         maxBatchCount = (int) validNumber(maxBatchCount, 1, MAX_BATCH_COUNT, DEFAULT_MAX_BATCH_COUNT);
@@ -73,9 +85,31 @@ public class ProducerConfig {
         retryCount = (int) validNumber(retryCount, 1, MAX_RETRY_COUNT, DEFAULT_RETRY_COUNT);
         maxReservedAttempts = (int) validNumber(maxReservedAttempts, 2, MAX_RESERVED_ATTEMPTS, DEFAULT_RESERVED_ATTEMPTS);
         shardCount = (int) validNumber(shardCount, 1, Integer.MAX_VALUE, DEFAULT_SHARD_COUNT);
+        if (retryMode == null) {
+            retryMode = RetryMode.LEGACY_DOUBLE_RETRY;
+        }
+        if (failurePolicy == null) {
+            failurePolicy = FailurePolicy.RETRY_THEN_CALLBACK;
+        }
+        if (circuitBreakerConfig == null) {
+            circuitBreakerConfig = new CircuitBreakerConfig();
+        }
         if (!isValidClientConfig(clientConfig)) {
             throw new LogException("InvalidArgument", String.valueOf(clientConfig), null);
         }
+        if (retryMode == RetryMode.PRODUCER_MANAGED) {
+            normalizeProducerManagedRetry();
+        }
+    }
+
+    private void normalizeProducerManagedRetry() {
+        RetryPolicy retryPolicy = clientConfig.getRetryPolicy();
+        if (retryPolicy == null) {
+            retryPolicy = RetryPolicy.defaultPolicy();
+        }
+        retryPolicy = retryPolicy.normalize();
+        retryPolicy.setMaxAttempts(1);
+        clientConfig.setRetryPolicy(retryPolicy);
     }
 
     private boolean isValidClientConfig(ClientConfig clientConfig) {
@@ -103,6 +137,17 @@ public class ProducerConfig {
             throw new LogException("InvalidArgument", "totalSizeInBytes must be greater than zero,actual:" + totalSizeInBytes, null);
         }
         this.totalSizeInBytes = totalSizeInBytes;
+        if (maxProducerMemoryBytes < totalSizeInBytes) {
+            this.maxProducerMemoryBytes = 2L * totalSizeInBytes;
+        }
+    }
+
+    public void setMaxProducerMemoryBytes(long maxProducerMemoryBytes) throws LogException {
+        if (maxProducerMemoryBytes <= 0) {
+            throw new LogException("InvalidArgument", "maxProducerMemoryBytes must be greater than zero,actual:" + maxProducerMemoryBytes, null);
+        }
+        this.maxProducerMemoryBytes = maxProducerMemoryBytes;
+        this.maxProducerMemoryBytesExplicit = true;
     }
 
     public void setMaxThreadCount(int maxThreadCount) throws LogException {
@@ -163,10 +208,22 @@ public class ProducerConfig {
     }
 
     public void setMaxBlockMs(long maxBlockMs) throws LogException {
-        if (maxBlockMs <= 0) {
-            throw new LogException("InvalidArgument", "maxBlockMs must be greater than zero,actual:" + maxBlockMs, null);
+        if (maxBlockMs < 0) {
+            throw new LogException("InvalidArgument", "maxBlockMs must be greater or equal than zero,actual:" + maxBlockMs, null);
         }
         this.maxBlockMs = maxBlockMs;
+    }
+
+    public void setRetryMode(RetryMode retryMode) {
+        this.retryMode = retryMode == null ? RetryMode.LEGACY_DOUBLE_RETRY : retryMode;
+    }
+
+    public void setFailurePolicy(FailurePolicy failurePolicy) {
+        this.failurePolicy = failurePolicy == null ? FailurePolicy.RETRY_THEN_CALLBACK : failurePolicy;
+    }
+
+    public void setCircuitBreakerConfig(CircuitBreakerConfig circuitBreakerConfig) {
+        this.circuitBreakerConfig = circuitBreakerConfig == null ? new CircuitBreakerConfig() : circuitBreakerConfig;
     }
 
     public void setEnableNanosecond(boolean enableNanosecond) {

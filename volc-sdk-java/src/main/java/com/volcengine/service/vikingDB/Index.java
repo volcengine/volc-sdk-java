@@ -106,6 +106,7 @@ public class Index {
                         .setPrimaryKeyNotIn(searchParam.getPrimaryKeyNotIn())
                         .setPostProcessInputLimit(searchParam.getPostProcessInputLimit())
                         .setPostProcessOps(searchParam.getPostProcessOps())
+                        .setScaleK(searchParam.getScaleK())
                         .build();
                 return searchByVector(searchByVectorParam);
             } else if (searchParam.getVectorOrder().getId() != null) {
@@ -120,6 +121,7 @@ public class Index {
                         .setPrimaryKeyNotIn(searchParam.getPrimaryKeyNotIn())
                         .setPostProcessInputLimit(searchParam.getPostProcessInputLimit())
                         .setPostProcessOps(searchParam.getPostProcessOps())
+                        .setScaleK(searchParam.getScaleK())
                         .build();
                 res = searchById(searchByIdParam);
             }

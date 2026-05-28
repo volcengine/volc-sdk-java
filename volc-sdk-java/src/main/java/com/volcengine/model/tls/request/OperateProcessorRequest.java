@@ -19,4 +19,3 @@ public class OperateProcessorRequest {
                 && operateAction != null && !operateAction.isEmpty();
     }
 }
-

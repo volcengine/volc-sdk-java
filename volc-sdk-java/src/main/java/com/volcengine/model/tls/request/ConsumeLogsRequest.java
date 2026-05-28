@@ -17,16 +17,18 @@ public class ConsumeLogsRequest {
     Integer logGroupCount;
     @JSONField(name = COMPRESSION)
     String compression;
-    @JSONField(serialize = false)
+    @JSONField(name = OFFSET)
+    Long offset;
+    @JSONField(name = TOPIC_ID, serialize = false)
     String topicId;
-    @JSONField(serialize = false)
+    @JSONField(name = SHARD_ID, serialize = false)
     Integer shardId;
     @JSONField(serialize = false)
     String consumerGroupName;
     @JSONField(serialize = false)
     String consumerName;
     @JSONField(serialize = false)
-    Boolean origin;
+    Boolean original;
 
 
     /**
@@ -142,11 +144,23 @@ public class ConsumeLogsRequest {
     }
 
     public Boolean isOrigin() {
-        return origin;
+        return original;
+    }
+
+    public Boolean getOrigin() {
+        return original;
     }
 
     public void setOrigin(Boolean origin) {
-        this.origin = origin;
+        this.original = origin;
+    }
+
+    public Boolean getOriginal() {
+        return original;
+    }
+
+    public void setOriginal(Boolean original) {
+        this.original = original;
     }
 
     /**

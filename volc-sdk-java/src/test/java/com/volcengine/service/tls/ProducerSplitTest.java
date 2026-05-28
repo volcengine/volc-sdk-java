@@ -1,20 +1,28 @@
 package com.volcengine.service.tls;
 
 import com.volcengine.model.tls.LogItem;
+import com.volcengine.model.tls.Const;
 import com.volcengine.model.tls.pb.PutLogRequest;
 import com.volcengine.model.tls.producer.BatchLog;
 import com.volcengine.model.tls.producer.ProducerConfig;
+import com.volcengine.model.tls.request.PutLogsRequest;
+import com.volcengine.model.tls.response.PutLogsResponse;
+import org.apache.http.message.BasicHeader;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Proxy;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 public class ProducerSplitTest {
     private ProducerImpl newProducer() throws Exception {
-        ProducerConfig config = new ProducerConfig("endpoint", "region", "ak", "sk", null);
+        ProducerConfig config = new ProducerConfig("http://endpoint", "region", "ak", "sk", null);
         config.setTotalSizeInBytes(Integer.MAX_VALUE);
         config.setMaxThreadCount(1);
         config.setMaxBatchSizeBytes(ProducerConfig.MAX_BATCH_SIZE);
@@ -26,6 +34,14 @@ public class ProducerSplitTest {
         Field field = ProducerImpl.class.getDeclaredField("dispatcher");
         field.setAccessible(true);
         return (LogDispatcher) field.get(producer);
+    }
+
+    private RecordingClient installRecordingClient(ProducerImpl producer, int expectedRequests) throws Exception {
+        RecordingClient client = new RecordingClient(expectedRequests);
+        Field field = LogDispatcher.class.getDeclaredField("client");
+        field.setAccessible(true);
+        field.set(getDispatcher(producer), client.proxy());
+        return client;
     }
 
     private List<PutLogRequest.LogGroup> collectGroups(LogDispatcher dispatcher) {
@@ -74,21 +90,29 @@ public class ProducerSplitTest {
     @Test
     public void testSplitBySize() throws Exception {
         ProducerImpl producer = newProducer();
+        RecordingClient client = installRecordingClient(producer, 2);
         List<LogItem> items = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             items.add(makeItem(2 * 1024 * 1024));
         }
-        producer.sendLogsV2(null, "topic", "source", "file", items, null);
+        try {
+            producer.sendLogsV2(null, "topic", "source", "file", items, null);
 
-        List<PutLogRequest.LogGroup> groups = collectGroups(getDispatcher(producer));
-        int total = 0;
-        Assert.assertTrue(groups.size() > 1);
-        for (PutLogRequest.LogGroup g : groups) {
-            Assert.assertTrue(g.getSerializedSize() <= ProducerConfig.MAX_BATCH_SIZE);
-            Assert.assertTrue(g.getLogsCount() <= ProducerConfig.MAX_LOG_GROUP_COUNT);
-            total += g.getLogsCount();
+            Assert.assertTrue(client.await());
+            List<PutLogRequest.LogGroup> groups = new ArrayList<>();
+            groups.addAll(client.groups);
+            groups.addAll(collectGroups(getDispatcher(producer)));
+            int total = 0;
+            Assert.assertTrue(groups.size() > 1);
+            for (PutLogRequest.LogGroup g : groups) {
+                Assert.assertTrue(g.getSerializedSize() <= ProducerConfig.MAX_BATCH_SIZE);
+                Assert.assertTrue(g.getLogsCount() <= ProducerConfig.MAX_LOG_GROUP_COUNT);
+                total += g.getLogsCount();
+            }
+            Assert.assertEquals(10, total);
+        } finally {
+            producer.closeNow();
         }
-        Assert.assertEquals(10, total);
     }
 
     @Test
@@ -121,5 +145,36 @@ public class ProducerSplitTest {
             total += g.getLogsCount();
         }
         Assert.assertEquals(24000, total);
+    }
+
+    private static final class RecordingClient {
+        private final CountDownLatch latch;
+        private final List<PutLogRequest.LogGroup> groups = Collections.synchronizedList(new ArrayList<>());
+
+        RecordingClient(int expectedRequests) {
+            this.latch = new CountDownLatch(expectedRequests);
+        }
+
+        TLSLogClient proxy() {
+            return (TLSLogClient) Proxy.newProxyInstance(
+                    TLSLogClient.class.getClassLoader(),
+                    new Class[]{TLSLogClient.class},
+                    (proxy, method, args) -> {
+                        if ("putLogs".equals(method.getName())) {
+                            PutLogsRequest request = (PutLogsRequest) args[0];
+                            groups.addAll(request.getLogGroupList().getLogGroupsList());
+                            latch.countDown();
+                            return new PutLogsResponse(new BasicHeader[]{new BasicHeader(Const.X_TLS_REQUESTID, "ok")});
+                        }
+                        if ("toString".equals(method.getName())) {
+                            return "RecordingClient";
+                        }
+                        return null;
+                    });
+        }
+
+        boolean await() throws InterruptedException {
+            return latch.await(2, TimeUnit.SECONDS);
+        }
     }
 }

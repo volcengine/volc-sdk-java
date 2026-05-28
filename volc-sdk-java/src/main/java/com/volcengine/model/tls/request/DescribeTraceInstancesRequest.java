@@ -32,6 +32,17 @@ public class DescribeTraceInstancesRequest {
     @JSONField(name = "IamProjectName")
     private String iamProjectName;
 
+    @JSONField(name = "CsAccountChannel")
+    private String csAccountChannel;
+
+    public String getCsAccountChannel() {
+        return csAccountChannel;
+    }
+
+    public void setCsAccountChannel(String csAccountChannel) {
+        this.csAccountChannel = csAccountChannel;
+    }
+
     public boolean CheckValidation() {
         return true;
     }

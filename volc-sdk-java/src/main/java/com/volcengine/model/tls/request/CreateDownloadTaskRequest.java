@@ -45,6 +45,9 @@ public class CreateDownloadTaskRequest {
     @JSONField(name = ALLOW_INCOMPLETE)
     Boolean allowIncomplete;
 
+    @JSONField(name = MUST_COMPLETE)
+    Boolean mustComplete;
+
     @JSONField(name = LOG_CONTEXT_INFOS)
     LogContextInfos logContextInfos;
 
@@ -171,6 +174,14 @@ public class CreateDownloadTaskRequest {
      */
     public void setCompression(String compression) {
         this.compression = compression;
+    }
+
+    public Boolean getMustComplete() {
+        return mustComplete;
+    }
+
+    public void setMustComplete(Boolean mustComplete) {
+        this.mustComplete = mustComplete;
     }
 
     /**

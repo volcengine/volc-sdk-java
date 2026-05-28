@@ -7,14 +7,19 @@ import com.volcengine.model.tls.ClientBuilder;
 import com.volcengine.model.tls.ClientConfig;
 import com.volcengine.model.tls.exception.LogException;
 import com.volcengine.model.tls.pb.PutLogRequest;
+import com.volcengine.model.tls.producer.Attempt;
 import com.volcengine.model.tls.producer.BatchLog;
 import com.volcengine.model.tls.producer.CallBack;
+import com.volcengine.model.tls.producer.CircuitBreaker;
+import com.volcengine.model.tls.producer.FailurePolicy;
+import com.volcengine.model.tls.producer.MemoryLimiter;
 import com.volcengine.model.tls.producer.ProducerConfig;
+import com.volcengine.model.tls.producer.Result;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.http.impl.client.HttpClients;
 
 import java.time.Instant;
+import java.util.Collections;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -31,14 +36,15 @@ public class LogDispatcher {
     private static final Log LOG = LogFactory.getLog(LogDispatcher.class);
     private final AtomicInteger addLogLock = new AtomicInteger(0);
     private volatile boolean closed;
-    private final Semaphore memoryLock;
+    private final MemoryLimiter memoryLimiter;
     private final AtomicInteger batchCount;
     private final RetryManager retryManager;
+    private final CircuitBreaker circuitBreaker;
     private final ConcurrentHashMap<BatchLog.BatchKey, BatchLog.BatchManager> batches;
 
     public LogDispatcher(ProducerConfig producerConfig, String producerName, BlockingQueue<BatchLog> successQueue,
-                         BlockingQueue<BatchLog> failureQueue, Semaphore memoryLock,
-                         AtomicInteger batchCount, RetryManager retryManager) throws LogException {
+                         BlockingQueue<BatchLog> failureQueue, MemoryLimiter memoryLimiter,
+                         AtomicInteger batchCount, RetryManager retryManager, CircuitBreaker circuitBreaker) throws LogException {
         this.producerConfig = producerConfig;
         this.producerName = producerName;
         this.executorService = Executors.newFixedThreadPool(
@@ -47,16 +53,17 @@ public class LogDispatcher {
                         .setNameFormat(producerName + SEPARATOR + TLS_THREAD_POOL_FORMAT)
                         .setDaemon(true)
                         .build());
-        this.memoryLock = memoryLock;
+        this.memoryLimiter = memoryLimiter;
         this.successQueue = successQueue;
         this.failureQueue = failureQueue;
         this.batches = new ConcurrentHashMap<>();
         this.batchCount = batchCount;
         this.retryManager = retryManager;
+        this.circuitBreaker = circuitBreaker;
         this.client = ClientBuilder.newClient(producerConfig.getClientConfig());
-        this.client.setHttpClient(HttpClients.custom()
-                .setConnectionManager(TLSUtil.createHttpClientConnectionManager())
-                .disableContentCompression().build());
+        this.client.setHttpClientConnectionManager(TLSUtil.createHttpClientConnectionManager(
+                        producerConfig.getClientConfig().isVerifySsl()),
+                true);
     }
 
     public TLSLogClient getClient() {
@@ -65,6 +72,14 @@ public class LogDispatcher {
 
     public ConcurrentHashMap<BatchLog.BatchKey, BatchLog.BatchManager> getBatches() {
         return batches;
+    }
+
+    public MemoryLimiter getMemoryLimiter() {
+        return memoryLimiter;
+    }
+
+    public CircuitBreaker getCircuitBreaker() {
+        return circuitBreaker;
     }
 
     public void start() {
@@ -78,10 +93,12 @@ public class LogDispatcher {
 
     public void close() {
         this.closed = true;
+        memoryLimiter.closePayload();
     }
 
     public void closeNow() {
         this.closed = true;
+        memoryLimiter.close();
         executorService.shutdownNow();
     }
 
@@ -159,31 +176,49 @@ public class LogDispatcher {
         logGroup = groupBuilder.build();
         int batchSize = calculateSize(logGroup);
         producerConfig.checkBatchSize(batchSize);
+        int circuitPermitCount = 0;
+        if (producerConfig.getFailurePolicy() != FailurePolicy.RETRY_THEN_CALLBACK) {
+            circuitPermitCount = circuitBreaker.acquirePermit();
+            if (circuitPermitCount < 0) {
+                handleOpenCircuit(callBack);
+                return;
+            }
+        }
         // wait add lock
         long maxBlockMs = producerConfig.getMaxBlockMs();
         LOG.debug(String.format("dispatcher %s try acquire memory lock ", producerName));
 
-        if (maxBlockMs == 0) {
-            memoryLock.acquire(batchSize);
-        } else {
-            boolean acquired = memoryLock.tryAcquire(batchSize, maxBlockMs, TimeUnit.MILLISECONDS);
-            if (!acquired) {
-                LOG.warn(String.format("Failed to acquire memory within the configured max blocking time %d ms, requiredSizeInBytes=%d, availableSizeInBytes=%d",
-                        producerConfig.getMaxBlockMs(), batchSize, memoryLock.availablePermits()));
-                throw new LogException("Producer Error", String.format("dispatcher %s try acquire memory lock failed", producerName), null);
-            }
+        boolean acquired = memoryLimiter.acquirePayload(batchSize, maxBlockMs);
+        if (!acquired) {
+            circuitBreaker.releasePermits(circuitPermitCount);
+            LOG.warn(String.format("Failed to acquire memory within the configured max blocking time %d ms, requiredSizeInBytes=%d, usedSizeInBytes=%d",
+                    producerConfig.getMaxBlockMs(), batchSize, memoryLimiter.getUsedBytes()));
+            throw new LogException("Producer Error", String.format("dispatcher %s try acquire memory lock failed", producerName), null);
         }
         // add batch
         try {
             BatchLog.BatchKey batchKey = new BatchLog.BatchKey(hashKey, topicId, source, filename);
             BatchLog.BatchManager batchManager = getOrCreateBatchManager(batchKey);
             synchronized (batchManager) {
-                addToBatchManager(batchKey, logGroup, callBack, batchSize, batchManager, logCount, earliestLogTime, latestLogTime);
+                addToBatchManager(batchKey, logGroup, callBack, batchSize, batchManager,
+                        logCount, earliestLogTime, latestLogTime, circuitPermitCount);
             }
         } catch (Exception e) {
-            memoryLock.release(batchSize);
+            memoryLimiter.releasePayload(batchSize);
+            circuitBreaker.releasePermits(circuitPermitCount);
             throw new LogException("Producer Error", "dispatcher add batch concurrent error", null);
         }
+    }
+
+    private void handleOpenCircuit(CallBack callBack) throws LogException {
+        if (producerConfig.getFailurePolicy() == FailurePolicy.DROP_WITH_CALLBACK) {
+            if (callBack != null) {
+                Attempt attempt = new Attempt(false, null, "CircuitOpenException", "producer circuit breaker is open", 0);
+                callBack.onComplete(new Result(false, Collections.singletonList(attempt), 1));
+            }
+            return;
+        }
+        throw new LogException("Producer Error", "producer circuit breaker is open", null);
     }
 
     private int calculateSize(PutLogRequest.LogGroup logGroup) {
@@ -197,18 +232,20 @@ public class LogDispatcher {
 
     private void addToBatchManager(BatchLog.BatchKey batchKey, PutLogRequest.LogGroup logGroup, CallBack callBack,
                                    int batchSize, BatchLog.BatchManager batchManager,
-                                   int logCount, long earliestLogTime, long latestLogTime) throws LogException {
+                                   int logCount, long earliestLogTime, long latestLogTime,
+                                   int circuitPermitCount) throws LogException {
         // add to exist batch
         BatchLog batchLog = batchManager.getBatchLog();
         if (batchLog != null) {
             boolean success = batchLog.tryAdd(logGroup, batchSize, callBack, logCount, earliestLogTime, latestLogTime);
             if (success) {
+                batchLog.addCircuitPermitCount(circuitPermitCount);
                 if (batchManager.fullAndSendBatchRequest()) {
-                    batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue, batchCount, retryManager, memoryLock);
+                    batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue, batchCount, retryManager, memoryLimiter, circuitBreaker);
                 }
                 return;
             } else {
-                batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue, batchCount, retryManager, memoryLock);
+                batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue, batchCount, retryManager, memoryLimiter, circuitBreaker);
             }
         }
         // no batch create new and try send
@@ -220,8 +257,9 @@ public class LogDispatcher {
                     batchKey.toString(), batchSize, logGroup.getLogsCount()));
             throw new LogException("Producer Error", "tryAdd batchLog failed", null);
         }
+        batchLog.addCircuitPermitCount(circuitPermitCount);
         if (batchManager.fullAndSendBatchRequest()) {
-            batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue, batchCount, retryManager, memoryLock);
+            batchManager.addNow(producerConfig, executorService, client, successQueue, failureQueue, batchCount, retryManager, memoryLimiter, circuitBreaker);
         }
     }
 }

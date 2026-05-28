@@ -8,7 +8,9 @@ import org.apache.http.client.HttpRequestRetryHandler;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.protocol.HttpClientContext;
 import org.apache.http.conn.ConnectionKeepAliveStrategy;
+import org.apache.http.conn.HttpClientConnectionManager;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.message.BasicHeaderElementIterator;
 import org.apache.http.protocol.HTTP;
@@ -51,21 +53,33 @@ public class HttpClientFactory {
         int maxConPerRoute = configuration.getMaxConPerRoute();
         connectionManager.setMaxTotal(maxCon);
         connectionManager.setDefaultMaxPerRoute(maxConPerRoute);
+        return create(configuration, proxy, connectionManager);
+    }
 
+    public static ClientInstance create(ClientConfiguration configuration, HttpHost proxy,
+                                        HttpClientConnectionManager connectionManager) {
+        return create(configuration, proxy, connectionManager, false);
+    }
+
+    public static ClientInstance create(ClientConfiguration configuration, HttpHost proxy,
+                                        HttpClientConnectionManager connectionManager,
+                                        boolean disableContentCompression) {
         ConnectionKeepAliveStrategy strategy;
         if (connectionKeepAliveStrategy != null) {
             strategy = connectionKeepAliveStrategy;
         } else {
             strategy = getConnectionKeepAliveStrategy();
         }
-        HttpClient httpClient;
-        httpClient = HttpClients.custom()
+        HttpClientBuilder builder = HttpClients.custom()
                 .setConnectionManager(connectionManager)
                 .setKeepAliveStrategy(strategy)
                 .setRetryHandler(httpRequestRetryHandler)
                 .setDefaultRequestConfig(RequestConfig.custom().setStaleConnectionCheckEnabled(true).build())
-                .setProxy(proxy)
-                .build();
+                .setProxy(proxy);
+        if (disableContentCompression) {
+            builder.disableContentCompression();
+        }
+        HttpClient httpClient = builder.build();
 
         IdleConnectionMonitorThread daemonThread = new IdleConnectionMonitorThread(connectionManager);
         daemonThread.setDaemon(true);

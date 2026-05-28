@@ -30,7 +30,7 @@ public class CDNConfig {
                 }
             }
     );
-    
+
     public static Map<String, ApiInfo> apiInfoList = new HashMap<String, ApiInfo>() {
         {
             // 添加加速域名: https://www.volcengine.com/docs/6454/97340
@@ -721,7 +721,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 查询计费结果数据: 
+            // 查询计费结果数据:
             put("DescribeAccountingSummary", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -737,7 +737,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 查询全局配置关联域名: 
+            // 查询全局配置关联域名:
             put("DescribeDomainShared", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -753,7 +753,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 批量查询节点信息: 
+            // 批量查询节点信息:
             put("DescribeCdnIP", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -769,7 +769,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 获取访问统计的细分数据: 
+            // 获取访问统计的细分数据:
             put("DescribeDistrictData", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -785,7 +785,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 获取计费区域的细分数据: 
+            // 获取计费区域的细分数据:
             put("DescribeEdgeData", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -801,7 +801,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 获取访问统计的汇总数据: 
+            // 获取访问统计的汇总数据:
             put("DescribeDistrictSummary", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -817,7 +817,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 获取计费区域的汇总数据: 
+            // 获取计费区域的汇总数据:
             put("DescribeEdgeSummary", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -833,7 +833,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 获取回源统计的细分数据: 
+            // 获取回源统计的细分数据:
             put("DescribeOriginData", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -849,7 +849,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 获取回源统计的汇总数据: 
+            // 获取回源统计的汇总数据:
             put("DescribeOriginSummary", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -865,7 +865,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 获取独立访客的细分数据: 
+            // 获取独立访客的细分数据:
             put("DescribeUserData", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -881,7 +881,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 获取访问数据的统计排名: 
+            // 获取访问数据的统计排名:
             put("DescribeDistrictRanking", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -897,7 +897,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 获取计费区域的统计排名: 
+            // 获取计费区域的统计排名:
             put("DescribeEdgeRanking", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -913,7 +913,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 获取回源数据的统计排名: 
+            // 获取回源数据的统计排名:
             put("DescribeOriginRanking", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -929,7 +929,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 获取访问状态码排名数据: 
+            // 获取访问状态码排名数据:
             put("DescribeEdgeStatusCodeRanking", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -945,7 +945,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 获取回源状态码的统计排名: 
+            // 获取回源状态码的统计排名:
             put("DescribeOriginStatusCodeRanking", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -961,7 +961,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 获取热门对象的统计排名: 
+            // 获取热门对象的统计排名:
             put("DescribeStatisticalRanking", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -977,7 +977,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 批量更新加速域名: 
+            // 批量更新加速域名:
             put("BatchUpdateCdnConfig", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -993,7 +993,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 上传证书新版: 
+            // 上传证书新版:
             put("AddCertificate", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1009,7 +1009,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 删除用量导出任务: 
+            // 删除用量导出任务:
             put("DeleteUsageReport", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1025,7 +1025,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 创建用量导出任务: 
+            // 创建用量导出任务:
             put("CreateUsageReport", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1041,7 +1041,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 获取用量导出任务列表: 
+            // 获取用量导出任务列表:
             put("ListUsageReports", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1057,7 +1057,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 查询全局配置: 
+            // 查询全局配置:
             put("DescribeSharedConfig", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1073,7 +1073,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 查询全局配置列表: 
+            // 查询全局配置列表:
             put("ListSharedConfig", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1089,7 +1089,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 删除全局配置: 
+            // 删除全局配置:
             put("DeleteSharedConfig", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1105,7 +1105,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 修改全局配置: 
+            // 修改全局配置:
             put("UpdateSharedConfig", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1121,7 +1121,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 新增全局配置: 
+            // 新增全局配置:
             put("AddSharedConfig", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1137,7 +1137,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 接入域名校验: 
+            // 接入域名校验:
             put("CheckDomain", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1153,7 +1153,7 @@ public class CDNConfig {
                     }
             ));
 
-            // DNS校验信息生成: 
+            // DNS校验信息生成:
             put("DescribeRetrieveInfo", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1169,7 +1169,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 查询域名版本列表: 
+            // 查询域名版本列表:
             put("ListDomainVersions", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1185,7 +1185,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 查询域名环境版本: 
+            // 查询域名环境版本:
             put("DescribeDomainEnvVersion", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1201,7 +1201,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 创建域名版本: 
+            // 创建域名版本:
             put("CreateDomainVersion", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1217,7 +1217,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 删除域名版本: 
+            // 删除域名版本:
             put("DeleteDomainVersion", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1233,7 +1233,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 查询域名版本: 
+            // 查询域名版本:
             put("DescribeDomainVersion", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1249,7 +1249,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 修改域名版本: 
+            // 修改域名版本:
             put("UpdateDomainVersion", new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1265,7 +1265,7 @@ public class CDNConfig {
                     }
             ));
 
-            // 发布域名版本: 
+            // 发布域名版本:
             put("ReleaseDomainVersion", new ApiInfo(
                     new HashMap<String, Object>() {
                         {

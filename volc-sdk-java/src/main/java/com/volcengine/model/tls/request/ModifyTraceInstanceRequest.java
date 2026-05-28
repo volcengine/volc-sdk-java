@@ -1,6 +1,7 @@
 package com.volcengine.model.tls.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.tls.BackendConfig;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,6 +15,8 @@ public class ModifyTraceInstanceRequest {
     
     @JSONField(name = DESCRIPTION)
     private String description;
+    @JSONField(name = BACKEND_CONFIG)
+    private BackendConfig backendConfig;
 
     /**
      * @return Trace实例ID
@@ -41,6 +44,14 @@ public class ModifyTraceInstanceRequest {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public BackendConfig getBackendConfig() {
+        return backendConfig;
+    }
+
+    public void setBackendConfig(BackendConfig backendConfig) {
+        this.backendConfig = backendConfig;
     }
 
     /**

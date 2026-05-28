@@ -133,109 +133,109 @@ package com.volcengine.service.cdn;
         // 删除托管在内容分发网络的证书: https://www.volcengine.com/docs/6454/597589
         CDN.DeleteCdnCertificateResponse deleteCdnCertificate(CDN.DeleteCdnCertificateRequest request) throws Exception;
 
-        // 查询计费结果数据: 
+        // 查询计费结果数据:
         CDN.DescribeAccountingSummaryResponse describeAccountingSummary(CDN.DescribeAccountingSummaryRequest request) throws Exception;
 
-        // 查询全局配置关联域名: 
+        // 查询全局配置关联域名:
         CDN.DescribeDomainSharedResponse describeDomainShared(CDN.DescribeDomainSharedRequest request) throws Exception;
 
-        // 批量查询节点信息: 
+        // 批量查询节点信息:
         CDN.DescribeCdnIPResponse describeCdnIP(CDN.DescribeCdnIPRequest request) throws Exception;
 
-        // 获取访问统计的细分数据: 
+        // 获取访问统计的细分数据:
         CDN.DescribeDistrictDataResponse describeDistrictData(CDN.DescribeDistrictDataRequest request) throws Exception;
 
-        // 获取计费区域的细分数据: 
+        // 获取计费区域的细分数据:
         CDN.DescribeEdgeDataResponse describeEdgeData(CDN.DescribeEdgeDataRequest request) throws Exception;
 
-        // 获取访问统计的汇总数据: 
+        // 获取访问统计的汇总数据:
         CDN.DescribeDistrictSummaryResponse describeDistrictSummary(CDN.DescribeDistrictSummaryRequest request) throws Exception;
 
-        // 获取计费区域的汇总数据: 
+        // 获取计费区域的汇总数据:
         CDN.DescribeEdgeSummaryResponse describeEdgeSummary(CDN.DescribeEdgeSummaryRequest request) throws Exception;
 
-        // 获取回源统计的细分数据: 
+        // 获取回源统计的细分数据:
         CDN.DescribeOriginDataResponse describeOriginData(CDN.DescribeOriginDataRequest request) throws Exception;
 
-        // 获取回源统计的汇总数据: 
+        // 获取回源统计的汇总数据:
         CDN.DescribeOriginSummaryResponse describeOriginSummary(CDN.DescribeOriginSummaryRequest request) throws Exception;
 
-        // 获取独立访客的细分数据: 
+        // 获取独立访客的细分数据:
         CDN.DescribeUserDataResponse describeUserData(CDN.DescribeUserDataRequest request) throws Exception;
 
-        // 获取访问数据的统计排名: 
+        // 获取访问数据的统计排名:
         CDN.DescribeDistrictRankingResponse describeDistrictRanking(CDN.DescribeDistrictRankingRequest request) throws Exception;
 
-        // 获取计费区域的统计排名: 
+        // 获取计费区域的统计排名:
         CDN.DescribeEdgeRankingResponse describeEdgeRanking(CDN.DescribeEdgeRankingRequest request) throws Exception;
 
-        // 获取回源数据的统计排名: 
+        // 获取回源数据的统计排名:
         CDN.DescribeOriginRankingResponse describeOriginRanking(CDN.DescribeOriginRankingRequest request) throws Exception;
 
-        // 获取访问状态码排名数据: 
+        // 获取访问状态码排名数据:
         CDN.DescribeEdgeStatusCodeRankingResponse describeEdgeStatusCodeRanking(CDN.DescribeEdgeStatusCodeRankingRequest request) throws Exception;
 
-        // 获取回源状态码的统计排名: 
+        // 获取回源状态码的统计排名:
         CDN.DescribeOriginStatusCodeRankingResponse describeOriginStatusCodeRanking(CDN.DescribeOriginStatusCodeRankingRequest request) throws Exception;
 
-        // 获取热门对象的统计排名: 
+        // 获取热门对象的统计排名:
         CDN.DescribeStatisticalRankingResponse describeStatisticalRanking(CDN.DescribeStatisticalRankingRequest request) throws Exception;
 
-        // 批量更新加速域名: 
+        // 批量更新加速域名:
         CDN.BatchUpdateCdnConfigResponse batchUpdateCdnConfig(CDN.BatchUpdateCdnConfigRequest request) throws Exception;
 
-        // 上传证书新版: 
+        // 上传证书新版:
         CDN.AddCertificateResponse addCertificate(CDN.AddCertificateRequest request) throws Exception;
 
-        // 删除用量导出任务: 
+        // 删除用量导出任务:
         CDN.DeleteUsageReportResponse deleteUsageReport(CDN.DeleteUsageReportRequest request) throws Exception;
 
-        // 创建用量导出任务: 
+        // 创建用量导出任务:
         CDN.CreateUsageReportResponse createUsageReport(CDN.CreateUsageReportRequest request) throws Exception;
 
-        // 获取用量导出任务列表: 
+        // 获取用量导出任务列表:
         CDN.ListUsageReportsResponse listUsageReports(CDN.ListUsageReportsRequest request) throws Exception;
 
-        // 查询全局配置: 
+        // 查询全局配置:
         CDN.DescribeSharedConfigResponse describeSharedConfig(CDN.DescribeSharedConfigRequest request) throws Exception;
 
-        // 查询全局配置列表: 
+        // 查询全局配置列表:
         CDN.ListSharedConfigResponse listSharedConfig(CDN.ListSharedConfigRequest request) throws Exception;
 
-        // 删除全局配置: 
+        // 删除全局配置:
         CDN.DeleteSharedConfigResponse deleteSharedConfig(CDN.DeleteSharedConfigRequest request) throws Exception;
 
-        // 修改全局配置: 
+        // 修改全局配置:
         CDN.UpdateSharedConfigResponse updateSharedConfig(CDN.UpdateSharedConfigRequest request) throws Exception;
 
-        // 新增全局配置: 
+        // 新增全局配置:
         CDN.AddSharedConfigResponse addSharedConfig(CDN.AddSharedConfigRequest request) throws Exception;
 
-        // 接入域名校验: 
+        // 接入域名校验:
         CDN.CheckDomainResponse checkDomain(CDN.CheckDomainRequest request) throws Exception;
 
-        // DNS校验信息生成: 
+        // DNS校验信息生成:
         CDN.DescribeRetrieveInfoResponse describeRetrieveInfo(CDN.DescribeRetrieveInfoRequest request) throws Exception;
 
-        // 查询域名版本列表: 
+        // 查询域名版本列表:
         CDN.ListDomainVersionsResponse listDomainVersions(CDN.ListDomainVersionsRequest request) throws Exception;
 
-        // 查询域名环境版本: 
+        // 查询域名环境版本:
         CDN.DescribeDomainEnvVersionResponse describeDomainEnvVersion(CDN.DescribeDomainEnvVersionRequest request) throws Exception;
 
-        // 创建域名版本: 
+        // 创建域名版本:
         CDN.CreateDomainVersionResponse createDomainVersion(CDN.CreateDomainVersionRequest request) throws Exception;
 
-        // 删除域名版本: 
+        // 删除域名版本:
         CDN.DeleteDomainVersionResponse deleteDomainVersion(CDN.DeleteDomainVersionRequest request) throws Exception;
 
-        // 查询域名版本: 
+        // 查询域名版本:
         CDN.DescribeDomainVersionResponse describeDomainVersion(CDN.DescribeDomainVersionRequest request) throws Exception;
 
-        // 修改域名版本: 
+        // 修改域名版本:
         CDN.UpdateDomainVersionResponse updateDomainVersion(CDN.UpdateDomainVersionRequest request) throws Exception;
 
-        // 发布域名版本: 
+        // 发布域名版本:
         CDN.ReleaseDomainVersionResponse releaseDomainVersion(CDN.ReleaseDomainVersionRequest request) throws Exception;
 
 }

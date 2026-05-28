@@ -1,27 +1,27 @@
 package com.volcengine.service.tls;
 
 import com.volcengine.model.tls.producer.BatchLog;
+import com.volcengine.model.tls.producer.MemoryLimiter;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class BatchHandler extends Thread {
-    private final Semaphore memoryLock;
+    private final MemoryLimiter memoryLimiter;
     private final BlockingQueue<BatchLog> batchQueue;
     private final AtomicInteger batchCount;
     private volatile boolean closed;
     private final String name;
     private final static Log LOG = LogFactory.getLog(BatchHandler.class);
 
-    public BatchHandler(String name, Semaphore memoryLock, BlockingQueue<BatchLog> batchQueue, AtomicInteger batchCount) {
+    public BatchHandler(String name, MemoryLimiter memoryLimiter, BlockingQueue<BatchLog> batchQueue, AtomicInteger batchCount) {
         super(name);
         setDaemon(true);
-        this.memoryLock = memoryLock;
+        this.memoryLimiter = memoryLimiter;
         this.batchQueue = batchQueue;
         this.batchCount = batchCount;
         this.name = name;
@@ -56,7 +56,7 @@ public class BatchHandler extends Thread {
             LOG.error("batch fire callbacks failed: ", t);
         } finally {
             batchCount.decrementAndGet();
-            memoryLock.release(batch.getCurrentBatchSize());
+            memoryLimiter.releasePayload(batch.getReservedBytes());
         }
     }
 

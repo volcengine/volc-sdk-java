@@ -18,24 +18,45 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
 public class TLSUtil {
+    /**
+     * 默认入口：保持向后兼容（trust-all + NoopHostnameVerifier）。
+     *
+     * <p>L4-D2：原行为存在 P0 级 MITM 风险（接受任意 CA / 自签 / 主机名不匹配），
+     * 但收紧默认会破坏存量自签 / 私有 CA 用户。本次仅暴露
+     * {@link #createHttpClientConnectionManager(boolean)} 开关；安全敏感场景请显式
+     * 传 {@code true}（或在 {@code ClientConfig} 中 {@code setVerifySsl(true)}），
+     * 切换到 JDK 默认安全栈，与 Go / Python / C++ V2 默认对齐。
+     */
     public static HttpClientConnectionManager createHttpClientConnectionManager() throws LogException {
-        SSLContext sslContext = null;
-        try {
-            sslContext = new SSLContextBuilder().loadTrustMaterial(null, new TrustStrategy() {
+        return createHttpClientConnectionManager(false);
+    }
 
-                @Override
-                public boolean isTrusted(X509Certificate[] chain, String authType) throws CertificateException {
-                    return true;
-                }
-
-            }).build();
-
-        } catch (Exception e) {
-            throw new LogException("HttpClientConnectionError", e.getMessage(), "");
+    /**
+     * @param verifySsl true：使用 JDK 默认 SSLContext + 默认 HostnameVerifier（安全，推荐）；
+     *                  false：信任任意证书 + 跳过主机名校验（仅供自签 / 调试场景，存在 MITM 风险）。
+     */
+    public static HttpClientConnectionManager createHttpClientConnectionManager(boolean verifySsl)
+            throws LogException {
+        SSLConnectionSocketFactory sslSocketFactory;
+        if (verifySsl) {
+            sslSocketFactory = SSLConnectionSocketFactory.getSocketFactory();
+        } else {
+            try {
+                SSLContext sslContext = new SSLContextBuilder()
+                        .loadTrustMaterial(null, new TrustStrategy() {
+                            @Override
+                            public boolean isTrusted(X509Certificate[] chain, String authType)
+                                    throws CertificateException {
+                                return true;
+                            }
+                        })
+                        .build();
+                sslSocketFactory = new SSLConnectionSocketFactory(sslContext, NoopHostnameVerifier.INSTANCE);
+            } catch (Exception e) {
+                throw new LogException("HttpClientConnectionError", e.getMessage(), "");
+            }
         }
 
-        SSLConnectionSocketFactory sslSocketFactory = new SSLConnectionSocketFactory(sslContext,
-                NoopHostnameVerifier.INSTANCE);
         Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()
                 .register("http", PlainConnectionSocketFactory.getSocketFactory())
                 .register("https", sslSocketFactory).build();

@@ -16,4 +16,3 @@ public class UnbindTopicProcessorRequest {
         return topicId != null && !topicId.isEmpty();
     }
 }
-

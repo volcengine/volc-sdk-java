@@ -13,8 +13,15 @@
 ```java
 ClientConfig clientConfig = new ClientConfig(System.getenv("VOLCENGINE_ENDPOINT"), System.getenv("VOLCENGINE_REGION"),
         System.getenv("VOLCENGINE_ACCESS_KEY_ID"), System.getenv("VOLCENGINE_ACCESS_KEY_SECRET"), System.getenv("VOLCENGINE_TOKEN"));
+// 【强烈推荐】Producer/Consumer 等自定义连接池场景显式启用 HTTPS 证书与主机名校验；
+// ClientBuilder.newClient 在 verifySsl=true 时也会显式使用 JDK 默认安全栈。
+clientConfig.setVerifySsl(true);
 TLSLogClient client = ClientBuilder.newClient(clientConfig);
 ```
+
+> ⚠️ **HTTPS 安全提示**：`ClientConfig.verifySsl` 默认 `false` 是为了保留 Producer/Consumer 自定义连接池的旧 trust-all 兼容入口。
+> 公网 / 生产环境使用 Producer/Consumer 时**必须**显式 `setVerifySsl(true)`，启用 JDK 默认安全栈进行证书与主机名校验。
+> `ClientBuilder.newClient` 默认使用底层 HttpClient 的系统证书校验；显式 `setVerifySsl(true)` 会改用 TLS SDK 的安全连接池。
 
 如需使用 API Key 匿名鉴权写入日志，请使用显式 API Key 初始化入口。当前匿名鉴权仅支持最终请求为 `/PutLogs` 的接口，例如 `putLogs`、`putLogsV2` 和 Producer 写入；其他接口仍需要完整 AK/SK。
 
@@ -72,6 +79,8 @@ public class Demo {
         // 使用 STS 时，ak 和 sk 均使用临时密钥，且设置 VOLCENGINE_TOKEN；不使用 STS 时，VOLCENGINE_TOKEN 部分传空
         ClientConfig clientConfig = new ClientConfig(System.getenv("VOLCENGINE_ENDPOINT"), System.getenv("VOLCENGINE_REGION"),
                 System.getenv("VOLCENGINE_ACCESS_KEY_ID"), System.getenv("VOLCENGINE_ACCESS_KEY_SECRET"), System.getenv("VOLCENGINE_TOKEN"));
+        // 【强烈推荐】生产环境显式开启 HTTPS 证书与主机名校验，防御中间人攻击。
+        clientConfig.setVerifySsl(true);
         TLSLogClient client = ClientBuilder.newClient(clientConfig);
 
         // 创建日志项目
@@ -181,6 +190,8 @@ public class Demo {
         // 使用 STS 时，ak 和 sk 均使用临时密钥，且设置 VOLCENGINE_TOKEN；不使用 STS 时，VOLCENGINE_TOKEN 部分传空
         ProducerConfig producerConfig = new ProducerConfig(System.getenv("VOLCENGINE_ENDPOINT"), System.getenv("VOLCENGINE_REGION"),
             System.getenv("VOLCENGINE_ACCESS_KEY_ID"), System.getenv("VOLCENGINE_ACCESS_KEY_SECRET"), System.getenv("VOLCENGINE_TOKEN"));
+        // 【强烈推荐】生产环境显式开启 HTTPS 证书与主机名校验，防御中间人攻击。
+        producerConfig.getClientConfig().setVerifySsl(true);
         // 如需使用 API Key 匿名鉴权写入日志，可改为：
         // ProducerConfig producerConfig = new ProducerConfig(System.getenv("VOLCENGINE_ENDPOINT"),
         //         System.getenv("VOLCENGINE_REGION"), System.getenv("VOLCENGINE_TLS_API_KEY"));
@@ -278,6 +289,8 @@ public class ConsumerDemo implements LogProcessor {
         // 使用 STS 时，ak 和 sk 均使用临时密钥，且设置 VOLCENGINE_TOKEN；不使用 STS 时，VOLCENGINE_TOKEN 部分传空 
         ConsumerConfig config = new ConsumerConfig(System.getenv("VOLCENGINE_ENDPOINT"), System.getenv("VOLCENGINE_REGION"),
                 System.getenv("VOLCENGINE_ACCESS_KEY_ID"), System.getenv("VOLCENGINE_ACCESS_KEY_SECRET"), System.getenv("VOLCENGINE_TOKEN"));
+        // 【强烈推荐】生产环境显式开启 HTTPS 证书与主机名校验，防御中间人攻击。
+        config.getClientConfig().setVerifySsl(true);
         // 请配置您的日志项目ID
         config.setProjectID("your-project-id");
         // 请配置您待消费的日志主题ID列表

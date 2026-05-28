@@ -4,8 +4,10 @@ import java.util.List;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.volcengine.model.tls.AlarmPeriodSetting;
+import com.volcengine.model.tls.JoinConfig;
 import com.volcengine.model.tls.QueryRequest;
 import com.volcengine.model.tls.RequestCycle;
+import com.volcengine.model.tls.TriggerCondition;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -38,6 +40,12 @@ public class ModifyAlarmRequest {
     String severity;
     @JSONField(name = ALARM_PERIOD_DETAIL)
     AlarmPeriodSetting alarmPeriodDetail;
+    @JSONField(name = JOIN_CONFIGURATIONS)
+    List<JoinConfig> joinConfigurations;
+    @JSONField(name = TRIGGER_CONDITIONS)
+    List<TriggerCondition> triggerConditions;
+    @JSONField(name = SEND_RESOLVED)
+    Boolean sendResolved;
 
     /**
      * @return 告警策略 ID

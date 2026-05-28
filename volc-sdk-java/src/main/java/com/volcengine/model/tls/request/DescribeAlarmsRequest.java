@@ -12,6 +12,11 @@ public class DescribeAlarmsRequest {
     Boolean status;
     Integer pageNumber;
     Integer pageSize;
+    String projectName;
+    String alarmPolicyID;
+    Boolean alarmDisabled;
+    String severity;
+    String iamProjectName;
 
     /**
      * @return 告警策略名称
@@ -69,6 +74,15 @@ public class DescribeAlarmsRequest {
         this.alarmId = alarmId;
     }
 
+    public String getAlarmPolicyID() {
+        return alarmPolicyID;
+    }
+
+    public void setAlarmPolicyID(String alarmPolicyID) {
+        this.alarmPolicyID = alarmPolicyID;
+        this.alarmId = alarmPolicyID;
+    }
+
     /**
      * @return 监控对象的日志主题 ID
      */
@@ -123,6 +137,38 @@ public class DescribeAlarmsRequest {
      */
     public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
+    }
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
+    }
+
+    public Boolean getAlarmDisabled() {
+        return alarmDisabled;
+    }
+
+    public void setAlarmDisabled(Boolean alarmDisabled) {
+        this.alarmDisabled = alarmDisabled;
+    }
+
+    public String getSeverity() {
+        return severity;
+    }
+
+    public void setSeverity(String severity) {
+        this.severity = severity;
+    }
+
+    public String getIamProjectName() {
+        return iamProjectName;
+    }
+
+    public void setIamProjectName(String iamProjectName) {
+        this.iamProjectName = iamProjectName;
     }
 
     /**

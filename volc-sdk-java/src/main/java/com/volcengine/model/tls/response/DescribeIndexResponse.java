@@ -27,10 +27,16 @@ public class DescribeIndexResponse extends CommonResponse {
     FullTextInfo fullTextInfo;
     @JSONField(name = KEY_VALUE)
     List<KeyValueInfo> keyValue;
+    @JSONField(name = USER_INNER_KEY_VALUE)
+    List<KeyValueInfo> userInnerKeyValue;
     @JSONField(name = CREATE_TIME)
     String createTime;
     @JSONField(name = MODIFY_TIME)
     String modifyTime;
+    @JSONField(name = MAX_TEXT_LEN)
+    Integer maxTextLen;
+    @JSONField(name = ENABLE_AUTO_INDEX)
+    Boolean enableAutoIndex;
     @JSONField(name = ENABLE_PHRASE_INDEX)
     Boolean enablePhraseIndex;
 
@@ -60,8 +66,11 @@ public class DescribeIndexResponse extends CommonResponse {
             }
         }
         this.setKeyValue(keyValue);
+        this.setUserInnerKeyValue(response.getUserInnerKeyValue());
         this.setCreateTime(response.getCreateTime());
         this.setModifyTime(response.getModifyTime());
+        this.setMaxTextLen(response.getMaxTextLen());
+        this.setEnableAutoIndex(response.getEnableAutoIndex());
         this.setEnablePhraseIndex(response.getEnablePhraseIndex());
         return this;
     }

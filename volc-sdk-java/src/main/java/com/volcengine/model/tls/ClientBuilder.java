@@ -5,6 +5,7 @@ import com.volcengine.model.tls.exception.LogException;
 import com.volcengine.service.tls.TLSHttpUtil;
 import com.volcengine.service.tls.TLSLogClient;
 import com.volcengine.service.tls.TLSLogClientImpl;
+import com.volcengine.service.tls.TLSUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -82,8 +83,12 @@ public class ClientBuilder {
         tlsHttpUtil.setApiKey(config.getApiKey());
         tlsHttpUtil.setSocketTimeout(SOCKET_TIMEOUT_MS);
         tlsHttpUtil.setConnectionTimeout(CONNECTION_TIMEOUT_MS);
+        if (config.isVerifySsl()) {
+            tlsHttpUtil.setHttpClientConnectionManager(TLSUtil.createHttpClientConnectionManager(true));
+        }
 
-        return new TLSLogClientImpl(tlsHttpUtil, config);
+        TLSLogClientImpl client = new TLSLogClientImpl(tlsHttpUtil, config);
+        return client;
     }
 
 }

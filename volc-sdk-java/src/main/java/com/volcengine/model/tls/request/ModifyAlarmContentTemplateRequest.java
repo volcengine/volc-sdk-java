@@ -23,7 +23,7 @@ public class ModifyAlarmContentTemplateRequest {
     @JSONField(name = LARK)
     private LarkContentTemplateInfo lark;
 
-    @JSONField(name = SMS)
+    @JSONField(name = "Sms")
     private SmsContentTemplateInfo sms;
 
     @JSONField(name = VMS)

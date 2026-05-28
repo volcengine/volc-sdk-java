@@ -48,6 +48,8 @@ public class Const {
     public static final String CREATE_RULE = "/CreateRule";
     public static final String MODIFY_RULE = "/ModifyRule";
     public static final String DESCRIBE_RULE = "/DescribeRule";
+    public static final String DESCRIBE_RULE_V2 = "/DescribeRuleV2";
+    public static final String DESCRIBE_BOUND_HOST_GROUPS = "/DescribeBoundHostGroups";
     public static final String DELETE_RULE = "/DeleteRule";
     public static final String DESCRIBE_RULES = "/DescribeRules";
     public static final String APPLY_RULE_TO_HOES_GROUPS = "/ApplyRuleToHostGroups";
@@ -60,8 +62,10 @@ public class Const {
     public static final String CREATE_HOST_GROUP = "/CreateHostGroup";
     public static final String MODIFY_HOST_GROUP = "/ModifyHostGroup";
     public static final String DESCRIBE_HOST_GROUP = "/DescribeHostGroup";
+    public static final String DESCRIBE_HOST_GROUP_V2 = "/DescribeHostGroupV2";
     public static final String DELETE_HOST_GROUP = "/DeleteHostGroup";
     public static final String DESCRIBE_HOST_GROUPS = "/DescribeHostGroups";
+    public static final String DESCRIBE_HOST_GROUPS_V2 = "/DescribeHostGroupsV2";
     public static final String DESCRIBE_HOSTS = "/DescribeHosts";
     public static final String DELETE_HOST = "/DeleteHost";
     public static final String DESCRIBE_HOST_GROUP_RULES = "/DescribeHostGroupRules";
@@ -71,6 +75,7 @@ public class Const {
     //interface-logs
     public static final String PUT_LOGS = "/PutLogs";
     public static final String DESCRIBE_CURSOR = "/DescribeCursor";
+    public static final String DESCRIBE_CURSOR_TIME = "/DescribeCursorTime";
     public static final String CONSUME_LOGS = "/ConsumeLogs";
     public static final String CONSUME_ORIGIN_LOGS = "/ConsumeOriginalLogs";
     public static final String TLS_ORIGINAL_HEADER = "x-tls-original";
@@ -103,6 +108,12 @@ public class Const {
     public static final String CANCEL_DOWNLOAD_TASK = "/CancelDownloadTask";
     public static final String DESCRIBE_DOWNLOAD_TASKS = "/DescribeDownloadTasks";
     public static final String DESCRIBE_DOWNLOAD_URL = "/DescribeDownloadUrl";
+
+    // log backflow task
+    public static final String CREATE_LOG_BACK_FLOW_TASK = "/CreateLogBackFlowTask";
+    public static final String DELETE_LOG_BACK_FLOW_TASK = "/DeleteLogBackFlowTask";
+    public static final String DESCRIBE_LOG_BACK_FLOW_TASKS = "/DescribeLogBackFlowTasks";
+    public static final String MODIFY_LOG_BACK_FLOW_TASK = "/ModifyLogBackFlowTask";
 
     // import task
     public static final String CREATE_IMPORT_TASK = "/CreateImportTask";
@@ -157,6 +168,7 @@ public class Const {
     public static final String IS_FULL_NAME = "IsFullName";
     public static final String PAGE_NUMBER = "PageNumber";
     public static final String PAGE_SIZE = "PageSize";
+    public static final String ORDER_FIELD = "OrderField";
     public static final String PROJECT_NAME = "ProjectName";
     public static final String DESCRIPTION = "Description";
     public static final String CREATE_TIME = "CreateTime";
@@ -340,6 +352,7 @@ public class Const {
     public static final String LOG_COLLECTOR_VERSION = "LogCollectorVersion";
     public static final String HEARTBEAT_STATUS = "HeartbeatStatus";
     public static final String AUTO_UPDATE = "AutoUpdate";
+    public static final String HIDDEN = "Hidden";
     public static final String UPDATE_START_TIME = "UpdateStartTime";
     public static final String UPDATE_END_TIME = "UpdateEndTime";
     public static final String SERVICE_LOGGING = "ServiceLogging";
@@ -362,6 +375,7 @@ public class Const {
 
     //alarmNotifyGroup
     public static final String ALARM_ID = "AlarmId";
+    public static final String ALARM_DISABLED = "AlarmDisabled";
     public static final String ALARM_NAME = "AlarmName";
     public static final String STATUS = "Status";
     public static final String QUERY_REQUEST = "QueryRequest";
@@ -460,7 +474,6 @@ public class Const {
     public static final String COMPRESSION = "Compression";
     public static final String X_TLS_CURSOR = "X-Tls-Cursor";
     public static final String X_TLS_COUNT = "X-Tls-Count";
-    public static final String LIMIT = "Limit";
     public static final String OFFSET = "Offset";
     public static final String CONTEXT = "Context";
     public static final String SORT = "Sort";
@@ -501,6 +514,27 @@ public class Const {
     public static final String DOWNLOAD_URL = "DownloadUrl";
     public static final String TASKS = "Tasks";
     public static final String ALLOW_INCOMPLETE = "AllowIncomplete";
+    public static final String CURSOR_TIME = "CursorTime";
+    public static final String BACK_FLOW_END_TIME = "BackFlowEndTime";
+    public static final String BACK_FLOW_START_TIME = "BackFlowStartTime";
+    public static final String LOG_BACK_FLOW_TASK_SOURCE = "LogBackFlowTaskSource";
+    public static final String LOG_BACK_FLOW_TASK_TOPIC_SOURCE = "LogBackFlowTaskTopicSource";
+    public static final String QUERY_PARAMS = "QueryParams";
+    public static final String SCHEDULE_SQL_TASK_INFO = "ScheduleSqlTaskInfo";
+    public static final String SHIPPER_TO_TOS_INFO = "ShipperToTosInfo";
+    public static final String LOG_BACK_FLOW_TASKS = "LogBackFlowTasks";
+    public static final String RELA_TASKS_INFO = "RelaTasksInfo";
+    public static final String SCHEDULE_SQL_TASK_NAME = "ScheduleSQLTaskName";
+    public static final String MAX_RETRY_TIMES = "MaxRetryTimes";
+    public static final String MAX_TIMEOUT = "MaxTimeout";
+    public static final String ASC = "Asc";
+    public static final String LIMIT = "Limit";
+    public static final String ORDER = "Order";
+    public static final String COLUMN = "Column";
+    public static final String FILTERS = "Filters";
+    public static final String FIELD = "Field";
+    public static final String VALUES = "Values";
+    public static final String OPERATOR = "Operator";
 
     // 消费组消费
     public static final String PROJECT_ID_UPPERCASE = "ProjectID";
@@ -638,6 +672,7 @@ public class Const {
     public static final String CREATE_TIME_STAMP = "CreateTimeStamp";
     public static final String MODIFY_TIME_STAMP = "ModifyTimeStamp";
     public static final String SCHEDULE_SQL_TASK_ID = "ScheduleSqlTaskId";
+    public static final String SCHEDULE_SQL_TASK_ID_UPPER = "ScheduleSQLTaskId";
 
     // Alarm content template constants
     public static final String CREATE_ALARM_CONTENT_TEMPLATE = "/CreateAlarmContentTemplate";
@@ -650,4 +685,100 @@ public class Const {
     public static final String TITLE = "Title";
     public static final String SUBJECT = "Subject";
     public static final String LOCALE = "Locale";
+
+    // text_analysis URL paths
+    public static final String CREATE_APP_INSTANCE = "/CreateAppInstance";
+    public static final String MODIFY_APP_INSTANCE = "/ModifyAppInstance";
+    public static final String DELETE_APP_INSTANCE = "/DeleteAppInstance";
+    public static final String DESCRIBE_APP_INSTANCES = "/DescribeAppInstances";
+    public static final String CREATE_APP_SCENE_META = "/CreateAppSceneMeta";
+    public static final String MODIFY_APP_SCENE_META = "/ModifyAppSceneMeta";
+    public static final String DELETE_APP_SCENE_META = "/DeleteAppSceneMeta";
+    public static final String DESCRIBE_APP_SCENE_METAS = "/DescribeAppSceneMetas";
+    public static final String DESCRIBE_APP_SCENE_META = "/DescribeAppSceneMeta";
+    public static final String DESCRIBE_SESSION_ANSWER = "/DescribeSessionAnswer";
+
+    // text_analysis JSON / query field names
+    public static final String APP_INSTANCE_ID = "InstanceId";
+    public static final String APP_INSTANCE_ID_UPPER = "InstanceID";
+    public static final String APP_INSTANCE_NAME = "InstanceName";
+    public static final String APP_INSTANCE_TYPE = "InstanceType";
+    public static final String APP_INSTANCE_INFO = "InstanceInfo";
+    public static final String APP_META_TYPE = "APPMetaType";
+    public static final String CREATE_APP_META_TYPE = "CreateAPPMetaType";
+    public static final String MODIFY_APP_META_TYPE = "ModifyAPPMetaType";
+    public static final String DELETE_APP_META_TYPE = "DeleteAPPMetaType";
+    public static final String DESCRIBE_APP_META_TYPE = "DescribeAPPMetaType";
+    public static final String META_ID_KEY = "Id";
+    public static final String META_IDS = "Ids";
+    public static final String META_ID_FIELD = "MetaId";
+    public static final String META_RECORD = "Record";
+    public static final String META_NAME = "Name";
+    public static final String PAGE_CONTEXT = "PageContext";
+    public static final String CLUSTER_STORE_META = "ClusterStoreMeta";
+    public static final String CLUSTERS_INFOS = "ClustersInfos";
+    public static final String FEED_BACK_META = "FeedBackMeta";
+    public static final String KNOWLEDGE_BINDING_META = "KnowledgeBindingMeta";
+    public static final String CLUSTER_STORE_NAME = "ClusterStoreName";
+    public static final String CLUSTER_ID = "ClusterId";
+    public static final String CLUSTER_PATTERN = "ClusterPattern";
+    public static final String SESSION_ID = "SessionId";
+    public static final String MESSAGE_ID = "MessageId";
+    public static final String FEED_BACK_TYPE = "FeedBackType";
+    public static final String AI_ASSISTANT_FEATURE = "AiAssistantFeature";
+    public static final String KNOWLEDGE_RESOURCE_ID = "KnowledgeResourceId";
+    public static final String KNOWLEDGE_NAME = "KnowledgeName";
+    public static final String PROJECT_FIELD = "Project";
+    public static final String ENDPOINT = "Endpoint";
+    public static final String DESCRIBE_CLUSTER_STORE_META = "DescribeClusterStoreMeta";
+    public static final String DESCRIBE_CLUSTER_META = "DescribeClusterMeta";
+    public static final String DESCRIBE_SESSION_META = "DescribeSessionMeta";
+    public static final String DESCRIBE_SESSION_MESSAGE = "DescribeSessionMessage";
+    public static final String DESCRIBE_SESSION_SUGGESTION = "DescribeSessionSuggestion";
+    public static final String DESCRIBE_KNOWLEDGE_BINDING = "DescribeKnowledgeBinding";
+    public static final String CLUSTER_STORE_ID = "ClusterStoreId";
+    public static final String MATCH_JOB_NUMS = "MatchJobNums";
+    public static final String PATTERN = "Pattern";
+    public static final String JOB_NAME = "JobName";
+    public static final String JOB_ID = "JobId";
+    public static final String BINDING_ID = "BindingId";
+    public static final String CREATED_TIME_STAMP = "CreatedTimeStamp";
+    public static final String SESSION_MESSAGE_TYPE = "SessionMessageType";
+    public static final String CONVERSATION_MESSAGE_TYPE = "ConversationMessageType";
+    public static final String MSG_STATUS = "MsgStatus";
+    public static final String MESSAGES = "Messages";
+    public static final String PASS_DETECT = "PassDetect";
+    public static final String REASONING_CONTENT = "ReasoningContent";
+    public static final String MULTI_CONTENT = "MultiContent";
+    public static final String TEXT = "Text";
+    public static final String SHORT_NAME = "ShortName";
+    public static final String TEXT_URI = "TextURI";
+    public static final String QUESTION = "Question";
+    public static final String QUESTION_ID = "QuestionId";
+    public static final String INTENT = "Intent";
+    public static final String ENABLE_DEEP_REASONING = "EnableDeepReasoning";
+    public static final String ATTACHMENTS = "Attachments";
+    public static final String ALARM_CONTENT_PROCESS = "AlarmContentProcess";
+    public static final String CONTENT_TYPE = "ContentType";
+    public static final String RECEIVER_CHANNEL = "ReceiverChannel";
+    public static final String ALARM_CONTENT_PROCESS_TYPE = "AlarmContentProcessType";
+    public static final String ALARM_ID_FIELD = "AlarmID";
+    public static final String ALARM_NOTIFY_GROUPS_FIELD = "AlarmNotifyGroups";
+    public static final String ALARM_RECEIVERS = "AlarmReceivers";
+    public static final String ANSWER = "Answer";
+    public static final String RSP_MSG_TYPE = "RspMsgType";
+    public static final String INTENT_INFO = "IntentInfo";
+    public static final String TOOLS = "Tools";
+    public static final String RETRIEVAL_INFO = "RetrievalInfo";
+    public static final String SUGGESTIONS = "Suggestions";
+    public static final String FLOW_STAGE = "FlowStage";
+    public static final String EVENT_OFFSET = "EventOffset";
+    public static final String DOCUMENTS = "Documents";
+    public static final String INPUT_JSON = "InputJson";
+    public static final String OUTPUT = "Output";
+    public static final String IS_FINISHED = "IsFinished";
+    public static final String TOOL_CALL_ID = "ToolCallId";
+    public static final String NODE_NAME = "NodeName";
+    public static final String NODE_CONTENT = "NodeContent";
+    public static final String REASON = "Reason";
 }

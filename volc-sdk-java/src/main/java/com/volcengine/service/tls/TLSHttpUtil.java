@@ -271,6 +271,10 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         }
                     }
             ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_RULE_V2,
+                    jsonApiInfo(Const.GET, com.volcengine.model.tls.Const.DESCRIBE_RULE_V2));
+            put(com.volcengine.model.tls.Const.DESCRIBE_BOUND_HOST_GROUPS,
+                    jsonApiInfo(Const.GET, com.volcengine.model.tls.Const.DESCRIBE_BOUND_HOST_GROUPS));
             put(com.volcengine.model.tls.Const.DESCRIBE_RULES, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -395,6 +399,8 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         }
                     }
             ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_HOST_GROUP_V2,
+                    jsonApiInfo(Const.GET, com.volcengine.model.tls.Const.DESCRIBE_HOST_GROUP_V2));
             put(com.volcengine.model.tls.Const.DESCRIBE_HOST_GROUPS, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -405,6 +411,8 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         }
                     }
             ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_HOST_GROUPS_V2,
+                    jsonApiInfo(Const.GET, com.volcengine.model.tls.Const.DESCRIBE_HOST_GROUPS_V2));
             put(com.volcengine.model.tls.Const.DELETE_HOST_GROUP, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -628,13 +636,15 @@ public class TLSHttpUtil extends BaseServiceImpl {
             put(com.volcengine.model.tls.Const.DESCRIBE_CURSOR, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
-                            put(Const.Method, Const.GET);
+                            put(Const.Method, Const.POST);
                             put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_CURSOR);
                             put(Const.Query, new ArrayList<NameValuePair>() {
                             });
                         }
                     }
             ));
+            put(com.volcengine.model.tls.Const.DESCRIBE_CURSOR_TIME,
+                    jsonApiInfo(Const.GET, com.volcengine.model.tls.Const.DESCRIBE_CURSOR_TIME));
             put(com.volcengine.model.tls.Const.CONSUME_LOGS, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -745,6 +755,14 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         }
                     }
             ));
+            put(com.volcengine.model.tls.Const.CREATE_LOG_BACK_FLOW_TASK,
+                    jsonApiInfo(Const.POST, com.volcengine.model.tls.Const.CREATE_LOG_BACK_FLOW_TASK));
+            put(com.volcengine.model.tls.Const.DELETE_LOG_BACK_FLOW_TASK,
+                    jsonApiInfo(Const.DELETE, com.volcengine.model.tls.Const.DELETE_LOG_BACK_FLOW_TASK));
+            put(com.volcengine.model.tls.Const.DESCRIBE_LOG_BACK_FLOW_TASKS,
+                    jsonApiInfo(Const.GET, com.volcengine.model.tls.Const.DESCRIBE_LOG_BACK_FLOW_TASKS));
+            put(com.volcengine.model.tls.Const.MODIFY_LOG_BACK_FLOW_TASK,
+                    jsonApiInfo(Const.PUT, com.volcengine.model.tls.Const.MODIFY_LOG_BACK_FLOW_TASK));
             put(com.volcengine.model.tls.Const.CREATE_IMPORT_TASK, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
@@ -1018,7 +1036,7 @@ public class TLSHttpUtil extends BaseServiceImpl {
             put(com.volcengine.model.tls.Const.DESCRIBE_CHECKPOINT, new ApiInfo(
                     new HashMap<String, Object>() {
                         {
-                            put(Const.Method, Const.GET);
+                            put(Const.Method, Const.POST);
                             put(Const.Path, com.volcengine.model.tls.Const.DESCRIBE_CHECKPOINT);
                             put(Const.Query, new ArrayList<NameValuePair>() {
                             });
@@ -1126,6 +1144,28 @@ public class TLSHttpUtil extends BaseServiceImpl {
                         }
                     }
             ));
+
+            // text_analysis (AppInstance / AppSceneMeta / SessionAnswer)
+            put(com.volcengine.model.tls.Const.CREATE_APP_INSTANCE,
+                    jsonApiInfo(Const.POST, com.volcengine.model.tls.Const.CREATE_APP_INSTANCE));
+            put(com.volcengine.model.tls.Const.MODIFY_APP_INSTANCE,
+                    jsonApiInfo(Const.PUT, com.volcengine.model.tls.Const.MODIFY_APP_INSTANCE));
+            put(com.volcengine.model.tls.Const.DELETE_APP_INSTANCE,
+                    jsonApiInfo(Const.DELETE, com.volcengine.model.tls.Const.DELETE_APP_INSTANCE));
+            put(com.volcengine.model.tls.Const.DESCRIBE_APP_INSTANCES,
+                    jsonApiInfo(Const.GET, com.volcengine.model.tls.Const.DESCRIBE_APP_INSTANCES));
+            put(com.volcengine.model.tls.Const.CREATE_APP_SCENE_META,
+                    jsonApiInfo(Const.POST, com.volcengine.model.tls.Const.CREATE_APP_SCENE_META));
+            put(com.volcengine.model.tls.Const.MODIFY_APP_SCENE_META,
+                    jsonApiInfo(Const.PUT, com.volcengine.model.tls.Const.MODIFY_APP_SCENE_META));
+            put(com.volcengine.model.tls.Const.DELETE_APP_SCENE_META,
+                    jsonApiInfo(Const.DELETE, com.volcengine.model.tls.Const.DELETE_APP_SCENE_META));
+            put(com.volcengine.model.tls.Const.DESCRIBE_APP_SCENE_METAS,
+                    jsonApiInfo(Const.GET, com.volcengine.model.tls.Const.DESCRIBE_APP_SCENE_METAS));
+            put(com.volcengine.model.tls.Const.DESCRIBE_APP_SCENE_META,
+                    jsonApiInfo(Const.GET, com.volcengine.model.tls.Const.DESCRIBE_APP_SCENE_META));
+            put(com.volcengine.model.tls.Const.DESCRIBE_SESSION_ANSWER,
+                    jsonApiInfo(Const.POST, com.volcengine.model.tls.Const.DESCRIBE_SESSION_ANSWER));
         }
 
     };

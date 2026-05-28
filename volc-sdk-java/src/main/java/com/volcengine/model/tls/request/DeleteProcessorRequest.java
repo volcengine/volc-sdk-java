@@ -20,4 +20,3 @@ public class DeleteProcessorRequest {
         return processorId != null && !processorId.isEmpty();
     }
 }
-

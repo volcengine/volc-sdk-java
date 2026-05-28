@@ -1,6 +1,7 @@
 package com.volcengine.model.tls.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.tls.NoticeRule;
 import com.volcengine.model.tls.Receiver;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,8 @@ public class ModifyAlarmNotifyGroupRequest {
     List<String> notifyType;
     @JSONField(name = RECEIVERS)
     List<Receiver> receivers;
+    @JSONField(name = NOTICE_RULES)
+    List<NoticeRule> noticeRules;
 
     /**
      * @param alarmNotifyGroupId   告警通知组 ID
@@ -88,6 +91,14 @@ public class ModifyAlarmNotifyGroupRequest {
      */
     public void setReceivers(List<Receiver> receivers) {
         this.receivers = receivers;
+    }
+
+    public List<NoticeRule> getNoticeRules() {
+        return noticeRules;
+    }
+
+    public void setNoticeRules(List<NoticeRule> noticeRules) {
+        this.noticeRules = noticeRules;
     }
 
     /**

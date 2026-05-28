@@ -17,7 +17,6 @@ import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Delayed;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -26,6 +25,7 @@ public class BatchLog implements Delayed {
     BatchKey batchKey;
     int currentBatchSize;
     int currentBatchCount;
+    long reservedBytes;
     Long earliestLogTime;
     Long latestLogTime;
     List<CallBack> callBackList = new ArrayList<>();
@@ -39,6 +39,7 @@ public class BatchLog implements Delayed {
     long maxRetryBackoffMs;
     long baseRetryBackoffMs;
     long baseIncreaseBackoffMs;
+    int circuitPermitCount;
 
     private static final Log LOG = LogFactory.getLog(BatchLog.class);
 
@@ -49,6 +50,7 @@ public class BatchLog implements Delayed {
         this.batchKey = batchKey;
         this.currentBatchSize = 0;
         this.currentBatchCount = 0;
+        this.reservedBytes = 0;
         this.producerConfig = producerConfig;
         this.attemptCount = 0;
         this.reservedAttempts = EvictingQueue.create(producerConfig.getMaxReservedAttempts());
@@ -80,6 +82,7 @@ public class BatchLog implements Delayed {
         }
         setCurrentBatchCount(currentBatchCount + logCount);
         setCurrentBatchSize(currentBatchSize + batchSize);
+        setReservedBytes(getReservedBytes() + batchSize);
         if (logCount > 0) {
             if (this.earliestLogTime == null || earliestLogTime < this.earliestLogTime) {
                 this.earliestLogTime = earliestLogTime;
@@ -99,6 +102,18 @@ public class BatchLog implements Delayed {
     public synchronized void addAttempt(Attempt attempt) {
         reservedAttempts.add(attempt);
         attemptCount++;
+    }
+
+    public synchronized void addCircuitPermitCount(int count) {
+        if (count > 0) {
+            circuitPermitCount += count;
+        }
+    }
+
+    public synchronized int takeCircuitPermitCount() {
+        int count = circuitPermitCount;
+        circuitPermitCount = 0;
+        return count;
     }
 
     public synchronized void fireCallbacks() {
@@ -181,10 +196,12 @@ public class BatchLog implements Delayed {
 
         public void addNow(ProducerConfig config, ExecutorService executorService, TLSLogClient client,
                            BlockingQueue<BatchLog> successQueue, BlockingQueue<BatchLog> failureQueue,
-                           AtomicInteger batchCount, RetryManager retryManager, Semaphore memoryLock) {
+                           AtomicInteger batchCount, RetryManager retryManager, MemoryLimiter memoryLimiter,
+                           CircuitBreaker circuitBreaker) {
             if (batchLog != null) {
                 executorService.submit(
-                        new SendBatchTask(batchLog, config, successQueue, failureQueue, client, retryManager, memoryLock));
+                        new SendBatchTask(batchLog, config, successQueue, failureQueue, client, retryManager,
+                                memoryLimiter, circuitBreaker));
                 batchLog = null;
             }
         }

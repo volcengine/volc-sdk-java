@@ -21,6 +21,12 @@ public class DescribeAlarmNotifyGroupsRequest {
     Integer pageSize;
     @JSONField(name = IAM_PROJECT_NAME)
     String iamProjectName;
+    @JSONField(serialize = false)
+    String groupName;
+    @JSONField(serialize = false)
+    String notifyGroupID;
+    @JSONField(serialize = false)
+    String userName;
 
     public DescribeAlarmNotifyGroupsRequest(String alarmNotifyGroupId) {
         this.alarmNotifyGroupId = alarmNotifyGroupId;
@@ -40,6 +46,15 @@ public class DescribeAlarmNotifyGroupsRequest {
         this.alarmNotifyGroupName = alarmNotifyGroupName;
     }
 
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+        this.alarmNotifyGroupName = groupName;
+    }
+
     /**
      * @return 告警通知组 ID
      */
@@ -54,6 +69,15 @@ public class DescribeAlarmNotifyGroupsRequest {
         this.alarmNotifyGroupId = alarmNotifyGroupId;
     }
 
+    public String getNotifyGroupID() {
+        return notifyGroupID;
+    }
+
+    public void setNotifyGroupID(String notifyGroupID) {
+        this.notifyGroupID = notifyGroupID;
+        this.alarmNotifyGroupId = notifyGroupID;
+    }
+
     /**
      * @return 接收告警的 IAM 用户名称
      */
@@ -66,6 +90,15 @@ public class DescribeAlarmNotifyGroupsRequest {
      */
     public void setReceiverName(String receiverName) {
         this.receiverName = receiverName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+        this.receiverName = userName;
     }
 
     /**

@@ -17,7 +17,19 @@ public class DescribeETLTasksRequest {
     
     @JSONField(name = PROJECT_ID)
     private String projectId;
-    
+
+    @JSONField(name = PROJECT_NAME)
+    private String projectName;
+
+    @JSONField(name = IAM_PROJECT_NAME)
+    private String iamProjectName;
+
+    @JSONField(name = SOURCE_TOPIC_ID)
+    private String sourceTopicId;
+
+    @JSONField(name = SOURCE_TOPIC_NAME)
+    private String sourceTopicName;
+
     @JSONField(name = "TaskName")
     private String taskName;
     

@@ -29,6 +29,7 @@ producer.close()
 | 参数                  | 类型   | 示例值               | 描述                                                                                                   |
 |:--------------------|:-----|:------------------|:-----------------------------------------------------------------------------------------------------|
 | totalSizeInBytes    | int  | 100 * 1024 * 1024 | 单个Producer实例能缓存的日志大小上限，单位为B，默认为100MB。                                                                |
+| maxProducerMemoryBytes | long | 2 * totalSizeInBytes | 单个Producer实例持有日志生命周期reservation的上限，覆盖payload、retry队列和发送阶段临时buffer，默认是totalSizeInBytes的2倍。该值不是JVM heap或进程RSS硬上限。 |
 | maxThreadCount      | int  | 50                | 单个Producer实例并发线程的最大数量，取值范围为1~50；不配置时默认取min(availableProcessors, 50)。                               |
 | maxBlockMs          | long | 60 * 1000         | 当Producer可用缓存空间（totalSizeInBytes）不足时，调用者在send方法上的最长阻塞时间，单位为毫秒，默认为60秒。                                |
 | maxBatchSizeBytes   | int  | 512 * 1024        | 当一个BatchLog中缓存的日志大小大于等于maxBatchSizeBytes时，该batch将被发送，单位为B，默认为512KB，最大可设置为10MB。                       |
@@ -36,3 +37,6 @@ producer.close()
 | lingerMs            | int  | 2 * 1000          | 一个BatchLog从创建到可发送的等待时间，单位为毫秒，默认为2秒，最小可设置成100毫秒。                                                      |
 | retryCount          | int  | 2                 | 如果某个BatchLog首次发送失败，Producer对其自动重试的次数，默认为2次。                                                          |
 | maxReservedAttempts | int  | 3                 | 每个BatchLog每次尝试发送都对应着一个Attempt，此参数用来控制返回给用户的Attempt个数，默认只保留最近3次Attempt信息。该参数越大，您可追溯的信息越多，但同时也会消耗更多内存。 |
+| retryMode           | RetryMode | LEGACY_DOUBLE_RETRY | 默认保持兼容的双层重试语义；设置为PRODUCER_MANAGED后，Producer接管重试，底层TLSLogClient单次Producer attempt只发起1次HTTP请求。 |
+| circuitBreakerConfig | CircuitBreakerConfig | disabled | 默认关闭。开启后仅429、5xx和网络类失败计入熔断，400/403/404等永久失败不打开熔断。 |
+| failurePolicy       | FailurePolicy | RETRY_THEN_CALLBACK | 熔断打开时的处理策略，可选RETRY_THEN_CALLBACK、FAIL_FAST、DROP_WITH_CALLBACK。推荐生产profile使用producer-managed retry、开启breaker，并配合FAIL_FAST或DROP_WITH_CALLBACK以及maxBlockMs=0。 |

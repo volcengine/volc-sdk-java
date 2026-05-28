@@ -14,4 +14,3 @@ public class DescribeProcessorBindingsRequest {
         return projectId != null && !projectId.isEmpty();
     }
 }
-

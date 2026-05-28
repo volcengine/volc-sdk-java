@@ -13,8 +13,6 @@ import com.volcengine.service.tls.TLSLogClient;
 import com.volcengine.service.tls.TLSUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.impl.client.HttpClients;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,9 +44,9 @@ public class ConsumerImpl implements Consumer {
 
         this.consumerConfig = consumerConfig;
         this.tlsClient = ClientBuilder.newClient(consumerConfig.getClientConfig());
-        this.tlsClient.setHttpClient(HttpClients.custom()
-                .setConnectionManager(TLSUtil.createHttpClientConnectionManager())
-                .disableContentCompression().build());
+        this.tlsClient.setHttpClientConnectionManager(TLSUtil.createHttpClientConnectionManager(
+                        consumerConfig.getClientConfig().isVerifySsl()),
+                true);
         this.logProcessor = logProcessor;
 
         this.heartbeatTracker = new HeartbeatTracker(this);

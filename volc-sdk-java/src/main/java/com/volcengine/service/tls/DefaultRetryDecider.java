@@ -26,7 +26,7 @@ public class DefaultRetryDecider implements RetryDecider {
             return false;
         }
         int httpCode = response.getHttpCode();
-        if (httpCode == 429 || httpCode >= 500 || httpCode == 0) {
+        if (httpCode == 429 || httpCode == 500 || httpCode == 502 || httpCode == 503 || httpCode == 504 || httpCode == 0) {
             return true;
         }
         return isRetryableException(response.getException());

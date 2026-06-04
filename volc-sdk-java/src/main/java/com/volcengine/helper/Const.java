@@ -1283,4 +1283,9 @@ public class Const {
     public static final String StopCheckIn = "StopCheckIn";
     public static final String SendCheckIn = "SendCheckIn";
     public static final String WithdrawCheckIn = "WithdrawCheckIn";
+    public static final String UpdateActivityLiveAnalysisConfig = "UpdateActivityLiveAnalysisConfig";
+    public static final String GetActivityLiveAnalysisConfig = "GetActivityLiveAnalysisConfig";
+    public static final String GetLiveAnalysisReportOverview = "GetLiveAnalysisReportOverview";
+    public static final String ListActivityLiveAnalysisHistories = "ListActivityLiveAnalysisHistories";
+    public static final String ListActivityContentAnalysis = "ListActivityContentAnalysis";
 }

@@ -5632,12 +5632,87 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public UpdateActivityLiveAnalysisConfigResponse updateActivityLiveAnalysisConfig(UpdateActivityLiveAnalysisConfigRequest updateActivityLiveAnalysisConfigRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityLiveAnalysisConfig, new ArrayList<>(), JSON.toJSONString(updateActivityLiveAnalysisConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateActivityLiveAnalysisConfigResponse res = JSON.parseObject(response.getData(), UpdateActivityLiveAnalysisConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public UpdateQuickCommentContentResponse updateQuickCommentContent(UpdateQuickCommentContentRequest updateQuickCommentContentRequest) throws Exception {
         RawResponse response = json(Const.UpdateQuickCommentContent, new ArrayList<>(), JSON.toJSONString(updateQuickCommentContentRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {
             throw response.getException();
         }
         UpdateQuickCommentContentResponse res = JSON.parseObject(response.getData(), UpdateQuickCommentContentResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetActivityLiveAnalysisConfigResponse getActivityLiveAnalysisConfig(GetActivityLiveAnalysisConfigRequest getActivityLiveAnalysisConfigRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityLiveAnalysisConfig, Utils.paramsToPair(getActivityLiveAnalysisConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityLiveAnalysisConfigResponse res = JSON.parseObject(response.getData(), GetActivityLiveAnalysisConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetLiveAnalysisReportOverviewResponse getLiveAnalysisReportOverview(GetLiveAnalysisReportOverviewRequest getLiveAnalysisReportOverviewRequest) throws Exception {
+        RawResponse response = query(Const.GetLiveAnalysisReportOverview, Utils.paramsToPair(getLiveAnalysisReportOverviewRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetLiveAnalysisReportOverviewResponse res = JSON.parseObject(response.getData(), GetLiveAnalysisReportOverviewResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListActivityLiveAnalysisHistoriesResponse listActivityLiveAnalysisHistories(ListActivityLiveAnalysisHistoriesRequest listActivityLiveAnalysisHistoriesRequest) throws Exception {
+        RawResponse response = query(Const.ListActivityLiveAnalysisHistories, Utils.paramsToPair(listActivityLiveAnalysisHistoriesRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListActivityLiveAnalysisHistoriesResponse res = JSON.parseObject(response.getData(), ListActivityLiveAnalysisHistoriesResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListActivityContentAnalysisResponse listActivityContentAnalysis(ListActivityContentAnalysisRequest listActivityContentAnalysisRequest) throws Exception {
+        RawResponse response = query(Const.ListActivityContentAnalysis, Utils.paramsToPair(listActivityContentAnalysisRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListActivityContentAnalysisResponse res = JSON.parseObject(response.getData(), ListActivityContentAnalysisResponse.class);
         if (res.getResponseMetadata().getError() != null) {
             ResponseMetadata meta = res.getResponseMetadata();
             throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());

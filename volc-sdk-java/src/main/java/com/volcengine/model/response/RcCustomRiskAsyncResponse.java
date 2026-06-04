@@ -3,6 +3,7 @@ package com.volcengine.model.response;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
+import java.util.List;
 import java.util.Map;
 
 @Data
@@ -53,6 +54,13 @@ public class RcCustomRiskAsyncResponse {
 
         @JSONField(name = "PassThrough")
         private String PassThrough;
+
+
+        @JSONField(name = "HitLabels")
+        private List<String> HitLabels;
+
+        @JSONField(name = "SubLabels")
+        private List<String> SubLabels;
 
     }
 

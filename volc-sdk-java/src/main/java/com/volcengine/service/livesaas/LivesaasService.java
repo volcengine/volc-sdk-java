@@ -3167,4 +3167,49 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     UpdateQuickCommentContentResponse updateQuickCommentContent(UpdateQuickCommentContentRequest updateQuickCommentContentRequest) throws Exception;
+
+    /**
+     * updateActivityLiveAnalysisConfig
+     *
+     * @param updateActivityLiveAnalysisConfigRequest UpdateActivityLiveAnalysisConfigRequest
+     * @return UpdateActivityLiveAnalysisConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityLiveAnalysisConfigResponse updateActivityLiveAnalysisConfig(UpdateActivityLiveAnalysisConfigRequest updateActivityLiveAnalysisConfigRequest) throws Exception;
+
+    /**
+     * getActivityLiveAnalysisConfig
+     *
+     * @param getActivityLiveAnalysisConfigRequest GetActivityLiveAnalysisConfigRequest
+     * @return GetActivityLiveAnalysisConfigResponse
+     * @throws Exception the exception
+     */
+    GetActivityLiveAnalysisConfigResponse getActivityLiveAnalysisConfig(GetActivityLiveAnalysisConfigRequest getActivityLiveAnalysisConfigRequest) throws Exception;
+
+    /**
+     * getLiveAnalysisReportOverview
+     *
+     * @param getLiveAnalysisReportOverviewRequest GetLiveAnalysisReportOverviewRequest
+     * @return GetLiveAnalysisReportOverviewResponse
+     * @throws Exception the exception
+     */
+    GetLiveAnalysisReportOverviewResponse getLiveAnalysisReportOverview(GetLiveAnalysisReportOverviewRequest getLiveAnalysisReportOverviewRequest) throws Exception;
+
+    /**
+     * listActivityLiveAnalysisHistories
+     *
+     * @param listActivityLiveAnalysisHistoriesRequest ListActivityLiveAnalysisHistoriesRequest
+     * @return ListActivityLiveAnalysisHistoriesResponse
+     * @throws Exception the exception
+     */
+    ListActivityLiveAnalysisHistoriesResponse listActivityLiveAnalysisHistories(ListActivityLiveAnalysisHistoriesRequest listActivityLiveAnalysisHistoriesRequest) throws Exception;
+
+    /**
+     * listActivityContentAnalysis
+     *
+     * @param listActivityContentAnalysisRequest ListActivityContentAnalysisRequest
+     * @return ListActivityContentAnalysisResponse
+     * @throws Exception the exception
+     */
+    ListActivityContentAnalysisResponse listActivityContentAnalysis(ListActivityContentAnalysisRequest listActivityContentAnalysisRequest) throws Exception;
 }

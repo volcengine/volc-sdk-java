@@ -4813,6 +4813,119 @@ public class LivesaasConfig {
                         }
                     }
             ));
+            put(Const.ListVideoScenarios, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListVideoScenarios));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetVideoScenario, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetVideoScenario));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.CreateVideoTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.CreateVideoTask));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                            put(Const.SOCKET_TIMEOUT, 20000);
+                        }
+                    }
+            ));
+            put(Const.EndVideoTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.EndVideoTask));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.ListVideoTasks, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.ListVideoTasks));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetVideoTask, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetVideoTask));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetVideoReport, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "GET");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetVideoReport));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.SubmitVideoAudit, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(Const.Method, "POST");
+                            put(Const.Path, "/");
+                            put(Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.SubmitVideoAudit));
+                                    add(new BasicNameValuePair("Version", "2024-08-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.ListProjects, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

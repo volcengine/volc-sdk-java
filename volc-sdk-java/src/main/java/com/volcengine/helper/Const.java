@@ -762,6 +762,14 @@ public class Const {
     public static final String GetScenario = "GetScenario";
     public static final String ListTasks = "ListTasks";
     public static final String CreateTask = "CreateTask";
+    public static final String ListVideoScenarios = "ListVideoScenarios";
+    public static final String GetVideoScenario = "GetVideoScenario";
+    public static final String CreateVideoTask = "CreateVideoTask";
+    public static final String EndVideoTask = "EndVideoTask";
+    public static final String ListVideoTasks = "ListVideoTasks";
+    public static final String GetVideoTask = "GetVideoTask";
+    public static final String GetVideoReport = "GetVideoReport";
+    public static final String SubmitVideoAudit = "SubmitVideoAudit";
     public static final String ListProjects = "ListProjects";
     public static final String GetBMReport = "GetBMReport";
     public static final String GetTask = "GetTask";

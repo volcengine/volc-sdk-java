@@ -36,9 +36,9 @@ public class GetReportResponse {
     public static class StatisticalData {
         @JSONField(name = "ViolationList")
         List<PieChart> ViolationList;
-        @JSONField(name = "ImageLlMAnalysisList")
+        @JSONField(name = "ImageLLMAnalysisList")
         List<PieChart> ImageLlMAnalysisList;
-        @JSONField(name = "TextLlMAnalysisList")
+        @JSONField(name = "TextLLMAnalysisList")
         List<PieChart> TextLlMAnalysisList;
     }
 
@@ -112,30 +112,50 @@ public class GetReportResponse {
         List<CustomSensitiveResult> CustomSensitiveResults;
         @JSONField(name = "SystemSensitiveResults")
         List<SystemSensitiveResult> SystemSensitiveResults;
+        @JSONField(name = "OCRTextRecognitionResults")
+        List<OCRTextRecognitionResult> OCRTextRecognitionResults;
+        @JSONField(name = "OCRBottomSubtitleResults")
+        List<OCRBottomSubtitleResult> OCRBottomSubtitleResults;
     }
 
     @Data
     public static class OCRTextRecognitionResult {
+        @JSONField(name = "MessageId")
+        Long MessageId;
         @JSONField(name = "ImageURLs")
         List<String> ImageURLs;
+        @JSONField(name = "StartTime")
+        Long StartTime;
+        @JSONField(name = "EndTime")
+        Long EndTime;
         @JSONField(name = "AbsoluteStartTime")
         Long AbsoluteStartTime;
         @JSONField(name = "AbsoluteEndTime")
         Long AbsoluteEndTime;
         @JSONField(name = "Description")
         String Description;
+        @JSONField(name = "Type")
+        String Type;
     }
 
     @Data
     public static class OCRBottomSubtitleResult {
+        @JSONField(name = "MessageId")
+        Long MessageId;
         @JSONField(name = "ImageURLs")
         List<String> ImageURLs;
+        @JSONField(name = "StartTime")
+        Long StartTime;
+        @JSONField(name = "EndTime")
+        Long EndTime;
         @JSONField(name = "AbsoluteStartTime")
         Long AbsoluteStartTime;
         @JSONField(name = "AbsoluteEndTime")
         Long AbsoluteEndTime;
         @JSONField(name = "Description")
         String Description;
+        @JSONField(name = "Type")
+        String Type;
     }
 
     @Data
@@ -156,6 +176,10 @@ public class GetReportResponse {
         String Text;
         @JSONField(name = "Type")
         String Type;
+        @JSONField(name = "StartTime")
+        Long StartTime;
+        @JSONField(name = "EndTime")
+        Long EndTime;
         @JSONField(name = "AbsoluteStartTime")
         Long AbsoluteStartTime;
         @JSONField(name = "AbsoluteEndTime")
@@ -172,6 +196,10 @@ public class GetReportResponse {
         List<String> ImageURLs;
         @JSONField(name = "Type")
         String Type;
+        @JSONField(name = "StartTime")
+        Long StartTime;
+        @JSONField(name = "EndTime")
+        Long EndTime;
         @JSONField(name = "AbsoluteStartTime")
         Long AbsoluteStartTime;
         @JSONField(name = "AbsoluteEndTime")

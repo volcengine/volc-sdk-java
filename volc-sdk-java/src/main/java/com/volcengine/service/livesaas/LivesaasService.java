@@ -2887,6 +2887,70 @@ public interface LivesaasService extends IBaseService {
      */
     GetMergedReportResponse getMergedReport(GetMergedReportRequest getMergedReportRequest) throws Exception;
 
+    /**
+     * listVideoScenarios
+     * @param listVideoScenariosRequest ListVideoScenariosRequest
+     * @return ListVideoScenariosResponse
+     * @throws Exception the exception
+     */
+    ListVideoScenariosResponse listVideoScenarios(ListVideoScenariosRequest listVideoScenariosRequest) throws Exception;
+
+    /**
+     * getVideoScenario
+     * @param getVideoScenarioRequest GetVideoScenarioRequest
+     * @return GetVideoScenarioResponse
+     * @throws Exception the exception
+     */
+    GetVideoScenarioResponse getVideoScenario(GetVideoScenarioRequest getVideoScenarioRequest) throws Exception;
+
+    /**
+     * createVideoTask
+     * @param createVideoTaskRequest CreateVideoTaskRequest
+     * @return CreateVideoTaskResponse
+     * @throws Exception the exception
+     */
+    CreateVideoTaskResponse createVideoTask(CreateVideoTaskRequest createVideoTaskRequest) throws Exception;
+
+    /**
+     * endVideoTask
+     * @param endVideoTaskRequest EndVideoTaskRequest
+     * @return EndVideoTaskResponse
+     * @throws Exception the exception
+     */
+    EndVideoTaskResponse endVideoTask(EndVideoTaskRequest endVideoTaskRequest) throws Exception;
+
+    /**
+     * listVideoTasks
+     * @param listVideoTasksRequest ListVideoTasksRequest
+     * @return ListVideoTasksResponse
+     * @throws Exception the exception
+     */
+    ListVideoTasksResponse listVideoTasks(ListVideoTasksRequest listVideoTasksRequest) throws Exception;
+
+    /**
+     * getVideoTask
+     * @param getVideoTaskRequest GetVideoTaskRequest
+     * @return GetVideoTaskResponse
+     * @throws Exception the exception
+     */
+    GetVideoTaskResponse getVideoTask(GetVideoTaskRequest getVideoTaskRequest) throws Exception;
+
+    /**
+     * getVideoReport
+     * @param getVideoReportRequest GetVideoReportRequest
+     * @return GetVideoReportResponse
+     * @throws Exception the exception
+     */
+    GetVideoReportResponse getVideoReport(GetVideoReportRequest getVideoReportRequest) throws Exception;
+
+    /**
+     * submitVideoAudit
+     * @param submitVideoAuditRequest SubmitVideoAuditRequest
+     * @return SubmitVideoAuditResponse
+     * @throws Exception the exception
+     */
+    SubmitVideoAuditResponse submitVideoAudit(SubmitVideoAuditRequest submitVideoAuditRequest) throws Exception;
+
 
     /**
      * updateViewerLevelConfig

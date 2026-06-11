@@ -31,6 +31,8 @@ public class ListProjectsResponse {
         String ProjectName;
         @JSONField(name = "DisplayName")
         String DisplayName;
+        @JSONField(name = "ProjectType")
+        Integer ProjectType;
         @JSONField(name = "CreatedTime")
         Long CreatedTime;
         @JSONField(name = "ScenarioCount")

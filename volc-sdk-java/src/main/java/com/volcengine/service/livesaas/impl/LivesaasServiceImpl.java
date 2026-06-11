@@ -1,6 +1,7 @@
 package com.volcengine.service.livesaas.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.volcengine.error.SdkError;
 import com.volcengine.helper.Const;
 import com.volcengine.helper.Utils;
@@ -16,6 +17,8 @@ import com.volcengine.service.BaseServiceImpl;
 import com.volcengine.service.livesaas.LivesaasConfig;
 import com.volcengine.service.livesaas.LivesaasService;
 import org.apache.http.HttpHost;
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -5110,6 +5113,133 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public ListVideoScenariosResponse listVideoScenarios(ListVideoScenariosRequest listVideoScenariosRequest) throws Exception {
+        RawResponse response = query(Const.ListVideoScenarios, Utils.paramsToPair(listVideoScenariosRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListVideoScenariosResponse res = JSON.parseObject(response.getData(), ListVideoScenariosResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetVideoScenarioResponse getVideoScenario(GetVideoScenarioRequest getVideoScenarioRequest) throws Exception {
+        RawResponse response = query(Const.GetVideoScenario, Utils.paramsToPair(getVideoScenarioRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetVideoScenarioResponse res = JSON.parseObject(response.getData(), GetVideoScenarioResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public CreateVideoTaskResponse createVideoTask(CreateVideoTaskRequest createVideoTaskRequest) throws Exception {
+        RawResponse response = json(Const.CreateVideoTask, new ArrayList<>(), JSON.toJSONString(createVideoTaskRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CreateVideoTaskResponse res = JSON.parseObject(response.getData(), CreateVideoTaskResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public EndVideoTaskResponse endVideoTask(EndVideoTaskRequest endVideoTaskRequest) throws Exception {
+        RawResponse response = json(Const.EndVideoTask, new ArrayList<>(), JSON.toJSONString(endVideoTaskRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        EndVideoTaskResponse res = JSON.parseObject(response.getData(), EndVideoTaskResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListVideoTasksResponse listVideoTasks(ListVideoTasksRequest listVideoTasksRequest) throws Exception {
+        RawResponse response = json(Const.ListVideoTasks, new ArrayList<>(), JSON.toJSONString(listVideoTasksRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListVideoTasksResponse res = JSON.parseObject(response.getData(), ListVideoTasksResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetVideoTaskResponse getVideoTask(GetVideoTaskRequest getVideoTaskRequest) throws Exception {
+        RawResponse response = query(Const.GetVideoTask, Utils.paramsToPair(getVideoTaskRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetVideoTaskResponse res = JSON.parseObject(response.getData(), GetVideoTaskResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetVideoReportResponse getVideoReport(GetVideoReportRequest getVideoReportRequest) throws Exception {
+        RawResponse response = query(Const.GetVideoReport, Utils.paramsToPair(getVideoReportRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetVideoReportResponse res = JSON.parseObject(response.getData(), GetVideoReportResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public SubmitVideoAuditResponse submitVideoAudit(SubmitVideoAuditRequest submitVideoAuditRequest) throws Exception {
+        List<NameValuePair> query = new ArrayList<>();
+        if (submitVideoAuditRequest.getProjectName() != null) {
+            query.add(new BasicNameValuePair("ProjectName", submitVideoAuditRequest.getProjectName()));
+        }
+        JSONObject body = (JSONObject) JSON.toJSON(submitVideoAuditRequest);
+        body.remove("ProjectName");
+        RawResponse response = json(Const.SubmitVideoAudit, query, body.toJSONString());
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        SubmitVideoAuditResponse res = JSON.parseObject(response.getData(), SubmitVideoAuditResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
     @Override
     public UpdateViewerLevelConfigResponse updateViewerLevelConfig(UpdateViewerLevelConfigRequest updateViewerLevelConfigRequest) throws Exception {
         RawResponse response = json(Const.UpdateViewerLevelConfig, new ArrayList<>(), JSON.toJSONString(updateViewerLevelConfigRequest));

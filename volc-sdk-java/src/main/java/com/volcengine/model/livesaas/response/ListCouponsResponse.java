@@ -22,5 +22,7 @@ public class ListCouponsResponse {
         List<Coupon> Coupons;
         @JSONField(name = "MaxCount")
         Long MaxCount;
+        @JSONField(name = "TotalUnfilteredCount")
+        Long TotalUnfilteredCount;
     }
 }

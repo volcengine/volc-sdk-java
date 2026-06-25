@@ -85,6 +85,87 @@ public interface LivesaasService extends IBaseService {
     CreateActivityAPIResponse createActivityAPIV2(CreateActivityAPIRequest createActivityAPIRequest) throws Exception;
 
     /**
+     * CreateVideoRoom
+     *
+     * @param createVideoRoomRequest CreateVideoRoomRequest
+     * @return CreateVideoRoomResponse
+     * @throws Exception the exception
+     */
+    CreateVideoRoomResponse createVideoRoom(CreateVideoRoomRequest createVideoRoomRequest) throws Exception;
+
+    /**
+     * DeleteVideoRoom
+     *
+     * @param deleteVideoRoomRequest DeleteVideoRoomRequest
+     * @return DeleteVideoRoomResponse
+     * @throws Exception the exception
+     */
+    DeleteVideoRoomResponse deleteVideoRoom(DeleteVideoRoomRequest deleteVideoRoomRequest) throws Exception;
+
+    /**
+     * ListVideoRooms
+     *
+     * @param listVideoRoomsRequest ListVideoRoomsRequest
+     * @return ListVideoRoomsResponse
+     * @throws Exception the exception
+     */
+    ListVideoRoomsResponse listVideoRooms(ListVideoRoomsRequest listVideoRoomsRequest) throws Exception;
+
+    /**
+     * GetVideoRoomBasicInfo
+     *
+     * @param getVideoRoomBasicInfoRequest GetVideoRoomBasicInfoRequest
+     * @return GetVideoRoomBasicInfoResponse
+     * @throws Exception the exception
+     */
+    GetVideoRoomBasicInfoResponse getVideoRoomBasicInfo(GetVideoRoomBasicInfoRequest getVideoRoomBasicInfoRequest) throws Exception;
+
+    /**
+     * UpdateVideoRoomBasicInfo
+     *
+     * @param updateVideoRoomBasicInfoRequest UpdateVideoRoomBasicInfoRequest
+     * @return UpdateVideoRoomBasicInfoResponse
+     * @throws Exception the exception
+     */
+    UpdateVideoRoomBasicInfoResponse updateVideoRoomBasicInfo(UpdateVideoRoomBasicInfoRequest updateVideoRoomBasicInfoRequest) throws Exception;
+
+    /**
+     * AddVideoRoomMedias
+     *
+     * @param addVideoRoomMediasRequest AddVideoRoomMediasRequest
+     * @return AddVideoRoomMediasResponse
+     * @throws Exception the exception
+     */
+    AddVideoRoomMediasResponse addVideoRoomMedias(AddVideoRoomMediasRequest addVideoRoomMediasRequest) throws Exception;
+
+    /**
+     * DeleteVideoRoomMedias
+     *
+     * @param deleteVideoRoomMediasRequest DeleteVideoRoomMediasRequest
+     * @return DeleteVideoRoomMediasResponse
+     * @throws Exception the exception
+     */
+    DeleteVideoRoomMediasResponse deleteVideoRoomMedias(DeleteVideoRoomMediasRequest deleteVideoRoomMediasRequest) throws Exception;
+
+    /**
+     * ReorderVideoRoomMedias
+     *
+     * @param reorderVideoRoomMediasRequest ReorderVideoRoomMediasRequest
+     * @return ReorderVideoRoomMediasResponse
+     * @throws Exception the exception
+     */
+    ReorderVideoRoomMediasResponse reorderVideoRoomMedias(ReorderVideoRoomMediasRequest reorderVideoRoomMediasRequest) throws Exception;
+
+    /**
+     * ListVideoRoomMedias
+     *
+     * @param listVideoRoomMediasRequest ListVideoRoomMediasRequest
+     * @return ListVideoRoomMediasResponse
+     * @throws Exception the exception
+     */
+    ListVideoRoomMediasResponse listVideoRoomMedias(ListVideoRoomMediasRequest listVideoRoomMediasRequest) throws Exception;
+
+    /**
      * DeleteActivityAPI
      *
      * @param commonRequest CommonRequest
@@ -3276,4 +3357,22 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     ListActivityContentAnalysisResponse listActivityContentAnalysis(ListActivityContentAnalysisRequest listActivityContentAnalysisRequest) throws Exception;
+
+    /**
+     * UpdateActivityAutoReplyCommentConfig
+     *
+     * @param updateActivityAutoReplyCommentConfigRequest UpdateActivityAutoReplyCommentConfigRequest
+     * @return UpdateActivityAutoReplyCommentConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityAutoReplyCommentConfigResponse updateActivityAutoReplyCommentConfig(UpdateActivityAutoReplyCommentConfigRequest updateActivityAutoReplyCommentConfigRequest) throws Exception;
+
+    /**
+     * GetActivityAutoReplyCommentConfig
+     *
+     * @param getActivityAutoReplyCommentConfigRequest GetActivityAutoReplyCommentConfigRequest
+     * @return GetActivityAutoReplyCommentConfigResponse
+     * @throws Exception the exception
+     */
+    GetActivityAutoReplyCommentConfigResponse getActivityAutoReplyCommentConfig(GetActivityAutoReplyCommentConfigRequest getActivityAutoReplyCommentConfigRequest) throws Exception;
 }

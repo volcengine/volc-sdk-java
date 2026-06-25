@@ -214,6 +214,16 @@ public class Const {
     public static final String ListUserBehaviorDataAPI = "ListUserBehaviorDataAPI";
 
     public static final String CreateActivityAPIV2 = "CreateActivityAPIV2";
+    public static final String CreateVideoRoom = "CreateVideoRoom";
+    public static final String DeleteVideoRoom = "DeleteVideoRoom";
+    public static final String ListVideoRooms = "ListVideoRooms";
+    public static final String GetVideoRoomBasicInfo = "GetVideoRoomBasicInfo";
+    public static final String UpdateVideoRoomBasicInfo = "UpdateVideoRoomBasicInfo";
+    public static final String AddVideoRoomMedias = "AddVideoRoomMedias";
+    public static final String DeleteVideoRoomMedias = "DeleteVideoRoomMedias";
+    public static final String ReorderVideoRoomMedias = "ReorderVideoRoomMedias";
+    public static final String ListVideoRoomMedias = "ListVideoRoomMedias";
+
 
     public static final String CreateActivityBonusTask = "CreateActivityBonusTask";
 
@@ -317,6 +327,10 @@ public class Const {
     // 快速评论相关接口
     public static final String ListQuickCommentContent = "ListQuickCommentContent";
     public static final String UpdateQuickCommentContent = "UpdateQuickCommentContent";
+
+    public static final String UpdateActivityAutoReplyCommentConfig = "UpdateActivityAutoReplyCommentConfig";
+
+    public static final String GetActivityAutoReplyCommentConfig = "GetActivityAutoReplyCommentConfig";
 
     public static final String UpdateChatReviewStatusAPI = "UpdateChatReviewStatusAPI";
 

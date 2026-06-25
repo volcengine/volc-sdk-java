@@ -20,4 +20,6 @@ public class UpdateCouponRequest {
     String Pic;
     @JSONField(name = "IsRepeatPickupEnable")
     Integer IsRepeatPickupEnable;
+    @JSONField(name = "IsBlockRepeatPickup")
+    Integer IsBlockRepeatPickup;
 }

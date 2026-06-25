@@ -11,4 +11,6 @@ public class ListCouponsRequest {
     Integer PageNumber;
     @JSONField(name = "PageSize")
     Integer PageSize;
+    @JSONField(name = "SupportIdSearch")
+    Boolean SupportIdSearch;
 }

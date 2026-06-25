@@ -17,4 +17,6 @@ public class CreateCouponModel {
     String OwnerSubAccountName;
     @JSONField(name = "IsRepeatPickupEnable")
     Integer IsRepeatPickupEnable;
+    @JSONField(name = "IsBlockRepeatPickup")
+    Integer IsBlockRepeatPickup;
 }

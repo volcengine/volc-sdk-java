@@ -17,4 +17,6 @@ public class Coupon {
     Long Id;
     @JSONField(name = "IsRepeatPickupEnable")
     Integer IsRepeatPickupEnable;
+    @JSONField(name = "IsBlockRepeatPickup")
+    Integer IsBlockRepeatPickup;
 }

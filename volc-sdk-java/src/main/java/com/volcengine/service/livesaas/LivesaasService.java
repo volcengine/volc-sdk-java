@@ -2710,6 +2710,20 @@ public interface LivesaasService extends IBaseService {
      */
     UpdateActivityReplayPlayerConfigResponse updateActivityReplayPlayerConfig(UpdateActivityReplayPlayerConfigRequest updateActivityReplayPlayerConfigRequest) throws Exception;
 
+    GetActivityVideoAISummaryConfigResponse getActivityVideoAISummaryConfig(GetActivityVideoAISummaryConfigRequest getActivityVideoAISummaryConfigRequest) throws Exception;
+
+    UpdateActivityVideoAISummaryConfigResponse updateActivityVideoAISummaryConfig(UpdateActivityVideoAISummaryConfigRequest updateActivityVideoAISummaryConfigRequest) throws Exception;
+
+    GenerateVideoAISummaryResponse generateVideoAISummary(GenerateVideoAISummaryRequest generateVideoAISummaryRequest) throws Exception;
+
+    TerminateVideoAISummaryResponse terminateVideoAISummary(TerminateVideoAISummaryRequest terminateVideoAISummaryRequest) throws Exception;
+
+    GetVideoAISummaryResponse getVideoAISummary(GetVideoAISummaryRequest getVideoAISummaryRequest) throws Exception;
+
+    UpdateVideoAISummaryResponse updateVideoAISummary(UpdateVideoAISummaryRequest updateVideoAISummaryRequest) throws Exception;
+
+    UpdateVideoAISummaryStatusResponse updateVideoAISummaryStatus(UpdateVideoAISummaryStatusRequest updateVideoAISummaryStatusRequest) throws Exception;
+
     /**
      * listInteractionScriptComments
      *

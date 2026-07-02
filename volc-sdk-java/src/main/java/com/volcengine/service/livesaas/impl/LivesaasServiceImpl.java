@@ -4717,6 +4717,110 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         return res;
     }
 
+    @Override
+    public GetActivityVideoAISummaryConfigResponse getActivityVideoAISummaryConfig(GetActivityVideoAISummaryConfigRequest getActivityVideoAISummaryConfigRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityVideoAISummaryConfig, Utils.paramsToPair(getActivityVideoAISummaryConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityVideoAISummaryConfigResponse res = JSON.parseObject(response.getData(), GetActivityVideoAISummaryConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateActivityVideoAISummaryConfigResponse updateActivityVideoAISummaryConfig(UpdateActivityVideoAISummaryConfigRequest updateActivityVideoAISummaryConfigRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityVideoAISummaryConfig, new ArrayList<>(), JSON.toJSONString(updateActivityVideoAISummaryConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateActivityVideoAISummaryConfigResponse res = JSON.parseObject(response.getData(), UpdateActivityVideoAISummaryConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GenerateVideoAISummaryResponse generateVideoAISummary(GenerateVideoAISummaryRequest generateVideoAISummaryRequest) throws Exception {
+        RawResponse response = json(Const.GenerateVideoAISummary, new ArrayList<>(), JSON.toJSONString(generateVideoAISummaryRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GenerateVideoAISummaryResponse res = JSON.parseObject(response.getData(), GenerateVideoAISummaryResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public TerminateVideoAISummaryResponse terminateVideoAISummary(TerminateVideoAISummaryRequest terminateVideoAISummaryRequest) throws Exception {
+        RawResponse response = json(Const.TerminateVideoAISummary, new ArrayList<>(), JSON.toJSONString(terminateVideoAISummaryRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        TerminateVideoAISummaryResponse res = JSON.parseObject(response.getData(), TerminateVideoAISummaryResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetVideoAISummaryResponse getVideoAISummary(GetVideoAISummaryRequest getVideoAISummaryRequest) throws Exception {
+        RawResponse response = query(Const.GetVideoAISummary, Utils.paramsToPair(getVideoAISummaryRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetVideoAISummaryResponse res = JSON.parseObject(response.getData(), GetVideoAISummaryResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateVideoAISummaryResponse updateVideoAISummary(UpdateVideoAISummaryRequest updateVideoAISummaryRequest) throws Exception {
+        RawResponse response = json(Const.UpdateVideoAISummary, new ArrayList<>(), JSON.toJSONString(updateVideoAISummaryRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateVideoAISummaryResponse res = JSON.parseObject(response.getData(), UpdateVideoAISummaryResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateVideoAISummaryStatusResponse updateVideoAISummaryStatus(UpdateVideoAISummaryStatusRequest updateVideoAISummaryStatusRequest) throws Exception {
+        RawResponse response = json(Const.UpdateVideoAISummaryStatus, new ArrayList<>(), JSON.toJSONString(updateVideoAISummaryStatusRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateVideoAISummaryStatusResponse res = JSON.parseObject(response.getData(), UpdateVideoAISummaryStatusResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 
     @Override
     public ListInteractionScriptCommentsResponse listInteractionScriptComments(ListInteractionScriptCommentsRequest listInteractionScriptCommentsRequest) throws Exception {

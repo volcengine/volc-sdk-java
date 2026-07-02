@@ -746,6 +746,13 @@ public class Const {
 
     public static final String GetActivityReplayPlayerConfig = "GetActivityReplayPlayerConfig";
     public static final String UpdateActivityReplayPlayerConfig = "UpdateActivityReplayPlayerConfig";
+    public static final String GetActivityVideoAISummaryConfig = "GetActivityVideoAISummaryConfig";
+    public static final String UpdateActivityVideoAISummaryConfig = "UpdateActivityVideoAISummaryConfig";
+    public static final String GenerateVideoAISummary = "GenerateVideoAISummary";
+    public static final String TerminateVideoAISummary = "TerminateVideoAISummary";
+    public static final String GetVideoAISummary = "GetVideoAISummary";
+    public static final String UpdateVideoAISummary = "UpdateVideoAISummary";
+    public static final String UpdateVideoAISummaryStatus = "UpdateVideoAISummaryStatus";
 
     public static final String GetActivityMessageConfig = "GetActivityMessageConfig";
     public static final String UpdateActivityMessageConfig = "UpdateActivityMessageConfig";

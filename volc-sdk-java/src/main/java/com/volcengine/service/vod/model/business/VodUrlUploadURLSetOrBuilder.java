@@ -462,4 +462,14 @@ public interface VodUrlUploadURLSetOrBuilder extends
    */
   com.volcengine.service.vod.model.business.VodExecutionOrBuilder getExecutionsOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * 媒资类型 
+   * </pre>
+   *
+   * <code>int32 RecordType = 20;</code>
+   * @return The recordType.
+   */
+  int getRecordType();
 }

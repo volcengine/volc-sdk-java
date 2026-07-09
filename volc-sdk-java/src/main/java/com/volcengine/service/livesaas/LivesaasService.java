@@ -76,6 +76,33 @@ public interface LivesaasService extends IBaseService {
     ListUserChatAPIResponse listUserChatAPI(ListUserChatAPIRequest listUserChatAPIRequest) throws Exception;
 
     /**
+     * GetActivityCommentReviewExemption
+     *
+     * @param getActivityCommentReviewExemptionRequest GetActivityCommentReviewExemptionRequest
+     * @return GetActivityCommentReviewExemptionResponse
+     * @throws Exception the exception
+     */
+    GetActivityCommentReviewExemptionResponse getActivityCommentReviewExemption(GetActivityCommentReviewExemptionRequest getActivityCommentReviewExemptionRequest) throws Exception;
+
+    /**
+     * AddActivityCommentReviewExemption
+     *
+     * @param addActivityCommentReviewExemptionRequest AddActivityCommentReviewExemptionRequest
+     * @return AddActivityCommentReviewExemptionResponse
+     * @throws Exception the exception
+     */
+    AddActivityCommentReviewExemptionResponse addActivityCommentReviewExemption(AddActivityCommentReviewExemptionRequest addActivityCommentReviewExemptionRequest) throws Exception;
+
+    /**
+     * DelActivityCommentReviewExemption
+     *
+     * @param delActivityCommentReviewExemptionRequest DelActivityCommentReviewExemptionRequest
+     * @return DelActivityCommentReviewExemptionResponse
+     * @throws Exception the exception
+     */
+    DelActivityCommentReviewExemptionResponse delActivityCommentReviewExemption(DelActivityCommentReviewExemptionRequest delActivityCommentReviewExemptionRequest) throws Exception;
+
+    /**
      * CreateActivityAPIV2
      *
      * @param createActivityAPIRequest CreateActivityAPIRequest

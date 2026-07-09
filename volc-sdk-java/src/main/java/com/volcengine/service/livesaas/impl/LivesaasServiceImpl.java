@@ -328,6 +328,51 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public GetActivityCommentReviewExemptionResponse getActivityCommentReviewExemption(GetActivityCommentReviewExemptionRequest getActivityCommentReviewExemptionRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityCommentReviewExemption, Utils.paramsToPair(getActivityCommentReviewExemptionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityCommentReviewExemptionResponse res = JSON.parseObject(response.getData(), GetActivityCommentReviewExemptionResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public AddActivityCommentReviewExemptionResponse addActivityCommentReviewExemption(AddActivityCommentReviewExemptionRequest addActivityCommentReviewExemptionRequest) throws Exception {
+        RawResponse response = json(Const.AddActivityCommentReviewExemption, new ArrayList<>(), JSON.toJSONString(addActivityCommentReviewExemptionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        AddActivityCommentReviewExemptionResponse res = JSON.parseObject(response.getData(), AddActivityCommentReviewExemptionResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DelActivityCommentReviewExemptionResponse delActivityCommentReviewExemption(DelActivityCommentReviewExemptionRequest delActivityCommentReviewExemptionRequest) throws Exception {
+        RawResponse response = json(Const.DelActivityCommentReviewExemption, new ArrayList<>(), JSON.toJSONString(delActivityCommentReviewExemptionRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DelActivityCommentReviewExemptionResponse res = JSON.parseObject(response.getData(), DelActivityCommentReviewExemptionResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public GetAccountRealTimeOnlineNumberResponse getAccountRealTimeOnlineNumber(GetAccountRealTimeOnlineNumberRequest getAccountRealTimeOnlineNumberRequest) throws Exception {
         RawResponse response = query(Const.GetAccountRealTimeOnlineNumber, Utils.paramsToPair(getAccountRealTimeOnlineNumberRequest));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

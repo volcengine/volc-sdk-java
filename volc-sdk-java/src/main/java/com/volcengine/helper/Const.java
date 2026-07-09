@@ -336,6 +336,12 @@ public class Const {
 
     public static final String ConfirmReviewChatAPI = "ConfirmReviewChatAPI";
 
+    public static final String GetActivityCommentReviewExemption = "GetActivityCommentReviewExemption";
+
+    public static final String AddActivityCommentReviewExemption = "AddActivityCommentReviewExemption";
+
+    public static final String DelActivityCommentReviewExemption = "DelActivityCommentReviewExemption";
+
     public static final String SilenceUserAPI = "SilenceUserAPI";
 
     public static final String GetSilenceUserListAPI = "GetSilenceUserListAPI";

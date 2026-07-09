@@ -191,6 +191,11 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(com.volcengine.service.vod.model.business.VodExecution.parser(), extensionRegistry));
             break;
           }
+          case 160: {
+
+            recordType_ = input.readInt32();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -1118,6 +1123,21 @@ private static final long serialVersionUID = 0L;
     return executions_.get(index);
   }
 
+  public static final int RECORDTYPE_FIELD_NUMBER = 20;
+  private int recordType_;
+  /**
+   * <pre>
+   * 媒资类型 
+   * </pre>
+   *
+   * <code>int32 RecordType = 20;</code>
+   * @return The recordType.
+   */
+  @java.lang.Override
+  public int getRecordType() {
+    return recordType_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1191,6 +1211,9 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < executions_.size(); i++) {
       output.writeMessage(19, executions_.get(i));
+    }
+    if (recordType_ != 0) {
+      output.writeInt32(20, recordType_);
     }
     unknownFields.writeTo(output);
   }
@@ -1271,6 +1294,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(19, executions_.get(i));
     }
+    if (recordType_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(20, recordType_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1324,6 +1351,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getImageSetList())) return false;
     if (!getExecutionsList()
         .equals(other.getExecutionsList())) return false;
+    if (getRecordType()
+        != other.getRecordType()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1383,6 +1412,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXECUTIONS_FIELD_NUMBER;
       hash = (53 * hash) + getExecutionsList().hashCode();
     }
+    hash = (37 * hash) + RECORDTYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getRecordType();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1590,6 +1621,8 @@ private static final long serialVersionUID = 0L;
       } else {
         executionsBuilder_.clear();
       }
+      recordType_ = 0;
+
       return this;
     }
 
@@ -1661,6 +1694,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.executions_ = executionsBuilder_.build();
       }
+      result.recordType_ = recordType_;
       onBuilt();
       return result;
     }
@@ -1845,6 +1879,9 @@ private static final long serialVersionUID = 0L;
             executionsBuilder_.addAllMessages(other.executions_);
           }
         }
+      }
+      if (other.getRecordType() != 0) {
+        setRecordType(other.getRecordType());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -4250,6 +4287,49 @@ private static final long serialVersionUID = 0L;
         executions_ = null;
       }
       return executionsBuilder_;
+    }
+
+    private int recordType_ ;
+    /**
+     * <pre>
+     * 媒资类型 
+     * </pre>
+     *
+     * <code>int32 RecordType = 20;</code>
+     * @return The recordType.
+     */
+    @java.lang.Override
+    public int getRecordType() {
+      return recordType_;
+    }
+    /**
+     * <pre>
+     * 媒资类型 
+     * </pre>
+     *
+     * <code>int32 RecordType = 20;</code>
+     * @param value The recordType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRecordType(int value) {
+      
+      recordType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * 媒资类型 
+     * </pre>
+     *
+     * <code>int32 RecordType = 20;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRecordType() {
+      
+      recordType_ = 0;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

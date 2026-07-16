@@ -22,8 +22,11 @@ public class DescribeLogBackFlowTasksRequest {
     @JSONField(name = TASK_NAME)
     private String taskName;
     @JSONField(name = STATUS)
-    private Integer status;
-    @JSONField(name = SCHEDULE_SQL_TASK_ID_UPPER)
+    private String status;
+    @JSONField(name = ETL_TASK_ID)
+    private String etlTaskId;
+    @Deprecated
+    @JSONField(name = SCHEDULE_SQL_TASK_ID_UPPER, serialize = false, deserialize = false)
     private String scheduleSQLTaskId;
     @JSONField(name = SHIPPER_ID)
     private String shipperId;
@@ -68,12 +71,20 @@ public class DescribeLogBackFlowTasksRequest {
         this.taskName = taskName;
     }
 
-    public Integer getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getEtlTaskId() {
+        return etlTaskId;
+    }
+
+    public void setEtlTaskId(String etlTaskId) {
+        this.etlTaskId = etlTaskId;
     }
 
     public String getScheduleSQLTaskId() {
@@ -93,6 +104,12 @@ public class DescribeLogBackFlowTasksRequest {
     }
 
     public boolean CheckValidation() {
-        return true;
+        return this.scheduleSQLTaskId == null && (this.status == null
+                || LOG_BACK_FLOW_STATUS_DONE.equals(this.status)
+                || LOG_BACK_FLOW_STATUS_CREATING.equals(this.status)
+                || LOG_BACK_FLOW_STATUS_FINISHED.equals(this.status)
+                || LOG_BACK_FLOW_STATUS_DELETING.equals(this.status)
+                || LOG_BACK_FLOW_STATUS_CREATE_FAILED.equals(this.status)
+                || LOG_BACK_FLOW_STATUS_RUN_FAILED.equals(this.status));
     }
 }

@@ -46,6 +46,8 @@ public class ImageRiskDetectionResponse {
         private String finalLabel;
         @JSONField(name = "DecisionLabel")
         private String decisionLabel;
+        @JSONField(name = "ImageStorageUrl")
+        private String imageStorageUrl;
     }
 
     @Data

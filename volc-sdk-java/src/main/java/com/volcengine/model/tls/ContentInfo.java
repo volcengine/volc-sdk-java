@@ -19,4 +19,8 @@ public class ContentInfo {
     /** JSON 内容配置. */
     @JSONField(name = "JsonInfo")
     private JsonInfo jsonInfo;
+
+    /** Parquet 内容配置. */
+    @JSONField(name = "ParquetInfo")
+    private ParquetInfo parquetInfo;
 }

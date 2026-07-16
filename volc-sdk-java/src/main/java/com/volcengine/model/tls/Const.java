@@ -519,9 +519,13 @@ public class Const {
     public static final String BACK_FLOW_START_TIME = "BackFlowStartTime";
     public static final String LOG_BACK_FLOW_TASK_SOURCE = "LogBackFlowTaskSource";
     public static final String LOG_BACK_FLOW_TASK_TOPIC_SOURCE = "LogBackFlowTaskTopicSource";
+    public static final String ETL_TASK_INFO = "ETLTaskInfo";
+    public static final String ETL_TASK_ID = "ETLTaskId";
+    public static final String ETL_TASK_NAME = "ETLTaskName";
     public static final String QUERY_PARAMS = "QueryParams";
     public static final String SCHEDULE_SQL_TASK_INFO = "ScheduleSqlTaskInfo";
     public static final String SHIPPER_TO_TOS_INFO = "ShipperToTosInfo";
+    public static final String SHIPPER_TO_AGENT_LOOP_INFO = "ShipperToAgentLoopInfo";
     public static final String LOG_BACK_FLOW_TASKS = "LogBackFlowTasks";
     public static final String RELA_TASKS_INFO = "RelaTasksInfo";
     public static final String SCHEDULE_SQL_TASK_NAME = "ScheduleSQLTaskName";
@@ -535,6 +539,12 @@ public class Const {
     public static final String FIELD = "Field";
     public static final String VALUES = "Values";
     public static final String OPERATOR = "Operator";
+    public static final String LOG_BACK_FLOW_STATUS_DONE = "DONE";
+    public static final String LOG_BACK_FLOW_STATUS_CREATING = "CREATING";
+    public static final String LOG_BACK_FLOW_STATUS_FINISHED = "FINISHED";
+    public static final String LOG_BACK_FLOW_STATUS_DELETING = "DELETING";
+    public static final String LOG_BACK_FLOW_STATUS_CREATE_FAILED = "CREATEFAILED";
+    public static final String LOG_BACK_FLOW_STATUS_RUN_FAILED = "RUNFAILED";
 
     // 消费组消费
     public static final String PROJECT_ID_UPPERCASE = "ProjectID";

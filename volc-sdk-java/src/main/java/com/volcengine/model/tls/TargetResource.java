@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import static com.volcengine.model.tls.Const.ALIAS;
+import static com.volcengine.model.tls.Const.ENDPOINT;
 import static com.volcengine.model.tls.Const.REGION;
 import static com.volcengine.model.tls.Const.ROLE_TRN;
 import static com.volcengine.model.tls.Const.TOPIC_ID;
@@ -28,6 +29,15 @@ public class TargetResource {
     /** 目标资源使用的角色 TRN. */
     @JSONField(name = ROLE_TRN)
     private String roleTrn;
+
+    @JSONField(name = "ServiceTrn")
+    private String serviceTrn;
+
+    @JSONField(name = "ProxyPoint")
+    private String proxyPoint;
+
+    @JSONField(name = ENDPOINT)
+    private String endpoint;
 
     /**
      * 使用别名、日志主题 ID 与地域构造目标资源.

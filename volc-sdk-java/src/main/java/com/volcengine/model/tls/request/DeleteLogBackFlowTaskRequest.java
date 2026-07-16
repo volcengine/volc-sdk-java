@@ -21,6 +21,6 @@ public class DeleteLogBackFlowTaskRequest {
     }
 
     public boolean CheckValidation() {
-        return this.taskId != null;
+        return this.taskId != null && !this.taskId.isEmpty();
     }
 }

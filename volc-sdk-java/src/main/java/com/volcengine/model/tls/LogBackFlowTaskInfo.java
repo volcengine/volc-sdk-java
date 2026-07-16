@@ -17,12 +17,16 @@ public class LogBackFlowTaskInfo {
     private Integer status;
     @JSONField(name = LOG_BACK_FLOW_TASK_SOURCE)
     private LogBackFlowTaskSource logBackFlowTaskSource;
+    @JSONField(name = ETL_TASK_INFO)
+    private LogBackFlowETLTaskInfo etlTaskInfo;
     @JSONField(name = SCHEDULE_SQL_TASK_INFO)
     private LogBackFlowScheduleSqlTaskInfo scheduleSqlTaskInfo;
     @JSONField(name = QUERY_PARAMS)
     private LogBackFlowQueryParams queryParams;
     @JSONField(name = SHIPPER_TO_TOS_INFO)
     private LogBackFlowShipperToTosInfo shipperToTosInfo;
+    @JSONField(name = SHIPPER_TO_AGENT_LOOP_INFO)
+    private LogBackFlowShipperToAgentLoopInfo shipperToAgentLoopInfo;
     @JSONField(name = DESCRIPTION)
     private String description;
     @JSONField(name = RELA_TASKS_INFO)

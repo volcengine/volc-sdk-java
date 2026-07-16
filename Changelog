@@ -1,5 +1,8 @@
 Change log
 
+2026-07-16 Bumped to version v1.0.278
+- Updated apis for contentSecurity/tls
+
 2026-07-09 Bumped to version v1.0.277
 - Updated apis for livesaas/vod
 

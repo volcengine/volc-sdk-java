@@ -2339,11 +2339,11 @@ public class TLSLogClientImpl implements TLSLogClient {
         if (StringUtils.isNotEmpty(request.getTaskName())) {
             params.add(new BasicNameValuePair(TASK_NAME, request.getTaskName()));
         }
-        if (request.getStatus() != null) {
-            params.add(new BasicNameValuePair(STATUS, String.valueOf(request.getStatus())));
+        if (StringUtils.isNotEmpty(request.getStatus())) {
+            params.add(new BasicNameValuePair(STATUS, request.getStatus()));
         }
-        if (StringUtils.isNotEmpty(request.getScheduleSQLTaskId())) {
-            params.add(new BasicNameValuePair(SCHEDULE_SQL_TASK_ID_UPPER, request.getScheduleSQLTaskId()));
+        if (StringUtils.isNotEmpty(request.getEtlTaskId())) {
+            params.add(new BasicNameValuePair(ETL_TASK_ID, request.getEtlTaskId()));
         }
         if (StringUtils.isNotEmpty(request.getShipperId())) {
             params.add(new BasicNameValuePair(SHIPPER_ID, request.getShipperId()));

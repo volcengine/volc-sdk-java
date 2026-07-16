@@ -52,7 +52,7 @@ public class ContentSecurityServiceImpl extends BaseServiceImpl implements Conte
                         put(Const.Path, "/open/api/v4/image_content_risk");
                         put(Const.Query, new ArrayList<NameValuePair>() {
                             {
-                                add(new BasicNameValuePair("Action", Const.ImageContentRisk));
+                                add(new BasicNameValuePair("Action", Const.ImageContentRiskV2));
                                 add(new BasicNameValuePair("Version", "2021-11-29"));
                             }
                         });

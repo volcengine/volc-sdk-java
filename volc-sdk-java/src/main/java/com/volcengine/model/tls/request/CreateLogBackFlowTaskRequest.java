@@ -1,9 +1,11 @@
 package com.volcengine.model.tls.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.tls.LogBackFlowETLTaskInfo;
 import com.volcengine.model.tls.LogBackFlowQueryParams;
 import com.volcengine.model.tls.LogBackFlowScheduleSqlTaskInfo;
 import com.volcengine.model.tls.LogBackFlowShipperToTosInfo;
+import com.volcengine.model.tls.LogBackFlowShipperToAgentLoopInfo;
 import com.volcengine.model.tls.LogBackFlowTaskSource;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,12 +25,17 @@ public class CreateLogBackFlowTaskRequest {
     private String iamProjectName;
     @JSONField(name = LOG_BACK_FLOW_TASK_SOURCE)
     private LogBackFlowTaskSource logBackFlowTaskSource;
+    @JSONField(name = ETL_TASK_INFO)
+    private LogBackFlowETLTaskInfo etlTaskInfo;
     @JSONField(name = QUERY_PARAMS)
     private LogBackFlowQueryParams queryParams;
-    @JSONField(name = SCHEDULE_SQL_TASK_INFO)
+    @Deprecated
+    @JSONField(name = SCHEDULE_SQL_TASK_INFO, serialize = false, deserialize = false)
     private LogBackFlowScheduleSqlTaskInfo scheduleSqlTaskInfo;
     @JSONField(name = SHIPPER_TO_TOS_INFO)
     private LogBackFlowShipperToTosInfo shipperToTosInfo;
+    @JSONField(name = SHIPPER_TO_AGENT_LOOP_INFO)
+    private LogBackFlowShipperToAgentLoopInfo shipperToAgentLoopInfo;
     @JSONField(name = TASK_NAME)
     private String taskName;
 
@@ -76,6 +83,14 @@ public class CreateLogBackFlowTaskRequest {
         return queryParams;
     }
 
+    public LogBackFlowETLTaskInfo getEtlTaskInfo() {
+        return etlTaskInfo;
+    }
+
+    public void setEtlTaskInfo(LogBackFlowETLTaskInfo etlTaskInfo) {
+        this.etlTaskInfo = etlTaskInfo;
+    }
+
     public void setQueryParams(LogBackFlowQueryParams queryParams) {
         this.queryParams = queryParams;
     }
@@ -92,6 +107,14 @@ public class CreateLogBackFlowTaskRequest {
         return shipperToTosInfo;
     }
 
+    public LogBackFlowShipperToAgentLoopInfo getShipperToAgentLoopInfo() {
+        return shipperToAgentLoopInfo;
+    }
+
+    public void setShipperToAgentLoopInfo(LogBackFlowShipperToAgentLoopInfo shipperToAgentLoopInfo) {
+        this.shipperToAgentLoopInfo = shipperToAgentLoopInfo;
+    }
+
     public void setShipperToTosInfo(LogBackFlowShipperToTosInfo shipperToTosInfo) {
         this.shipperToTosInfo = shipperToTosInfo;
     }
@@ -105,6 +128,34 @@ public class CreateLogBackFlowTaskRequest {
     }
 
     public boolean CheckValidation() {
-        return this.taskName != null && this.logBackFlowTaskSource != null && this.queryParams != null;
+        return this.taskName != null && !this.taskName.isEmpty()
+                && isValidSource()
+                && isValidEtlTaskInfo()
+                && (this.queryParams == null || (this.queryParams.getFields() != null
+                && !this.queryParams.getFields().isEmpty()))
+                && this.backFlowStartTime != null && this.backFlowStartTime > 0
+                && !(this.shipperToTosInfo != null && this.shipperToAgentLoopInfo != null)
+                && this.scheduleSqlTaskInfo == null;
+    }
+
+    private boolean isValidSource() {
+        return this.logBackFlowTaskSource != null
+                && "Topic".equals(this.logBackFlowTaskSource.getSourceType())
+                && this.logBackFlowTaskSource.getLogBackFlowTaskTopicSource() != null
+                && this.logBackFlowTaskSource.getLogBackFlowTaskTopicSource().getProjectId() != null
+                && !this.logBackFlowTaskSource.getLogBackFlowTaskTopicSource().getProjectId().isEmpty()
+                && this.logBackFlowTaskSource.getLogBackFlowTaskTopicSource().getTopicId() != null
+                && !this.logBackFlowTaskSource.getLogBackFlowTaskTopicSource().getTopicId().isEmpty();
+    }
+
+    private boolean isValidEtlTaskInfo() {
+        return this.etlTaskInfo != null
+                && this.etlTaskInfo.getScript() != null && !this.etlTaskInfo.getScript().isEmpty()
+                && this.etlTaskInfo.getTargetResources() != null
+                && this.etlTaskInfo.getTargetResources().size() == 1
+                && this.etlTaskInfo.getTargetResources().get(0).getAlias() != null
+                && !this.etlTaskInfo.getTargetResources().get(0).getAlias().isEmpty()
+                && this.etlTaskInfo.getTargetResources().get(0).getTopicId() != null
+                && !this.etlTaskInfo.getTargetResources().get(0).getTopicId().isEmpty();
     }
 }

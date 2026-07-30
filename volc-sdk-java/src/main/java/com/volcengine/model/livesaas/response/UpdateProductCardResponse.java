@@ -2,6 +2,7 @@ package com.volcengine.model.livesaas.response;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
+import com.volcengine.model.beans.livesaas.ProductCardUrl;
 import com.volcengine.model.response.ResponseMetadata;
 
 import java.util.List;
@@ -20,6 +21,14 @@ public class UpdateProductCardResponse {
         ProductCard ProductConfig;
         @JSONField(name = "VerticalIconUrl")
         String VerticalIconUrl;
+        @JSONField(name = "EnableViewCart")
+        Integer EnableViewCart;
+        @JSONField(name = "ViewCartUrl")
+        String ViewCartUrl;
+        @JSONField(name = "EnableViewOrder")
+        Integer EnableViewOrder;
+        @JSONField(name = "ViewOrderUrl")
+        String ViewOrderUrl;
     }
 
     @Data
@@ -122,11 +131,19 @@ public class UpdateProductCardResponse {
         Integer PromotionTagType;
         @JSONField(name = "IsOrderMsgEnable")
         Integer IsOrderMsgEnable;
+        @JSONField(name = "CustomId")
+        Long CustomId;
         @JSONField(name = "OutOfStock")
         Integer OutOfStock;
         @JSONField(name = "PriceHidden")
         Integer PriceHidden;
         @JSONField(name = "MemberPrice")
         String MemberPrice;
+        @JSONField(name = "DetailRedirectUrl")
+        ProductCardUrl DetailRedirectUrl;
+        @JSONField(name = "EnableAddCart")
+        Integer EnableAddCart;
+        @JSONField(name = "AddCartUrl")
+        ProductCardUrl AddCartUrl;
     }
 }

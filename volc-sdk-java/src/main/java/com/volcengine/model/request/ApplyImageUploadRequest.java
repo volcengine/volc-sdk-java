@@ -1,6 +1,7 @@
 package com.volcengine.model.request;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.volcengine.model.imagex.AIGCMetaData;
 import lombok.Data;
 
 import java.util.List;
@@ -27,6 +28,9 @@ public class ApplyImageUploadRequest {
     List<String> storageClasses;
     @JSONField(name = "UploadHost")
     String uploadHost;
+
+    @JSONField(serialize = false)
+    List<AIGCMetaData> aigcMetaDataList;
 
     @JSONField(serialize = false)
     Boolean skipCommit;

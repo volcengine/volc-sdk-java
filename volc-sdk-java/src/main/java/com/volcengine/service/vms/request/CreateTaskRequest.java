@@ -71,4 +71,10 @@ public class CreateTaskRequest {
     @Builder.Default
     @JSONField(name = "Type")
     private Integer type = 0;
+
+    @JSONField(name = "FinishWhenListEnd")
+    private Boolean finishWhenListEnd;
+
+    @JSONField(name = "CallRecordPostUrl")
+    private String callRecordPostUrl;
 }

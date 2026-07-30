@@ -32,7 +32,8 @@ public class TaskDemo {
             PhoneParam phoneParam = PhoneParam.builder().phone("19900000000").build();
             CreateTaskRequest createTaskRequest = CreateTaskRequest.builder().concurrency(1).name("test1").resource("618f1ee1d8a94d4d8eaee06482fda70e")
                     .numberPoolNo("NP162215338604095636").numberList(Arrays.asList("075561169508")).selectNumberType(0)
-                    .startTime(new Date()).endTime(new Date(System.currentTimeMillis() + 600 * 1000)).phoneList(Arrays.asList(phoneParam)).build();
+                    .startTime(new Date()).endTime(new Date(System.currentTimeMillis() + 600 * 1000)).phoneList(Arrays.asList(phoneParam))
+                    .finishWhenListEnd(true).callRecordPostUrl("https://example.com/callback").build();
 
             operationResponse = vmsService.createTask(createTaskRequest);
             System.out.println(JSON.toJSONString(operationResponse));

@@ -13,4 +13,12 @@ public class UpdateProductCardRequest {
     ProductCard ProductConfig;
     @JSONField(name = "VerticalIconUrl")
     String VerticalIconUrl;
+    @JSONField(name = "EnableViewCart")
+    Integer EnableViewCart;
+    @JSONField(name = "ViewCartUrl")
+    String ViewCartUrl;
+    @JSONField(name = "EnableViewOrder")
+    Integer EnableViewOrder;
+    @JSONField(name = "ViewOrderUrl")
+    String ViewOrderUrl;
 }

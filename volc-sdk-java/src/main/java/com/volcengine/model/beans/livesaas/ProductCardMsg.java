@@ -45,6 +45,8 @@ public class ProductCardMsg {
     Integer PromotionTagType;
     @JSONField(name = "IsOrderMsgEnable")
     Integer IsOrderMsgEnable;
+    @JSONField(name = "CustomId")
+    Long CustomId;
     @JSONField(name = "OutOfStock")
     Integer OutOfStock;
     @JSONField(name = "PriceHidden")
@@ -53,4 +55,10 @@ public class ProductCardMsg {
     String CustomContent;
     @JSONField(name = "MemberPrice")
     String MemberPrice;
+    @JSONField(name = "DetailRedirectUrl")
+    ProductCardUrl DetailRedirectUrl;
+    @JSONField(name = "EnableAddCart")
+    Integer EnableAddCart;
+    @JSONField(name = "AddCartUrl")
+    ProductCardUrl AddCartUrl;
 }

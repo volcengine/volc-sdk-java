@@ -28,4 +28,8 @@ public class UpdateActivityQuizConfigRequest {
     String QuizAnalysis;
     @JSONField(name = "QuizType")
     Long QuizType;
+    @JSONField(name = "SendType")
+    Integer SendType;
+    @JSONField(name = "AutoSendTime")
+    Long AutoSendTime;
 }

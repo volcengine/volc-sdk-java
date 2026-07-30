@@ -43,6 +43,10 @@ public class ListActivityQuizConfigsResponse {
         Integer QuizTitleType;
         @JSONField(name = "QuizAnalysis")
         String QuizAnalysis;
+        @JSONField(name = "SendType")
+        Integer SendType;
+        @JSONField(name = "AutoSendTime")
+        Long AutoSendTime;
     }
 
 }

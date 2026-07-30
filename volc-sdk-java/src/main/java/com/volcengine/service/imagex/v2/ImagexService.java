@@ -10,6 +10,7 @@ import com.volcengine.error.SdkError;
 import com.volcengine.helper.Utils;
 import com.volcengine.model.ServiceInfo;
 import com.volcengine.model.beans.PartInputStream;
+import com.volcengine.model.imagex.AIGCMetaData;
 import com.volcengine.model.imagex.v2.ApplyVpcUploadInfoQuery;
 import com.volcengine.model.imagex.v2.ApplyVpcUploadInfoRes;
 import com.volcengine.model.imagex.v2.ApplyVpcUploadInfoResResult;
@@ -146,6 +147,9 @@ public class ImagexService extends ImagexTrait {
         if (uploadParams != null && uploadParams.get("StorageClass") != null && !uploadParams.get("StorageClass").isEmpty()) {
             headers.put("X-VeImageX-Storage-Class", uploadParams.get("StorageClass"));
         }
+        if (uploadParams != null && uploadParams.get("AIGCMeta") != null && !uploadParams.get("AIGCMeta").isEmpty()) {
+            headers.put("X-Upload-AIGC-Meta", uploadParams.get("AIGCMeta"));
+        }
 
         long startTime = System.currentTimeMillis();
         uploadRetryer.call(() -> putData(url, imageData, headers));
@@ -240,6 +244,9 @@ public class ImagexService extends ImagexTrait {
         if (uploadParams!= null && uploadParams.get("StorageClass") != null && !uploadParams.get("StorageClass").isEmpty()) {
             headers.put("X-VeImageX-Storage-Class", uploadParams.get("StorageClass"));
         }
+        if (uploadParams!= null && uploadParams.get("AIGCMeta") != null && !uploadParams.get("AIGCMeta").isEmpty()) {
+            headers.put("X-Upload-AIGC-Meta", uploadParams.get("AIGCMeta"));
+        }
         uploadRetryer.call(() -> putData(url, body.getBytes(), headers));
     }
 
@@ -290,6 +297,15 @@ public class ImagexService extends ImagexTrait {
                 }
                 if (request.getStorageClasses()!= null && request.getStorageClasses().size() > i) {
                     uploadParams.put("StorageClass", request.getStorageClasses().get(i));
+                }
+                if (request.getAigcMetaDataList() != null && request.getAigcMetaDataList().size() > i) {
+                    try {
+                        String metaJson = com.alibaba.fastjson.JSON.toJSONString(request.getAigcMetaDataList().get(i));
+                        String base64Encoded = java.util.Base64.getEncoder().encodeToString(metaJson.getBytes("UTF-8"));
+                        uploadParams.put("AIGCMeta", base64Encoded);
+                    } catch (Exception e) {
+                        LOG.log(Level.WARNING, "Failed to encode AIGC meta data", e);
+                    }
                 }
                 if (request.getUploadHost() != null && !request.getUploadHost().isEmpty()) {
                     uploadHost = request.getUploadHost();
@@ -355,6 +371,15 @@ public class ImagexService extends ImagexTrait {
             }
             if (request.getStorageClasses() != null && request.getStorageClasses().size() > i) {
                 uploadParams.put("StorageClass", request.getStorageClasses().get(i));
+            }
+            if (request.getAigcMetaDataList() != null && request.getAigcMetaDataList().size() > i) {
+                try {
+                    String metaJson = com.alibaba.fastjson.JSON.toJSONString(request.getAigcMetaDataList().get(i));
+                    String base64Encoded = java.util.Base64.getEncoder().encodeToString(metaJson.getBytes("UTF-8"));
+                    uploadParams.put("AIGCMeta", base64Encoded);
+                } catch (Exception e) {
+                    LOG.log(Level.WARNING, "Failed to encode AIGC meta data", e);
+                }
             }
             if (request.getUploadHost() != null && !request.getUploadHost().isEmpty()) {
                 uploadHost = request.getUploadHost();

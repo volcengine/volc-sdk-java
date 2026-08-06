@@ -319,6 +319,15 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
     }
 
     @Override
+    public NumberListScrollResponse queryNumberListScroll(NumberListScrollRequest request) throws Exception {
+        RawResponse response = query("NumberListScroll", Utils.mapToPairList(Utils.paramsToMap(request)));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        return JSON.parseObject(response.getData(), NumberListScrollResponse.class);
+    }
+
+    @Override
     public CreateNumberPoolResponse createNumberPool(CreateNumberPoolRequest request) throws Exception {
         RawResponse response = formPost("CreateNumberPool", Utils.mapToPairList(Utils.paramsToMap(request)));
         if (response.getCode() != SdkError.SUCCESS.getNumber()) {

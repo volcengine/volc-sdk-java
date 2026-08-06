@@ -515,6 +515,18 @@ public class VmsConfig {
                     });
                 }
             }));
+            put("NumberListScroll", new ApiInfo(new HashMap<String, Object>() {
+                {
+                    put(Const.Method, "GET");
+                    put(Const.Path, DEFAULT_PATH);
+                    put(Const.Query, new ArrayList<NameValuePair>() {
+                        {
+                            add(new BasicNameValuePair(ACTION, "NumberListScroll"));
+                            add(new BasicNameValuePair(VERSION, DEFAULT_VERSION));
+                        }
+                    });
+                }
+            }));
             put("CreateNumberPool", new ApiInfo(new HashMap<String, Object>() {
                 {
                     put(Const.Method, Const.POST);

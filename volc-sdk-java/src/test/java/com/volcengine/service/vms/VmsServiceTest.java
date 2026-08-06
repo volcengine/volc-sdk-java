@@ -27,6 +27,20 @@ public class VmsServiceTest {
         System.out.println(JSON.toJSONString(response));
     }
 
+    public static void numberListScroll() throws Exception {
+        VmsService vmsService = VmsServiceImpl.getInstance();
+        vmsService.setAccessKey("你的ak");
+        vmsService.setSecretKey("你的sk");
+        NumberListScrollRequest request = new NumberListScrollRequest();
+        request.setNumberPoolNo("xxxxx");
+        request.setNumberPoolTypeCode(101);
+        request.setLimit(2);
+        request.setNextToken("上一页返回的NextToken");
+
+        NumberListScrollResponse response = vmsService.queryNumberListScroll(request);
+        System.out.println(JSON.toJSONString(response));
+    }
+
     public static void selectNumber() throws Exception {
         VmsService vmsService = VmsServiceImpl.getInstance();
         vmsService.setAccessKey("你的ak");

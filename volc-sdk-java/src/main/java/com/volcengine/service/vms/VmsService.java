@@ -96,6 +96,15 @@ public interface VmsService extends IBaseService {
     NumberListResponse queryNumberList(NumberListRequest request) throws Exception;
 
     /**
+     * 滚动查询号码列表
+     *
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    NumberListScrollResponse queryNumberListScroll(NumberListScrollRequest request) throws Exception;
+
+    /**
      * 新建号码池
      *
      * @param request

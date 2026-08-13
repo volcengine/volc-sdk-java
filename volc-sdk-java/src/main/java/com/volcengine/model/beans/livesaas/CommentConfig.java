@@ -49,4 +49,6 @@ public class CommentConfig  {
     Integer IsCommentLLMAnalyzeEnable;
     @JSONField(name = "IsQuickCommentEnable")
     Integer IsQuickCommentEnable;
+    @JSONField(name = "IsQuickAudiencePolling")
+    Integer IsQuickAudiencePolling;
 }

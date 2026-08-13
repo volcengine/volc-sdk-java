@@ -6,6 +6,8 @@ import com.volcengine.service.vms.impl.VmsServiceImpl;
 import com.volcengine.service.vms.request.*;
 import com.volcengine.service.vms.response.*;
 
+import java.util.Arrays;
+
 /**
  * @Author: chenhui
  * @Date: 2023/02/20
@@ -86,5 +88,22 @@ public class VmsServiceTest {
         request.setNumberPoolNo("xxx");
         UpdateNumberPoolResponse numberPool = vmsService.updateNumberPool(request);
         System.out.println(JSON.toJSONString(numberPool));
+    }
+
+    public static void queryTaskList() throws Exception {
+        VmsService vmsService = VmsServiceImpl.getInstance();
+        vmsService.setAccessKey("");
+        vmsService.setSecretKey("==");
+        QueryTaskListRequest request = new QueryTaskListRequest();
+        request.setKeyword("test");
+        request.setState(Arrays.asList(1, 2));
+        request.setLimit(10);
+        request.setOffset(0);
+        CommonResponse<QueryTaskListResult> response = vmsService.queryTaskList(request);
+        System.out.println(JSON.toJSONString(response));
+    }
+
+    public static void main(String[] args) {
+//        queryTaskList();
     }
 }

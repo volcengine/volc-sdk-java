@@ -220,6 +220,14 @@ public interface VmsService extends IBaseService {
     CommonResponse<SingleInfo> singleInfo(String singleOpenId) throws Exception;
 
     /**
+     * query task list
+     * @param request — request
+     * @return CommonResponse
+     * @throws Exception exception
+     */
+    CommonResponse<QueryTaskListResult> queryTaskList(QueryTaskListRequest request) throws Exception;
+
+    /**
      * cancel a single call
      * @param singleOpenId — singleId
      * @return CommonResponse

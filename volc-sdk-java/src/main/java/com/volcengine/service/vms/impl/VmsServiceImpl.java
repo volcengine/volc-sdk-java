@@ -437,6 +437,11 @@ public class VmsServiceImpl extends BaseServiceImpl implements VmsService {
     }
 
     @Override
+    public CommonResponse<QueryTaskListResult> queryTaskList(QueryTaskListRequest request) throws Exception {
+        return doJson("QueryTaskList", request, new TypeReference<CommonResponse<QueryTaskListResult>>(){});
+    }
+
+    @Override
     public CommonResponse singleCancel(String singleOpenId) throws Exception {
         return doQuery("SingleCancel",Arrays.asList(new BasicNameValuePair("SingleOpenId",singleOpenId)), new TypeReference<CommonResponse>(){});
     }

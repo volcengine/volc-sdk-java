@@ -343,6 +343,26 @@ public interface VodSourceInfoOrBuilder extends
 
   /**
    * <pre>
+   *此文件存储类型的最新更新时间，RFC3339格式
+   * </pre>
+   *
+   * <code>string StorageClassUpdateTime = 22;</code>
+   * @return The storageClassUpdateTime.
+   */
+  java.lang.String getStorageClassUpdateTime();
+  /**
+   * <pre>
+   *此文件存储类型的最新更新时间，RFC3339格式
+   * </pre>
+   *
+   * <code>string StorageClassUpdateTime = 22;</code>
+   * @return The bytes for storageClassUpdateTime.
+   */
+  com.google.protobuf.ByteString
+      getStorageClassUpdateTimeBytes();
+
+  /**
+   * <pre>
    *文件名
    * </pre>
    *

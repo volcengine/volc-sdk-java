@@ -66,4 +66,14 @@ public interface VodCreateCdnRefreshTaskRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getTypeBytes();
+
+  /**
+   * <pre>
+   * 是否刷新共享缓存开关 
+   * </pre>
+   *
+   * <code>bool CacheShared = 4;</code>
+   * @return The cacheShared.
+   */
+  boolean getCacheShared();
 }

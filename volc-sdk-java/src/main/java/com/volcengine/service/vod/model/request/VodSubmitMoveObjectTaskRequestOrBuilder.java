@@ -8,11 +8,19 @@ public interface VodSubmitMoveObjectTaskRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * 源空间名称。可通过 ListSpace 接口获取。 
+   * </pre>
+   *
    * <code>string SourceSpace = 1;</code>
    * @return The sourceSpace.
    */
   java.lang.String getSourceSpace();
   /**
+   * <pre>
+   * 源空间名称。可通过 ListSpace 接口获取。 
+   * </pre>
+   *
    * <code>string SourceSpace = 1;</code>
    * @return The bytes for sourceSpace.
    */
@@ -20,11 +28,19 @@ public interface VodSubmitMoveObjectTaskRequestOrBuilder extends
       getSourceSpaceBytes();
 
   /**
+   * <pre>
+   * 源空间下待迁移源文件的文件路径。 
+   * </pre>
+   *
    * <code>string SourceFileName = 2;</code>
    * @return The sourceFileName.
    */
   java.lang.String getSourceFileName();
   /**
+   * <pre>
+   * 源空间下待迁移源文件的文件路径。 
+   * </pre>
+   *
    * <code>string SourceFileName = 2;</code>
    * @return The bytes for sourceFileName.
    */
@@ -32,11 +48,19 @@ public interface VodSubmitMoveObjectTaskRequestOrBuilder extends
       getSourceFileNameBytes();
 
   /**
+   * <pre>
+   * 目标空间名称。可通过 ListSpace 接口获取。 
+   * </pre>
+   *
    * <code>string TargetSpace = 3;</code>
    * @return The targetSpace.
    */
   java.lang.String getTargetSpace();
   /**
+   * <pre>
+   * 目标空间名称。可通过 ListSpace 接口获取。 
+   * </pre>
+   *
    * <code>string TargetSpace = 3;</code>
    * @return The bytes for targetSpace.
    */
@@ -44,11 +68,19 @@ public interface VodSubmitMoveObjectTaskRequestOrBuilder extends
       getTargetSpaceBytes();
 
   /**
+   * <pre>
+   * 目标空间下迁移后的文件路径。不传时默认与 SourceFileName 一致。 
+   * </pre>
+   *
    * <code>string TargetFileName = 4;</code>
    * @return The targetFileName.
    */
   java.lang.String getTargetFileName();
   /**
+   * <pre>
+   * 目标空间下迁移后的文件路径。不传时默认与 SourceFileName 一致。 
+   * </pre>
+   *
    * <code>string TargetFileName = 4;</code>
    * @return The bytes for targetFileName.
    */
@@ -56,12 +88,20 @@ public interface VodSubmitMoveObjectTaskRequestOrBuilder extends
       getTargetFileNameBytes();
 
   /**
+   * <pre>
+   * 迁移结束后是否删除源文件。默认删除源文件。 
+   * </pre>
+   *
    * <code>bool SaveSourceObject = 5;</code>
    * @return The saveSourceObject.
    */
   boolean getSaveSourceObject();
 
   /**
+   * <pre>
+   * 是否开启强覆盖。目标文件已存在时，需同时打开目标空间允许覆盖开关。 
+   * </pre>
+   *
    * <code>bool ForceOverwrite = 6;</code>
    * @return The forceOverwrite.
    */

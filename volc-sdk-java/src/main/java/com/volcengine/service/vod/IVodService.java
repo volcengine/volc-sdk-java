@@ -349,6 +349,24 @@ public interface IVodService extends com.volcengine.service.IBaseService {
 	com.volcengine.service.vod.model.response.VodUpdateMediaStorageClassResponse updateMediaStorageClass(com.volcengine.service.vod.model.request.VodUpdateMediaStorageClassRequest input) throws Exception;
 	
 	/**
+     * restoreColdArchiveVideo.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodRestoreColdArchiveVideoRequest
+     * @return com.volcengine.service.vod.model.response.VodRestoreColdArchiveVideoResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodRestoreColdArchiveVideoResponse restoreColdArchiveVideo(com.volcengine.service.vod.model.request.VodRestoreColdArchiveVideoRequest input) throws Exception;
+	
+	/**
+     * getRestoreVideoStatus.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest
+     * @return com.volcengine.service.vod.model.response.VodGetRestoreVideoStatusResponse
+     * @throws Exception the exception
+     */
+	com.volcengine.service.vod.model.response.VodGetRestoreVideoStatusResponse getRestoreVideoStatus(com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest input) throws Exception;
+	
+	/**
      * getMediaInfos.
      *
      * @param input com.volcengine.service.vod.model.request.VodGetMediaInfosRequest

@@ -104,6 +104,10 @@ private static final long serialVersionUID = 0L;
   public static final int TASKID_FIELD_NUMBER = 1;
   private volatile java.lang.Object taskId_;
   /**
+   * <pre>
+   * 迁移任务 ID，可从 SubmitMoveObjectTask 接口返回结果中获取。 
+   * </pre>
+   *
    * <code>string TaskId = 1;</code>
    * @return The taskId.
    */
@@ -121,6 +125,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 迁移任务 ID，可从 SubmitMoveObjectTask 接口返回结果中获取。 
+   * </pre>
+   *
    * <code>string TaskId = 1;</code>
    * @return The bytes for taskId.
    */
@@ -142,6 +150,10 @@ private static final long serialVersionUID = 0L;
   public static final int SOURCESPACE_FIELD_NUMBER = 2;
   private volatile java.lang.Object sourceSpace_;
   /**
+   * <pre>
+   * 源空间名称。 
+   * </pre>
+   *
    * <code>string SourceSpace = 2;</code>
    * @return The sourceSpace.
    */
@@ -159,6 +171,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 源空间名称。 
+   * </pre>
+   *
    * <code>string SourceSpace = 2;</code>
    * @return The bytes for sourceSpace.
    */
@@ -180,6 +196,10 @@ private static final long serialVersionUID = 0L;
   public static final int TARGETSPACE_FIELD_NUMBER = 3;
   private volatile java.lang.Object targetSpace_;
   /**
+   * <pre>
+   * 目标空间名称。 
+   * </pre>
+   *
    * <code>string TargetSpace = 3;</code>
    * @return The targetSpace.
    */
@@ -197,6 +217,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 目标空间名称。 
+   * </pre>
+   *
    * <code>string TargetSpace = 3;</code>
    * @return The bytes for targetSpace.
    */
@@ -553,6 +577,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object taskId_ = "";
     /**
+     * <pre>
+     * 迁移任务 ID，可从 SubmitMoveObjectTask 接口返回结果中获取。 
+     * </pre>
+     *
      * <code>string TaskId = 1;</code>
      * @return The taskId.
      */
@@ -569,6 +597,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 迁移任务 ID，可从 SubmitMoveObjectTask 接口返回结果中获取。 
+     * </pre>
+     *
      * <code>string TaskId = 1;</code>
      * @return The bytes for taskId.
      */
@@ -586,6 +618,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 迁移任务 ID，可从 SubmitMoveObjectTask 接口返回结果中获取。 
+     * </pre>
+     *
      * <code>string TaskId = 1;</code>
      * @param value The taskId to set.
      * @return This builder for chaining.
@@ -601,6 +637,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 迁移任务 ID，可从 SubmitMoveObjectTask 接口返回结果中获取。 
+     * </pre>
+     *
      * <code>string TaskId = 1;</code>
      * @return This builder for chaining.
      */
@@ -611,6 +651,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 迁移任务 ID，可从 SubmitMoveObjectTask 接口返回结果中获取。 
+     * </pre>
+     *
      * <code>string TaskId = 1;</code>
      * @param value The bytes for taskId to set.
      * @return This builder for chaining.
@@ -629,6 +673,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object sourceSpace_ = "";
     /**
+     * <pre>
+     * 源空间名称。 
+     * </pre>
+     *
      * <code>string SourceSpace = 2;</code>
      * @return The sourceSpace.
      */
@@ -645,6 +693,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 源空间名称。 
+     * </pre>
+     *
      * <code>string SourceSpace = 2;</code>
      * @return The bytes for sourceSpace.
      */
@@ -662,6 +714,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 源空间名称。 
+     * </pre>
+     *
      * <code>string SourceSpace = 2;</code>
      * @param value The sourceSpace to set.
      * @return This builder for chaining.
@@ -677,6 +733,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 源空间名称。 
+     * </pre>
+     *
      * <code>string SourceSpace = 2;</code>
      * @return This builder for chaining.
      */
@@ -687,6 +747,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 源空间名称。 
+     * </pre>
+     *
      * <code>string SourceSpace = 2;</code>
      * @param value The bytes for sourceSpace to set.
      * @return This builder for chaining.
@@ -705,6 +769,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object targetSpace_ = "";
     /**
+     * <pre>
+     * 目标空间名称。 
+     * </pre>
+     *
      * <code>string TargetSpace = 3;</code>
      * @return The targetSpace.
      */
@@ -721,6 +789,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 目标空间名称。 
+     * </pre>
+     *
      * <code>string TargetSpace = 3;</code>
      * @return The bytes for targetSpace.
      */
@@ -738,6 +810,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 目标空间名称。 
+     * </pre>
+     *
      * <code>string TargetSpace = 3;</code>
      * @param value The targetSpace to set.
      * @return This builder for chaining.
@@ -753,6 +829,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 目标空间名称。 
+     * </pre>
+     *
      * <code>string TargetSpace = 3;</code>
      * @return This builder for chaining.
      */
@@ -763,6 +843,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 目标空间名称。 
+     * </pre>
+     *
      * <code>string TargetSpace = 3;</code>
      * @param value The bytes for targetSpace to set.
      * @return This builder for chaining.

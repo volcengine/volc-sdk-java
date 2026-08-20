@@ -318,6 +318,34 @@ public class VodServiceConfig {
                         }
                     }
             ));
+            put(Const.RestoreColdArchiveVideo, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.RestoreColdArchiveVideo));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
+            put(Const.GetRestoreVideoStatus, new ApiInfo(
+                    new HashMap<String, Object>() {
+                        {
+                            put(com.volcengine.helper.Const.Method, "GET");
+                            put(com.volcengine.helper.Const.Path, "/");
+                            put(com.volcengine.helper.Const.Query, new ArrayList<NameValuePair>() {
+                                {
+                                    add(new BasicNameValuePair("Action", Const.GetRestoreVideoStatus));
+                                    add(new BasicNameValuePair("Version", "2023-07-01"));
+                                }
+                            });
+                        }
+                    }
+            ));
             put(Const.GetInnerAuditURLs, new ApiInfo(
                     new HashMap<String, Object>() {
                         {

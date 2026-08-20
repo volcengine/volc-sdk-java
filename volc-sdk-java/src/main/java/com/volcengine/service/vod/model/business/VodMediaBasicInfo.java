@@ -25,6 +25,7 @@ private static final long serialVersionUID = 0L;
     tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     createTime_ = "";
     tosStorageClass_ = "";
+    storageClassUpdateTime_ = "";
     vodUploadSource_ = "";
     expireTime_ = "";
   }
@@ -145,6 +146,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             expireTime_ = s;
+            break;
+          }
+          case 114: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            storageClassUpdateTime_ = s;
             break;
           }
           default: {
@@ -639,6 +646,52 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int STORAGECLASSUPDATETIME_FIELD_NUMBER = 14;
+  private volatile java.lang.Object storageClassUpdateTime_;
+  /**
+   * <pre>
+   *此文件存储类型的最新更新时间，RFC3339格式
+   * </pre>
+   *
+   * <code>string StorageClassUpdateTime = 14;</code>
+   * @return The storageClassUpdateTime.
+   */
+  @java.lang.Override
+  public java.lang.String getStorageClassUpdateTime() {
+    java.lang.Object ref = storageClassUpdateTime_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      storageClassUpdateTime_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   *此文件存储类型的最新更新时间，RFC3339格式
+   * </pre>
+   *
+   * <code>string StorageClassUpdateTime = 14;</code>
+   * @return The bytes for storageClassUpdateTime.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getStorageClassUpdateTimeBytes() {
+    java.lang.Object ref = storageClassUpdateTime_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      storageClassUpdateTime_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int VODUPLOADSOURCE_FIELD_NUMBER = 11;
   private volatile java.lang.Object vodUploadSource_;
   /**
@@ -805,6 +858,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expireTime_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 13, expireTime_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(storageClassUpdateTime_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 14, storageClassUpdateTime_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -860,6 +916,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(expireTime_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, expireTime_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(storageClassUpdateTime_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, storageClassUpdateTime_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -898,6 +957,8 @@ private static final long serialVersionUID = 0L;
     }
     if (!getTosStorageClass()
         .equals(other.getTosStorageClass())) return false;
+    if (!getStorageClassUpdateTime()
+        .equals(other.getStorageClassUpdateTime())) return false;
     if (!getVodUploadSource()
         .equals(other.getVodUploadSource())) return false;
     if (java.lang.Double.doubleToLongBits(getHlsMediaSize())
@@ -940,6 +1001,8 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + TOSSTORAGECLASS_FIELD_NUMBER;
     hash = (53 * hash) + getTosStorageClass().hashCode();
+    hash = (37 * hash) + STORAGECLASSUPDATETIME_FIELD_NUMBER;
+    hash = (53 * hash) + getStorageClassUpdateTime().hashCode();
     hash = (37 * hash) + VODUPLOADSOURCE_FIELD_NUMBER;
     hash = (53 * hash) + getVodUploadSource().hashCode();
     hash = (37 * hash) + HLSMEDIASIZE_FIELD_NUMBER;
@@ -1104,6 +1167,8 @@ private static final long serialVersionUID = 0L;
       }
       tosStorageClass_ = "";
 
+      storageClassUpdateTime_ = "";
+
       vodUploadSource_ = "";
 
       hlsMediaSize_ = 0D;
@@ -1155,6 +1220,7 @@ private static final long serialVersionUID = 0L;
         result.classification_ = classificationBuilder_.build();
       }
       result.tosStorageClass_ = tosStorageClass_;
+      result.storageClassUpdateTime_ = storageClassUpdateTime_;
       result.vodUploadSource_ = vodUploadSource_;
       result.hlsMediaSize_ = hlsMediaSize_;
       result.expireTime_ = expireTime_;
@@ -1249,6 +1315,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTosStorageClass().isEmpty()) {
         tosStorageClass_ = other.tosStorageClass_;
+        onChanged();
+      }
+      if (!other.getStorageClassUpdateTime().isEmpty()) {
+        storageClassUpdateTime_ = other.storageClassUpdateTime_;
         onChanged();
       }
       if (!other.getVodUploadSource().isEmpty()) {
@@ -2357,6 +2427,102 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       tosStorageClass_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object storageClassUpdateTime_ = "";
+    /**
+     * <pre>
+     *此文件存储类型的最新更新时间，RFC3339格式
+     * </pre>
+     *
+     * <code>string StorageClassUpdateTime = 14;</code>
+     * @return The storageClassUpdateTime.
+     */
+    public java.lang.String getStorageClassUpdateTime() {
+      java.lang.Object ref = storageClassUpdateTime_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        storageClassUpdateTime_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     *此文件存储类型的最新更新时间，RFC3339格式
+     * </pre>
+     *
+     * <code>string StorageClassUpdateTime = 14;</code>
+     * @return The bytes for storageClassUpdateTime.
+     */
+    public com.google.protobuf.ByteString
+        getStorageClassUpdateTimeBytes() {
+      java.lang.Object ref = storageClassUpdateTime_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        storageClassUpdateTime_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     *此文件存储类型的最新更新时间，RFC3339格式
+     * </pre>
+     *
+     * <code>string StorageClassUpdateTime = 14;</code>
+     * @param value The storageClassUpdateTime to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStorageClassUpdateTime(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      storageClassUpdateTime_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *此文件存储类型的最新更新时间，RFC3339格式
+     * </pre>
+     *
+     * <code>string StorageClassUpdateTime = 14;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStorageClassUpdateTime() {
+      
+      storageClassUpdateTime_ = getDefaultInstance().getStorageClassUpdateTime();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     *此文件存储类型的最新更新时间，RFC3339格式
+     * </pre>
+     *
+     * <code>string StorageClassUpdateTime = 14;</code>
+     * @param value The bytes for storageClassUpdateTime to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStorageClassUpdateTimeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      storageClassUpdateTime_ = value;
       onChanged();
       return this;
     }

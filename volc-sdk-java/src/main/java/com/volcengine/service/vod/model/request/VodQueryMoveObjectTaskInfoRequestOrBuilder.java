@@ -8,11 +8,19 @@ public interface VodQueryMoveObjectTaskInfoRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
+   * <pre>
+   * 迁移任务 ID，可从 SubmitMoveObjectTask 接口返回结果中获取。 
+   * </pre>
+   *
    * <code>string TaskId = 1;</code>
    * @return The taskId.
    */
   java.lang.String getTaskId();
   /**
+   * <pre>
+   * 迁移任务 ID，可从 SubmitMoveObjectTask 接口返回结果中获取。 
+   * </pre>
+   *
    * <code>string TaskId = 1;</code>
    * @return The bytes for taskId.
    */
@@ -20,11 +28,19 @@ public interface VodQueryMoveObjectTaskInfoRequestOrBuilder extends
       getTaskIdBytes();
 
   /**
+   * <pre>
+   * 源空间名称。 
+   * </pre>
+   *
    * <code>string SourceSpace = 2;</code>
    * @return The sourceSpace.
    */
   java.lang.String getSourceSpace();
   /**
+   * <pre>
+   * 源空间名称。 
+   * </pre>
+   *
    * <code>string SourceSpace = 2;</code>
    * @return The bytes for sourceSpace.
    */
@@ -32,11 +48,19 @@ public interface VodQueryMoveObjectTaskInfoRequestOrBuilder extends
       getSourceSpaceBytes();
 
   /**
+   * <pre>
+   * 目标空间名称。 
+   * </pre>
+   *
    * <code>string TargetSpace = 3;</code>
    * @return The targetSpace.
    */
   java.lang.String getTargetSpace();
   /**
+   * <pre>
+   * 目标空间名称。 
+   * </pre>
+   *
    * <code>string TargetSpace = 3;</code>
    * @return The bytes for targetSpace.
    */

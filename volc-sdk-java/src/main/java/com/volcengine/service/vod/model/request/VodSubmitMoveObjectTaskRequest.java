@@ -127,6 +127,10 @@ private static final long serialVersionUID = 0L;
   public static final int SOURCESPACE_FIELD_NUMBER = 1;
   private volatile java.lang.Object sourceSpace_;
   /**
+   * <pre>
+   * 源空间名称。可通过 ListSpace 接口获取。 
+   * </pre>
+   *
    * <code>string SourceSpace = 1;</code>
    * @return The sourceSpace.
    */
@@ -144,6 +148,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 源空间名称。可通过 ListSpace 接口获取。 
+   * </pre>
+   *
    * <code>string SourceSpace = 1;</code>
    * @return The bytes for sourceSpace.
    */
@@ -165,6 +173,10 @@ private static final long serialVersionUID = 0L;
   public static final int SOURCEFILENAME_FIELD_NUMBER = 2;
   private volatile java.lang.Object sourceFileName_;
   /**
+   * <pre>
+   * 源空间下待迁移源文件的文件路径。 
+   * </pre>
+   *
    * <code>string SourceFileName = 2;</code>
    * @return The sourceFileName.
    */
@@ -182,6 +194,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 源空间下待迁移源文件的文件路径。 
+   * </pre>
+   *
    * <code>string SourceFileName = 2;</code>
    * @return The bytes for sourceFileName.
    */
@@ -203,6 +219,10 @@ private static final long serialVersionUID = 0L;
   public static final int TARGETSPACE_FIELD_NUMBER = 3;
   private volatile java.lang.Object targetSpace_;
   /**
+   * <pre>
+   * 目标空间名称。可通过 ListSpace 接口获取。 
+   * </pre>
+   *
    * <code>string TargetSpace = 3;</code>
    * @return The targetSpace.
    */
@@ -220,6 +240,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 目标空间名称。可通过 ListSpace 接口获取。 
+   * </pre>
+   *
    * <code>string TargetSpace = 3;</code>
    * @return The bytes for targetSpace.
    */
@@ -241,6 +265,10 @@ private static final long serialVersionUID = 0L;
   public static final int TARGETFILENAME_FIELD_NUMBER = 4;
   private volatile java.lang.Object targetFileName_;
   /**
+   * <pre>
+   * 目标空间下迁移后的文件路径。不传时默认与 SourceFileName 一致。 
+   * </pre>
+   *
    * <code>string TargetFileName = 4;</code>
    * @return The targetFileName.
    */
@@ -258,6 +286,10 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
+   * <pre>
+   * 目标空间下迁移后的文件路径。不传时默认与 SourceFileName 一致。 
+   * </pre>
+   *
    * <code>string TargetFileName = 4;</code>
    * @return The bytes for targetFileName.
    */
@@ -279,6 +311,10 @@ private static final long serialVersionUID = 0L;
   public static final int SAVESOURCEOBJECT_FIELD_NUMBER = 5;
   private boolean saveSourceObject_;
   /**
+   * <pre>
+   * 迁移结束后是否删除源文件。默认删除源文件。 
+   * </pre>
+   *
    * <code>bool SaveSourceObject = 5;</code>
    * @return The saveSourceObject.
    */
@@ -290,6 +326,10 @@ private static final long serialVersionUID = 0L;
   public static final int FORCEOVERWRITE_FIELD_NUMBER = 6;
   private boolean forceOverwrite_;
   /**
+   * <pre>
+   * 是否开启强覆盖。目标文件已存在时，需同时打开目标空间允许覆盖开关。 
+   * </pre>
+   *
    * <code>bool ForceOverwrite = 6;</code>
    * @return The forceOverwrite.
    */
@@ -695,6 +735,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object sourceSpace_ = "";
     /**
+     * <pre>
+     * 源空间名称。可通过 ListSpace 接口获取。 
+     * </pre>
+     *
      * <code>string SourceSpace = 1;</code>
      * @return The sourceSpace.
      */
@@ -711,6 +755,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 源空间名称。可通过 ListSpace 接口获取。 
+     * </pre>
+     *
      * <code>string SourceSpace = 1;</code>
      * @return The bytes for sourceSpace.
      */
@@ -728,6 +776,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 源空间名称。可通过 ListSpace 接口获取。 
+     * </pre>
+     *
      * <code>string SourceSpace = 1;</code>
      * @param value The sourceSpace to set.
      * @return This builder for chaining.
@@ -743,6 +795,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 源空间名称。可通过 ListSpace 接口获取。 
+     * </pre>
+     *
      * <code>string SourceSpace = 1;</code>
      * @return This builder for chaining.
      */
@@ -753,6 +809,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 源空间名称。可通过 ListSpace 接口获取。 
+     * </pre>
+     *
      * <code>string SourceSpace = 1;</code>
      * @param value The bytes for sourceSpace to set.
      * @return This builder for chaining.
@@ -771,6 +831,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object sourceFileName_ = "";
     /**
+     * <pre>
+     * 源空间下待迁移源文件的文件路径。 
+     * </pre>
+     *
      * <code>string SourceFileName = 2;</code>
      * @return The sourceFileName.
      */
@@ -787,6 +851,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 源空间下待迁移源文件的文件路径。 
+     * </pre>
+     *
      * <code>string SourceFileName = 2;</code>
      * @return The bytes for sourceFileName.
      */
@@ -804,6 +872,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 源空间下待迁移源文件的文件路径。 
+     * </pre>
+     *
      * <code>string SourceFileName = 2;</code>
      * @param value The sourceFileName to set.
      * @return This builder for chaining.
@@ -819,6 +891,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 源空间下待迁移源文件的文件路径。 
+     * </pre>
+     *
      * <code>string SourceFileName = 2;</code>
      * @return This builder for chaining.
      */
@@ -829,6 +905,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 源空间下待迁移源文件的文件路径。 
+     * </pre>
+     *
      * <code>string SourceFileName = 2;</code>
      * @param value The bytes for sourceFileName to set.
      * @return This builder for chaining.
@@ -847,6 +927,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object targetSpace_ = "";
     /**
+     * <pre>
+     * 目标空间名称。可通过 ListSpace 接口获取。 
+     * </pre>
+     *
      * <code>string TargetSpace = 3;</code>
      * @return The targetSpace.
      */
@@ -863,6 +947,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 目标空间名称。可通过 ListSpace 接口获取。 
+     * </pre>
+     *
      * <code>string TargetSpace = 3;</code>
      * @return The bytes for targetSpace.
      */
@@ -880,6 +968,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 目标空间名称。可通过 ListSpace 接口获取。 
+     * </pre>
+     *
      * <code>string TargetSpace = 3;</code>
      * @param value The targetSpace to set.
      * @return This builder for chaining.
@@ -895,6 +987,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 目标空间名称。可通过 ListSpace 接口获取。 
+     * </pre>
+     *
      * <code>string TargetSpace = 3;</code>
      * @return This builder for chaining.
      */
@@ -905,6 +1001,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 目标空间名称。可通过 ListSpace 接口获取。 
+     * </pre>
+     *
      * <code>string TargetSpace = 3;</code>
      * @param value The bytes for targetSpace to set.
      * @return This builder for chaining.
@@ -923,6 +1023,10 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object targetFileName_ = "";
     /**
+     * <pre>
+     * 目标空间下迁移后的文件路径。不传时默认与 SourceFileName 一致。 
+     * </pre>
+     *
      * <code>string TargetFileName = 4;</code>
      * @return The targetFileName.
      */
@@ -939,6 +1043,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 目标空间下迁移后的文件路径。不传时默认与 SourceFileName 一致。 
+     * </pre>
+     *
      * <code>string TargetFileName = 4;</code>
      * @return The bytes for targetFileName.
      */
@@ -956,6 +1064,10 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
+     * <pre>
+     * 目标空间下迁移后的文件路径。不传时默认与 SourceFileName 一致。 
+     * </pre>
+     *
      * <code>string TargetFileName = 4;</code>
      * @param value The targetFileName to set.
      * @return This builder for chaining.
@@ -971,6 +1083,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 目标空间下迁移后的文件路径。不传时默认与 SourceFileName 一致。 
+     * </pre>
+     *
      * <code>string TargetFileName = 4;</code>
      * @return This builder for chaining.
      */
@@ -981,6 +1097,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 目标空间下迁移后的文件路径。不传时默认与 SourceFileName 一致。 
+     * </pre>
+     *
      * <code>string TargetFileName = 4;</code>
      * @param value The bytes for targetFileName to set.
      * @return This builder for chaining.
@@ -999,6 +1119,10 @@ private static final long serialVersionUID = 0L;
 
     private boolean saveSourceObject_ ;
     /**
+     * <pre>
+     * 迁移结束后是否删除源文件。默认删除源文件。 
+     * </pre>
+     *
      * <code>bool SaveSourceObject = 5;</code>
      * @return The saveSourceObject.
      */
@@ -1007,6 +1131,10 @@ private static final long serialVersionUID = 0L;
       return saveSourceObject_;
     }
     /**
+     * <pre>
+     * 迁移结束后是否删除源文件。默认删除源文件。 
+     * </pre>
+     *
      * <code>bool SaveSourceObject = 5;</code>
      * @param value The saveSourceObject to set.
      * @return This builder for chaining.
@@ -1018,6 +1146,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 迁移结束后是否删除源文件。默认删除源文件。 
+     * </pre>
+     *
      * <code>bool SaveSourceObject = 5;</code>
      * @return This builder for chaining.
      */
@@ -1030,6 +1162,10 @@ private static final long serialVersionUID = 0L;
 
     private boolean forceOverwrite_ ;
     /**
+     * <pre>
+     * 是否开启强覆盖。目标文件已存在时，需同时打开目标空间允许覆盖开关。 
+     * </pre>
+     *
      * <code>bool ForceOverwrite = 6;</code>
      * @return The forceOverwrite.
      */
@@ -1038,6 +1174,10 @@ private static final long serialVersionUID = 0L;
       return forceOverwrite_;
     }
     /**
+     * <pre>
+     * 是否开启强覆盖。目标文件已存在时，需同时打开目标空间允许覆盖开关。 
+     * </pre>
+     *
      * <code>bool ForceOverwrite = 6;</code>
      * @param value The forceOverwrite to set.
      * @return This builder for chaining.
@@ -1049,6 +1189,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
+     * <pre>
+     * 是否开启强覆盖。目标文件已存在时，需同时打开目标空间允许覆盖开关。 
+     * </pre>
+     *
      * <code>bool ForceOverwrite = 6;</code>
      * @return This builder for chaining.
      */

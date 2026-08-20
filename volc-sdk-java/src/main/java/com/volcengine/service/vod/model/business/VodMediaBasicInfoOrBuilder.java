@@ -237,6 +237,26 @@ public interface VodMediaBasicInfoOrBuilder extends
 
   /**
    * <pre>
+   *此文件存储类型的最新更新时间，RFC3339格式
+   * </pre>
+   *
+   * <code>string StorageClassUpdateTime = 14;</code>
+   * @return The storageClassUpdateTime.
+   */
+  java.lang.String getStorageClassUpdateTime();
+  /**
+   * <pre>
+   *此文件存储类型的最新更新时间，RFC3339格式
+   * </pre>
+   *
+   * <code>string StorageClassUpdateTime = 14;</code>
+   * @return The bytes for storageClassUpdateTime.
+   */
+  com.google.protobuf.ByteString
+      getStorageClassUpdateTimeBytes();
+
+  /**
+   * <pre>
    * 音视频来源
    * </pre>
    *

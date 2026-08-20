@@ -4,28 +4,28 @@
 package com.volcengine.service.vod.model.request;
 
 /**
- * Protobuf type {@code Volcengine.Vod.Models.Request.VodCreateCdnRefreshTaskRequest}
+ * Protobuf type {@code Volcengine.Vod.Models.Request.VodGetRestoreVideoStatusRequest}
  */
-public final class VodCreateCdnRefreshTaskRequest extends
+public final class VodGetRestoreVideoStatusRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Request.VodCreateCdnRefreshTaskRequest)
-    VodCreateCdnRefreshTaskRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:Volcengine.Vod.Models.Request.VodGetRestoreVideoStatusRequest)
+    VodGetRestoreVideoStatusRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use VodCreateCdnRefreshTaskRequest.newBuilder() to construct.
-  private VodCreateCdnRefreshTaskRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use VodGetRestoreVideoStatusRequest.newBuilder() to construct.
+  private VodGetRestoreVideoStatusRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private VodCreateCdnRefreshTaskRequest() {
+  private VodGetRestoreVideoStatusRequest() {
     spaceName_ = "";
-    urls_ = "";
-    type_ = "";
+    vid_ = "";
+    fileId_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new VodCreateCdnRefreshTaskRequest();
+    return new VodGetRestoreVideoStatusRequest();
   }
 
   @java.lang.Override
@@ -33,7 +33,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VodCreateCdnRefreshTaskRequest(
+  private VodGetRestoreVideoStatusRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -60,18 +60,13 @@ private static final long serialVersionUID = 0L;
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            urls_ = s;
+            vid_ = s;
             break;
           }
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            type_ = s;
-            break;
-          }
-          case 32: {
-
-            cacheShared_ = input.readBool();
+            fileId_ = s;
             break;
           }
           default: {
@@ -95,22 +90,22 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodCreateCdnRefreshTaskRequest_descriptor;
+    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetRestoreVideoStatusRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodCreateCdnRefreshTaskRequest_fieldAccessorTable
+    return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetRestoreVideoStatusRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest.class, com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest.Builder.class);
+            com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest.class, com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest.Builder.class);
   }
 
   public static final int SPACENAME_FIELD_NUMBER = 1;
   private volatile java.lang.Object spaceName_;
   /**
    * <pre>
-   * 空间名 
+   *空间名
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -131,7 +126,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * 空间名 
+   *空间名
    * </pre>
    *
    * <code>string SpaceName = 1;</code>
@@ -152,111 +147,96 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int URLS_FIELD_NUMBER = 2;
-  private volatile java.lang.Object urls_;
+  public static final int VID_FIELD_NUMBER = 2;
+  private volatile java.lang.Object vid_;
   /**
    * <pre>
-   * 刷新Url或目录 
+   *视频ID，只支持传入一个
    * </pre>
    *
-   * <code>string Urls = 2;</code>
-   * @return The urls.
+   * <code>string Vid = 2;</code>
+   * @return The vid.
    */
   @java.lang.Override
-  public java.lang.String getUrls() {
-    java.lang.Object ref = urls_;
+  public java.lang.String getVid() {
+    java.lang.Object ref = vid_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      urls_ = s;
+      vid_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * 刷新Url或目录 
+   *视频ID，只支持传入一个
    * </pre>
    *
-   * <code>string Urls = 2;</code>
-   * @return The bytes for urls.
+   * <code>string Vid = 2;</code>
+   * @return The bytes for vid.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getUrlsBytes() {
-    java.lang.Object ref = urls_;
+      getVidBytes() {
+    java.lang.Object ref = vid_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      urls_ = b;
+      vid_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int TYPE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object type_;
+  public static final int FILEID_FIELD_NUMBER = 3;
+  private volatile java.lang.Object fileId_;
   /**
    * <pre>
-   * 刷新任务类型 
+   *媒体处理输出文件ID，只支持传入一个
    * </pre>
    *
-   * <code>string Type = 3;</code>
-   * @return The type.
+   * <code>string FileId = 3;</code>
+   * @return The fileId.
    */
   @java.lang.Override
-  public java.lang.String getType() {
-    java.lang.Object ref = type_;
+  public java.lang.String getFileId() {
+    java.lang.Object ref = fileId_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      type_ = s;
+      fileId_ = s;
       return s;
     }
   }
   /**
    * <pre>
-   * 刷新任务类型 
+   *媒体处理输出文件ID，只支持传入一个
    * </pre>
    *
-   * <code>string Type = 3;</code>
-   * @return The bytes for type.
+   * <code>string FileId = 3;</code>
+   * @return The bytes for fileId.
    */
   @java.lang.Override
   public com.google.protobuf.ByteString
-      getTypeBytes() {
-    java.lang.Object ref = type_;
+      getFileIdBytes() {
+    java.lang.Object ref = fileId_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      type_ = b;
+      fileId_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
-  }
-
-  public static final int CACHESHARED_FIELD_NUMBER = 4;
-  private boolean cacheShared_;
-  /**
-   * <pre>
-   * 是否刷新共享缓存开关 
-   * </pre>
-   *
-   * <code>bool CacheShared = 4;</code>
-   * @return The cacheShared.
-   */
-  @java.lang.Override
-  public boolean getCacheShared() {
-    return cacheShared_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -276,14 +256,11 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(spaceName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, spaceName_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(urls_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, urls_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vid_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, vid_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, type_);
-    }
-    if (cacheShared_ != false) {
-      output.writeBool(4, cacheShared_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, fileId_);
     }
     unknownFields.writeTo(output);
   }
@@ -297,15 +274,11 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(spaceName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, spaceName_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(urls_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, urls_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vid_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, vid_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(type_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, type_);
-    }
-    if (cacheShared_ != false) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(4, cacheShared_);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, fileId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -317,19 +290,17 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest)) {
+    if (!(obj instanceof com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest)) {
       return super.equals(obj);
     }
-    com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest other = (com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest) obj;
+    com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest other = (com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest) obj;
 
     if (!getSpaceName()
         .equals(other.getSpaceName())) return false;
-    if (!getUrls()
-        .equals(other.getUrls())) return false;
-    if (!getType()
-        .equals(other.getType())) return false;
-    if (getCacheShared()
-        != other.getCacheShared()) return false;
+    if (!getVid()
+        .equals(other.getVid())) return false;
+    if (!getFileId()
+        .equals(other.getFileId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -343,81 +314,78 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + SPACENAME_FIELD_NUMBER;
     hash = (53 * hash) + getSpaceName().hashCode();
-    hash = (37 * hash) + URLS_FIELD_NUMBER;
-    hash = (53 * hash) + getUrls().hashCode();
-    hash = (37 * hash) + TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getType().hashCode();
-    hash = (37 * hash) + CACHESHARED_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getCacheShared());
+    hash = (37 * hash) + VID_FIELD_NUMBER;
+    hash = (53 * hash) + getVid().hashCode();
+    hash = (37 * hash) + FILEID_FIELD_NUMBER;
+    hash = (53 * hash) + getFileId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest parseFrom(byte[] data)
+  public static com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest parseFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest parseDelimitedFrom(java.io.InputStream input)
+  public static com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest parseDelimitedFrom(
+  public static com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest parseFrom(
+  public static com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -430,7 +398,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest prototype) {
+  public static Builder newBuilder(com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -446,26 +414,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code Volcengine.Vod.Models.Request.VodCreateCdnRefreshTaskRequest}
+   * Protobuf type {@code Volcengine.Vod.Models.Request.VodGetRestoreVideoStatusRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Request.VodCreateCdnRefreshTaskRequest)
-      com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:Volcengine.Vod.Models.Request.VodGetRestoreVideoStatusRequest)
+      com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodCreateCdnRefreshTaskRequest_descriptor;
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetRestoreVideoStatusRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodCreateCdnRefreshTaskRequest_fieldAccessorTable
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetRestoreVideoStatusRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest.class, com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest.Builder.class);
+              com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest.class, com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest.Builder.class);
     }
 
-    // Construct using com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest.newBuilder()
+    // Construct using com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -485,11 +453,9 @@ private static final long serialVersionUID = 0L;
       super.clear();
       spaceName_ = "";
 
-      urls_ = "";
+      vid_ = "";
 
-      type_ = "";
-
-      cacheShared_ = false;
+      fileId_ = "";
 
       return this;
     }
@@ -497,17 +463,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodCreateCdnRefreshTaskRequest_descriptor;
+      return com.volcengine.service.vod.model.request.VodRequest.internal_static_Volcengine_Vod_Models_Request_VodGetRestoreVideoStatusRequest_descriptor;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest getDefaultInstanceForType() {
-      return com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest.getDefaultInstance();
+    public com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest getDefaultInstanceForType() {
+      return com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest build() {
-      com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest result = buildPartial();
+    public com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest build() {
+      com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -515,12 +481,11 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest buildPartial() {
-      com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest result = new com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest(this);
+    public com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest buildPartial() {
+      com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest result = new com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest(this);
       result.spaceName_ = spaceName_;
-      result.urls_ = urls_;
-      result.type_ = type_;
-      result.cacheShared_ = cacheShared_;
+      result.vid_ = vid_;
+      result.fileId_ = fileId_;
       onBuilt();
       return result;
     }
@@ -559,30 +524,27 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest) {
-        return mergeFrom((com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest)other);
+      if (other instanceof com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest) {
+        return mergeFrom((com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest other) {
-      if (other == com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest other) {
+      if (other == com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest.getDefaultInstance()) return this;
       if (!other.getSpaceName().isEmpty()) {
         spaceName_ = other.spaceName_;
         onChanged();
       }
-      if (!other.getUrls().isEmpty()) {
-        urls_ = other.urls_;
+      if (!other.getVid().isEmpty()) {
+        vid_ = other.vid_;
         onChanged();
       }
-      if (!other.getType().isEmpty()) {
-        type_ = other.type_;
+      if (!other.getFileId().isEmpty()) {
+        fileId_ = other.fileId_;
         onChanged();
-      }
-      if (other.getCacheShared() != false) {
-        setCacheShared(other.getCacheShared());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -599,11 +561,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest parsedMessage = null;
+      com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest) e.getUnfinishedMessage();
+        parsedMessage = (com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -616,7 +578,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object spaceName_ = "";
     /**
      * <pre>
-     * 空间名 
+     *空间名
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -636,7 +598,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名 
+     *空间名
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -657,7 +619,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名 
+     *空间名
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -676,7 +638,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名 
+     *空间名
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -690,7 +652,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 空间名 
+     *空间名
      * </pre>
      *
      * <code>string SpaceName = 1;</code>
@@ -709,22 +671,22 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object urls_ = "";
+    private java.lang.Object vid_ = "";
     /**
      * <pre>
-     * 刷新Url或目录 
+     *视频ID，只支持传入一个
      * </pre>
      *
-     * <code>string Urls = 2;</code>
-     * @return The urls.
+     * <code>string Vid = 2;</code>
+     * @return The vid.
      */
-    public java.lang.String getUrls() {
-      java.lang.Object ref = urls_;
+    public java.lang.String getVid() {
+      java.lang.Object ref = vid_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        urls_ = s;
+        vid_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -732,20 +694,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 刷新Url或目录 
+     *视频ID，只支持传入一个
      * </pre>
      *
-     * <code>string Urls = 2;</code>
-     * @return The bytes for urls.
+     * <code>string Vid = 2;</code>
+     * @return The bytes for vid.
      */
     public com.google.protobuf.ByteString
-        getUrlsBytes() {
-      java.lang.Object ref = urls_;
+        getVidBytes() {
+      java.lang.Object ref = vid_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        urls_ = b;
+        vid_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -753,74 +715,74 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 刷新Url或目录 
+     *视频ID，只支持传入一个
      * </pre>
      *
-     * <code>string Urls = 2;</code>
-     * @param value The urls to set.
+     * <code>string Vid = 2;</code>
+     * @param value The vid to set.
      * @return This builder for chaining.
      */
-    public Builder setUrls(
+    public Builder setVid(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      urls_ = value;
+      vid_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 刷新Url或目录 
+     *视频ID，只支持传入一个
      * </pre>
      *
-     * <code>string Urls = 2;</code>
+     * <code>string Vid = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearUrls() {
+    public Builder clearVid() {
       
-      urls_ = getDefaultInstance().getUrls();
+      vid_ = getDefaultInstance().getVid();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 刷新Url或目录 
+     *视频ID，只支持传入一个
      * </pre>
      *
-     * <code>string Urls = 2;</code>
-     * @param value The bytes for urls to set.
+     * <code>string Vid = 2;</code>
+     * @param value The bytes for vid to set.
      * @return This builder for chaining.
      */
-    public Builder setUrlsBytes(
+    public Builder setVidBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      urls_ = value;
+      vid_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object type_ = "";
+    private java.lang.Object fileId_ = "";
     /**
      * <pre>
-     * 刷新任务类型 
+     *媒体处理输出文件ID，只支持传入一个
      * </pre>
      *
-     * <code>string Type = 3;</code>
-     * @return The type.
+     * <code>string FileId = 3;</code>
+     * @return The fileId.
      */
-    public java.lang.String getType() {
-      java.lang.Object ref = type_;
+    public java.lang.String getFileId() {
+      java.lang.Object ref = fileId_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        type_ = s;
+        fileId_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
@@ -828,20 +790,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 刷新任务类型 
+     *媒体处理输出文件ID，只支持传入一个
      * </pre>
      *
-     * <code>string Type = 3;</code>
-     * @return The bytes for type.
+     * <code>string FileId = 3;</code>
+     * @return The bytes for fileId.
      */
     public com.google.protobuf.ByteString
-        getTypeBytes() {
-      java.lang.Object ref = type_;
+        getFileIdBytes() {
+      java.lang.Object ref = fileId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        type_ = b;
+        fileId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -849,97 +811,54 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * 刷新任务类型 
+     *媒体处理输出文件ID，只支持传入一个
      * </pre>
      *
-     * <code>string Type = 3;</code>
-     * @param value The type to set.
+     * <code>string FileId = 3;</code>
+     * @param value The fileId to set.
      * @return This builder for chaining.
      */
-    public Builder setType(
+    public Builder setFileId(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      type_ = value;
+      fileId_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 刷新任务类型 
+     *媒体处理输出文件ID，只支持传入一个
      * </pre>
      *
-     * <code>string Type = 3;</code>
+     * <code>string FileId = 3;</code>
      * @return This builder for chaining.
      */
-    public Builder clearType() {
+    public Builder clearFileId() {
       
-      type_ = getDefaultInstance().getType();
+      fileId_ = getDefaultInstance().getFileId();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * 刷新任务类型 
+     *媒体处理输出文件ID，只支持传入一个
      * </pre>
      *
-     * <code>string Type = 3;</code>
-     * @param value The bytes for type to set.
+     * <code>string FileId = 3;</code>
+     * @param value The bytes for fileId to set.
      * @return This builder for chaining.
      */
-    public Builder setTypeBytes(
+    public Builder setFileIdBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      type_ = value;
-      onChanged();
-      return this;
-    }
-
-    private boolean cacheShared_ ;
-    /**
-     * <pre>
-     * 是否刷新共享缓存开关 
-     * </pre>
-     *
-     * <code>bool CacheShared = 4;</code>
-     * @return The cacheShared.
-     */
-    @java.lang.Override
-    public boolean getCacheShared() {
-      return cacheShared_;
-    }
-    /**
-     * <pre>
-     * 是否刷新共享缓存开关 
-     * </pre>
-     *
-     * <code>bool CacheShared = 4;</code>
-     * @param value The cacheShared to set.
-     * @return This builder for chaining.
-     */
-    public Builder setCacheShared(boolean value) {
-      
-      cacheShared_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * 是否刷新共享缓存开关 
-     * </pre>
-     *
-     * <code>bool CacheShared = 4;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearCacheShared() {
-      
-      cacheShared_ = false;
+      fileId_ = value;
       onChanged();
       return this;
     }
@@ -956,41 +875,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Request.VodCreateCdnRefreshTaskRequest)
+    // @@protoc_insertion_point(builder_scope:Volcengine.Vod.Models.Request.VodGetRestoreVideoStatusRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Request.VodCreateCdnRefreshTaskRequest)
-  private static final com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:Volcengine.Vod.Models.Request.VodGetRestoreVideoStatusRequest)
+  private static final com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest();
+    DEFAULT_INSTANCE = new com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest();
   }
 
-  public static com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest getDefaultInstance() {
+  public static com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<VodCreateCdnRefreshTaskRequest>
-      PARSER = new com.google.protobuf.AbstractParser<VodCreateCdnRefreshTaskRequest>() {
+  private static final com.google.protobuf.Parser<VodGetRestoreVideoStatusRequest>
+      PARSER = new com.google.protobuf.AbstractParser<VodGetRestoreVideoStatusRequest>() {
     @java.lang.Override
-    public VodCreateCdnRefreshTaskRequest parsePartialFrom(
+    public VodGetRestoreVideoStatusRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VodCreateCdnRefreshTaskRequest(input, extensionRegistry);
+      return new VodGetRestoreVideoStatusRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<VodCreateCdnRefreshTaskRequest> parser() {
+  public static com.google.protobuf.Parser<VodGetRestoreVideoStatusRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<VodCreateCdnRefreshTaskRequest> getParserForType() {
+  public com.google.protobuf.Parser<VodGetRestoreVideoStatusRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.volcengine.service.vod.model.request.VodCreateCdnRefreshTaskRequest getDefaultInstanceForType() {
+  public com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

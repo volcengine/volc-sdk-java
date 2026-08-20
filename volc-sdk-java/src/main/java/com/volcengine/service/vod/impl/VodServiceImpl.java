@@ -1623,6 +1623,44 @@ public class VodServiceImpl extends com.volcengine.service.BaseServiceImpl imple
 	
 	
 	/**
+     * restoreColdArchiveVideo.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodRestoreColdArchiveVideoRequest
+     * @return com.volcengine.service.vod.model.response.VodRestoreColdArchiveVideoResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodRestoreColdArchiveVideoResponse restoreColdArchiveVideo(com.volcengine.service.vod.model.request.VodRestoreColdArchiveVideoRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.RestoreColdArchiveVideo, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodRestoreColdArchiveVideoResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodRestoreColdArchiveVideoResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
+     * getRestoreVideoStatus.
+     *
+     * @param input com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest
+     * @return com.volcengine.service.vod.model.response.VodGetRestoreVideoStatusResponse
+     * @throws Exception the exception
+     */
+	@Override
+	public com.volcengine.service.vod.model.response.VodGetRestoreVideoStatusResponse getRestoreVideoStatus(com.volcengine.service.vod.model.request.VodGetRestoreVideoStatusRequest input) throws Exception {
+		com.volcengine.model.response.RawResponse response = query(com.volcengine.service.vod.Const.GetRestoreVideoStatus, com.volcengine.helper.Utils.mapToPairList(com.volcengine.helper.Utils.protoBufferToMap(input, true)));
+        if (response.getCode() != com.volcengine.error.SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        com.volcengine.service.vod.model.response.VodGetRestoreVideoStatusResponse.Builder responseBuilder = com.volcengine.service.vod.model.response.VodGetRestoreVideoStatusResponse.newBuilder();
+        JsonFormat.parser().ignoringUnknownFields().merge(new InputStreamReader(new ByteArrayInputStream(response.getData())), responseBuilder);
+        return responseBuilder.build();
+	}
+	
+	
+	/**
      * getMediaInfos.
      *
      * @param input com.volcengine.service.vod.model.request.VodGetMediaInfosRequest

@@ -46,5 +46,7 @@ public class GetTaskResponse {
         List<Tag> Tags;
         @JSONField(name = "ActivityName")
         String ActivityName;
+        @JSONField(name = "MuteEnabled")
+        Boolean MuteEnabled;
     }
 }

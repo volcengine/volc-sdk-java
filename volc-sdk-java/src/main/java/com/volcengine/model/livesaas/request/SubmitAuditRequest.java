@@ -49,6 +49,13 @@ public class SubmitAuditRequest {
     private String operationType;
 
     /**
+     * 断流后的自动解除秒数
+     * 缺省为 120，-1 表示永久断播
+     */
+    @JSONField(name = "AutoRecoverSeconds")
+    private Integer autoRecoverSeconds;
+
+    /**
      * 审核标注时间（相对任务开始时间的毫秒数）
      */
     @JSONField(name = "MarkTime")

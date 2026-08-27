@@ -10,7 +10,7 @@ import com.alibaba.fastjson.JSON;
 public final class CreateRelaySourceV4ResResult  {
 
     /**
-     * <p>固定回源配置的 ID。</p>
+     * <p>固定触发回源配置的 ID。</p>
      */
     @com.alibaba.fastjson.annotation.JSONField(name = "TaskId")
     private String taskId;

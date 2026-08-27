@@ -5,18 +5,92 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.volcengine.helper.Const;
 import com.volcengine.model.ApiInfo;
+import com.volcengine.model.livesaas.request.CreateTaskRequest;
 import com.volcengine.model.livesaas.request.CreateVideoTaskRequest;
+import com.volcengine.model.livesaas.request.ListTasksRequest;
+import com.volcengine.model.livesaas.request.SubmitAuditRequest;
 import com.volcengine.model.livesaas.response.CreateVideoTaskResponse;
 import com.volcengine.model.livesaas.response.GetMergedReportResponse;
 import com.volcengine.model.livesaas.response.GetReportResponse;
+import com.volcengine.model.livesaas.response.GetTaskResponse;
 import com.volcengine.model.livesaas.response.GetVideoReportResponse;
 import com.volcengine.model.livesaas.response.GetVideoTaskResponse;
+import com.volcengine.model.livesaas.response.ListTasksResponse;
 import com.volcengine.service.livesaas.LivesaasConfig;
 import org.apache.http.NameValuePair;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class VideoInspectOpenApiModelTest {
+
+    @Test
+    public void liveInspectTaskModelsPreserveMuteFields() {
+        CreateTaskRequest createRequest = JSON.parseObject("{\"MuteEnabled\":true}", CreateTaskRequest.class);
+        Assert.assertTrue(JSON.parseObject(JSON.toJSONString(createRequest)).getBooleanValue("MuteEnabled"));
+
+        ListTasksRequest listRequest = JSON.parseObject("{\"MuteEnabledOnly\":true}", ListTasksRequest.class);
+        Assert.assertTrue(JSON.parseObject(JSON.toJSONString(listRequest)).getBooleanValue("MuteEnabledOnly"));
+
+        GetTaskResponse getTaskResponse = JSON.parseObject("{\"Result\":{\"MuteEnabled\":true}}", GetTaskResponse.class);
+        Assert.assertTrue(JSON.parseObject(JSON.toJSONString(getTaskResponse))
+                .getJSONObject("Result").getBooleanValue("MuteEnabled"));
+
+        ListTasksResponse listTasksResponse = JSON.parseObject(
+                "{\"Result\":{\"TaskDetails\":[{\"MuteEnabled\":true}]}}", ListTasksResponse.class);
+        Assert.assertTrue(JSON.parseObject(JSON.toJSONString(listTasksResponse))
+                .getJSONObject("Result").getJSONArray("TaskDetails").getJSONObject(0)
+                .getBooleanValue("MuteEnabled"));
+    }
+
+    @Test
+    public void optionalMuteFieldsRemainAbsentWhenOmitted() {
+        JSONObject createTaskWithoutMute = JSON.parseObject(JSON.toJSONString(
+                JSON.parseObject("{}", CreateTaskRequest.class)));
+        Assert.assertFalse(createTaskWithoutMute.containsKey("MuteEnabled"));
+
+        JSONObject createTaskWithMuteDisabled = JSON.parseObject(JSON.toJSONString(
+                JSON.parseObject("{\"MuteEnabled\":false}", CreateTaskRequest.class)));
+        Assert.assertTrue(createTaskWithMuteDisabled.containsKey("MuteEnabled"));
+        Assert.assertFalse(createTaskWithMuteDisabled.getBooleanValue("MuteEnabled"));
+
+        JSONObject listTasksWithoutMuteFilter = JSON.parseObject(JSON.toJSONString(
+                JSON.parseObject("{}", ListTasksRequest.class)));
+        Assert.assertFalse(listTasksWithoutMuteFilter.containsKey("MuteEnabledOnly"));
+
+        JSONObject getTaskWithoutMute = JSON.parseObject(JSON.toJSONString(
+                JSON.parseObject("{\"Result\":{}}", GetTaskResponse.class)))
+                .getJSONObject("Result");
+        Assert.assertFalse(getTaskWithoutMute.containsKey("MuteEnabled"));
+
+        JSONObject listTasksWithoutMute = JSON.parseObject(JSON.toJSONString(JSON.parseObject(
+                "{\"Result\":{\"TaskDetails\":[{}]}}", ListTasksResponse.class)))
+                .getJSONObject("Result").getJSONArray("TaskDetails").getJSONObject(0);
+        Assert.assertFalse(listTasksWithoutMute.containsKey("MuteEnabled"));
+
+        JSONObject submitAuditWithoutRecovery = JSON.parseObject(JSON.toJSONString(JSON.parseObject(
+                "{\"AuditSource\":\"LIVE\",\"OperationType\":\"INTERRUPTION\"}",
+                SubmitAuditRequest.class)));
+        Assert.assertFalse(submitAuditWithoutRecovery.containsKey("AutoRecoverSeconds"));
+
+        String legacyReportJson = "{\"Result\":{\"RuleResultDetails\":[{\"MachineDetails\":{"
+                + "\"CustomSensitiveResults\":[{\"MessageId\":1}],"
+                + "\"SystemSensitiveResults\":[{\"MessageId\":2}]}}]}}";
+        assertLegacyReportMuteFieldsRemainAbsent(JSON.toJSONString(
+                JSON.parseObject(legacyReportJson, GetReportResponse.class)));
+        assertLegacyReportMuteFieldsRemainAbsent(JSON.toJSONString(
+                JSON.parseObject(legacyReportJson, GetMergedReportResponse.class)));
+    }
+
+    @Test
+    public void submitAuditRequestPreservesAutoRecoverSeconds() {
+        SubmitAuditRequest request = JSON.parseObject(
+                "{\"AuditSource\":\"LIVE\",\"OperationType\":\"INTERRUPTION\",\"AutoRecoverSeconds\":-1}",
+                SubmitAuditRequest.class);
+
+        JSONObject encoded = JSON.parseObject(JSON.toJSONString(request));
+        Assert.assertEquals(Integer.valueOf(-1), encoded.getInteger("AutoRecoverSeconds"));
+        assertApiConfig(Const.SubmitAudit, "POST");
+    }
 
     @Test
     public void createVideoTaskRequestPreservesUrlSourcePayload() {
@@ -139,11 +213,19 @@ public class VideoInspectOpenApiModelTest {
 
         JSONObject custom = machine.getJSONArray("CustomSensitiveResults").getJSONObject(0);
         Assert.assertEquals(Long.valueOf(60), custom.getLong("StartTime"));
+        Assert.assertEquals(Long.valueOf(31), custom.getLong("AuditID"));
+        Assert.assertEquals("FULL_HIT", custom.getString("MuteExecutionStatus"));
+        Assert.assertEquals(Long.valueOf(1000), custom.getJSONObject("MuteExecutionDetail").getLong("BeginPtsMs"));
+        Assert.assertEquals(Long.valueOf(2000), custom.getJSONObject("MuteExecutionDetail").getLong("EndPtsMs"));
+        Assert.assertEquals(Long.valueOf(1744016871000L), custom.getJSONObject("MuteExecutionDetail").getLong("OccurredAt"));
+        Assert.assertEquals("", custom.getJSONObject("MuteExecutionDetail").getString("Reason"));
         Assert.assertFalse(custom.containsKey("EndTime"));
         Assert.assertFalse(custom.containsKey("AbsoluteEndTime"));
 
         JSONObject system = machine.getJSONArray("SystemSensitiveResults").getJSONObject(0);
         Assert.assertEquals(Long.valueOf(60), system.getLong("StartTime"));
+        Assert.assertEquals(Long.valueOf(32), system.getLong("AuditID"));
+        Assert.assertEquals("PENDING", system.getString("MuteExecutionStatus"));
         Assert.assertFalse(system.containsKey("EndTime"));
         Assert.assertFalse(system.containsKey("AbsoluteEndTime"));
 
@@ -156,6 +238,17 @@ public class VideoInspectOpenApiModelTest {
         Assert.assertEquals(Long.valueOf(64), subtitle.getLong("EndTime"));
         Assert.assertEquals(Long.valueOf(1744016874), subtitle.getLong("AbsoluteEndTime"));
         Assert.assertEquals("subtitle-type", subtitle.getString("Type"));
+    }
+
+    private void assertLegacyReportMuteFieldsRemainAbsent(String encodedJson) {
+        JSONObject machine = JSON.parseObject(encodedJson).getJSONObject("Result")
+                .getJSONArray("RuleResultDetails").getJSONObject(0).getJSONObject("MachineDetails");
+        for (String resultName : new String[]{"CustomSensitiveResults", "SystemSensitiveResults"}) {
+            JSONObject result = machine.getJSONArray(resultName).getJSONObject(0);
+            Assert.assertFalse(result.containsKey("AuditID"));
+            Assert.assertFalse(result.containsKey("MuteExecutionStatus"));
+            Assert.assertFalse(result.containsKey("MuteExecutionDetail"));
+        }
     }
 
     private void assertVideoReportFields(String encodedJson) {
@@ -272,7 +365,14 @@ public class VideoInspectOpenApiModelTest {
                 + "\"StartTime\":60,"
                 + "\"EndTime\":61,"
                 + "\"AbsoluteStartTime\":1744016860,"
-                + "\"AbsoluteEndTime\":1744016871"
+                + "\"AbsoluteEndTime\":1744016871,"
+                + "\"AuditID\":31,"
+                + "\"MuteExecutionStatus\":\"FULL_HIT\","
+                + "\"MuteExecutionDetail\":{"
+                + "\"BeginPtsMs\":1000,"
+                + "\"EndPtsMs\":2000,"
+                + "\"OccurredAt\":1744016871000,"
+                + "\"Reason\":\"\"}"
                 + "}],"
                 + "\"SystemSensitiveResults\":[{"
                 + "\"MessageId\":2,"
@@ -280,7 +380,9 @@ public class VideoInspectOpenApiModelTest {
                 + "\"StartTime\":60,"
                 + "\"EndTime\":62,"
                 + "\"AbsoluteStartTime\":1744016860,"
-                + "\"AbsoluteEndTime\":1744016872"
+                + "\"AbsoluteEndTime\":1744016872,"
+                + "\"AuditID\":32,"
+                + "\"MuteExecutionStatus\":\"PENDING\""
                 + "}],"
                 + "\"OCRTextRecognitionResults\":[{"
                 + "\"MessageId\":3,"

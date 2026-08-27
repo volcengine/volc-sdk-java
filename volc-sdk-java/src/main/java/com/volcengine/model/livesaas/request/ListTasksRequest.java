@@ -39,4 +39,6 @@ public class ListTasksRequest {
     List<Long> TagIds;
     @JSONField(name = "TaskIds")
     List<Long> TaskIds;
+    @JSONField(name = "MuteEnabledOnly")
+    Boolean MuteEnabledOnly;
 }

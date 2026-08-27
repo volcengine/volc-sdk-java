@@ -3073,6 +3073,24 @@ public interface LivesaasService extends IBaseService {
      */
     SubmitVideoAuditResponse submitVideoAudit(SubmitVideoAuditRequest submitVideoAuditRequest) throws Exception;
 
+    /**
+     * CreateScriptPreReview
+     *
+     * @param createScriptPreReviewRequest CreateScriptPreReviewRequest
+     * @return CreateScriptPreReviewResponse
+     * @throws Exception the exception
+     */
+    CreateScriptPreReviewResponse createScriptPreReview(CreateScriptPreReviewRequest createScriptPreReviewRequest) throws Exception;
+
+    /**
+     * DownloadScriptPreReviewReport
+     *
+     * @param downloadScriptPreReviewReportRequest DownloadScriptPreReviewReportRequest
+     * @return DownloadScriptPreReviewReportResponse
+     * @throws Exception the exception
+     */
+    DownloadScriptPreReviewReportResponse downloadScriptPreReviewReport(DownloadScriptPreReviewReportRequest downloadScriptPreReviewReportRequest) throws Exception;
+
 
     /**
      * updateViewerLevelConfig

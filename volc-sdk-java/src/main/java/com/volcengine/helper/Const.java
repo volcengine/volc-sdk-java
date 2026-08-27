@@ -797,6 +797,8 @@ public class Const {
     public static final String GetVideoTask = "GetVideoTask";
     public static final String GetVideoReport = "GetVideoReport";
     public static final String SubmitVideoAudit = "SubmitVideoAudit";
+    public static final String CreateScriptPreReview = "CreateScriptPreReview";
+    public static final String DownloadScriptPreReviewReport = "DownloadScriptPreReviewReport";
     public static final String ListProjects = "ListProjects";
     public static final String GetBMReport = "GetBMReport";
     public static final String GetTask = "GetTask";

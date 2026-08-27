@@ -5525,6 +5525,42 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
     }
 
     @Override
+    public CreateScriptPreReviewResponse createScriptPreReview(CreateScriptPreReviewRequest createScriptPreReviewRequest) throws Exception {
+        List<NameValuePair> query = new ArrayList<>();
+        if (createScriptPreReviewRequest.getProjectName() != null) {
+            query.add(new BasicNameValuePair("ProjectName", createScriptPreReviewRequest.getProjectName()));
+        }
+        JSONObject body = (JSONObject) JSON.toJSON(createScriptPreReviewRequest);
+        body.remove("ProjectName");
+        RawResponse response = json(Const.CreateScriptPreReview, query, body.toJSONString());
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CreateScriptPreReviewResponse res = JSON.parseObject(response.getData(), CreateScriptPreReviewResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DownloadScriptPreReviewReportResponse downloadScriptPreReviewReport(DownloadScriptPreReviewReportRequest downloadScriptPreReviewReportRequest) throws Exception {
+        RawResponse response = query(Const.DownloadScriptPreReviewReport, Utils.paramsToPair(downloadScriptPreReviewReportRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DownloadScriptPreReviewReportResponse res = JSON.parseObject(response.getData(), DownloadScriptPreReviewReportResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
     public UpdateViewerLevelConfigResponse updateViewerLevelConfig(UpdateViewerLevelConfigRequest updateViewerLevelConfigRequest) throws Exception {
         RawResponse response = json(Const.UpdateViewerLevelConfig, new ArrayList<>(), JSON.toJSONString(updateViewerLevelConfigRequest));
         if (response.getCode()!= SdkError.SUCCESS.getNumber()) {

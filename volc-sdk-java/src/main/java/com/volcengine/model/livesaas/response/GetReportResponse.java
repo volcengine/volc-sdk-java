@@ -220,6 +220,12 @@ public class GetReportResponse {
         Long AbsoluteStartTime;
         @JSONField(name = "StartTime")
         Long StartTime;
+        @JSONField(name = "AuditID")
+        Long AuditID;
+        @JSONField(name = "MuteExecutionStatus")
+        String MuteExecutionStatus;
+        @JSONField(name = "MuteExecutionDetail")
+        MuteExecutionDetail MuteExecutionDetail;
     }
 
     @Data
@@ -232,6 +238,24 @@ public class GetReportResponse {
         Long AbsoluteStartTime;
         @JSONField(name = "StartTime")
         Long StartTime;
+        @JSONField(name = "AuditID")
+        Long AuditID;
+        @JSONField(name = "MuteExecutionStatus")
+        String MuteExecutionStatus;
+        @JSONField(name = "MuteExecutionDetail")
+        MuteExecutionDetail MuteExecutionDetail;
+    }
+
+    @Data
+    public static class MuteExecutionDetail {
+        @JSONField(name = "BeginPtsMs")
+        Long BeginPtsMs;
+        @JSONField(name = "EndPtsMs")
+        Long EndPtsMs;
+        @JSONField(name = "OccurredAt")
+        Long OccurredAt;
+        @JSONField(name = "Reason")
+        String Reason;
     }
 
     @Data

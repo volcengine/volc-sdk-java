@@ -1087,7 +1087,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>deleteRelaySourceV4</p>
      * <p>删除固定回源配置</p>
      *
-     * <p>调用 `DeleteRelaySourceV4` 接口，删除已添加的固定回源配置。</p>
+     * <p>调用 `DeleteRelaySourceV4` 接口，删除已添加的固定触发回源配置。</p>
      *
      * @param body body payload
      * @return response data
@@ -1117,7 +1117,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>updateRelaySourceV4</p>
      * <p>更新固定回源配置</p>
      *
-     * <p>调用 `UpdateRelaySourceV4` 接口，更新已添加的固定回源配置。</p>
+     * <p>调用 `UpdateRelaySourceV4` 接口，更新指定固定触发回源配置。</p>
      *
      * @param body body payload
      * @return response data
@@ -1132,7 +1132,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>listRelaySourceV4</p>
      * <p>查询固定回源配置列表</p>
      *
-     * <p>调用 `ListRelaySourceV4` 接口，查询固定回源配置列表。</p>
+     * <p>调用 `ListRelaySourceV4` 接口，查询固定触发回源配置列表。</p>
      *
      * @param body body payload
      * @return response data
@@ -1162,7 +1162,7 @@ public class LiveTrait extends BaseServiceImpl {
      * <p>createRelaySourceV4</p>
      * <p>添加固定回源配置</p>
      *
-     * <p>调用 `CreateRelaySourceV4` 接口，添加固定触发回源配置，固定触发指根据您设置的回源时间定时从源服务器拉取直播流数据，不论是否有观众观看；这种方式可以确保 CDN 节点始终拥有最新的直播流数据，降低观众在观看时的等待时间，提高观看体验。</p>
+     * <p>调用 `CreateRelaySourceV4` 接口，添加固定触发回源配置。固定触发指无需等待观众请求观看直播，系统会按配置从源站拉取直播流。适用于需要提前拉流、减少观众开始播放时等待时间的场景。</p>
      *
      * @param body body payload
      * @return response data

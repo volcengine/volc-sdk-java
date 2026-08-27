@@ -30,5 +30,7 @@ public class CreateTaskRequest {
     List<Long> TagIds;
     @JSONField(name = "SpecifiableRuleArgs")
     List<SpecifiableRuleArg> SpecifiableRuleArgs;
+    @JSONField(name = "MuteEnabled")
+    Boolean MuteEnabled;
 
 }

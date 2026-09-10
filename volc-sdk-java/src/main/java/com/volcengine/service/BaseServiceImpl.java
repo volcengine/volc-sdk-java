@@ -32,6 +32,7 @@ import org.apache.http.conn.HttpClientConnectionManager;
 import org.apache.http.entity.*;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
 
 import java.io.File;
@@ -362,6 +363,10 @@ public abstract class BaseServiceImpl implements IBaseService {
     }
 
     protected RawResponse makeRequest(String api, SignableRequest request) {
+        return makeRequest(api, request, null);
+    }
+
+    protected RawResponse makeRequest(String api, SignableRequest request, HttpContext context) {
         if (shouldUseAnonymousIdentity(api)) {
             request.setHeader(ANONYMOUS_IDENTITY_HEADER, apiKey);
             try {
@@ -387,7 +392,7 @@ public abstract class BaseServiceImpl implements IBaseService {
             } else {
                 client = HttpClients.createDefault();
             }
-            response = client.execute(request);
+            response = context == null ? client.execute(request) : client.execute(request, context);
             int statusCode = response.getStatusLine().getStatusCode();
             Header[] responseHeaders = response.getAllHeaders();
             if (statusCode >= 300) {
@@ -647,6 +652,11 @@ public abstract class BaseServiceImpl implements IBaseService {
 
     @Override
     public RawResponse proto(String api, List<NameValuePair> params, Map<String, String> header, byte[] body, String compressType) {
+        return proto(api, params, header, body, compressType, null);
+    }
+
+    protected RawResponse proto(String api, List<NameValuePair> params, Map<String, String> header,
+                                byte[] body, String compressType, HttpContext context) {
         ApiInfo apiInfo = apiInfoList.get(api);
         if (apiInfo == null) {
             return new RawResponse(null, SdkError.ENOAPI.getNumber(), new Exception(SdkError.getErrorDesc(SdkError.ENOAPI)));
@@ -662,6 +672,6 @@ public abstract class BaseServiceImpl implements IBaseService {
             request.setEntity(new ByteArrayEntity(compressedData));
         }
 
-        return makeRequest(api, request);
+        return makeRequest(api, request, context);
     }
 }

@@ -21,11 +21,18 @@ import java.io.InterruptedIOException;
 import java.net.UnknownHostException;
 
 public class HttpClientFactory {
+    // Keep this internal key aligned with TLSHttpUtil. It is intentionally not a public retry API.
+    static final String DISABLE_REQUEST_RETRY_CONTEXT_ATTRIBUTE =
+            "com.volcengine.http.disableRequestRetry";
 
     public static HttpRequestRetryHandler httpRequestRetryHandler = new HttpRequestRetryHandler() {
         @Override
         public boolean retryRequest(IOException exception,
                                     int executionCount, HttpContext context) {
+            if (context != null && Boolean.TRUE.equals(
+                    context.getAttribute(DISABLE_REQUEST_RETRY_CONTEXT_ATTRIBUTE))) {
+                return false;
+            }
             if (executionCount >= 5) {
                 return false;
             }

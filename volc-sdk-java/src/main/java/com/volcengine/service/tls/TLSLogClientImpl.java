@@ -48,6 +48,7 @@ public class TLSLogClientImpl implements TLSLogClient {
     private ClientConfig config;
     private final TLSHttpUtil httpRequest;
     private boolean localValidationOnly;
+    private boolean producerOwnsPutLogsRetry;
 
     /**
      * L4-D10：用户自定义 HTTP header 容器，与 Go SDK CommonRequest.Headers 对齐。
@@ -67,6 +68,10 @@ public class TLSLogClientImpl implements TLSLogClient {
 
         this.httpRequest.setSocketTimeout(60000);
         this.httpRequest.setConnectionTimeout(60000);
+    }
+
+    void useProducerManagedRetryOwner() {
+        this.producerOwnsPutLogsRetry = true;
     }
 
     @Override
@@ -2950,7 +2955,9 @@ public class TLSLogClientImpl implements TLSLogClient {
             headers.put(HEADER_API_VERSION, this.config.getApiVersion());
         }
         ensureCredentialForRequest(api);
-        RawResponse rawResponse = executeWithRetry(() -> httpRequest.proto(api, params, headers, body, compressType));
+        RawResponse rawResponse = producerOwnsPutLogsRetry && PUT_LOGS.equals(api)
+                ? httpRequest.protoWithoutTransportRetry(api, params, headers, body, compressType)
+                : executeWithRetry(() -> httpRequest.proto(api, params, headers, body, compressType));
         //throw exception
         if (rawResponse.getCode() != SdkError.SUCCESS.getNumber()) {
             String[] error = getError(rawResponse);

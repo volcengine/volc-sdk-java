@@ -11,6 +11,8 @@ import org.apache.http.Header;
 import org.apache.http.NameValuePair;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.message.BasicHeader;
+import org.apache.http.protocol.BasicHttpContext;
+import org.apache.http.protocol.HttpContext;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +21,11 @@ import java.util.Map;
 
 
 public class TLSHttpUtil extends BaseServiceImpl {
+    // Kept private to avoid exposing transport retry as a client capability. The integration test
+    // passes this context through HttpClientFactory's real handler so key drift fails loudly.
+    private static final String DISABLE_REQUEST_RETRY_CONTEXT_ATTRIBUTE =
+            "com.volcengine.http.disableRequestRetry";
+
     public TLSHttpUtil(ServiceInfo info, Map<String, ApiInfo> apiInfoList) {
         super(info, apiInfoList);
     }
@@ -51,6 +58,13 @@ public class TLSHttpUtil extends BaseServiceImpl {
             request.setEntity(new StringEntity(body, "utf-8"));
         }
         return makeRequest(api, request);
+    }
+
+    RawResponse protoWithoutTransportRetry(String api, List<NameValuePair> params, Map<String, String> header,
+                                           byte[] body, String compressType) {
+        HttpContext context = new BasicHttpContext();
+        context.setAttribute(DISABLE_REQUEST_RETRY_CONTEXT_ATTRIBUTE, Boolean.TRUE);
+        return super.proto(api, params, header, body, compressType, context);
     }
 
 

@@ -15,6 +15,7 @@ import com.volcengine.model.tls.producer.FailurePolicy;
 import com.volcengine.model.tls.producer.MemoryLimiter;
 import com.volcengine.model.tls.producer.ProducerConfig;
 import com.volcengine.model.tls.producer.Result;
+import com.volcengine.model.tls.producer.RetryMode;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -60,7 +61,11 @@ public class LogDispatcher {
         this.batchCount = batchCount;
         this.retryManager = retryManager;
         this.circuitBreaker = circuitBreaker;
-        this.client = ClientBuilder.newClient(producerConfig.getClientConfig());
+        TLSLogClientImpl producerClient = (TLSLogClientImpl) ClientBuilder.newClient(producerConfig.getClientConfig());
+        if (producerConfig.getRetryMode() == RetryMode.PRODUCER_MANAGED) {
+            producerClient.useProducerManagedRetryOwner();
+        }
+        this.client = producerClient;
         this.client.setHttpClientConnectionManager(TLSUtil.createHttpClientConnectionManager(
                         producerConfig.getClientConfig().isVerifySsl()),
                 true);

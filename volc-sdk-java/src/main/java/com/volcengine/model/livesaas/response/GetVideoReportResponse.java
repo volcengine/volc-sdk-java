@@ -5,6 +5,7 @@ import com.volcengine.model.response.ResponseMetadata;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Map;
 
 @Data
 public class GetVideoReportResponse {
@@ -67,6 +68,8 @@ public class GetVideoReportResponse {
     public static class RuleResultDetail {
         @JSONField(name = "RuleId")
         public Long RuleId;
+        @JSONField(name = "RuleSubType")
+        public String RuleSubType;
         @JSONField(name = "RuleName")
         public String RuleName;
         @JSONField(name = "FinalManualStatus")
@@ -81,6 +84,8 @@ public class GetVideoReportResponse {
         public Integer RuleType;
         @JSONField(name = "ViolationType")
         public Integer ViolationType;
+        @JSONField(name = "RuleData")
+        public Map<String, Object> RuleData;
 
         public Long getRuleId() {
             return RuleId;
@@ -88,6 +93,14 @@ public class GetVideoReportResponse {
 
         public void setRuleId(Long ruleId) {
             RuleId = ruleId;
+        }
+
+        public String getRuleSubType() {
+            return RuleSubType;
+        }
+
+        public void setRuleSubType(String ruleSubType) {
+            RuleSubType = ruleSubType;
         }
 
         public String getRuleName() {
@@ -144,6 +157,14 @@ public class GetVideoReportResponse {
 
         public void setViolationType(Integer violationType) {
             ViolationType = violationType;
+        }
+
+        public Map<String, Object> getRuleData() {
+            return RuleData;
+        }
+
+        public void setRuleData(Map<String, Object> ruleData) {
+            RuleData = ruleData;
         }
     }
 
@@ -235,6 +256,8 @@ public class GetVideoReportResponse {
         public Long EndTime;
         @JSONField(name = "Description")
         public String Description;
+        @JSONField(name = "DetailData")
+        public Map<String, Object> DetailData;
 
         public Long getMessageId() {
             return MessageId;
@@ -283,6 +306,14 @@ public class GetVideoReportResponse {
         public void setDescription(String description) {
             Description = description;
         }
+
+        public Map<String, Object> getDetailData() {
+            return DetailData;
+        }
+
+        public void setDetailData(Map<String, Object> detailData) {
+            DetailData = detailData;
+        }
     }
 
     @Data
@@ -299,6 +330,8 @@ public class GetVideoReportResponse {
         public Long EndTime;
         @JSONField(name = "Description")
         public String Description;
+        @JSONField(name = "DetailData")
+        public Map<String, Object> DetailData;
 
         public Long getMessageId() {
             return MessageId;
@@ -346,6 +379,14 @@ public class GetVideoReportResponse {
 
         public void setDescription(String description) {
             Description = description;
+        }
+
+        public Map<String, Object> getDetailData() {
+            return DetailData;
+        }
+
+        public void setDetailData(Map<String, Object> detailData) {
+            DetailData = detailData;
         }
     }
 

@@ -254,17 +254,22 @@ public class VideoInspectOpenApiModelTest {
     private void assertVideoReportFields(String encodedJson) {
         JSONObject encoded = JSON.parseObject(encodedJson);
         JSONArray ruleDetails = encoded.getJSONObject("Result").getJSONArray("RuleResultDetails");
+        JSONObject ruleDetail = ruleDetails.getJSONObject(0);
+        Assert.assertEquals("PRICING_ANALYSIS", ruleDetail.getString("RuleSubType"));
+        Assert.assertEquals(Integer.valueOf(1), ruleDetail.getJSONObject("RuleData").getInteger("TotalCount"));
         JSONObject machine = ruleDetails.getJSONObject(0).getJSONObject("MachineDetails");
 
         JSONObject text = machine.getJSONArray("AnalysisTexts").getJSONObject(0);
         Assert.assertEquals(Long.valueOf(65), text.getLong("StartTime"));
         Assert.assertEquals(Long.valueOf(66), text.getLong("EndTime"));
+        Assert.assertEquals("Series 3", text.getJSONObject("DetailData").getString("RelatedVehicleModel"));
         Assert.assertFalse(text.containsKey("AbsoluteStartTime"));
         Assert.assertFalse(text.containsKey("AbsoluteEndTime"));
 
         JSONObject image = machine.getJSONArray("AnalysisImages").getJSONObject(0);
         Assert.assertEquals(Long.valueOf(67), image.getLong("StartTime"));
         Assert.assertEquals(Long.valueOf(68), image.getLong("EndTime"));
+        Assert.assertEquals(Integer.valueOf(60), image.getJSONObject("DetailData").getInteger("DurationSeconds"));
         Assert.assertFalse(image.containsKey("AbsoluteStartTime"));
         Assert.assertFalse(image.containsKey("AbsoluteEndTime"));
 
@@ -336,6 +341,8 @@ public class VideoInspectOpenApiModelTest {
                 + "\"RuleId\":88,"
                 + "\"RuleName\":\"rule\","
                 + "\"RuleType\":5,"
+                + "\"RuleSubType\":\"PRICING_ANALYSIS\","
+                + "\"RuleData\":{\"TotalCount\":1},"
                 + "\"MachineDetails\":{"
                 + "\"MachineType\":5,"
                 + "\"AnalysisTexts\":[{"
@@ -346,7 +353,8 @@ public class VideoInspectOpenApiModelTest {
                 + "\"EndTime\":66,"
                 + "\"AbsoluteStartTime\":1744016865,"
                 + "\"AbsoluteEndTime\":1744016876,"
-                + "\"Description\":\"analysis text desc\""
+                + "\"Description\":\"analysis text desc\","
+                + "\"DetailData\":{\"RelatedVehicleModel\":\"Series 3\"}"
                 + "}],"
                 + "\"AnalysisImages\":[{"
                 + "\"MessageId\":6,"
@@ -356,7 +364,8 @@ public class VideoInspectOpenApiModelTest {
                 + "\"EndTime\":68,"
                 + "\"AbsoluteStartTime\":1744016867,"
                 + "\"AbsoluteEndTime\":1744016878,"
-                + "\"Description\":\"analysis image desc\""
+                + "\"Description\":\"analysis image desc\","
+                + "\"DetailData\":{\"DurationSeconds\":60}"
                 + "}],"
                 + "\"CustomSensitiveResults\":[{"
                 + "\"MessageId\":1,"

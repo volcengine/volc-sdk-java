@@ -16,12 +16,6 @@ public final class DescribeRefererResResultRefererListItemRefererInfoListItem  {
     private String key;
 
     /**
-     * <p>优先级，当前默认返回值为 0。当多域名返回值一致时，按照域名输入顺序区分，越早加入列表的域名优先级越高。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "Priority")
-    private Integer priority;
-
-    /**
      * <p>referer 防盗链黑白名单类型，取值即含义如下所示。</p>
      *
      * <p>- `deny`：黑名单；</p>

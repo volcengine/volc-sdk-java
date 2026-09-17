@@ -16,12 +16,6 @@ public final class UpdateRefererBodyRefererInfoListItem  {
     private String key;
 
     /**
-     * <p>Referer 字段规则的匹配优先级，默认为 `0`，取值范围为 [0,100]，数值越大，优先级越高。如果优先级相同，则越早加入列表的域名优先级越高。</p>
-     */
-    @com.alibaba.fastjson.annotation.JSONField(name = "Priority")
-    private Integer priority;
-
-    /**
      * <p>Referer 字段规则类型，取值即含义如下所示。</p>
      *
      * <p>- `deny`：拒绝，即黑名单；</p>

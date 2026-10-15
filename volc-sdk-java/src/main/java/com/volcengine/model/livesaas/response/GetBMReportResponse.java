@@ -319,5 +319,13 @@ public class GetBMReportResponse {
         String textFragment;
         @JSONField(name = "Reason")
         String reason;
+        @JSONField(name = "OriginalText")
+        String OriginalText;
+        @JSONField(name = "ViolationCategory")
+        String ViolationCategory;
+        @JSONField(name = "TriggerDetails")
+        List<String> TriggerDetails;
+        @JSONField(name = "HitWords")
+        List<String> HitWords;
     }
 }

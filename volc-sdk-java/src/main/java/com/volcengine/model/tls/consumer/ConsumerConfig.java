@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.volcengine.model.tls.ClientConfig;
 import com.volcengine.model.tls.exception.LogException;
+import com.volcengine.model.tls.stats.MetricsLevel;
 import lombok.Getter;
 import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
@@ -13,7 +14,7 @@ import org.apache.commons.logging.LogFactory;
 import static com.volcengine.model.tls.Const.*;
 
 @Getter
-@ToString
+@ToString(exclude = "clientConfig")
 public class ConsumerConfig {
     private static final Log log = LogFactory.getLog(ConsumerConfig.class);
 
@@ -40,6 +41,10 @@ public class ConsumerConfig {
     private int stopTimeout;
     private boolean origin;
     private String compressType;
+
+    // Local health observation (default OFF preserves historical behavior). Read once at start;
+    // the running Consumer treats these as immutable.
+    private MetricsLevel metricsLevel = MetricsLevel.OFF;
 
     public ConsumerConfig(String endpoint, String region, String accessKeyId, String accessKeySecret) {
         this(endpoint, region, accessKeyId, accessKeySecret, null);
@@ -77,6 +82,9 @@ public class ConsumerConfig {
         checkIntValueRange(flushCheckpointIntervalInSecond, 1, 300, FLUSH_CHECKPOINT_INTERVAL_IN_SECOND);
         checkIntValueRange(maxFetchLogGroupCount, 1, 1000, MAX_FETCH_LOG_GROUP_COUNT);
         checkIntValueRange(stopTimeout, 1, 300, STOP_TIMEOUT);
+
+        // Normalize possibly-null observation config to OFF so the running Consumer never NPEs.
+        this.metricsLevel = MetricsLevel.normalize(metricsLevel);
     }
 
     public void setClientConfig(ClientConfig clientConfig) throws LogException {
@@ -87,7 +95,7 @@ public class ConsumerConfig {
     private void checkClientConfig(ClientConfig clientConfig) throws LogException {
         if (clientConfig == null || StringUtils.isEmpty(clientConfig.getEndpoint()) || StringUtils.isEmpty(clientConfig.getRegion())
                 || StringUtils.isEmpty(clientConfig.getAccessKeyId()) || StringUtils.isEmpty(clientConfig.getAccessKeySecret())) {
-            throw new LogException(INVALID_ARGUMENT, String.valueOf(clientConfig), null);
+            throw new LogException(INVALID_ARGUMENT, "ClientConfig is invalid.", null);
         }
     }
 
@@ -155,6 +163,11 @@ public class ConsumerConfig {
 
     public void setCompressType(String compressType) {
         this.compressType = compressType;
+    }
+
+    /** Enables/adjusts local health metrics. Null normalizes to {@link MetricsLevel#OFF}. */
+    public void setMetricsLevel(MetricsLevel metricsLevel) {
+        this.metricsLevel = MetricsLevel.normalize(metricsLevel);
     }
 
     private void checkEmptyString(String str, String field) throws LogException {

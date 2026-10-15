@@ -6200,4 +6200,139 @@ public class LivesaasServiceImpl extends BaseServiceImpl implements LivesaasServ
         res.getResponseMetadata().setService("livesaas");
         return res;
     }
+
+    @Override
+    public CreateHighlightClipTaskResponse createHighlightClipTask(CreateHighlightClipTaskRequest createHighlightClipTaskRequest) throws Exception {
+        RawResponse response = json(Const.CreateHighlightClipTask, new ArrayList<>(), JSON.toJSONString(createHighlightClipTaskRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        CreateHighlightClipTaskResponse res = JSON.parseObject(response.getData(), CreateHighlightClipTaskResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateActivityLiveInspectConfigResponse updateActivityLiveInspectConfig(UpdateActivityLiveInspectConfigRequest updateActivityLiveInspectConfigRequest) throws Exception {
+        RawResponse response = json(Const.UpdateActivityLiveInspectConfig, new ArrayList<>(), JSON.toJSONString(updateActivityLiveInspectConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateActivityLiveInspectConfigResponse res = JSON.parseObject(response.getData(), UpdateActivityLiveInspectConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ListHighlightClipTasksResponse listHighlightClipTasks(ListHighlightClipTasksRequest listHighlightClipTasksRequest) throws Exception {
+        RawResponse response = query(Const.ListHighlightClipTasks, Utils.paramsToPair(listHighlightClipTasksRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ListHighlightClipTasksResponse res = JSON.parseObject(response.getData(), ListHighlightClipTasksResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetHighlightClipTaskDetailResponse getHighlightClipTaskDetail(GetHighlightClipTaskDetailRequest getHighlightClipTaskDetailRequest) throws Exception {
+        RawResponse response = query(Const.GetHighlightClipTaskDetail, Utils.paramsToPair(getHighlightClipTaskDetailRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetHighlightClipTaskDetailResponse res = JSON.parseObject(response.getData(), GetHighlightClipTaskDetailResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public UpdateHighlightClipResultResponse updateHighlightClipResult(UpdateHighlightClipResultRequest updateHighlightClipResultRequest) throws Exception {
+        RawResponse response = json(Const.UpdateHighlightClipResult, new ArrayList<>(), JSON.toJSONString(updateHighlightClipResultRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        UpdateHighlightClipResultResponse res = JSON.parseObject(response.getData(), UpdateHighlightClipResultResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public ExportHighlightClipResponse exportHighlightClip(ExportHighlightClipRequest exportHighlightClipRequest) throws Exception {
+        RawResponse response = json(Const.ExportHighlightClip, new ArrayList<>(), JSON.toJSONString(exportHighlightClipRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        ExportHighlightClipResponse res = JSON.parseObject(response.getData(), ExportHighlightClipResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public DeleteHighlightClipTaskResponse deleteHighlightClipTask(DeleteHighlightClipTaskRequest deleteHighlightClipTaskRequest) throws Exception {
+        RawResponse response = json(Const.DeleteHighlightClipTask, new ArrayList<>(), JSON.toJSONString(deleteHighlightClipTaskRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        DeleteHighlightClipTaskResponse res = JSON.parseObject(response.getData(), DeleteHighlightClipTaskResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetHighlightClipPromptConfigResponse getHighlightClipPromptConfig(GetHighlightClipPromptConfigRequest getHighlightClipPromptConfigRequest) throws Exception {
+        RawResponse response = query(Const.GetHighlightClipPromptConfig, Utils.paramsToPair(getHighlightClipPromptConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetHighlightClipPromptConfigResponse res = JSON.parseObject(response.getData(), GetHighlightClipPromptConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
+
+    @Override
+    public GetActivityLiveInspectConfigResponse getActivityLiveInspectConfig(GetActivityLiveInspectConfigRequest getActivityLiveInspectConfigRequest) throws Exception {
+        RawResponse response = query(Const.GetActivityLiveInspectConfig, Utils.paramsToPair(getActivityLiveInspectConfigRequest));
+        if (response.getCode() != SdkError.SUCCESS.getNumber()) {
+            throw response.getException();
+        }
+        GetActivityLiveInspectConfigResponse res = JSON.parseObject(response.getData(), GetActivityLiveInspectConfigResponse.class);
+        if (res.getResponseMetadata().getError() != null) {
+            ResponseMetadata meta = res.getResponseMetadata();
+            throw new Exception(meta.getRequestId() + "error: " + meta.getError().getMessage());
+        }
+        res.getResponseMetadata().setService("livesaas");
+        return res;
+    }
 }

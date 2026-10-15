@@ -5,10 +5,17 @@ import com.volcengine.model.tls.exception.LogException;
 import com.volcengine.model.tls.pb.PutLogRequest;
 import com.volcengine.model.tls.producer.CallBack;
 import com.volcengine.model.tls.producer.ProducerConfig;
+import com.volcengine.model.tls.stats.ProducerStatsSnapshot;
+import com.volcengine.model.tls.stats.StatsOptions;
 
 import java.util.List;
 
 public interface Producer {
+    /** Changes collection only while running; the requested snapshot view remains independent. */
+    void setMetricsLevel(com.volcengine.model.tls.stats.MetricsLevel level);
+
+    /** Returns an immutable local snapshot projected to the explicitly requested view. */
+    ProducerStatsSnapshot getStats(StatsOptions options);
     @Deprecated
     /*
      * Please use sendLogV2 instead.
@@ -67,27 +74,44 @@ public interface Producer {
     void start() throws LogException;
 
     /**
-     * 暂停Producer
+     * Gracefully closes the Producer using a default 30-second shutdown budget.
      *
-     * @throws InterruptedException
-     * @throws LogException
+     * <p>This is a terminal shutdown, not a pause; a closed Producer cannot be restarted. If an
+     * already-admitted send does not finish within the budget, this method reports the timeout,
+     * keeps the resources needed by that old operation, and rejects all new sends. Retry close
+     * after the admitted operation finishes, or use {@link #closeNow()} when cancellation is the
+     * intended semantics. A timeout does not promise that every resource has been released.</p>
+     *
+     * @throws InterruptedException if the shutdown wait is interrupted
+     * @throws LogException if shutdown cannot complete within the budget
      */
     void close() throws InterruptedException, LogException;
 
     /**
-     * 暂停Producer
+     * Gracefully closes the Producer with a caller-supplied shutdown budget.
      *
-     * @param timeoutMs 超时等待时间
-     * @throws InterruptedException
-     * @throws LogException
+     * <p>This is a terminal shutdown, not a pause; a closed Producer cannot be restarted. The
+     * admission gate closes immediately, so new sends are rejected. If a send admitted before the
+     * gate closed does not finish within {@code timeoutMs}, this method reports the timeout while
+     * retaining the resources required by that old operation; retry close after it finishes, or
+     * use {@link #closeNow()} to request cancellation. A timeout does not promise that every
+     * resource has been released.</p>
+     *
+     * @param timeoutMs graceful wait budget in milliseconds; failed stages may require further cleanup waits
+     * @throws InterruptedException if the shutdown wait is interrupted
+     * @throws LogException if shutdown cannot complete within the budget
      */
     void close(long timeoutMs) throws InterruptedException, LogException;
 
     /**
-     * 立刻暂停Producer
+     * Force-closes the Producer with bounded waits and cancellation semantics.
      *
-     * @throws InterruptedException
-     * @throws LogException
+     * <p>This is a terminal shutdown, not a pause; a closed Producer cannot be restarted. Pending
+     * or in-flight logs may be dropped, callback/reporting state may be incomplete, and the method
+     * may still report a bounded-wait failure if workers do not stop in time.</p>
+     *
+     * @throws InterruptedException if the caller's interruption is reported after bounded cleanup
+     * @throws LogException if forced shutdown reports an incomplete or timed-out cleanup
      */
     void closeNow() throws InterruptedException, LogException;
 

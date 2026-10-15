@@ -13,7 +13,7 @@ import java.util.HashMap;
 import static com.volcengine.model.tls.Const.*;
 
 @Data
-@ToString(exclude = "apiKey")
+@ToString(exclude = {"accessKeyId", "accessKeySecret", "securityToken", "apiKey"})
 public class ClientConfig {
     String endpoint;
     String accessKeyId;

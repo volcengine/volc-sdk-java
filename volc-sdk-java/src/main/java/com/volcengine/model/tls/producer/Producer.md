@@ -20,6 +20,13 @@ producer.start()
 producer.close()
 ```
 
+`close()` 使用 30 秒的默认关闭预算；`close(timeoutMs)` 关闭新日志准入并等待已准入发送。
+这不是“暂停”，关闭后的 Producer 不可重新启动。若等待准入操作超时，会抛出异常并保留这些操作
+仍需使用的资源，调用方应在旧操作结束后重试 `close`。若选择取消未完成日志，可改用
+`closeNow()` 进行有界强制清理；它可能丢弃日志，非协作线程仍可能导致清理不完整并报错。
+默认 `maxBlockMs` 为 60 秒，大于默认关闭预算；需要等待完整准入周期时应显式传入足够的关闭时间，
+并为后续发送及清理预留时间。不能把一次超时异常当作资源已经关闭成功。
+
 ### 发送日志
 
 请参考example/tls/demo/ProducerDemo。
@@ -37,6 +44,6 @@ producer.close()
 | lingerMs            | int  | 2 * 1000          | 一个BatchLog从创建到可发送的等待时间，单位为毫秒，默认为2秒，最小可设置成100毫秒。                                                      |
 | retryCount          | int  | 2                 | 如果某个BatchLog首次发送失败，Producer对其自动重试的次数，默认为2次。                                                          |
 | maxReservedAttempts | int  | 3                 | 每个BatchLog每次尝试发送都对应着一个Attempt，此参数用来控制返回给用户的Attempt个数，默认只保留最近3次Attempt信息。该参数越大，您可追溯的信息越多，但同时也会消耗更多内存。 |
-| retryMode           | RetryMode | LEGACY_DOUBLE_RETRY | 默认保持兼容的双层重试语义；设置为PRODUCER_MANAGED后，Producer接管重试，底层TLSLogClient单次Producer attempt只发起1次HTTP请求。 |
+| retryMode           | RetryMode | PRODUCER_MANAGED | Producer是唯一重试owner；底层TLSLogClient的单次Producer attempt只发起1次HTTP请求。null使用默认值；不再支持LEGACY_DOUBLE_RETRY，显式设置该值会抛出IllegalArgumentException，不会静默覆盖。直接使用TLSLogClient的重试策略不受影响。 |
 | circuitBreakerConfig | CircuitBreakerConfig | disabled | 默认关闭。开启后仅429、5xx和网络类失败计入熔断，400/403/404等永久失败不打开熔断。 |
 | failurePolicy       | FailurePolicy | RETRY_THEN_CALLBACK | 熔断打开时的处理策略，可选RETRY_THEN_CALLBACK、FAIL_FAST、DROP_WITH_CALLBACK。推荐生产profile使用producer-managed retry、开启breaker，并配合FAIL_FAST或DROP_WITH_CALLBACK以及maxBlockMs=0。 |

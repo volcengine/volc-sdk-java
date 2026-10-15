@@ -3,6 +3,7 @@ package com.volcengine.model.tls.producer;
 import com.volcengine.model.tls.ClientConfig;
 import com.volcengine.model.tls.RetryPolicy;
 import com.volcengine.model.tls.exception.LogException;
+import com.volcengine.model.tls.stats.MetricsLevel;
 import lombok.Getter;
 import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
@@ -10,7 +11,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 @Getter
-@ToString
+@ToString(exclude = "clientConfig")
 public class ProducerConfig {
     public static final int DEFAULT_TOTAL_SIZE_IN_BYTES = 100 * 1024 * 1024;
     public static final int DEFAULT_MAX_THREAD_COUNT = 50;
@@ -46,9 +47,12 @@ public class ProducerConfig {
     private ClientConfig clientConfig;
     private int shardCount = DEFAULT_SHARD_COUNT;
     private boolean enableNanosecond = false;
-    private RetryMode retryMode = RetryMode.LEGACY_DOUBLE_RETRY;
+    private RetryMode retryMode = RetryMode.PRODUCER_MANAGED;
     private FailurePolicy failurePolicy = FailurePolicy.RETRY_THEN_CALLBACK;
     private CircuitBreakerConfig circuitBreakerConfig = new CircuitBreakerConfig();
+    // Local health observation (default OFF preserves historical behavior). Read once at start;
+    // the running Producer treats these as immutable.
+    private MetricsLevel metricsLevel = MetricsLevel.OFF;
     private final static Log log = LogFactory.getLog(ProducerConfig.class);
 
     public ProducerConfig(String endpoint, String region, String accessKey, String accessSecret, String token) {
@@ -85,8 +89,13 @@ public class ProducerConfig {
         retryCount = (int) validNumber(retryCount, 1, MAX_RETRY_COUNT, DEFAULT_RETRY_COUNT);
         maxReservedAttempts = (int) validNumber(maxReservedAttempts, 2, MAX_RESERVED_ATTEMPTS, DEFAULT_RESERVED_ATTEMPTS);
         shardCount = (int) validNumber(shardCount, 1, Integer.MAX_VALUE, DEFAULT_SHARD_COUNT);
+        // Producer is the only retry owner. A single Producer attempt must map to one HTTP attempt;
+        // otherwise client replay makes retry counters, reasons and terminal ownership ambiguous.
         if (retryMode == null) {
-            retryMode = RetryMode.LEGACY_DOUBLE_RETRY;
+            retryMode = RetryMode.PRODUCER_MANAGED;
+        } else if (retryMode != RetryMode.PRODUCER_MANAGED) {
+            throw new LogException("InvalidArgument",
+                    "only PRODUCER_MANAGED retry mode is supported", null);
         }
         if (failurePolicy == null) {
             failurePolicy = FailurePolicy.RETRY_THEN_CALLBACK;
@@ -94,12 +103,12 @@ public class ProducerConfig {
         if (circuitBreakerConfig == null) {
             circuitBreakerConfig = new CircuitBreakerConfig();
         }
+        // Normalize possibly-null observation config to OFF so the running Producer never NPEs.
+        metricsLevel = MetricsLevel.normalize(metricsLevel);
         if (!isValidClientConfig(clientConfig)) {
-            throw new LogException("InvalidArgument", String.valueOf(clientConfig), null);
+            throw invalidClientConfig();
         }
-        if (retryMode == RetryMode.PRODUCER_MANAGED) {
-            normalizeProducerManagedRetry();
-        }
+        normalizeProducerManagedRetry();
     }
 
     private void normalizeProducerManagedRetry() {
@@ -195,9 +204,14 @@ public class ProducerConfig {
 
     public void setClientConfig(ClientConfig clientConfig) throws LogException {
         if (!isValidClientConfig(clientConfig)) {
-            throw new LogException("InvalidArgument", String.valueOf(clientConfig), null);
+            throw invalidClientConfig();
         }
         this.clientConfig = clientConfig;
+    }
+
+    private static LogException invalidClientConfig() {
+        return new LogException("InvalidArgument",
+                "client config must include endpoint, region, and API key or access key credentials", null);
     }
 
     public void setShardCount(int shardCount) throws LogException {
@@ -214,8 +228,15 @@ public class ProducerConfig {
         this.maxBlockMs = maxBlockMs;
     }
 
+    /**
+     * Selects the supported Producer-owned retry mode; null selects the default.
+     * @throws IllegalArgumentException if legacy nested client retries are requested
+     */
     public void setRetryMode(RetryMode retryMode) {
-        this.retryMode = retryMode == null ? RetryMode.LEGACY_DOUBLE_RETRY : retryMode;
+        if (retryMode == RetryMode.LEGACY_DOUBLE_RETRY) {
+            throw new IllegalArgumentException("only PRODUCER_MANAGED retry mode is supported");
+        }
+        this.retryMode = retryMode == null ? RetryMode.PRODUCER_MANAGED : retryMode;
     }
 
     public void setFailurePolicy(FailurePolicy failurePolicy) {
@@ -228,6 +249,11 @@ public class ProducerConfig {
 
     public void setEnableNanosecond(boolean enableNanosecond) {
         this.enableNanosecond = enableNanosecond;
+    }
+
+    /** Enables/adjusts local health metrics. Null normalizes to {@link MetricsLevel#OFF}. */
+    public void setMetricsLevel(MetricsLevel metricsLevel) {
+        this.metricsLevel = MetricsLevel.normalize(metricsLevel);
     }
 
     public void checkBatchSize(int batchSize) throws LogException {

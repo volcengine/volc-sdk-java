@@ -332,6 +332,20 @@ public class Const {
 
     public static final String GetActivityAutoReplyCommentConfig = "GetActivityAutoReplyCommentConfig";
 
+    public static final String CreateHighlightClipTask = "CreateHighlightClipTask";
+
+    public static final String ListHighlightClipTasks = "ListHighlightClipTasks";
+
+    public static final String GetHighlightClipTaskDetail = "GetHighlightClipTaskDetail";
+
+    public static final String UpdateHighlightClipResult = "UpdateHighlightClipResult";
+
+    public static final String ExportHighlightClip = "ExportHighlightClip";
+
+    public static final String DeleteHighlightClipTask = "DeleteHighlightClipTask";
+
+    public static final String GetHighlightClipPromptConfig = "GetHighlightClipPromptConfig";
+
     public static final String UpdateChatReviewStatusAPI = "UpdateChatReviewStatusAPI";
 
     public static final String ConfirmReviewChatAPI = "ConfirmReviewChatAPI";
@@ -1325,4 +1339,6 @@ public class Const {
     public static final String GetLiveAnalysisReportOverview = "GetLiveAnalysisReportOverview";
     public static final String ListActivityLiveAnalysisHistories = "ListActivityLiveAnalysisHistories";
     public static final String ListActivityContentAnalysis = "ListActivityContentAnalysis";
+    public static final String UpdateActivityLiveInspectConfig = "UpdateActivityLiveInspectConfig";
+    public static final String GetActivityLiveInspectConfig = "GetActivityLiveInspectConfig";
 }

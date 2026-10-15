@@ -353,3 +353,137 @@ public class ConsumerDemo implements LogProcessor {
 | flushCheckpointIntervalInSecond | int     | 5     | Consumer上传消费进度的时间间隔，单位为秒。                                                                                                                                               |
 | consumeFrom                     | String  | begin | 开始消费时的默认消费位点，与DescribeCursor的From参数一致，仅在该消费者从未上传过消费位点时有效。                                                                                                               |
 | orderedConsume                  | boolean | false | 是否开启顺序消费。开启顺序消费后，消费者会根据Shard分裂的父子关系进行消费。例如Shard0分裂为Shard1与Shard2，而Shard1又分裂为Shard3与Shard4。在开启顺序消费之后，会根据(Shard0) -> (Shard1, Shard2) -> (Shard2, Shard3, Shard4)的顺序进行消费。 |
+
+## 本地健康观测（getStats）
+
+Producer 和 Consumer 提供按实例采集、按调用投影的不可变本地快照。采集由 `MetricsLevel` 控制，
+展示由 `StatsOptions` 控制；请求 DEBUG 不会临时开启额外采集。`getStats(options)` 只聚合固定大小的
+内部状态，不访问网络/磁盘，不调用用户回调，也不遍历业务 batch、shard、queue 或 executor。
+固定大小不代表无锁：Producer 的内存与终态计数共享账本锁以保证守恒，Consumer 的实时快照在
+短临界区复制事实后于锁外构建 DTO 和读取 histogram；持续切档时保留有界的锁内回退。
+请按诊断需要定期读取，避免在每次日志回调中高频轮询；这不是无争用或线上吞吐性能承诺。
+
+### 开启与读取
+
+```java
+ProducerConfig producerConfig = new ProducerConfig(endpoint, region, ak, sk, securityToken);
+producerConfig.setMetricsLevel(MetricsLevel.CORE); // OFF / CORE / DETAILED
+Producer producer = new ProducerImpl(producerConfig);
+producer.start();
+
+ProducerStatsSnapshot health = producer.getStats(StatsOptions.health());
+ProducerStatsSnapshot operational = producer.getStats(StatsOptions.operational());
+System.out.println(operational.toJson());
+
+ConsumerConfig consumerConfig = new ConsumerConfig(endpoint, region, ak, sk, securityToken);
+consumerConfig.setProjectID(projectId);
+consumerConfig.setTopicIDList(topicIds);
+consumerConfig.setConsumerGroupName(consumerGroup);
+consumerConfig.setConsumerName(consumerName);
+consumerConfig.setMetricsLevel(MetricsLevel.DETAILED);
+Consumer consumer = new ConsumerImpl(consumerConfig, logProcessor);
+consumer.start();
+ConsumerStatsSnapshot debug = consumer.getStats(StatsOptions.debug());
+```
+
+配置中的 `null` MetricsLevel 归一为 `OFF`。运行中的实例可调用
+`producer.setMetricsLevel(MetricsLevel.DETAILED)` 或 `consumer.setMetricsLevel(...)` 切换采集档位；
+运行时 setter 拒绝 `null`，未运行或正在关闭时也拒绝切换。Consumer 完整停止后支持同一实例
+`start → stop → start`；失败运行或仍有未退出 worker 时不允许重启。
+CORE 与 DETAILED 互切保留 collection generation；跨 OFF 或 Consumer 重启会更换 generation，
+不能跨代差分。OFF 不更新业务 counter/histogram，重新开启也不回填 OFF 期间的历史。
+
+Consumer 主循环或 shard 任务发生不可恢复错误时会停止续发心跳，使服务端在租约到期后重新分配；
+已进入的心跳请求可能完成。调用方仍需调用 `stop()` 完成 worker、checkpoint 和连接清理，
+清理不完整或运行失败会显式报错，不会伪装成正常关闭。`process()` 抛出的普通异常仍按原语义重试，
+`Error` 不再被当作可恢复的业务异常无限重试。正常停止引起的 worker 排空中断不算运行失败。
+
+Producer 保持唯一重试 owner；`setRetryMode(LEGACY_DOUBLE_RETRY)` 显式拒绝，`null` 使用默认值。
+`close()` 默认预算 30 秒，小于默认 `maxBlockMs=60s`；准入等待超时不代表资源已关闭。
+调用方应重试 `close(timeoutMs)`，或在接受取消/丢日志语义时调用 `closeNow()`；不能在已有发送
+仍需资源时提前关闭 callback handler 和 HTTP client。详见 [Producer 关闭说明](../../model/tls/producer/Producer.md)。
+
+### 采集档位与展示视图
+
+| 维度 | 取值 | 含义 |
+|---|---|---|
+| MetricsLevel | OFF | 只保留 header/lifecycle；不采集业务 counter 或 histogram |
+| | CORE | Health 与 Operational 所需的低成本事实 |
+| | DETAILED | CORE + worker/retry detail、固定 profile histogram、内存 breakdown |
+| StatsView | HEALTH | evaluator 所需的最小事实 |
+| | OPERATIONAL | HEALTH + 累计 counter、queue/worker/memory summary |
+| | DEBUG | OPERATIONAL + 有界 detail/histogram |
+
+section 只按包含关系增加：`HEALTH ⊂ OPERATIONAL ⊂ DEBUG`。若请求的 view 高于已采集档位，header
+设置 `partial=true` 并列出固定枚举 `missing_sections`；不支持的字段缺失，而不是伪造为 0。
+OFF 时 `metrics_disabled=true`，所有事实 section 均缺失。
+累计 counter 和运行时 gauge 只从 `getOperational()` 读取；`getHealth()` 仅含健康信号。
+诊断 section 直接使用快照的 `getWorkerDetails()`、`getRetryDetails()`、`getLatencyHistograms()`；
+Producer 另有 `getManagedMemory()` 和 `getMemoryBreakdown()`，各 getter 返回 `Optional`。
+
+### Header 与快照一致性
+
+JSON 使用与 Go 对齐的唯一快照契约（协议标识 `schema_version=2`），不提供旧版兼容入口。
+每份快照包含 SDK identity、随机 `instance_id`、
+component、capture time、单调 `uptime_ms`、`snapshot_sequence`、`collection_generation`、
+`collection_started_at_unix_ms`、lifecycle、`collected_level`、`requested_view`、capabilities、
+partial/missing sections。OFF 的 collection start 为 0。
+运行中为 `consistency=weak`；终态冻结一份与 view 无关的 canonical final facts，后续请求不同 view
+只做纯投影，不再读取运行时容器。Producer 尚在排空，或 Consumer 失败后尚未完成显式 `stop()`
+处理时仍为 weak。Consumer 的 `stop()` 若因 worker 未退出而失败，会冻结 `FAILED + FINAL` 并带上
+`FINALIZATION_INCOMPLETE`；此时仍需重试清理。`FINAL` 只表示这份诊断事实不会再变化，不能脱离
+lifecycle、critical flags 和关闭异常，将其等同于“全部资源已释放”。
+
+累计 counter 保留已观测历史；跨 OFF 后不能用累计 accepted 减累计 terminal 推导当前 ownership，
+因为旧代际的完成不会回填新的采集段。`rejected_*` 发生在 accepted 之前；retry 不重复增加 accepted。
+managed memory 的 `used_bytes` 来自实际预算账本，等于 payload ownership 与 runtime buffer 之和，
+即使跨 OFF 也保持物理预算真实。payload admission pressure 为 used / payload admission limit，
+因此 runtime buffer 已占用的预算也会压缩新的 payload admission 空间；runtime buffer 可使用预留 headroom。
+Java 不提供独立 batch admission gate capability，对应字段缺失，不使用 0 冒充。
+
+### 健康判定与速率
+
+Snapshot 只输出事实，不把 policy 写死为 `healthy/degraded/unhealthy`。调用方显式构造 policy：
+
+```java
+HealthPolicy policy = HealthPolicy.builder()
+        .queuePressureDegraded(0.8)
+        .memoryPressureDegraded(0.8).build();
+
+HealthResult result = HealthEvaluator.evaluate(Optional.of(previous), current, policy);
+```
+
+`HealthEvaluator` 是纯函数；OFF、非运行态、首样本、身份/代际变化或缺少必需事实时返回 UNKNOWN。
+稳定采集期间按 lifecycle failure、critical worker 缺失、queue/memory pressure 判断健康；
+不再根据累计错误比例或推测的无进展时间判定。`evaluated_at_unix_ms` 等于 current capture time。
+
+速率使用 `DeltaAdapter`，按 capture time 差分。每个 adapter 只保存一份不可变 baseline，
+不创建线程或执行 I/O：
+
+```java
+DeltaAdapter adapter = new DeltaAdapter();
+DeltaResult first = adapter.observe(CounterSamples.from(previous)); // 建立 baseline
+DeltaResult delta = adapter.observe(CounterSamples.from(current));
+```
+
+首样本、metrics 不可用、instance/generation 变化、sequence 不递增、uptime 回退、capture time
+不递增、counter 集合变化或计数回退时返回无效结果及 reset reason，并将当前样本作为新 baseline。
+不同 component 应使用独立 adapter；无效结果不能当作零速率。
+
+### DETAILED 诊断边界
+
+所有 histogram 使用 `System.nanoTime()` 差值，单位 ms，固定 profile。
+`fast_v1/slow_v1` 是跨语言协议中的桶配置标识，不代表 SDK 有多套观测实现：
+
+- `fast_v1`：`1,2,5,10,20,50,100,200,500,1000,2000,5000,10000,+Inf`。
+- `slow_v1`：`10,20,50,100,200,500,1000,2000,5000,10000,20000,50000,100000,200000,300000,+Inf`。
+
+Producer 观测 queue delay、单次 transport call、batch delivery、每个 callback；Consumer 观测 fetch、
+dispatch、handler、checkpoint。queue/send/fetch/dispatch 使用 fast，其余使用 slow。
+延迟只记录同一 DETAILED 采集段内开始并结束的操作，不跨档位回填。
+Debug 的 worker 列表按固定角色聚合，最多 64 项，不按 shard/thread 展开；
+Producer retry detail 只含重试队列摘要和累计调度次数，Consumer retry detail 只含累计 backoff 次数。
+不输出旧 retry/drop 原因分类，也不产生 topic、shard、group、endpoint、异常文本等高基数维度。
+
+`instance_id` 为 SDK 随机标识。managed memory 只表示 SDK 自己管理的预算，不等于 JVM heap 或进程 RSS；
+进程级 CPU/heap/RSS 仅属于 benchmark 报告，不进入 Snapshot 或 HealthEvaluator。

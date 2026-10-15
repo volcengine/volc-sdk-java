@@ -11,6 +11,7 @@ import com.volcengine.model.tls.producer.ProducerConfig;
 import com.volcengine.model.tls.request.PutLogsRequest;
 import com.volcengine.model.tls.request.RequestBuilder;
 import com.volcengine.model.tls.response.PutLogsResponse;
+import com.volcengine.service.tls.stats.ManagedMemoryAccountant;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.http.NoHttpResponseException;
@@ -52,6 +53,11 @@ public class SendBatchTask implements Runnable {
 
     @Override
     public void run() {
+        batchLog.preparePayloadForSend(memoryLimiter);
+        com.volcengine.service.tls.stats.ProducerStatsState stats = batchLog.getStatsState();
+        if (stats != null) {
+            stats.onSendStart(batchLog);
+        }
         sendRequest();
     }
 
@@ -79,22 +85,59 @@ public class SendBatchTask implements Runnable {
             return;
         }
         PutLogsResponse putLogsResponse;
+        com.volcengine.service.tls.stats.ProducerStatsState stats = batchLog.getStatsState();
         try {
-            PutLogsRequest putLogsRequest = RequestBuilder.buildFromBatch(batchLog);
-            if (!calibrateBatchSize(putLogsRequest)) {
+            PutLogsRequest putLogsRequest;
+            try {
+                putLogsRequest = RequestBuilder.buildFromBatch(batchLog);
+                if (!calibrateBatchSize(putLogsRequest)) {
+                    return;
+                }
+            } catch (Exception e) {
+                handleException(e);
                 return;
             }
-            putLogsResponse = client.putLogs(putLogsRequest);
-        } catch (LogException e) {
-            handleLogException(e);
-            return;
-        } catch (Exception e) {
-            handleException(e);
-            return;
+
+            long callGeneration = stats == null ? 0 : stats.onSendCallStart(batchLog);
+            long detailGeneration = stats == null ? 0 : stats.beginDetail();
+            long sendStartNanos = detailGeneration == 0 ? 0 : System.nanoTime();
+            try {
+                putLogsResponse = client.putLogs(putLogsRequest);
+            } catch (LogException e) {
+                if (stats != null) {
+                    stats.onSendCallEnd(callGeneration, detailGeneration, false,
+                            batchLog.getCurrentBatchCount(), groupCount(),
+                            detailGeneration == 0 ? -1 : System.nanoTime() - sendStartNanos);
+                }
+                handleLogException(e);
+                return;
+            } catch (Exception e) {
+                if (stats != null) {
+                    stats.onSendCallEnd(callGeneration, detailGeneration, false,
+                            batchLog.getCurrentBatchCount(), groupCount(),
+                            detailGeneration == 0 ? -1 : System.nanoTime() - sendStartNanos);
+                }
+                handleException(e);
+                return;
+            } catch (Error fatal) {
+                if (stats != null) stats.onSendCallEnd(callGeneration, detailGeneration, false,
+                        batchLog.getCurrentBatchCount(), groupCount(),
+                        detailGeneration == 0 ? -1 : System.nanoTime() - sendStartNanos);
+                throw fatal;
+            }
+            if (stats != null) {
+                stats.onSendCallEnd(callGeneration, detailGeneration, true,
+                        batchLog.getCurrentBatchCount(), groupCount(),
+                        detailGeneration == 0 ? -1 : System.nanoTime() - sendStartNanos);
+            }
+            handleSuccess(putLogsResponse);
         } finally {
             memoryLimiter.releaseTemporary(temporaryBytes);
         }
-        handleSuccess(putLogsResponse);
+    }
+
+    private long groupCount() {
+        return batchLog.getLogGroupList() == null ? 0 : batchLog.getLogGroupList().getLogGroupsCount();
     }
 
     private long estimateTemporaryReservationBytes() {
@@ -105,15 +148,12 @@ public class SendBatchTask implements Runnable {
     private boolean calibrateBatchSize(PutLogsRequest putLogsRequest) throws InterruptedException {
         int estimated = batchLog.getCurrentBatchSize();
         int actual = putLogsRequest.getLogGroupList().getSerializedSize();
-        int delta = actual - estimated;
-        if (delta > 0) {
-            boolean acquired = memoryLimiter.acquirePayload(delta, producerConfig.getMaxBlockMs());
-            if (!acquired) {
-                handleLocalResourceFailure("failed to acquire memory for calibrated batch size");
-                return false;
-            }
-        } else if (delta < 0) {
-            memoryLimiter.releasePayload(-delta);
+        ManagedMemoryAccountant.AcquireResult resized = memoryLimiter.resizePayloadBytes(
+                ManagedMemoryAccountant.PayloadStage.SEND, batchLog.getReservedBytes(), actual,
+                producerConfig.getMaxBlockMs());
+        if (resized != ManagedMemoryAccountant.AcquireResult.ACQUIRED) {
+            handleLocalResourceFailure("failed to acquire memory for calibrated batch size");
+            return false;
         }
         batchLog.setCurrentBatchSize(actual);
         batchLog.setReservedBytes(actual);
@@ -122,12 +162,14 @@ public class SendBatchTask implements Runnable {
     }
 
     private void putBatchLogToFailureQueue() {
-        try {
-            failureQueue.put(batchLog);
-            LOG.info("failure queue add batch success, batch: " + batchLog);
-        } catch (InterruptedException ex) {
-            LOG.error("failure queue add batch failed, batch: " + batchLog, ex);
+        if (!settleBeforeCallback(1)) {
+            LOG.info("skip late failure callback after terminal/final settlement, batch: " + batchLog);
+            return;
         }
+        com.volcengine.service.tls.stats.ProducerStatsState stats = batchLog.getStatsState();
+        if (stats == null) failureQueue.add(batchLog);
+        else stats.publishTerminal(failureQueue, batchLog);
+        LOG.info("failure queue add batch success, batch: " + batchLog);
     }
 
     private boolean needRetry(LogException e) {
@@ -145,7 +187,7 @@ public class SendBatchTask implements Runnable {
         batchLog.handleNextTry();
         if (needRetry(e)) {
             try {
-                retryManager.put(batchLog);
+                publishRetry();
                 LOG.info("retry queue add batch success, batch: " + batchLog);
                 return;
             } catch (LogException ex) {
@@ -167,7 +209,7 @@ public class SendBatchTask implements Runnable {
                 && batchLog.getAttemptCount() <= producerConfig.getRetryCount()
                 && !retryManager.isClosed()) {
             try {
-                retryManager.put(batchLog);
+                publishRetry();
                 LOG.info("retry queue add batch success, batch: " + batchLog);
                 return;
             } catch (LogException ex) {
@@ -175,6 +217,36 @@ public class SendBatchTask implements Runnable {
             }
         }
         putBatchLogToFailureQueue();
+    }
+
+    /** Publishes one retry as an atomic ledger transition with rollback on queue rejection. */
+    private void publishRetry() throws LogException {
+        synchronized (memoryLimiter.getAccountant()) {
+            if (!batchLog.transitionPayload(memoryLimiter, ManagedMemoryAccountant.PayloadStage.SEND,
+                    ManagedMemoryAccountant.PayloadStage.RETRY)) {
+                throw new LogException("Producer Error", "invalid payload stage while scheduling retry", null);
+            }
+            com.volcengine.service.tls.stats.ProducerStatsState stats = batchLog.getStatsState();
+            batchLog.setRetryQueueEnterNanos(stats != null && stats.isMetricsEnabled() ? System.nanoTime() : 0L);
+            try {
+                retryManager.put(batchLog);
+            } catch (LogException e) {
+                rollbackRetryPublication();
+                throw e;
+            } catch (RuntimeException e) {
+                rollbackRetryPublication();
+                throw new LogException("Producer Error", "retry publication failed: " + e.getMessage(), null);
+            }
+            if (stats != null) {
+                stats.onRetryScheduled(retryManager.getHeadEnqueueNanos());
+            }
+        }
+    }
+
+    private void rollbackRetryPublication() {
+        batchLog.transitionPayload(memoryLimiter, ManagedMemoryAccountant.PayloadStage.RETRY,
+                ManagedMemoryAccountant.PayloadStage.SEND);
+        batchLog.setRetryQueueEnterNanos(0L);
     }
 
     private boolean isTransientNetworkException(Throwable e) {
@@ -219,7 +291,23 @@ public class SendBatchTask implements Runnable {
         Attempt success = new Attempt(true, putLogsResponse.getRequestId(), null, null, HTTP_STATUS_OK);
         batchLog.addAttempt(success);
         batchLog.setRetryBackoffMs(0);
-        successQueue.add(batchLog);
+        if (!settleBeforeCallback(0)) {
+            LOG.info("skip late success callback after terminal/final settlement, batch: " + batchLog);
+            return;
+        }
+        com.volcengine.service.tls.stats.ProducerStatsState stats = batchLog.getStatsState();
+        if (stats == null) successQueue.add(batchLog);
+        else stats.publishTerminal(successQueue, batchLog);
         LOG.debug("send batch success, batch: " + batchLog);
+    }
+
+    private boolean settleBeforeCallback(int outcome) {
+        com.volcengine.service.tls.stats.ProducerStatsState stats = batchLog.getStatsState();
+        if (stats == null) {
+            batchLog.releasePayload(memoryLimiter);
+            return true;
+        } else {
+            return stats.settleTerminalAndRelease(batchLog, outcome, memoryLimiter);
+        }
     }
 }

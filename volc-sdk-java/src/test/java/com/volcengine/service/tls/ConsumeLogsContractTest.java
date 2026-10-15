@@ -27,7 +27,8 @@ public class ConsumeLogsContractTest {
     @Test
     public void defaultOriginalUsesNormalConsumeLogsPath() throws Exception {
         AtomicReference<String> capturedApi = new AtomicReference<>();
-        TLSLogClientImpl client = newClient(capturedApi);
+        AtomicReference<String> capturedBody = new AtomicReference<>();
+        TLSLogClientImpl client = newClient(capturedApi, capturedBody);
 
         ConsumeLogsRequest request = new ConsumeLogsRequest();
         request.setTopicId("topic");
@@ -41,7 +42,27 @@ public class ConsumeLogsContractTest {
         Assert.assertEquals(0, response.getCount());
     }
 
-    private TLSLogClientImpl newClient(AtomicReference<String> capturedApi) {
+    @Test
+    public void explicitNonOriginalIsNotSerializedInBody() throws Exception {
+        AtomicReference<String> capturedApi = new AtomicReference<>();
+        AtomicReference<String> capturedBody = new AtomicReference<>();
+        TLSLogClientImpl client = newClient(capturedApi, capturedBody);
+
+        ConsumeLogsRequest request = new ConsumeLogsRequest();
+        request.setTopicId("topic");
+        request.setShardId(0);
+        request.setCursor("cursor");
+        request.setOrigin(false);
+
+        client.consumeLogs(request);
+
+        Assert.assertEquals(CONSUME_LOGS, capturedApi.get());
+        Assert.assertFalse(capturedBody.get().contains("\"origin\""));
+        Assert.assertFalse(capturedBody.get().contains("\"original\""));
+    }
+
+    private TLSLogClientImpl newClient(AtomicReference<String> capturedApi,
+                                       AtomicReference<String> capturedBody) {
         ClientConfig config = new ClientConfig("https://tls.local.validation", "cn-beijing", "ak", "sk");
         ServiceInfo info = ClientConfig.initServiceInfo(config);
 
@@ -52,22 +73,27 @@ public class ConsumeLogsContractTest {
         infos.put(CONSUME_LOGS, new ApiInfo(apiParams));
         infos.put(CONSUME_ORIGIN_LOGS, new ApiInfo(apiParams));
 
-        return new TLSLogClientImpl(new CapturingTLSHttpUtil(info, infos, capturedApi), config);
+        return new TLSLogClientImpl(
+                new CapturingTLSHttpUtil(info, infos, capturedApi, capturedBody), config);
     }
 
     static class CapturingTLSHttpUtil extends TLSHttpUtil {
         private final AtomicReference<String> capturedApi;
+        private final AtomicReference<String> capturedBody;
 
         CapturingTLSHttpUtil(ServiceInfo info, Map<String, ApiInfo> infos,
-                             AtomicReference<String> capturedApi) {
+                             AtomicReference<String> capturedApi,
+                             AtomicReference<String> capturedBody) {
             super(info, infos);
             this.capturedApi = capturedApi;
+            this.capturedBody = capturedBody;
         }
 
         @Override
         public RawResponse json(String api, java.util.List<org.apache.http.NameValuePair> params,
                                 String body, Map<String, String> headers) {
             capturedApi.set(api);
+            capturedBody.set(body);
             Header[] responseHeaders = new Header[]{
                     new BasicHeader(X_TLS_CURSOR, "next"),
                     new BasicHeader(X_TLS_COUNT, "0")

@@ -143,10 +143,12 @@ public class ConsumeLogsRequest {
         this.consumerName = consumerName;
     }
 
+    @JSONField(serialize = false)
     public Boolean isOrigin() {
         return original;
     }
 
+    @JSONField(serialize = false)
     public Boolean getOrigin() {
         return original;
     }
@@ -155,6 +157,7 @@ public class ConsumeLogsRequest {
         this.original = origin;
     }
 
+    @JSONField(serialize = false)
     public Boolean getOriginal() {
         return original;
     }

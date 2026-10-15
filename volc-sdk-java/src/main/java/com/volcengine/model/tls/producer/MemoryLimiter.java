@@ -1,123 +1,96 @@
 package com.volcengine.model.tls.producer;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import com.volcengine.service.tls.stats.ManagedMemoryAccountant;
 
+/**
+ * Compatibility facade over the Producer's single {@link ManagedMemoryAccountant}.
+ *
+ * <p>This type intentionally owns no counters or byte state. Existing Producer code keeps the same
+ * blocking acquire/release behavior while observability code captures the exact same accountant,
+ * preventing limiter/stats double accounting.
+ */
 public class MemoryLimiter {
-    private static final Log LOG = LogFactory.getLog(MemoryLimiter.class);
-
-    private final long capacityBytes;
-    private final long payloadCapacityBytes;
-    private long usedBytes;
-    private long payloadUsedBytes;
-    private boolean payloadClosed;
-    private boolean closed;
+    private final ManagedMemoryAccountant accountant;
 
     public MemoryLimiter(long capacityBytes, long payloadCapacityBytes) {
-        if (capacityBytes <= 0 || payloadCapacityBytes <= 0 || payloadCapacityBytes > capacityBytes) {
-            throw new IllegalArgumentException("invalid memory limiter capacity");
+        this(capacityBytes, payloadCapacityBytes, false);
+    }
+
+    /** Creates a facade whose accountant allocates observation state only when requested. */
+    public MemoryLimiter(long capacityBytes, long payloadCapacityBytes, boolean observationEnabled) {
+        this(new ManagedMemoryAccountant(capacityBytes, payloadCapacityBytes, observationEnabled));
+    }
+
+    public MemoryLimiter(ManagedMemoryAccountant accountant) {
+        if (accountant == null) {
+            throw new NullPointerException("accountant");
         }
-        this.capacityBytes = capacityBytes;
-        this.payloadCapacityBytes = payloadCapacityBytes;
+        this.accountant = accountant;
     }
 
-    public synchronized boolean acquirePayload(long bytes, long timeoutMs) throws InterruptedException {
-        return acquire(bytes, timeoutMs, true);
+    public boolean acquirePayload(long bytes, long timeoutMs) throws InterruptedException {
+        return accountant.acquirePayloadBytes(bytes, timeoutMs)
+                == ManagedMemoryAccountant.AcquireResult.ACQUIRED;
     }
 
-    public synchronized boolean acquireTemporary(long bytes, long timeoutMs) throws InterruptedException {
-        return acquire(bytes, timeoutMs, false);
+    public boolean acquireTemporary(long bytes, long timeoutMs) throws InterruptedException {
+        return accountant.acquireRuntimeBytes(bytes, timeoutMs)
+                == ManagedMemoryAccountant.AcquireResult.ACQUIRED;
     }
 
-    private boolean acquire(long bytes, long timeoutMs, boolean payload) throws InterruptedException {
-        if (bytes <= 0) {
-            return true;
-        }
-        if (bytes > capacityBytes || (payload && bytes > payloadCapacityBytes)) {
-            LOG.warn(String.format("producer memory request exceeds capacity, bytes=%d, capacityBytes=%d, payloadCapacityBytes=%d, payload=%s",
-                    bytes, capacityBytes, payloadCapacityBytes, payload));
-            return false;
-        }
-        long deadline = timeoutMs > 0 ? monotonicMs() + timeoutMs : 0;
-        while (!isClosedFor(payload) && !hasCapacity(bytes, payload)) {
-            if (timeoutMs == 0) {
-                return false;
-            }
-            if (timeoutMs < 0) {
-                wait();
-                continue;
-            }
-            long remains = deadline - monotonicMs();
-            if (remains <= 0) {
-                return false;
-            }
-            wait(remains);
-        }
-        if (isClosedFor(payload)) {
-            return false;
-        }
-        usedBytes += bytes;
-        if (payload) {
-            payloadUsedBytes += bytes;
-        }
-        return true;
+    public void releasePayload(long bytes) {
+        accountant.releasePayloadBytes(bytes);
     }
 
-    private boolean hasCapacity(long bytes, boolean payload) {
-        return usedBytes + bytes <= capacityBytes
-                && (!payload || payloadUsedBytes + bytes <= payloadCapacityBytes);
+    public boolean transitionPayloadBytes(ManagedMemoryAccountant.PayloadStage expected,
+                                          ManagedMemoryAccountant.PayloadStage next, long bytes) {
+        return accountant.transitionPayloadBytes(expected, next, bytes);
     }
 
-    public synchronized void releasePayload(long bytes) {
-        release(bytes, true);
+    public void releasePayloadBytes(ManagedMemoryAccountant.PayloadStage stage, long bytes) {
+        accountant.releasePayloadBytes(stage, bytes);
     }
 
-    public synchronized void releaseTemporary(long bytes) {
-        release(bytes, false);
+    public ManagedMemoryAccountant.AcquireResult resizePayloadBytes(
+            ManagedMemoryAccountant.PayloadStage stage, long oldBytes, long newBytes, long timeoutMs)
+            throws InterruptedException {
+        return accountant.resizePayloadBytes(stage, oldBytes, newBytes, timeoutMs);
     }
 
-    private void release(long bytes, boolean payload) {
-        if (bytes <= 0) {
-            return;
-        }
-        if (bytes > usedBytes || (payload && bytes > payloadUsedBytes)) {
-            throw new IllegalStateException("release exceeds acquired bytes");
-        }
-        usedBytes -= bytes;
-        if (payload) {
-            payloadUsedBytes -= bytes;
-        }
-        notifyAll();
+    public void releaseTemporary(long bytes) {
+        accountant.releaseRuntimeBytes(bytes);
     }
 
-    public synchronized void closePayload() {
-        payloadClosed = true;
-        notifyAll();
+    public void closePayload() {
+        accountant.closePayload();
     }
 
-    public synchronized void close() {
-        closed = true;
-        payloadClosed = true;
-        notifyAll();
+    public void close() {
+        accountant.close();
     }
 
-    private boolean isClosedFor(boolean payload) {
-        return closed || (payload && payloadClosed);
+    public void forceReleaseAll() {
+        accountant.forceReleaseAll();
     }
 
-    public synchronized long getUsedBytes() {
-        return usedBytes;
+    public long getUsedBytes() {
+        return accountant.getUsedBytes();
+    }
+
+    public long getPayloadUsedBytes() {
+        return accountant.getPayloadUsedBytes();
     }
 
     public long getCapacityBytes() {
-        return capacityBytes;
+        return accountant.getCapacityBytes();
     }
 
     public long getPayloadCapacityBytes() {
-        return payloadCapacityBytes;
+        return accountant.getPayloadCapacityBytes();
     }
 
-    private static long monotonicMs() {
-        return System.nanoTime() / 1_000_000L;
+    /** Internal bridge used by stats state; it is the same authority used by every facade method. */
+    public ManagedMemoryAccountant getAccountant() {
+        return accountant;
     }
 }

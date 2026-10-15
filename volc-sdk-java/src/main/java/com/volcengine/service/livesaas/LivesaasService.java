@@ -3434,4 +3434,85 @@ public interface LivesaasService extends IBaseService {
      * @throws Exception the exception
      */
     GetActivityAutoReplyCommentConfigResponse getActivityAutoReplyCommentConfig(GetActivityAutoReplyCommentConfigRequest getActivityAutoReplyCommentConfigRequest) throws Exception;
+
+    /**
+     * CreateHighlightClipTask
+     *
+     * @param createHighlightClipTaskRequest CreateHighlightClipTaskRequest
+     * @return CreateHighlightClipTaskResponse
+     * @throws Exception the exception
+     */
+    CreateHighlightClipTaskResponse createHighlightClipTask(CreateHighlightClipTaskRequest createHighlightClipTaskRequest) throws Exception;
+
+    /**
+     * ListHighlightClipTasks
+     *
+     * @param listHighlightClipTasksRequest ListHighlightClipTasksRequest
+     * @return ListHighlightClipTasksResponse
+     * @throws Exception the exception
+     */
+    ListHighlightClipTasksResponse listHighlightClipTasks(ListHighlightClipTasksRequest listHighlightClipTasksRequest) throws Exception;
+
+    /**
+     * GetHighlightClipTaskDetail
+     *
+     * @param getHighlightClipTaskDetailRequest GetHighlightClipTaskDetailRequest
+     * @return GetHighlightClipTaskDetailResponse
+     * @throws Exception the exception
+     */
+    GetHighlightClipTaskDetailResponse getHighlightClipTaskDetail(GetHighlightClipTaskDetailRequest getHighlightClipTaskDetailRequest) throws Exception;
+
+    /**
+     * UpdateHighlightClipResult
+     *
+     * @param updateHighlightClipResultRequest UpdateHighlightClipResultRequest
+     * @return UpdateHighlightClipResultResponse
+     * @throws Exception the exception
+     */
+    UpdateHighlightClipResultResponse updateHighlightClipResult(UpdateHighlightClipResultRequest updateHighlightClipResultRequest) throws Exception;
+
+    /**
+     * ExportHighlightClip
+     *
+     * @param exportHighlightClipRequest ExportHighlightClipRequest
+     * @return ExportHighlightClipResponse
+     * @throws Exception the exception
+     */
+    ExportHighlightClipResponse exportHighlightClip(ExportHighlightClipRequest exportHighlightClipRequest) throws Exception;
+
+    /**
+     * DeleteHighlightClipTask
+     *
+     * @param deleteHighlightClipTaskRequest DeleteHighlightClipTaskRequest
+     * @return DeleteHighlightClipTaskResponse
+     * @throws Exception the exception
+     */
+    DeleteHighlightClipTaskResponse deleteHighlightClipTask(DeleteHighlightClipTaskRequest deleteHighlightClipTaskRequest) throws Exception;
+
+    /**
+     * GetHighlightClipPromptConfig
+     *
+     * @param getHighlightClipPromptConfigRequest GetHighlightClipPromptConfigRequest
+     * @return GetHighlightClipPromptConfigResponse
+     * @throws Exception the exception
+     */
+    GetHighlightClipPromptConfigResponse getHighlightClipPromptConfig(GetHighlightClipPromptConfigRequest getHighlightClipPromptConfigRequest) throws Exception;
+
+    /**
+     * UpdateActivityLiveInspectConfig
+     *
+     * @param updateActivityLiveInspectConfigRequest UpdateActivityLiveInspectConfigRequest
+     * @return UpdateActivityLiveInspectConfigResponse
+     * @throws Exception the exception
+     */
+    UpdateActivityLiveInspectConfigResponse updateActivityLiveInspectConfig(UpdateActivityLiveInspectConfigRequest updateActivityLiveInspectConfigRequest) throws Exception;
+
+    /**
+     * GetActivityLiveInspectConfig
+     *
+     * @param getActivityLiveInspectConfigRequest GetActivityLiveInspectConfigRequest
+     * @return GetActivityLiveInspectConfigResponse
+     * @throws Exception the exception
+     */
+    GetActivityLiveInspectConfigResponse getActivityLiveInspectConfig(GetActivityLiveInspectConfigRequest getActivityLiveInspectConfigRequest) throws Exception;
 }

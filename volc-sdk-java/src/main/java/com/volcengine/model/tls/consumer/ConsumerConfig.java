@@ -41,6 +41,7 @@ public class ConsumerConfig {
     private int stopTimeout;
     private boolean origin;
     private String compressType;
+    private String processorId;
 
     // Local health observation (default OFF preserves historical behavior). Read once at start;
     // the running Consumer treats these as immutable.
@@ -159,6 +160,11 @@ public class ConsumerConfig {
 
     public void setOrigin(boolean origin) {
         this.origin = origin;
+    }
+
+    /** Configure a consumer processor ID. Nonempty IDs use normal consumption. */
+    public void setProcessorId(String processorId) {
+        this.processorId = processorId;
     }
 
     public void setCompressType(String compressType) {

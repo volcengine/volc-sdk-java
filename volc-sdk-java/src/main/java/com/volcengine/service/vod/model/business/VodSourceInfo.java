@@ -29,6 +29,7 @@ private static final long serialVersionUID = 0L;
     tosStorageClass_ = "";
     storageClassUpdateTime_ = "";
     fileName_ = "";
+    aIGCSource_ = "";
   }
 
   @java.lang.Override
@@ -207,6 +208,25 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             storageClassUpdateTime_ = s;
+            break;
+          }
+          case 186: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            aIGCSource_ = s;
+            break;
+          }
+          case 194: {
+            com.volcengine.service.vod.model.business.VodAIGCMeta.Builder subBuilder = null;
+            if (aIGCMeta_ != null) {
+              subBuilder = aIGCMeta_.toBuilder();
+            }
+            aIGCMeta_ = input.readMessage(com.volcengine.service.vod.model.business.VodAIGCMeta.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(aIGCMeta_);
+              aIGCMeta_ = subBuilder.buildPartial();
+            }
+
             break;
           }
           default: {
@@ -1114,6 +1134,90 @@ private static final long serialVersionUID = 0L;
     return map.get(key);
   }
 
+  public static final int AIGCSOURCE_FIELD_NUMBER = 23;
+  private volatile java.lang.Object aIGCSource_;
+  /**
+   * <pre>
+   * AIGC来源
+   * </pre>
+   *
+   * <code>string AIGCSource = 23;</code>
+   * @return The aIGCSource.
+   */
+  @java.lang.Override
+  public java.lang.String getAIGCSource() {
+    java.lang.Object ref = aIGCSource_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      aIGCSource_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * AIGC来源
+   * </pre>
+   *
+   * <code>string AIGCSource = 23;</code>
+   * @return The bytes for aIGCSource.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getAIGCSourceBytes() {
+    java.lang.Object ref = aIGCSource_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      aIGCSource_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int AIGCMETA_FIELD_NUMBER = 24;
+  private com.volcengine.service.vod.model.business.VodAIGCMeta aIGCMeta_;
+  /**
+   * <pre>
+   * AIGCMeta
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodAIGCMeta AIGCMeta = 24;</code>
+   * @return Whether the aIGCMeta field is set.
+   */
+  @java.lang.Override
+  public boolean hasAIGCMeta() {
+    return aIGCMeta_ != null;
+  }
+  /**
+   * <pre>
+   * AIGCMeta
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodAIGCMeta AIGCMeta = 24;</code>
+   * @return The aIGCMeta.
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodAIGCMeta getAIGCMeta() {
+    return aIGCMeta_ == null ? com.volcengine.service.vod.model.business.VodAIGCMeta.getDefaultInstance() : aIGCMeta_;
+  }
+  /**
+   * <pre>
+   * AIGCMeta
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodAIGCMeta AIGCMeta = 24;</code>
+   */
+  @java.lang.Override
+  public com.volcengine.service.vod.model.business.VodAIGCMetaOrBuilder getAIGCMetaOrBuilder() {
+    return getAIGCMeta();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1196,6 +1300,12 @@ private static final long serialVersionUID = 0L;
         21);
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(storageClassUpdateTime_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 22, storageClassUpdateTime_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(aIGCSource_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 23, aIGCSource_);
+    }
+    if (aIGCMeta_ != null) {
+      output.writeMessage(24, getAIGCMeta());
     }
     unknownFields.writeTo(output);
   }
@@ -1287,6 +1397,13 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(storageClassUpdateTime_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(22, storageClassUpdateTime_);
     }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(aIGCSource_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(23, aIGCSource_);
+    }
+    if (aIGCMeta_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(24, getAIGCMeta());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -1355,6 +1472,13 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFileName())) return false;
     if (!internalGetFileExtra().equals(
         other.internalGetFileExtra())) return false;
+    if (!getAIGCSource()
+        .equals(other.getAIGCSource())) return false;
+    if (hasAIGCMeta() != other.hasAIGCMeta()) return false;
+    if (hasAIGCMeta()) {
+      if (!getAIGCMeta()
+          .equals(other.getAIGCMeta())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -1418,6 +1542,12 @@ private static final long serialVersionUID = 0L;
     if (!internalGetFileExtra().getMap().isEmpty()) {
       hash = (37 * hash) + FILEEXTRA_FIELD_NUMBER;
       hash = (53 * hash) + internalGetFileExtra().hashCode();
+    }
+    hash = (37 * hash) + AIGCSOURCE_FIELD_NUMBER;
+    hash = (53 * hash) + getAIGCSource().hashCode();
+    if (hasAIGCMeta()) {
+      hash = (37 * hash) + AIGCMETA_FIELD_NUMBER;
+      hash = (53 * hash) + getAIGCMeta().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -1625,6 +1755,14 @@ private static final long serialVersionUID = 0L;
       fileName_ = "";
 
       internalGetMutableFileExtra().clear();
+      aIGCSource_ = "";
+
+      if (aIGCMetaBuilder_ == null) {
+        aIGCMeta_ = null;
+      } else {
+        aIGCMeta_ = null;
+        aIGCMetaBuilder_ = null;
+      }
       return this;
     }
 
@@ -1683,6 +1821,12 @@ private static final long serialVersionUID = 0L;
       result.fileName_ = fileName_;
       result.fileExtra_ = internalGetFileExtra();
       result.fileExtra_.makeImmutable();
+      result.aIGCSource_ = aIGCSource_;
+      if (aIGCMetaBuilder_ == null) {
+        result.aIGCMeta_ = aIGCMeta_;
+      } else {
+        result.aIGCMeta_ = aIGCMetaBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -1809,6 +1953,13 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableFileExtra().mergeFrom(
           other.internalGetFileExtra());
+      if (!other.getAIGCSource().isEmpty()) {
+        aIGCSource_ = other.aIGCSource_;
+        onChanged();
+      }
+      if (other.hasAIGCMeta()) {
+        mergeAIGCMeta(other.getAIGCMeta());
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -3812,6 +3963,257 @@ private static final long serialVersionUID = 0L;
       internalGetMutableFileExtra().getMutableMap()
           .putAll(values);
       return this;
+    }
+
+    private java.lang.Object aIGCSource_ = "";
+    /**
+     * <pre>
+     * AIGC来源
+     * </pre>
+     *
+     * <code>string AIGCSource = 23;</code>
+     * @return The aIGCSource.
+     */
+    public java.lang.String getAIGCSource() {
+      java.lang.Object ref = aIGCSource_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        aIGCSource_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * AIGC来源
+     * </pre>
+     *
+     * <code>string AIGCSource = 23;</code>
+     * @return The bytes for aIGCSource.
+     */
+    public com.google.protobuf.ByteString
+        getAIGCSourceBytes() {
+      java.lang.Object ref = aIGCSource_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        aIGCSource_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * AIGC来源
+     * </pre>
+     *
+     * <code>string AIGCSource = 23;</code>
+     * @param value The aIGCSource to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAIGCSource(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      aIGCSource_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * AIGC来源
+     * </pre>
+     *
+     * <code>string AIGCSource = 23;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAIGCSource() {
+      
+      aIGCSource_ = getDefaultInstance().getAIGCSource();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * AIGC来源
+     * </pre>
+     *
+     * <code>string AIGCSource = 23;</code>
+     * @param value The bytes for aIGCSource to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAIGCSourceBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      aIGCSource_ = value;
+      onChanged();
+      return this;
+    }
+
+    private com.volcengine.service.vod.model.business.VodAIGCMeta aIGCMeta_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodAIGCMeta, com.volcengine.service.vod.model.business.VodAIGCMeta.Builder, com.volcengine.service.vod.model.business.VodAIGCMetaOrBuilder> aIGCMetaBuilder_;
+    /**
+     * <pre>
+     * AIGCMeta
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodAIGCMeta AIGCMeta = 24;</code>
+     * @return Whether the aIGCMeta field is set.
+     */
+    public boolean hasAIGCMeta() {
+      return aIGCMetaBuilder_ != null || aIGCMeta_ != null;
+    }
+    /**
+     * <pre>
+     * AIGCMeta
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodAIGCMeta AIGCMeta = 24;</code>
+     * @return The aIGCMeta.
+     */
+    public com.volcengine.service.vod.model.business.VodAIGCMeta getAIGCMeta() {
+      if (aIGCMetaBuilder_ == null) {
+        return aIGCMeta_ == null ? com.volcengine.service.vod.model.business.VodAIGCMeta.getDefaultInstance() : aIGCMeta_;
+      } else {
+        return aIGCMetaBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * AIGCMeta
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodAIGCMeta AIGCMeta = 24;</code>
+     */
+    public Builder setAIGCMeta(com.volcengine.service.vod.model.business.VodAIGCMeta value) {
+      if (aIGCMetaBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        aIGCMeta_ = value;
+        onChanged();
+      } else {
+        aIGCMetaBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * AIGCMeta
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodAIGCMeta AIGCMeta = 24;</code>
+     */
+    public Builder setAIGCMeta(
+        com.volcengine.service.vod.model.business.VodAIGCMeta.Builder builderForValue) {
+      if (aIGCMetaBuilder_ == null) {
+        aIGCMeta_ = builderForValue.build();
+        onChanged();
+      } else {
+        aIGCMetaBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * AIGCMeta
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodAIGCMeta AIGCMeta = 24;</code>
+     */
+    public Builder mergeAIGCMeta(com.volcengine.service.vod.model.business.VodAIGCMeta value) {
+      if (aIGCMetaBuilder_ == null) {
+        if (aIGCMeta_ != null) {
+          aIGCMeta_ =
+            com.volcengine.service.vod.model.business.VodAIGCMeta.newBuilder(aIGCMeta_).mergeFrom(value).buildPartial();
+        } else {
+          aIGCMeta_ = value;
+        }
+        onChanged();
+      } else {
+        aIGCMetaBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * AIGCMeta
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodAIGCMeta AIGCMeta = 24;</code>
+     */
+    public Builder clearAIGCMeta() {
+      if (aIGCMetaBuilder_ == null) {
+        aIGCMeta_ = null;
+        onChanged();
+      } else {
+        aIGCMeta_ = null;
+        aIGCMetaBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <pre>
+     * AIGCMeta
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodAIGCMeta AIGCMeta = 24;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodAIGCMeta.Builder getAIGCMetaBuilder() {
+      
+      onChanged();
+      return getAIGCMetaFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * AIGCMeta
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodAIGCMeta AIGCMeta = 24;</code>
+     */
+    public com.volcengine.service.vod.model.business.VodAIGCMetaOrBuilder getAIGCMetaOrBuilder() {
+      if (aIGCMetaBuilder_ != null) {
+        return aIGCMetaBuilder_.getMessageOrBuilder();
+      } else {
+        return aIGCMeta_ == null ?
+            com.volcengine.service.vod.model.business.VodAIGCMeta.getDefaultInstance() : aIGCMeta_;
+      }
+    }
+    /**
+     * <pre>
+     * AIGCMeta
+     * </pre>
+     *
+     * <code>.Volcengine.Vod.Models.Business.VodAIGCMeta AIGCMeta = 24;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.volcengine.service.vod.model.business.VodAIGCMeta, com.volcengine.service.vod.model.business.VodAIGCMeta.Builder, com.volcengine.service.vod.model.business.VodAIGCMetaOrBuilder> 
+        getAIGCMetaFieldBuilder() {
+      if (aIGCMetaBuilder_ == null) {
+        aIGCMetaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.volcengine.service.vod.model.business.VodAIGCMeta, com.volcengine.service.vod.model.business.VodAIGCMeta.Builder, com.volcengine.service.vod.model.business.VodAIGCMetaOrBuilder>(
+                getAIGCMeta(),
+                getParentForChildren(),
+                isClean());
+        aIGCMeta_ = null;
+      }
+      return aIGCMetaBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

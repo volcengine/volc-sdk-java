@@ -434,4 +434,51 @@ public interface VodSourceInfoOrBuilder extends
 
   java.lang.String getFileExtraOrThrow(
       java.lang.String key);
+
+  /**
+   * <pre>
+   * AIGC来源
+   * </pre>
+   *
+   * <code>string AIGCSource = 23;</code>
+   * @return The aIGCSource.
+   */
+  java.lang.String getAIGCSource();
+  /**
+   * <pre>
+   * AIGC来源
+   * </pre>
+   *
+   * <code>string AIGCSource = 23;</code>
+   * @return The bytes for aIGCSource.
+   */
+  com.google.protobuf.ByteString
+      getAIGCSourceBytes();
+
+  /**
+   * <pre>
+   * AIGCMeta
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodAIGCMeta AIGCMeta = 24;</code>
+   * @return Whether the aIGCMeta field is set.
+   */
+  boolean hasAIGCMeta();
+  /**
+   * <pre>
+   * AIGCMeta
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodAIGCMeta AIGCMeta = 24;</code>
+   * @return The aIGCMeta.
+   */
+  com.volcengine.service.vod.model.business.VodAIGCMeta getAIGCMeta();
+  /**
+   * <pre>
+   * AIGCMeta
+   * </pre>
+   *
+   * <code>.Volcengine.Vod.Models.Business.VodAIGCMeta AIGCMeta = 24;</code>
+   */
+  com.volcengine.service.vod.model.business.VodAIGCMetaOrBuilder getAIGCMetaOrBuilder();
 }

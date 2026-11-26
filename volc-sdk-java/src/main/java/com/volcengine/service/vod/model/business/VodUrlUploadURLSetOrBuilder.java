@@ -472,4 +472,24 @@ public interface VodUrlUploadURLSetOrBuilder extends
    * @return The recordType.
    */
   int getRecordType();
+
+  /**
+   * <pre>
+   * AIGC来源 
+   * </pre>
+   *
+   * <code>string AIGCSource = 21;</code>
+   * @return The aIGCSource.
+   */
+  java.lang.String getAIGCSource();
+  /**
+   * <pre>
+   * AIGC来源 
+   * </pre>
+   *
+   * <code>string AIGCSource = 21;</code>
+   * @return The bytes for aIGCSource.
+   */
+  com.google.protobuf.ByteString
+      getAIGCSourceBytes();
 }

@@ -420,6 +420,9 @@ public class TLSLogClientImpl implements TLSLogClient {
         if (request == null || !request.CheckValidation()) {
             throw new LogException("InvalidArgument", "Invalid request, Please check it", null);
         }
+        if (request.getProcessorId() != null && Boolean.TRUE.equals(request.isOrigin())) {
+            throw new LogException("InvalidArgument", "ProcessorId cannot be used with original consumption", null);
+        }
 
         // 1、prepare request
         ArrayList<NameValuePair> params = new ArrayList<>();

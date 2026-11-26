@@ -19,6 +19,8 @@ public class ConsumeLogsRequest {
     String compression;
     @JSONField(name = OFFSET)
     Long offset;
+    @JSONField(name = PROCESSOR_ID_HUMP)
+    String processorId;
     @JSONField(name = TOPIC_ID, serialize = false)
     String topicId;
     @JSONField(name = SHARD_ID, serialize = false)
@@ -85,6 +87,11 @@ public class ConsumeLogsRequest {
      */
     public void setCompression(String compression) {
         this.compression = compression;
+    }
+
+    /** Set the consumer processor ID; null and empty values omit it. */
+    public void setProcessorId(String processorId) {
+        this.processorId = processorId == null || processorId.isEmpty() ? null : processorId;
     }
 
     /**

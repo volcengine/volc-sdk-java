@@ -393,7 +393,8 @@ public class LogConsumer {
         req.setCompression(this.consumerConfig.getCompressType());
         req.setConsumerGroupName(this.consumerConfig.getConsumerGroupName());
         req.setConsumerName(this.consumerConfig.getConsumerName());
-        req.setOrigin(this.consumerConfig.isOrigin());
+        req.setProcessorId(this.consumerConfig.getProcessorId());
+        req.setOrigin(req.getProcessorId() == null && this.consumerConfig.isOrigin());
         long startNanos = fetchDetailToken != 0L ? System.nanoTime() : 0L;
         ConsumeLogsResponse resp;
         try {
